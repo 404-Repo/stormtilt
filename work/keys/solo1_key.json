@@ -1,0 +1,9 @@
+{
+ "s01": {
+  "game": "stormtilt",
+  "persona": "casual",
+  "label": "Game I",
+  "port": 8860,
+  "started": "ready on port 8860"
+ }
+}

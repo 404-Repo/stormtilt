@@ -284,7 +284,7 @@ void main() {
   float wake = 0.0;
   if (wuv.x > 0.0 && wuv.x < 1.0 && wuv.y > 0.0 && wuv.y < 1.0) wake = texture2D(uWake, wuv).r;
   // crisp foam: crests, the most bunched-up swell tops and the wake canvas, with a soft shadow band at its edge
-  float topFoam = smoothstep(0.55, 0.28, vJ) * 1.0;
+  float topFoam = smoothstep(0.45, 0.18, vJ) * 1.0;
   float foam = vCrest * 1.3 + topFoam + wake * 1.35;
   float fn = fbm(uv * 0.55 + vec2(uTime * 0.08, uTime * 0.05));
   float fm = foam * (0.45 + 0.75 * fn);

@@ -154,7 +154,7 @@ function placeholderCaptain(id) {
 
 const yachtCache = {};
 async function buildYacht(capId, boatId, lanceId, tint, d) {
-  const [hull, captain, lanceModel, shield] = await Promise.all([makeHull(boatId, tint, d > 0), makeCaptain(capId), makeLance(lanceId), makeShield()]);
+  const [hull, captain, lanceModel, shield] = await Promise.all([makeHull(boatId, tint, true), makeCaptain(capId), makeLance(lanceId), makeShield()]);
   const li = LANCE_INFO[lanceId];
   const buddy = capId === 'gilly' ? await makeCaptain('gilly') : null;
   return new Yacht(game, { buddy, boat: boatId, lance: lanceId, dims: dimsFor(boatId), dir: d, hull, captain, lanceModel, shield, lanceLen: li.len, gripZ: li.grip, capScale: capId === 'nimbus' ? 1.4 : 1 });
@@ -473,9 +473,15 @@ function frame() {
   wake.step(dt);
   const ctx = ctxFor();
   dir.update(realDt * (ts === 0 ? 0 : 1), ctx);
-  if (m && m.A.hull.userData.sails) {
-    const want = ctx.mode === 'chase' && !current?.twoP ? 0.38 : 1;
-    for (const mt of m.A.hull.userData.sails) mt.opacity += (want - mt.opacity) * Math.min(1, realDt * 4);
+  if (m) {
+    // sails fade when the camera is inside or right beside them: ours in the chase, anyone's in close shots
+    const cp = world.camera.position;
+    for (const y of [m.A, m.B]) {
+      const sails = y.hull.userData.sails; if (!sails) continue;
+      const near = Math.hypot(cp.x - y.x, cp.z - y.z) < y.dims.length * 0.75 && cp.y < y.y + y.dims.mastTopY;
+      const want = (y === m.A && ctx.mode === 'chase' && !current?.twoP) || near ? 0.35 : 1;
+      for (const mt of sails) mt.opacity += (want - mt.opacity) * Math.min(1, realDt * 5);
+    }
   }
   fx.rain.step(dt, world.camera);
   fx.spray.mat.uniforms.uScale.value = innerHeight * world.renderer.getPixelRatio() * 0.5 / Math.tan(THREE.MathUtils.degToRad(world.camera.fov / 2));

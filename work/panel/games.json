@@ -44,5 +44,12 @@
   "h": 844,
   "src": "~/astrocade-game6-snap (git worktree at ee4783e, frozen)",
   "min": 540
+ },
+ "stormtilt": {
+  "url": "http://localhost:8799/",
+  "w": 390,
+  "h": 844,
+  "src": "~/astrocade-game7/game (live tree, solo checks only)",
+  "min": 300
  }
 }
