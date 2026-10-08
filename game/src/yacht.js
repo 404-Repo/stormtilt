@@ -130,7 +130,7 @@ export class Yacht {
     // ---- wake and spray
     if (!this.overboard || true) {
       const sx = this.x - fx_ * this.dims.length * 0.5, sz = this.z - fz_ * this.dims.length * 0.5;
-      if (!this.air) wake.blob(sx, sz, B.beam * 0.3, 0.11);
+      if (!this.air) wake.blob(sx, sz, B.beam * 0.26, 0.08);
       const bx = this.x + fx_ * this.dims.length * 0.45, bz = this.z + fz_ * this.dims.length * 0.45;
       if (!this.air && fx) {
         const s = this.speed / 14;

@@ -47,7 +47,7 @@ button { font-family: var(--display); color: var(--ink); border: 0; cursor: poin
 #sub.show { opacity: 1; }
 #taunt { position: absolute; right: 14px; top: calc(env(safe-area-inset-top) + 66px); max-width: 64%; background: #fff; color: var(--ink); font-weight: 800; font-size: 14px; padding: 8px 12px; border-radius: 14px 4px 14px 14px; opacity: 0; transform: translateY(-6px); transition: opacity .2s, transform .2s; box-shadow: 0 4px 0 rgba(0,0,0,.25); margin-right: 44px; }
 #taunt.show { opacity: 1; transform: none; transition: opacity .08s, transform .08s; }
-#hint { position: absolute; left: 16px; right: 16px; top: calc(env(safe-area-inset-top) + 118px); text-align: center; font-size: 14px; font-weight: 700; background: rgba(20,26,51,.9); border-radius: 12px; padding: 8px 10px; opacity: 0; transition: opacity .3s; }
+#hint { position: absolute; left: 16px; right: 16px; top: calc(env(safe-area-inset-top) + 172px); text-align: center; font-size: 14px; font-weight: 700; background: rgba(20,26,51,.9); border-radius: 12px; padding: 8px 10px; opacity: 0; transition: opacity .3s; }
 #hint.show { opacity: 1; transition: opacity .08s; }
 
 /* pass gauge: where you will pass relative to the rival, ram / hit / miss */
@@ -59,8 +59,8 @@ button { font-family: var(--display); color: var(--ink); border: 0; cursor: poin
 #gauge i { position: absolute; top: -6px; width: 4px; height: 24px; margin-left: -2px; border-radius: 2px; }
 #g-me { background: #fff; box-shadow: 0 0 6px #fff; }
 #g-them { background: #8fd0ff; opacity: .8; }
-#gauge::before { content: "RAM"; position: absolute; left: 0; top: -17px; font: 800 10px var(--font); opacity: .8; }
-#gauge::after { content: "OUT OF REACH"; position: absolute; right: 0; top: -17px; font: 800 10px var(--font); opacity: .8; }
+#gauge::before { content: "RAM"; position: absolute; left: 0; top: -24px; font: 800 10px var(--font); opacity: .8; }
+#gauge::after { content: "OUT OF REACH"; position: absolute; right: 0; top: -24px; font: 800 10px var(--font); opacity: .8; }
 
 #ring { position: absolute; left: 0; top: 0; display: none; }
 #ring i { position: absolute; left: 0; top: 0; width: 64px; height: 64px; border-radius: 50%; border: 3px solid rgba(255,255,255,.75); transform: translate(-50%,-50%); }
@@ -161,3 +161,7 @@ button { font-family: var(--display); color: var(--ink); border: 0; cursor: poin
 #ramp span { position: absolute; left: 0; top: -36px; transform: translateX(-50%); white-space: nowrap; font: 900 11px var(--font); letter-spacing: .08em; color: #fff; background: rgba(194,122,18,.9); padding: 2px 6px; border-radius: 6px; }
 #ramp.meh i { border-bottom-color: rgba(255,255,255,.55); } #ramp.meh span { background: rgba(20,26,51,.7); }
 @keyframes bob { to { transform: translateY(-5px); } }
+
+#gauge.danger { animation: dangerp .25s ease-in-out infinite alternate; }
+#gauge.danger::before { content: "RAM! STEER AWAY"; color: #ff8a80; font-size: 11px; }
+@keyframes dangerp { to { box-shadow: 0 0 0 3px rgba(255,90,80,.8); } }

@@ -7,7 +7,7 @@ export const SEAS = {
     sun: { dir: [-0.55, 0.32, 0.75], col: 0xffd09a, int: 3.2 }, hemi: [0x9ec9ff, 0x3c6b6b, 1.15],
     water: { deep: 0x07463f, shallow: 0x22a88a, foam: 0xf6efdc },
     swell: [{ angle: 20, L: 46, A: 1.01, Q: 0.55 }, { angle: 55, L: 27, A: 0.57, Q: 0.6 }, { angle: -15, L: 16, A: 0.30, Q: 0.6 }, { angle: 80, L: 9, A: 0.12, Q: 0.5 }],
-    weather: { rollers: [1, 2], cells: 0, gusts: 0, spouts: 0, rogue: 0, rain: 0.0 },
+    weather: { rollers: [1, 2], cells: [0, 1], gusts: 0, spouts: 0, rogue: 0, rain: 0.15 },
     exposure: 1.0, glow: 0, dressing: 'regatta',
   },
   thunder: {
@@ -144,10 +144,10 @@ export const LADDER = ['pip', 'barnacle', 'volta', 'brisa', 'kite', 'gilly', 'ma
 
 export const TUNING = {
   laneHalf: 26,          // lateral half-width of the tilt lane (buoys)
-  startZ: 92,            // each yacht starts this far from the centre
+  startZ: 80,            // each yacht starts this far from the centre
   hitGap: 0.35,          // hulls closer than half-beams + this = a ram
-  late: 0.45,            // couched within this long before the pass = LATE COUCH
-  early: 1.05,           // couched longer than this = the rival braces
+  late: 0.55,            // couched within this long before the pass = LATE COUCH
+  early: 1.4,            // couched longer than this = the rival braces
   highGround: 1.2,       // captain height difference for HIGH GROUND
   gravity: 13.0,
 };

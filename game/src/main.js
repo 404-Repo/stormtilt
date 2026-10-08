@@ -194,11 +194,30 @@ game.onStrike = (cell, boats) => {
     wake.ring(cell.x, cell.z, 4, 0.9, 3);
   }
 };
+// the hit: a white star flash, a ring of spray, a hit-stop and a kick of the lens
+const STAR = (() => { const cv = document.createElement('canvas'); cv.width = cv.height = 128; const c = cv.getContext('2d');
+  const g = c.createRadialGradient(64, 64, 0, 64, 64, 64); g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(0.25, 'rgba(255,240,200,0.9)'); g.addColorStop(1, 'rgba(255,200,120,0)');
+  c.fillStyle = g; c.beginPath(); for (let i = 0; i < 16; i++) { const a = i / 16 * 6.283, r = i % 2 ? 22 : 64; c.lineTo(64 + Math.cos(a) * r, 64 + Math.sin(a) * r); } c.closePath(); c.fill();
+  const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; return t; })();
+const flashes = [];
+game.impact = (p, dmg, charged) => {
+  const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: STAR, color: charged ? 0x9fe8ff : 0xffffff, transparent: true, depthWrite: false, depthTest: false, blending: THREE.AdditiveBlending, toneMapped: false }));
+  s.position.copy(p); s.userData = { t: 0, k: 1.6 + dmg * 1.1 }; world.scene.add(s); flashes.push(s);
+  for (let i = 0; i < 40; i++) { const a = Math.random() * 6.283; fx.spray.emit(p.x, p.y, p.z, Math.cos(a) * 7, (Math.random() - 0.3) * 6, Math.sin(a) * 7, { life: 0.6, size: 0.6, grow: 2.5, alpha: 0.6, drag: 2.5, grav: 4 }); }
+  game.hitStop = 0.09 + dmg * 0.03;
+};
+function stepFlashes(dt) {
+  for (let i = flashes.length - 1; i >= 0; i--) {
+    const s = flashes[i]; s.userData.t += dt; const k = s.userData.t / 0.35;
+    s.scale.setScalar(s.userData.k * (0.6 + k * 1.6)); s.material.opacity = Math.max(0, 1 - k); s.material.rotation = k * 0.8;
+    if (k >= 1) { world.scene.remove(s); s.material.dispose(); flashes.splice(i, 1); }
+  }
+}
 game.onTakeoff = (y) => { LOG(`takeoff ${y === game.match?.A ? 'A' : 'B'} vy ${y.vy.toFixed(1)}`); if (y === game.match?.A) { audio.play('jump', { vol: 0.9 }); if (y.vy > 5) ui.hint('AIRBORNE! strike from above', 1.0); } };
 game.onLand = (y, impact) => {
   const p = new THREE.Vector3(y.x, sea.height(y.x, y.z), y.z);
-  for (let i = 0; i < 40; i++) { const a = Math.random() * 6.283; fx.spray.emit(p.x + Math.cos(a) * 3, p.y + 0.3, p.z + Math.sin(a) * 4, Math.cos(a) * 7, 4 + Math.random() * 6, Math.sin(a) * 7, { life: 1.3, size: 2.4, grow: 2.4, alpha: 0.8, drag: 1, grav: 9 }); }
-  wake.ring(p.x, p.z, 5, 1, 4); wake.blob(p.x, p.z, 6, 0.8);
+  for (let i = 0; i < 30; i++) { const a = Math.random() * 6.283; fx.spray.emit(p.x + Math.cos(a) * 3, p.y + 0.3, p.z + Math.sin(a) * 4, Math.cos(a) * 7, 4 + Math.random() * 6, Math.sin(a) * 7, { life: 1.1, size: 1.6, grow: 2.2, alpha: 0.6, drag: 1, grav: 9 }); }
+  wake.ring(p.x, p.z, 4, 0.5, 2); wake.blob(p.x, p.z, 3.5, 0.35);
   audio.play('land', { vol: Math.min(1, impact / 8) });
   if (y === game.match?.A) dir.shake = 0.6;
 };
@@ -379,7 +398,7 @@ function ctxFor() {
   const c = { me: m?.A, foe: m?.B, ttp: m ? m.ttp() : 9, mode: 'chase', seaH: (x, z) => sea.height(x, z), time: game.t, craneT: game.craneT };
   if (!m) { c.mode = 'title'; return c; }
   if (current?.twoP) { c.mode = 'broadcast'; return c; }
-  if (m.phase === 'intro') { c.mode = game.craneT < 1.7 ? 'crane' : 'chase'; }
+  if (m.phase === 'intro') { c.mode = game.craneT < 1.3 ? 'crane' : 'chase'; }
   else if (m.phase === 'pass') c.mode = 'pass';
   else if (m.phase === 'after' || m.phase === 'done' || m.phase === 'wiping') {
     const r = m.result || {};
@@ -455,6 +474,7 @@ function frame() {
     cb.classList.toggle('now', win);
     if (win) { ts = 0.28; if (!game.taught) { ui.hint('HOLD COUCH NOW!', 1.2); } }
   } else cb.classList.remove('now');
+  if (game.hitStop > 0) { game.hitStop -= realDt; ts = 0.02; }
   if (game.paused) ts = 0;
   const dt = realDt * ts;
   game.t += dt; sea.t = game.t; game.craneT = (game.craneT || 0) + dt;
@@ -469,7 +489,7 @@ function frame() {
   if (m) game.weather.update(dt, game.t, [m.A, m.B], fx);
   world.update(dt, game.t, sea);
   const seaH = (x, z) => sea.height(x, z);
-  fx.spray.step(dt, seaH); fx.sparks.step(dt); fx.wind.step(dt); fx.shards.step(dt, seaH); fx.bolts.step(realDt);
+  fx.spray.step(dt, seaH); fx.sparks.step(dt); fx.wind.step(dt); fx.shards.step(dt, seaH); fx.bolts.step(realDt); stepFlashes(realDt);
   wake.step(dt);
   const ctx = ctxFor();
   dir.update(realDt * (ts === 0 ? 0 : 1), ctx);
@@ -479,7 +499,7 @@ function frame() {
     for (const y of [m.A, m.B]) {
       const sails = y.hull.userData.sails; if (!sails) continue;
       const near = Math.hypot(cp.x - y.x, cp.z - y.z) < y.dims.length * 0.75 && cp.y < y.y + y.dims.mastTopY;
-      const want = (y === m.A && ctx.mode === 'chase' && !current?.twoP) || near ? 0.35 : 1;
+      const want = (y === m.A && ctx.mode === 'chase' && !current?.twoP) ? 0.07 : near ? 0.3 : 1;
       for (const mt of sails) mt.opacity += (want - mt.opacity) * Math.min(1, realDt * 5);
     }
   }
@@ -499,6 +519,7 @@ function frame() {
     const lat = (B.x + B.vx * Math.min(ttp, 2)) - (A.x + A.vx * Math.min(ttp, 2));
     const ramEdge = (A.boat.beam + B.boat.beam) / 2 + TUNING.hitGap;
     ui.gauge(lat, ramEdge, A.lance.reach + B.boat.beam * 0.12, B.lance.reach + A.boat.beam * 0.12, ttp < 5.5 && ttp > 0);
+    $('gauge').classList.toggle('danger', ttp < 2.8 && ttp > 0 && lat < ramEdge + 0.2);
     rampMarker(m, ttp);
   } else { ui.timing(0, 0, null, ''); ui.gauge(0, 0, 0, 0, false); $('ramp').style.display = 'none'; }
   ui.update(realDt);

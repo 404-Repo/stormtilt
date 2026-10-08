@@ -46,7 +46,9 @@ export class Director {
       const back = 5.0 + 6 * e, height = 2.5 + 4.0 * e, side = 1.7 + 2.7 * e;
       this.wantPos.set(me.x, capY, me.z).addScaledVector(f, -back + me.dims.captainZ).addScaledVector(left, side);
       this.wantPos.y = Math.max(capY + height, ctx.seaH(this.wantPos.x, this.wantPos.z) + 2.2);
-      const aim = new THREE.Vector3(me.x, capY + 2.2, me.z).addScaledVector(f, 18);
+      const aim = new THREE.Vector3(me.x, capY + 1.4, me.z).addScaledVector(f, 18);
+      // telephoto while the rival is far: it stays a readable shape instead of a speck
+      if (foe) { const gap = Math.abs(foe.z - me.z); this.fovKick += ((-9 * THREE.MathUtils.clamp((gap - 35) / 70, 0, 1)) - this.fovKick) * Math.min(1, 0.2); }
       if (foe) {
         const fp = new THREE.Vector3(foe.x, foe.y + foe.deckY() + 1.5, foe.z);
         aim.lerp(fp, 0.22 + 0.45 * e);
@@ -81,7 +83,7 @@ export class Director {
     } else if (mode === 'crane') {
       const t = ctx.craneT || 0;
       // from high behind the chaser's start, sweeping down toward the chase position
-      const e = Math.min(1, t / 1.6), s = e * e * (3 - 2 * e);
+      const e = Math.min(1, t / 1.25), s = e * e * (3 - 2 * e);
       const z0 = me ? me.z : -90, x0 = me ? me.x : 0;
       const hi = new THREE.Vector3(x0 + 26, 42, z0 - 40), lo = new THREE.Vector3(x0 - 2.2, (me ? me.y + me.deckY() : 1) + 4.2, z0 - 9.5 + (me ? me.dims.captainZ : 0));
       this.wantPos.lerpVectors(hi, lo, s);
@@ -116,7 +118,7 @@ export class Director {
     if (mode === 'broadcast') this.cam.up.set(-1, 0, 0).applyAxisAngle(new THREE.Vector3(0, 0, 1), 0); else this.cam.up.set(0, 1, 0);
     if (mode === 'broadcast') this.cam.up.set(0, 0, 1);
     this.cam.lookAt(this.tgt);
-    this.fovKick *= Math.exp(-dt * 4);
+    if (mode !== 'chase') this.fovKick *= Math.exp(-dt * 4);
     const fov = this.baseFov + this.fovKick;
     if (Math.abs(this.cam.fov - fov) > 0.01) { this.cam.fov = fov; this.cam.updateProjectionMatrix(); }
   }

@@ -39,6 +39,9 @@ export class Match {
       if (this.bossPhase >= 3) opts.extraRollers = 1;
     }
     opts.flip = this.tilt % 2 === 0;
+    // the storm is in every sea: from the second tilt there is always something to race for
+    if (this.tilt >= 2 && !(this.sea.weather.cells && this.sea.weather.cells[1]) && Math.random() < 0.5) opts.extraCells = 1;
+    if (this.tilt === 2 && !this.cfg.attract) { opts.extraCells = Math.max(opts.extraCells || 0, 1); opts.cellAt = this.A; }
     if (g.debugWx === 'cell') { opts.extraCells = 1; opts.cellAt = this.A; }
     if (g.debugWx === 'roller') { opts.extraRollers = 1; opts.flip = false; }
     g.weather.spawnTilt(this.sea, t, tp, this.A, this.B, opts);
@@ -78,7 +81,7 @@ export class Match {
     }
     if (this.phase === 'intro') {
       // yachts already sailing; inputs live so a thumb is never ignored
-      if (this.pt > 1.7) this.phase = 'charge';
+      if (this.pt > 1.3) this.phase = 'charge';
     }
     A.update(dt, t, inA, g.sea, g.fx, g.wake); B.update(dt, t, inB, g.sea, g.fx, g.wake);
     if (this.phase === 'charge') {
@@ -87,7 +90,7 @@ export class Match {
       if (this.pt > 0.75) { this.phase = 'after'; this.pt = 0; }
     } else if (this.phase === 'after') {
       const ko = this.result && (this.result.koA || this.result.koB);
-      if (this.pt > (ko ? 3.4 : 1.7)) {
+      if (this.pt > (ko ? 3.4 : 1.35)) {
         if (this.footA <= 0 || this.footB <= 0) return this.finish();
         this.game.wipe(() => this.nextTilt());
         this.phase = 'wiping'; this.pt = 0;
@@ -113,7 +116,7 @@ export class Match {
       if (Math.abs(ma - mb) < 0.15) { lines.push('RAM! hulls bounce'); A.vx -= push * Math.sign(lateral || 1) * 0.6; B.vx += push * Math.sign(lateral || 1) * 0.6; A.stun = B.stun = 0.6; }
       else if (ma > mb) { this.footB -= 1; res.dmgB = 1; lines.push(`RAM! ${this.nB} shoved`); B.vx += push * Math.sign(lateral || 1); B.stun = 1.0; B.hitAnim = 0.6; }
       else { this.footA -= 1; res.dmgA = 1; this.stats.taken++; lines.push(this.two ? 'RAM! P1 shoved' : 'RAM! You are shoved'); A.vx -= push * Math.sign(lateral || 1); A.stun = 1.0; A.hitAnim = 0.6; }
-      g.ui.banner('RAM!', lines[0], 1.4, 'ram');
+      g.ui.banner('RAM!', lines[0] + (res.dmgA ? ': keep the white mark in the gold band to stay clear' : ''), 1.8, 'ram');
     } else {
       const dmgOnB = ra.hit ? ra.dmg : 0, dmgOnA = rb.hit ? rb.dmg : 0;
       this.footB -= dmgOnB; this.footA -= dmgOnA;
@@ -125,7 +128,8 @@ export class Match {
         if (r.hit) {
           const p = def.worldOfCaptain(new THREE.Vector3());
           const away = new THREE.Vector3(def.x - att.x, 0, 0).normalize();
-          g.fx.shards.burst(p, away, 22, r.colors || [0xd7372f, 0xf3eee3, 0xa8652f], 10);
+          g.fx.shards.burst(p, away, 34 + r.dmg * 10, r.colors || [0xd7372f, 0xf3eee3, 0xa8652f, 0xf2b630], 11 + r.dmg * 2);
+          g.impact?.(p, r.dmg, r.charged);
           for (let i = 0; i < 26; i++) g.fx.spray.emit(p.x, p.y, p.z, (Math.random() - 0.5) * 8 + away.x * 6, Math.random() * 7, (Math.random() - 0.5) * 8, { life: 0.8, size: 1.4, grow: 2, alpha: 0.7, drag: 1.5, grav: 6 });
           att.breakLance(); def.hitAnim = 0.8; if (r.dmg >= 2) def.popHat(1); g.audio.play(r.dmg >= 2 ? 'gasp' : 'cheer', { delay: 0.25, vol: 0.6 });
           if (r.charged) { g.strikeFx(p.clone().setY(p.y + 40), p); att.charged = false; }
@@ -142,8 +146,8 @@ export class Match {
       const tags = (r) => [r.charged && 'CHARGED', r.high && 'HIGH GROUND', r.late && 'LATE COUCH', r.gust && 'FULL SAIL'].filter(Boolean);
       const extra = (r) => tags(r).slice(1).map((x) => '+ ' + x.toLowerCase()).join(' ');
       const nA = this.two ? 'P1' : 'you';
-      if (ra.hit && !rb.hit) g.ui.banner(tags(ra)[0] ? `${tags(ra)[0]}!` : 'HIT!', `${extra(ra)} ${extra(ra) ? '. ' : ''}${this.nB} loses ${dmgOnB}`, 1.6, 'good');
-      else if (ra.hit && rb.hit) g.ui.banner('BOTH HIT!', this.two ? `P1 dealt ${dmgOnB}, P2 dealt ${dmgOnA}` : `you dealt ${dmgOnB}, took ${dmgOnA}${tags(rb).length ? ' (' + tags(rb).join(', ').toLowerCase() + ')' : ''}`, 1.6, dmgOnB >= dmgOnA ? 'good' : 'bad');
+      if (ra.hit && !rb.hit) g.ui.banner(tags(ra)[0] ? `${tags(ra)[0]}!` : 'HIT!', `${extra(ra)} ${extra(ra) ? '. ' : ''}${this.nB} loses ${dmgOnB}${ra.early ? ' (they braced: you held too early)' : ''}`, 1.6, 'good');
+      else if (ra.hit && rb.hit) g.ui.banner('BOTH HIT!', this.two ? `P1 dealt ${dmgOnB}, P2 dealt ${dmgOnA}` : `you dealt ${dmgOnB}, took ${dmgOnA}${tags(rb).length ? '. they had ' + tags(rb).join(' and ').toLowerCase() : ''}`, 1.6, dmgOnB >= dmgOnA ? 'good' : 'bad');
       else if (!ra.hit && rb.hit) g.ui.banner(tags(rb)[0] ? `${tags(rb)[0]}!` : 'STRUCK!', `${nA} lose${this.two ? 's' : ''} ${dmgOnA} footing. ${ra.why || ''}`, 1.6, this.two ? 'good' : 'bad');
       else g.ui.banner(ra.braced ? 'GLANCED OFF' : 'MISS', ra.why || rb.why || '', 1.3, 'meh');
       if (rb.braced && ra.hit === false && rb.hit === false) { /* both braced */ }
@@ -189,7 +193,7 @@ export class Match {
     r.charged = att.charged;
     r.gust = att.gust > 0.6;
     let dmg = 1 + (r.late ? 1 : 0) + (r.high ? 1 : 0) + (r.gust ? 1 : 0) + att.lance.dmg;
-    if (early && !r.charged) { dmg -= 1; def.braced = 1.2; if (dmg <= 0) { r.braced = true; r.why = 'couched too early: they braced'; return r; } }
+    if (early && !r.charged) { dmg -= 1; def.braced = 1.2; r.early = true; if (dmg <= 0) { r.braced = true; r.why = 'too early: hold when the ring turns gold'; return r; } }
     dmg = Math.min(dmg, 2);                       // a great hit is 2; only lightning does more
     if (r.charged) dmg = 3;
     // the bathtub is a small target: needs a solid hit

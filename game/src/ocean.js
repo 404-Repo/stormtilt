@@ -255,6 +255,8 @@ void main() {
   vec3 banded = mix(mix(mix(uDeep * 1.05, cMid, b1), mix(cMid, uShallow, 0.6), b2), uShallow * 1.1, b3);
   vec3 smoothC = mix(uDeep, uShallow * 1.05, clamp(lum * 1.15, 0.0, 1.0));
   vec3 body = mix(banded, smoothC, 0.35);
+  // keep a little of the ripple light so wide views are not flat paint
+  body *= 0.9 + 0.22 * max(dot(N, uSunDir), 0.0) * fade + 0.06 * (1.0 - fade) * diff;
   float fres = pow(1.0 - max(dot(Nb, V), 0.0), 4.0);
   body = mix(body, mix(uSkyHor, uSkyTop, 0.35), smoothstep(0.45, 0.75, fres) * 0.3);
   float fres2 = fres;
