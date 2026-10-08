@@ -51,7 +51,7 @@ button { font-family: var(--display); color: var(--ink); border: 0; cursor: poin
 #hint.show { opacity: 1; transition: opacity .08s; }
 
 /* pass gauge: where you will pass relative to the rival, ram / hit / miss */
-#gauge { position: absolute; left: 50%; transform: translateX(-50%); bottom: calc(env(safe-area-inset-bottom) + 128px); width: min(64vw, 280px); height: 12px; border-radius: 6px; background: rgba(20,26,51,.7); transition: opacity .25s; opacity: 0; }
+#gauge { position: absolute; left: 50%; transform: translateX(-50%); bottom: calc(env(safe-area-inset-bottom) + 128px); width: min(64vw, 280px); height: 12px; border-radius: 6px; background: rgba(20,26,51,.85); box-shadow: 0 0 0 8px rgba(20,26,51,.55), 0 -14px 0 8px rgba(20,26,51,.55); transition: opacity .25s; opacity: 0; }
 #gauge .zone { position: absolute; top: 0; bottom: 0; border-radius: 6px; }
 #gauge .ram { left: 0; background: rgba(42,91,215,.75); }
 #gauge .hit { background: linear-gradient(90deg, #ffd27a, #ffb347); }
@@ -178,6 +178,6 @@ button { font-family: var(--display); color: var(--ink); border: 0; cursor: poin
 #celltag.warn::before { background: #ff6a5e; color: #fff; box-shadow: 0 0 14px rgba(255,90,80,.9); animation: throb .2s ease-in-out infinite alternate; }
 #pause .mid, #pause .big { flex: none; min-width: 220px; }
 
-.tiltno i { display: block; font-style: normal; color: #fff; font-size: 13px; text-align: center; }
+.tiltno i { display: block; font-style: normal; color: #fff; font-size: 11px; text-align: center; margin-top: 2px; letter-spacing: .04em; border-top: 1px solid rgba(255,255,255,.25); padding-top: 2px; }
 .tiltno.pop { animation: pop .3s cubic-bezier(.2,1.6,.4,1); }
 .mid.small { padding: 8px 10px; font-size: 12px; flex: none; min-width: 120px; background: rgba(243,238,227,.85); }

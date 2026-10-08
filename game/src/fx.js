@@ -8,7 +8,7 @@ uniform float uScale;
 void main() {
   vC = aColor;
   vec4 mv = modelViewMatrix * vec4(position, 1.0);
-  vA = min(aAlpha, 0.5) * smoothstep(4.0, 12.0, -mv.z);   // never whitewash the lens
+  vA = min(aAlpha, 0.9) * smoothstep(4.0, 12.0, -mv.z);   // never whitewash the lens
   gl_PointSize = aSize * uScale / max(-mv.z, 0.5);
   gl_Position = projectionMatrix * mv;
 }`;

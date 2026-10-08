@@ -138,10 +138,10 @@ export class Yacht {
         for (let i = 0; i < n; i++) {
           const side = Math.random() < 0.5 ? -1 : 1;
           const px = bx + fz_ * side * B.beam * 0.4, pz = bz - fx_ * side * B.beam * 0.4;
-          fx.spray.emit(px, h + 0.4, pz, fz_ * side * (2 + Math.random() * 3) + fx_ * this.speed * 0.4, 2 + Math.random() * 3 * s + Math.max(0, vs) * 0.8, -fx_ * side * (2 + Math.random() * 3) + fz_ * this.speed * 0.4, { life: 0.7 + Math.random() * 0.4, size: 0.5 + Math.random() * 0.5, grow: 2.2, alpha: 0.45, drag: 1.2, grav: 9 });
+          fx.spray.emit(px, h + 0.4, pz, fz_ * side * (2 + Math.random() * 3) + fx_ * this.speed * 0.4, 2 + Math.random() * 3 * s + Math.max(0, vs) * 0.8, -fx_ * side * (2 + Math.random() * 3) + fz_ * this.speed * 0.4, { life: 0.6 + Math.random() * 0.3, size: 0.25 + Math.random() * 0.3, grow: 1.6, alpha: 0.85, drag: 1.2, grav: 11 });
         }
         if (vs > 1.6 && Math.random() < 0.6) {
-          for (let i = 0; i < 6; i++) fx.spray.emit(bx + (Math.random() - 0.5) * 3, h + 0.8, bz, (Math.random() - 0.5) * 6 + fx_ * this.speed * 0.6, 5 + Math.random() * 5, (Math.random() - 0.5) * 6 + fz_ * this.speed * 0.6, { life: 1.1, size: 1.2, grow: 2.0, alpha: 0.6, drag: 0.9, grav: 10 });
+          for (let i = 0; i < 6; i++) fx.spray.emit(bx + (Math.random() - 0.5) * 3, h + 0.8, bz, (Math.random() - 0.5) * 6 + fx_ * this.speed * 0.6, 5 + Math.random() * 5, (Math.random() - 0.5) * 6 + fz_ * this.speed * 0.6, { life: 0.9, size: 0.5, grow: 1.6, alpha: 0.85, drag: 0.9, grav: 12 });
         }
       }
     }

@@ -20,10 +20,10 @@ export class UI {
     const draw = (el, n, m) => { el.innerHTML = ''; el.classList.toggle('many', m > 5); for (let i = 0; i < m; i++) { const d = document.createElement('i'); if (i >= n) d.className = 'lost'; el.appendChild(d); } };
     draw($('pips-a'), a, ma); draw($('pips-b'), b, mb);
   }
-  tiltNo(n) { const sc = Number(this.el.tiltno.dataset.score || 0); this.el.tiltno.innerHTML = `TILT ${n}${sc ? `<i>${sc.toLocaleString('en-US')}</i>` : ''}`; }
+  tiltNo(n) { const t = this.el.tiltno; t.dataset.tilt = n; const sc = Number(t.dataset.score || 0); t.innerHTML = `TILT ${n}${sc ? `<i>${sc.toLocaleString('en-US')} PTS</i>` : ''}`; }
   scorePop(pts, combo) {
     const t = this.el.tiltno; t.dataset.score = (Number(t.dataset.score || 0) + pts);
-    t.innerHTML = `${t.textContent.split(' ').slice(0, 2).join(' ')}<i>${Number(t.dataset.score).toLocaleString('en-US')}${combo > 1 ? ' x' + combo : ''}</i>`;
+    t.innerHTML = `TILT ${t.dataset.tilt || ''}<i>${Number(t.dataset.score).toLocaleString('en-US')} PTS${combo > 1 ? ' x' + combo : ''}</i>`;
     t.classList.remove('pop'); void t.offsetWidth; t.classList.add('pop');
   }
   resetScore() { this.el.tiltno.dataset.score = 0; }

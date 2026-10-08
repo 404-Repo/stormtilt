@@ -132,7 +132,7 @@ export class Match {
           const away = new THREE.Vector3(def.x - att.x, 0, 0).normalize();
           g.fx.shards.burst(p, away, 34 + r.dmg * 10, r.colors || [0xd7372f, 0xf3eee3, 0xa8652f, 0xf2b630], 11 + r.dmg * 2);
           g.impact?.(p, r.dmg, r.charged);
-          for (let i = 0; i < 26; i++) g.fx.spray.emit(p.x, p.y, p.z, (Math.random() - 0.5) * 8 + away.x * 6, Math.random() * 7, (Math.random() - 0.5) * 8, { life: 0.8, size: 1.4, grow: 2, alpha: 0.7, drag: 1.5, grav: 6 });
+          for (let i = 0; i < 26; i++) g.fx.spray.emit(p.x, p.y, p.z, (Math.random() - 0.5) * 8 + away.x * 6, Math.random() * 7, (Math.random() - 0.5) * 8, { life: 0.7, size: 0.35, grow: 1.4, alpha: 0.9, drag: 1.5, grav: 9 });
           att.breakLance(); def.hitAnim = 0.8; if (r.dmg >= 2) def.popHat(1); g.audio.play(r.dmg >= 2 ? 'gasp' : 'cheer', { delay: 0.25, vol: 0.6 });
           if (r.charged) { g.strikeFx(p.clone().setY(p.y + 40), p); att.charged = false; }
           g.audio.play('crack', { vol: 1.2 }); g.audio.play('thud', { delay: 0.03 });

@@ -69,10 +69,11 @@ export class Director {
       // slow motion side angle on the clash, from the chaser's starboard quarter, low
       const f = me.forward(new THREE.Vector3()); const left = new THREE.Vector3(f.z, 0, -f.x);
       const a = me.worldOfCaptain(new THREE.Vector3()), b = foe.worldOfCaptain(new THREE.Vector3());
-      // from above and between the hulls, slightly ahead of the chaser: both captains, the lances crossing
-      const dir = new THREE.Vector3().addScaledVector(f, 0.3).addScaledVector(left, 0.4).setY(0.95).normalize();
+      // the clash from ahead of our bow, low: both captains and the lances meeting, the sails behind them
+      const dir = new THREE.Vector3().addScaledVector(f, 0.86).addScaledVector(left, 0.22).setY(0.48).normalize();
+      const mid = a.clone().lerp(b, 0.5);
       const big = Math.max(me.dims.length, foe.dims.length);
-      this.frame([a, b, a.clone().setY(a.y + 2.5), b.clone().setY(b.y + 2.5)], dir, 0.95, Math.max(this.cam.aspect > 1 ? 15 : 10, big * 0.85));
+      this.frame([a, b, a.clone().setY(a.y + 2.2), b.clone().setY(b.y + 2.2), mid.clone().setY(mid.y - 1.5)], dir, 1.25, Math.max(9, big > 14 ? big * 1.1 : big * 0.75));
       this.k = 7;
     } else if (mode === 'follow' && ctx.subject) {
       const s = ctx.subject;

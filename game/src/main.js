@@ -212,7 +212,7 @@ const flashes = [];
 game.impact = (p, dmg, charged) => {
   const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: STAR, color: charged ? 0x9fe8ff : 0xffffff, transparent: true, depthWrite: false, depthTest: false, blending: THREE.AdditiveBlending, toneMapped: false }));
   s.position.copy(p); s.userData = { t: 0, k: 1.6 + dmg * 1.1 }; world.scene.add(s); flashes.push(s);
-  for (let i = 0; i < 40; i++) { const a = Math.random() * 6.283; fx.spray.emit(p.x, p.y, p.z, Math.cos(a) * 7, (Math.random() - 0.3) * 6, Math.sin(a) * 7, { life: 0.6, size: 0.6, grow: 2.5, alpha: 0.6, drag: 2.5, grav: 4 }); }
+  for (let i = 0; i < 40; i++) { const a = Math.random() * 6.283; fx.spray.emit(p.x, p.y, p.z, Math.cos(a) * 8, (Math.random() - 0.3) * 7, Math.sin(a) * 8, { life: 0.55, size: 0.28, grow: 1.4, alpha: 0.9, drag: 2.0, grav: 9 }); }
   game.hitStop = 0.09 + dmg * 0.03;
 };
 function stepFlashes(dt) {
@@ -225,13 +225,13 @@ function stepFlashes(dt) {
 game.onTakeoff = (y) => { LOG(`takeoff ${y === game.match?.A ? 'A' : 'B'} vy ${y.vy.toFixed(1)}`); if (y === game.match?.A) { audio.play('jump', { vol: 0.9 }); if (y.vy > 5) ui.hint('AIRBORNE! strike from above', 1.0); } };
 game.onLand = (y, impact) => {
   const p = new THREE.Vector3(y.x, sea.height(y.x, y.z), y.z);
-  for (let i = 0; i < 30; i++) { const a = Math.random() * 6.283; fx.spray.emit(p.x + Math.cos(a) * 3, p.y + 0.3, p.z + Math.sin(a) * 4, Math.cos(a) * 7, 4 + Math.random() * 6, Math.sin(a) * 7, { life: 1.1, size: 1.6, grow: 2.2, alpha: 0.6, drag: 1, grav: 9 }); }
+  for (let i = 0; i < 30; i++) { const a = Math.random() * 6.283; fx.spray.emit(p.x + Math.cos(a) * 3, p.y + 0.3, p.z + Math.sin(a) * 4, Math.cos(a) * 7, 4 + Math.random() * 6, Math.sin(a) * 7, { life: 1.0, size: 0.7, grow: 1.8, alpha: 0.85, drag: 1, grav: 11 }); }
   wake.ring(p.x, p.z, 4, 0.5, 2); wake.blob(p.x, p.z, 3.5, 0.35);
   audio.play('land', { vol: Math.min(1, impact / 8) });
   if (y === game.match?.A) dir.shake = 0.6;
 };
 game.onSplash = (p) => {
-  for (let i = 0; i < 70; i++) { const a = Math.random() * 6.283, s = Math.random(); fx.spray.emit(p.x + Math.cos(a) * s, p.y + 0.5, p.z + Math.sin(a) * s, Math.cos(a) * 5 * s, 6 + Math.random() * 9, Math.sin(a) * 5 * s, { life: 1.6, size: 2.6, grow: 2.2, alpha: 0.85, drag: 0.6, grav: 11 }); }
+  for (let i = 0; i < 70; i++) { const a = Math.random() * 6.283, s = Math.random(); fx.spray.emit(p.x + Math.cos(a) * s, p.y + 0.5, p.z + Math.sin(a) * s, Math.cos(a) * 5 * s, 6 + Math.random() * 9, Math.sin(a) * 5 * s, { life: 1.4, size: 0.9, grow: 1.8, alpha: 0.9, drag: 0.6, grav: 12 }); }
   wake.ring(p.x, p.z, 3, 1, 4); wake.blob(p.x, p.z, 5, 1);
   audio.play('splash', { vol: 1.2 });
 };
