@@ -51,6 +51,7 @@ export class Match {
     g.ui.pips(this.footA, this.maxA, this.footB, this.maxB);
     // the in-world tags explain the weather; the banner only names the tilt
     g.ui.banner(`TILT ${this.tilt}`, this.tilt === 1 && !this.cfg.quiet ? this.tiltTip() : '', 1.2);
+    if (this.tilt === 7) { g.ui.banner('ROUGH SEAS', 'every hit lands one harder now', 1.6, 'charge'); }
     if (this.bossLine) { g.ui.banner(this.bossLine[0], this.bossLine[1], 2.6, 'charge'); g.world.flash = 1; g.audio.play('thunder', { vol: 1.3 }); this.bossLine = null; }
     if (this.tilt > 1 && Math.random() < 0.4) g.ui.taunt(this.capB.taunts[Math.floor(Math.random() * this.capB.taunts.length)]);
     g.audio.play('horn', { delay: 1.2, vol: 0.8 });
@@ -194,6 +195,7 @@ export class Match {
     let dmg = 1 + (r.late ? 1 : 0) + (r.high ? 1 : 0) + (r.gust ? 1 : 0) + att.lance.dmg;
     if (early && !r.charged) { dmg -= 1; def.braced = 1.2; r.early = true; if (dmg <= 0) { r.braced = true; r.why = 'too early: hold when the ring turns gold'; return r; } }
     dmg = Math.min(dmg, 2);                       // a great hit is 2; only lightning does more
+    if (this.tilt >= 7) dmg += 1;                 // rough seas: long matches end
     if (r.charged) dmg = Math.min(3, dmg + 1);     // lightning adds one and can break the cap
     // the bathtub is a small target: needs a solid hit
     r.hit = true; r.dmg = Math.min(dmg, 99);
