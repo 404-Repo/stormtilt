@@ -32,7 +32,7 @@ export const SEAS = {
     name: 'Rogue Deep', blurb: 'moonlight, and the sea glows when it breaks',
     sky: { top: 0x0c1430, hor: 0x3c5c9a, haze: 0x2c3e6a }, skyTex: 'sky_rogue.jpg',
     sun: { dir: [-0.3, 0.45, 0.85], col: 0xa8c4ff, int: 1.9 }, hemi: [0x6a86d0, 0x10253a, 0.9],
-    water: { deep: 0x071f3a, shallow: 0x135e7a, foam: 0xcff6ff },
+    water: { deep: 0x071f3a, shallow: 0x135e7a, foam: 0x9fdcec },
     swell: [{ angle: 10, L: 60, A: 1.49, Q: 0.5 }, { angle: -40, L: 33, A: 0.74, Q: 0.6 }, { angle: 70, L: 14, A: 0.30, Q: 0.6 }, { angle: 0, L: 8, A: 0.11, Q: 0.5 }],
     weather: { rollers: [0, 1], cells: [0, 1], gusts: 0, spouts: 0, rogue: 1, rain: 0.2 },
     exposure: 1.15, glow: 1, dressing: 'rogue',

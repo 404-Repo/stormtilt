@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 2,
+  "tris": 4080,
+  "materials": 2,
+  "size": [
+   22.367,
+   38.073,
+   18.896
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1678,
+    "edgeDensity": 0.1351
+   },
+   "right": {
+    "coverage": 0.1321,
+    "edgeDensity": 0.1391
+   },
+   "back": {
+    "coverage": 0.1678,
+    "edgeDensity": 0.1116
+   },
+   "left": {
+    "coverage": 0.1362,
+    "edgeDensity": 0.1575
+   }
+  },
+  "error": null,
+  "name": "c1_lathe",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 2,
+  "tris": 2532,
+  "materials": 2,
+  "size": [
+   23.95,
+   40.378,
+   19.566
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1768,
+    "edgeDensity": 0.1465
+   },
+   "right": {
+    "coverage": 0.1515,
+    "edgeDensity": 0.2018
+   },
+   "back": {
+    "coverage": 0.1771,
+    "edgeDensity": 0.1739
+   },
+   "left": {
+    "coverage": 0.1566,
+    "edgeDensity": 0.1579
+   }
+  },
+  "error": null,
+  "name": "c2_slabs",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 2,
+  "tris": 2860,
+  "materials": 2,
+  "size": [
+   21.031,
+   40.588,
+   17.818
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1421,
+    "edgeDensity": 0.1647
+   },
+   "right": {
+    "coverage": 0.153,
+    "edgeDensity": 0.1614
+   },
+   "back": {
+    "coverage": 0.1407,
+    "edgeDensity": 0.1557
+   },
+   "left": {
+    "coverage": 0.1525,
+    "edgeDensity": 0.1378
+   }
+  },
+  "error": null,
+  "name": "c3_blobs",
+  "problems": []
+ }
+]

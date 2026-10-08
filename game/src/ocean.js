@@ -299,7 +299,7 @@ void main() {
   col = mix(col, foamCol, foamMask * 0.92);
 
   // bioluminescence on broken water at night
-  col += uGlowCol * uGlow * (foamMask * 0.9 + smoothstep(0.85, 1.0, h) * 0.25) * (0.6 + 0.4 * sin(uTime * 2.0 + uv.x * 0.3));
+  col = mix(col, col * 0.55 + uGlowCol * 0.55, uGlow * foamMask * 0.6) + uGlowCol * uGlow * smoothstep(0.88, 1.0, h) * 0.12 * (0.6 + 0.4 * sin(uTime * 2.0 + uv.x * 0.3));
 
   // lightning flash lifts the whole sea for a moment
   col += vec3(0.55, 0.7, 0.95) * uFlash * (0.25 + fres);

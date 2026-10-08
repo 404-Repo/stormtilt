@@ -1,0 +1,122 @@
+[
+ {
+  "ok": false,
+  "mounts": null,
+  "meshes": 179,
+  "tris": 4084,
+  "materials": 7,
+  "size": [
+   7.95,
+   13.998,
+   12.297
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0846,
+    "edgeDensity": 0.3211
+   },
+   "right": {
+    "coverage": 0.1222,
+    "edgeDensity": 0.3061
+   },
+   "back": {
+    "coverage": 0.1375,
+    "edgeDensity": 0.3132
+   },
+   "left": {
+    "coverage": 0.1327,
+    "edgeDensity": 0.2509
+   }
+  },
+  "error": null,
+  "name": "c1_planks",
+  "problems": [
+   "height 13.998m against an expected 9m, 56% out"
+  ]
+ },
+ {
+  "ok": false,
+  "mounts": null,
+  "meshes": 28,
+  "tris": 3580,
+  "materials": 7,
+  "size": [
+   7.629,
+   14.286,
+   12.111
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0831,
+    "edgeDensity": 0.2319
+   },
+   "right": {
+    "coverage": 0.122,
+    "edgeDensity": 0.2245
+   },
+   "back": {
+    "coverage": 0.1423,
+    "edgeDensity": 0.24
+   },
+   "left": {
+    "coverage": 0.1333,
+    "edgeDensity": 0.2085
+   }
+  },
+  "error": null,
+  "name": "c2_loft",
+  "problems": [
+   "height 14.286m against an expected 9m, 59% out"
+  ]
+ },
+ {
+  "ok": false,
+  "mounts": null,
+  "meshes": 52,
+  "tris": 5028,
+  "materials": 7,
+  "size": [
+   7.998,
+   14.029,
+   12.2
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0793,
+    "edgeDensity": 0.3895
+   },
+   "right": {
+    "coverage": 0.1137,
+    "edgeDensity": 0.434
+   },
+   "back": {
+    "coverage": 0.1321,
+    "edgeDensity": 0.4504
+   },
+   "left": {
+    "coverage": 0.1209,
+    "edgeDensity": 0.3999
+   }
+  },
+  "error": null,
+  "name": "c3_ribs",
+  "problems": [
+   "height 14.029m against an expected 9m, 56% out"
+  ]
+ }
+]

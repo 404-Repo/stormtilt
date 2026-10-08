@@ -1,7 +1,7 @@
 // sea_stack_a, c1_lathe. Built by the 404 method (reference image, three strategies, verify, pick by eye).
 export default function (THREE) {
   const g = new THREE.Group();
-  const P = {"H":38,"R":7.2,"flat":0.78,"lean":0.1,"notchA":0.7,"notchY":0.62,"overY":0.86,"waist":0.62,"expect":{"height":38}};
+  const P = {"H":38,"R":7.2,"flat":0.78,"lean":0.1,"notchA":0.7,"notchY":0.6,"overY":0.84,"waist":0.62,"expect":{"height":38}};
   // ---- shared helpers (inlined; seeded so the asset is identical on every load) ----
   let SEED = 41; const NSEED = (SEED % 89) + 0.37;
   const rnd = () => ((SEED = (SEED * 16807) % 2147483647) / 2147483647);
@@ -17,12 +17,12 @@ export default function (THREE) {
   };
   const fbm = (x, y, z, o = 3) => { let a = 0, f = 1, amp = 0.5, n = 0; for (let i = 0; i < o; i++) { a += vnoise(x * f, y * f, z * f) * amp; n += amp; f *= 2.03; amp *= 0.5; } return a / n; };
   // world-space vector warp: one position always gets one offset, so seams and shared rims never crack
-  const warp = (geo, amp, freq, o = 3, mask) => {
+  const warp = (geo, amp, freq, o = 3, mask, ys = 1) => {
     const p = geo.attributes.position;
     for (let i = 0; i < p.count; i++) {
-      const x = p.getX(i), y = p.getY(i), z = p.getZ(i), k = mask ? mask(x, y, z) : 1; if (!k) continue;
-      p.setXYZ(i, x + fbm(x * freq, y * freq, z * freq, o) * amp * k, y + fbm(x * freq + 31.7, y * freq + 11.3, z * freq + 5.1, o) * amp * k,
-        z + fbm(x * freq + 17.9, y * freq + 43.1, z * freq + 23.3, o) * amp * k);
+      const x = p.getX(i), y = p.getY(i), z = p.getZ(i), k = mask ? mask(x, y, z) : 1, fy = freq * ys; if (!k) continue;
+      p.setXYZ(i, x + fbm(x * freq, y * fy, z * freq, o) * amp * k, y + fbm(x * freq + 31.7, y * fy + 11.3, z * freq + 5.1, o) * amp * k * (ys < 1 ? 0.35 : 1),
+        z + fbm(x * freq + 17.9, y * fy + 43.1, z * freq + 23.3, o) * amp * k);
     }
     p.needsUpdate = true; return geo;
   };
@@ -72,38 +72,42 @@ export default function (THREE) {
       geo.scale(s * rr(0.9, 1.3), s * rr(0.6, 0.85), s * rr(0.9, 1.2)); geo.rotateY(rr(0, 6.28)); geo.translate(x, s * 0.35, z); return geo; });
     const geo = warp(merge(list), s0 * 0.25, 0.5, 2); smooth(geo); return add(geo, foamMat);
   };
-  // c1: one lathe profile (flared foot, waist, bulging overhang, rounded crown), made elliptical and leaning,
-  // a notch carved in polar space, then a world-space noise warp so nothing reads as turned
-  const { H, R } = P, rows = 46, prof = [new THREE.Vector2(0, 0)];
-  for (let i = 0; i <= rows; i++) {
-    const t = i / rows;
-    let r = R * (1 - 0.42 * t) + R * 0.32 * Math.pow(Math.max(0, 1 - t / 0.12), 2)
-      - R * 0.2 * Math.exp(-Math.pow((t - P.waist) / 0.09, 2)) + R * 0.3 * Math.exp(-Math.pow((t - P.overY) / 0.05, 2));
-    if (t > 0.93) r *= Math.sqrt(Math.max(0, 1 - Math.pow((t - 0.93) / 0.075, 2)));
-    prof.push(new THREE.Vector2(Math.max(r, 0.01), t * H));
-  }
-  prof.push(new THREE.Vector2(0, H * 1.005));
-  const geo = new THREE.LatheGeometry(prof, 26).toNonIndexed();
-  const p = geo.attributes.position;
-  for (let i = 0; i < p.count; i++) {
-    let x = p.getX(i), y = p.getY(i), z = p.getZ(i); const t = y / H;
-    let a = Math.atan2(z, x), r = Math.hypot(x, z);
-    // the notch: a bite out of one side, deep enough to read in silhouette
-    let da = Math.atan2(Math.sin(a - P.notchA), Math.cos(a - P.notchA));
-    const nb = Math.exp(-Math.pow(da / 0.55, 2)) * Math.exp(-Math.pow((t - P.notchY) / 0.05, 2));
-    r *= 1 - (0.55 + 0.15 * (P.deep || 0)) * nb;
-    // a second shallower scallop on the opposite side so the back is not plain
-    da = Math.atan2(Math.sin(a - P.notchA - 2.8), Math.cos(a - P.notchA - 2.8));
-    r *= 1 - 0.3 * Math.exp(-Math.pow(da / 0.5, 2)) * Math.exp(-Math.pow((t - P.notchY + 0.22) / 0.06, 2));
-    x = Math.cos(a) * r; z = Math.sin(a) * r * P.flat;
-    x += P.lean * H * t * t;
-    p.setXYZ(i, x, y, z);
-  }
-  warp(geo, R * 0.16, 0.9 / R, 3, (x, y) => (y < 0.2 ? 0 : 1));
-  warp(geo, R * 0.05, 3.5 / R, 2, (x, y) => (y < 0.2 ? 0 : 1));
-  smooth(geo); strata(geo, { period: H / 9, top: H, cap: H * 0.07, ledgeMin: H * 0.3 });
+  // c1: lathe profile (flared foot, waist, rounded crown), made elliptical and leaning, a deep notch and a one-sided
+  // overhang shelf carved in polar space, then world-space noise: big bends, vertical fluting, fine lumps.
+  // Stack b fuses a shorter shoulder pillar to one side for a stepped silhouette.
+  const pillar = (H, R, ox, oz, nA, nY, oY, waist, lean, segs, rows) => {
+    const prof = [new THREE.Vector2(0, 0)];
+    for (let i = 0; i <= rows; i++) {
+      const t = i / rows;
+      let r = R * (1 - 0.4 * t) + R * 0.3 * Math.pow(Math.max(0, 1 - t / 0.12), 2) - R * 0.14 * Math.exp(-Math.pow((t - waist) / 0.1, 2));
+      if (t > 0.95) r *= Math.sqrt(Math.max(0, 1 - Math.pow((t - 0.95) / 0.055, 2)));
+      prof.push(new THREE.Vector2(Math.max(r, 0.01), t * H));
+    }
+    prof.push(new THREE.Vector2(0, H * 1.005));
+    const geo = new THREE.LatheGeometry(prof, segs).toNonIndexed(), p = geo.attributes.position;
+    for (let i = 0; i < p.count; i++) {
+      let x = p.getX(i), y = p.getY(i), z = p.getZ(i); const t = y / H;
+      let a = Math.atan2(z, x), r = Math.hypot(x, z);
+      let da = Math.atan2(Math.sin(a - nA), Math.cos(a - nA));
+      r *= 1 - 0.8 * Math.exp(-Math.pow(da / 0.8, 2)) * Math.exp(-Math.pow((t - nY) / 0.06, 2));       // the notch
+      da = Math.atan2(Math.sin(a - nA - 2.8), Math.cos(a - nA - 2.8));
+      r *= 1 - 0.35 * Math.exp(-Math.pow(da / 0.5, 2)) * Math.exp(-Math.pow((t - nY + 0.22) / 0.06, 2)); // back scallop
+      da = Math.atan2(Math.sin(a - nA - 1.2), Math.cos(a - nA - 1.2));
+      r *= 1 + 0.75 * Math.exp(-Math.pow(da / 0.9, 2)) * Math.exp(-Math.pow((t - oY) / 0.055, 2));      // overhang shelf
+      x = Math.cos(a) * r + lean * H * t * t + ox; z = Math.sin(a) * r * P.flat + oz;
+      p.setXYZ(i, x, y, z);
+    }
+    return geo;
+  };
+  const { H, R } = P, list = [pillar(H, R, 0, 0, P.notchA, P.notchY, P.overY, P.waist, P.lean, 30, 50)];
+  if (P.twin) list.push(pillar(H * P.twin[0], R * P.twin[1], R * P.twin[2], -R * 0.15, P.notchA + 2, 0.5, 0.75, 0.5, 0.05, 22, 30));
+  const geo = merge(list);
+  warp(geo, R * 0.28, 0.35 / R, 2, (x, y) => (y < 0.2 ? 0 : Math.min(1, y / (H * 0.15))));
+  warp(geo, R * 0.2, 1.6 / R, 2, (x, y) => (y < 0.2 ? 0 : 1), 0.18);
+  warp(geo, R * 0.05, 4 / R, 2, (x, y) => (y < 0.2 ? 0 : 1));
+  smooth(geo); strata(geo, { period: H / 10, top: H, cap: H * 0.1, ledgeMin: H * 0.25 });
   add(geo, rockMat);
-  const pts = []; for (let i = 0; i < 11; i++) { const a = (i / 11) * 6.28 + rr(-0.2, 0.2), d = R * rr(1.05, 1.35); pts.push([Math.cos(a) * d, Math.sin(a) * d * P.flat]); }
+  const pts = []; for (let i = 0; i < 12; i++) { const a = (i / 12) * 6.28 + rr(-0.2, 0.2), d = R * rr(1.05, 1.35); pts.push([Math.cos(a) * d + (P.twin && Math.cos(a) > 0 ? R * 0.5 : 0), Math.sin(a) * d * P.flat]); }
   boulders(pts, R * 0.22, R * 0.42);
 
   // placement: base at y = 0, centred on x and z (vertex-measured, per the asset contract)

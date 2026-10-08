@@ -164,7 +164,7 @@ game.onStrike = (cell, boats) => {
     game.strikeFx(new THREE.Vector3(tip.x + 4, 70, tip.z + 6), tip);
     audio.play('zap', { vol: 1.1 });
     const two = current?.twoP;
-    if (b === game.match?.A) ui.banner(two ? 'P1 CHARGED!' : 'CHARGED!', two ? 'P1 caught the bolt' : 'your lance caught the bolt: your next hit lands for 3', 1.6, 'charge');
+    if (b === game.match?.A) ui.banner(two ? 'P1 CHARGED!' : 'CHARGED!', two ? 'P1 caught the bolt' : 'next hit lands for 3', 1.6, 'charge');
     else ui.banner(two ? 'P2 CHARGED!' : `${game.match?.capB.name.toUpperCase()} IS CHARGED`, two ? 'P2 caught the bolt' : 'do not let that lance touch you', 1.5, two ? 'charge' : 'bad');
   } else if (inR.length) {
     LOG(`strike: zapped ${inR.length}`);
@@ -396,6 +396,30 @@ function autoRes(f) {
   if (slowT >= 4 && r > 1) { world.renderer.setPixelRatio(Math.max(1, r - 0.25)); world.resize(); slowT = 0; }
   else if (fastT >= 20 && r < world.dpr) { world.renderer.setPixelRatio(Math.min(world.dpr, r + 0.25)); world.resize(); fastT = 0; }
 }
+// where will my current line meet a crest, and will that put me in the air at the pass?
+function rampMarker(m, ttp) {
+  const el = $('ramp'), A = m.A; let best = null;
+  for (const cr of sea.crests) {
+    const env = sea.crestEnv(cr, game.t); if (env < 0.4 || A.air) continue;
+    const vxz = [A.vx, A.dir * A.speed];
+    const u0 = (A.x - cr.ox) * cr.nx + (A.z - cr.oz) * cr.nz - cr.c * (game.t - cr.born);
+    const rel = vxz[0] * cr.nx + vxz[1] * cr.nz - cr.c;
+    if (Math.abs(rel) < 0.5) continue;
+    const tau = -u0 / rel; if (tau < 0.3 || tau > ttp + 0.2) continue;
+    const px = A.x + vxz[0] * tau, pz = A.z + vxz[1] * tau;
+    const v = -(px - cr.ox) * cr.nz + (pz - cr.oz) * cr.nx; if (Math.abs(v) > cr.half) continue;
+    const gap = ttp - tau;    // seconds from launch to the pass
+    const score = gap > 0.15 && gap < 1.2 ? 2 : 1;
+    if (!best || score > best.score) best = { px, pz, gap, score };
+  }
+  if (!best) { el.style.display = 'none'; return; }
+  const p = tmpV.set(best.px, sea.height(best.px, best.pz) + 1.5, best.pz).project(world.camera);
+  if (p.z > 1) { el.style.display = 'none'; return; }
+  el.style.display = 'block'; el.style.transform = `translate(${(p.x * 0.5 + 0.5) * innerWidth}px, ${(-p.y * 0.5 + 0.5) * innerHeight}px)`;
+  el.className = best.score === 2 ? '' : 'meh';
+  if (best.score === 2 && !game.rampTold && !save.toldRamp) { game.rampTold = true; save.toldRamp = 1; persist(); ui.hint('Steer onto the gold arrow: fly off the crest and strike from above', 3.5); }
+  el.lastChild.textContent = best.score === 2 ? 'AIR AT THE PASS' : best.gap > 0 ? 'too early' : 'too late';
+}
 const clock = new THREE.Clock();
 let fpsAcc = 0, fpsN = 0, fps = 60;
 const tmpV = new THREE.Vector3();
@@ -450,7 +474,8 @@ function frame() {
     const lat = (B.x + B.vx * Math.min(ttp, 2)) - (A.x + A.vx * Math.min(ttp, 2));
     const ramEdge = (A.boat.beam + B.boat.beam) / 2 + TUNING.hitGap;
     ui.gauge(lat, ramEdge, A.lance.reach + B.boat.beam * 0.12, B.lance.reach + A.boat.beam * 0.12, ttp < 5.5 && ttp > 0);
-  } else { ui.timing(0, 0, null, ''); ui.gauge(0, 0, 0, 0, false); }
+    rampMarker(m, ttp);
+  } else { ui.timing(0, 0, null, ''); ui.gauge(0, 0, 0, 0, false); $('ramp').style.display = 'none'; }
   ui.update(realDt);
   world.renderer.render(world.scene, world.camera);
   const info = world.renderer.info.render;

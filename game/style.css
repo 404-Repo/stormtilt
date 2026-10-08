@@ -154,3 +154,9 @@ button { font-family: var(--display); color: var(--ink); border: 0; cursor: poin
 .spoils:empty { display: none; }
 .spoils b { color: var(--cyan); letter-spacing: .12em; margin-right: 6px; }
 #pause { background: rgba(20,26,51,.85); }
+
+#ramp { position: absolute; left: 0; top: 0; display: none; pointer-events: none; }
+#ramp i { position: absolute; left: -9px; top: -14px; width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent; border-bottom: 14px solid var(--gold); filter: drop-shadow(0 2px 0 rgba(0,0,0,.4)); animation: bob .5s ease-in-out infinite alternate; }
+#ramp span { position: absolute; left: 0; top: -36px; transform: translateX(-50%); white-space: nowrap; font: 900 11px var(--font); letter-spacing: .08em; color: #fff; background: rgba(194,122,18,.9); padding: 2px 6px; border-radius: 6px; }
+#ramp.meh i { border-bottom-color: rgba(255,255,255,.55); } #ramp.meh span { background: rgba(20,26,51,.7); }
+@keyframes bob { to { transform: translateY(-5px); } }

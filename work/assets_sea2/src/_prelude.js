@@ -13,12 +13,12 @@
   };
   const fbm = (x, y, z, o = 3) => { let a = 0, f = 1, amp = 0.5, n = 0; for (let i = 0; i < o; i++) { a += vnoise(x * f, y * f, z * f) * amp; n += amp; f *= 2.03; amp *= 0.5; } return a / n; };
   // world-space vector warp: one position always gets one offset, so seams and shared rims never crack
-  const warp = (geo, amp, freq, o = 3, mask) => {
+  const warp = (geo, amp, freq, o = 3, mask, ys = 1) => {
     const p = geo.attributes.position;
     for (let i = 0; i < p.count; i++) {
-      const x = p.getX(i), y = p.getY(i), z = p.getZ(i), k = mask ? mask(x, y, z) : 1; if (!k) continue;
-      p.setXYZ(i, x + fbm(x * freq, y * freq, z * freq, o) * amp * k, y + fbm(x * freq + 31.7, y * freq + 11.3, z * freq + 5.1, o) * amp * k,
-        z + fbm(x * freq + 17.9, y * freq + 43.1, z * freq + 23.3, o) * amp * k);
+      const x = p.getX(i), y = p.getY(i), z = p.getZ(i), k = mask ? mask(x, y, z) : 1, fy = freq * ys; if (!k) continue;
+      p.setXYZ(i, x + fbm(x * freq, y * fy, z * freq, o) * amp * k, y + fbm(x * freq + 31.7, y * fy + 11.3, z * freq + 5.1, o) * amp * k * (ys < 1 ? 0.35 : 1),
+        z + fbm(x * freq + 17.9, y * fy + 43.1, z * freq + 23.3, o) * amp * k);
     }
     p.needsUpdate = true; return geo;
   };
