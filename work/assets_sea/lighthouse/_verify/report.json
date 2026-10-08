@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 68,
+  "tris": 2180,
+  "materials": 10,
+  "size": [
+   17.729,
+   27.156,
+   16.788
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1284,
+    "edgeDensity": 0.2047
+   },
+   "right": {
+    "coverage": 0.1194,
+    "edgeDensity": 0.2181
+   },
+   "back": {
+    "coverage": 0.1279,
+    "edgeDensity": 0.2212
+   },
+   "left": {
+    "coverage": 0.1222,
+    "edgeDensity": 0.2385
+   }
+  },
+  "error": null,
+  "name": "c1_prims",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 56,
+  "tris": 1956,
+  "materials": 9,
+  "size": [
+   16.553,
+   26.746,
+   17.134
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1295,
+    "edgeDensity": 0.2305
+   },
+   "right": {
+    "coverage": 0.1245,
+    "edgeDensity": 0.2532
+   },
+   "back": {
+    "coverage": 0.1303,
+    "edgeDensity": 0.2556
+   },
+   "left": {
+    "coverage": 0.1225,
+    "edgeDensity": 0.2316
+   }
+  },
+  "error": null,
+  "name": "c2_lathe",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 51,
+  "tris": 1352,
+  "materials": 10,
+  "size": [
+   18.252,
+   26.859,
+   17.236
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1177,
+    "edgeDensity": 0.2672
+   },
+   "right": {
+    "coverage": 0.1157,
+    "edgeDensity": 0.2686
+   },
+   "back": {
+    "coverage": 0.1189,
+    "edgeDensity": 0.2965
+   },
+   "left": {
+    "coverage": 0.1157,
+    "edgeDensity": 0.3001
+   }
+  },
+  "error": null,
+  "name": "c3_octa",
+  "problems": []
+ }
+]

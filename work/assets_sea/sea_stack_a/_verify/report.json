@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 26,
+  "tris": 474,
+  "materials": 8,
+  "size": [
+   19.107,
+   37.082,
+   19.107
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1926,
+    "edgeDensity": 0.1327
+   },
+   "right": {
+    "coverage": 0.1927,
+    "edgeDensity": 0.1573
+   },
+   "back": {
+    "coverage": 0.192,
+    "edgeDensity": 0.1709
+   },
+   "left": {
+    "coverage": 0.1918,
+    "edgeDensity": 0.1691
+   }
+  },
+  "error": null,
+  "name": "c1_prims",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 26,
+  "tris": 592,
+  "materials": 6,
+  "size": [
+   22.766,
+   36.679,
+   24.045
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.198,
+    "edgeDensity": 0.1179
+   },
+   "right": {
+    "coverage": 0.1943,
+    "edgeDensity": 0.1215
+   },
+   "back": {
+    "coverage": 0.1899,
+    "edgeDensity": 0.1281
+   },
+   "left": {
+    "coverage": 0.1961,
+    "edgeDensity": 0.1329
+   }
+  },
+  "error": null,
+  "name": "c2_mesh",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 50,
+  "tris": 1564,
+  "materials": 8,
+  "size": [
+   19.631,
+   38.041,
+   18.926
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1848,
+    "edgeDensity": 0.1934
+   },
+   "right": {
+    "coverage": 0.1771,
+    "edgeDensity": 0.207
+   },
+   "back": {
+    "coverage": 0.1862,
+    "edgeDensity": 0.2317
+   },
+   "left": {
+    "coverage": 0.178,
+    "edgeDensity": 0.2142
+   }
+  },
+  "error": null,
+  "name": "c3_pillars",
+  "problems": []
+ }
+]

@@ -1,0 +1,8 @@
+  // ---- shell: primitives. Two open hemispheres (outer and inner) scaled to the tub, a scaled torus rim ----
+  const hemi = (sx, sy, sz, mat, name) => { const m = add(new THREE.SphereGeometry(1, 40, 14, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2), mat, name); m.scale.set(sx, sy, sz); m.position.y = RIMY; return m; };
+  hemi(HB, RIMY - BOTY, HA, enamel, 'hull');
+  hemi(HB * 0.92, RIMY - FLOOR, HA * 0.95, enamel, 'deck');
+  { const t = add(new THREE.TorusGeometry(1, 0.06, 8, 56), sunM, 'hull'); t.rotation.x = Math.PI / 2; t.scale.set(HB * 0.96, HA * 0.975, 1); t.position.y = RIMY + 0.01; }
+  // a flat base plate the feet bolt to (the hemisphere bottom is a point)
+  { const b = add(new THREE.CylinderGeometry(1, 1, 0.05, 32), enamel, 'hull'); b.scale.set(HB * 0.55, 1, HA * 0.6); b.position.y = BOTY + 0.06; }
+  const rimAt = (a) => [Math.sin(a) * HB, Math.cos(a) * HA];

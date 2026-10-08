@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 7,
+  "tris": 1544,
+  "materials": 6,
+  "size": [
+   0.46,
+   0.46,
+   5.5
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0109,
+    "edgeDensity": 0.5626
+   },
+   "right": {
+    "coverage": 0.0222,
+    "edgeDensity": 0.7604
+   },
+   "back": {
+    "coverage": 0.0142,
+    "edgeDensity": 0.5062
+   },
+   "left": {
+    "coverage": 0.0222,
+    "edgeDensity": 0.7721
+   }
+  },
+  "error": null,
+  "name": "lance_classic_a",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 13,
+  "tris": 1896,
+  "materials": 10,
+  "size": [
+   0.48,
+   0.475,
+   5.5
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.012,
+    "edgeDensity": 0.7092
+   },
+   "right": {
+    "coverage": 0.0234,
+    "edgeDensity": 0.8251
+   },
+   "back": {
+    "coverage": 0.0152,
+    "edgeDensity": 0.7134
+   },
+   "left": {
+    "coverage": 0.0233,
+    "edgeDensity": 0.836
+   }
+  },
+  "error": null,
+  "name": "lance_classic_b",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 10,
+  "tris": 1616,
+  "materials": 5,
+  "size": [
+   0.445,
+   0.45,
+   5.5
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0107,
+    "edgeDensity": 0.6086
+   },
+   "right": {
+    "coverage": 0.0215,
+    "edgeDensity": 0.7837
+   },
+   "back": {
+    "coverage": 0.0138,
+    "edgeDensity": 0.5402
+   },
+   "left": {
+    "coverage": 0.0216,
+    "edgeDensity": 0.7229
+   }
+  },
+  "error": null,
+  "name": "lance_classic_c",
+  "problems": []
+ }
+]

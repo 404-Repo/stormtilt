@@ -1,0 +1,16 @@
+export default function (THREE) {
+  const g = new THREE.Group();
+  const M = (color, rough, metal, name, extra) => {
+    const m = new THREE.MeshStandardMaterial(Object.assign({ color, roughness: rough, metalness: metal || 0 }, extra || {}));
+    if (name) m.name = name; return m;
+  };
+  const hullM = M(0x1f2d63, 0.28, 0, null, { side: THREE.DoubleSide });
+  const trimM = M(0xd9a441, 0.3, 0.75, 'metal', { side: THREE.DoubleSide });
+  const teak = M(0xa8652f, 0.55, 0, 'timber');
+  const deckM = M(0xc89a62, 0.65, 0, 'timber', { side: THREE.DoubleSide });
+  const brass = M(0xc9a043, 0.3, 0.8, 'metal');
+  const steel = M(0x8f9aa3, 0.3, 0.7, 'metal');
+  const canvas = M(0xf4ead2, 0.85, 0, 'fabric', { side: THREE.DoubleSide });
+  const dark = M(0x5a3a22, 0.7, 0, 'timber');
+  const ropeM = M(0xb59a6a, 0.85, 0, 'fabric');
+  const add = (geo, mat, name) => { const m = new THREE.Mesh(geo, mat); if (name) m.name = name; g.add(m); return m; };

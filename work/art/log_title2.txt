@@ -1,0 +1,2 @@
+{"utc": "2026-10-08T08:51:07Z", "game": "game7", "what": "art_title_r2", "kind": "image-std", "api_id": "bfbeea76-8673-492e-8401-975940109276", "credits_max_hold": 77, "ok": true, "result_id": "ec85e43c-6879-4542-a863-c18500fe7149", "file": "/Users/atlas/astrocade-game7/work/art/title_raw2.png", "bytes": 4731664, "sha16": "774f128de11d3b52", "secs": 32.3}
+ALLDONE

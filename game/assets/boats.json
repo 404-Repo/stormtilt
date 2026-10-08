@@ -7,16 +7,8 @@
     "waterlineY": 1.05,
     "mastTopY": 15.926,
     "bowZ": 6.017,
-    "sternZ": -5.983
-  },
-  "lances": {
-    "lance_classic": {
-      "length": 5.5,
-      "gripZ": -2.39,
-      "axisY": 0.225,
-      "tipZ": 2.75,
-      "buttZ": -2.75
-    }
+    "sternZ": -5.983,
+    "hullLength": 12.0
   },
   "tug_barnacle": {
     "length": 11.752,
@@ -26,7 +18,8 @@
     "waterlineY": 1,
     "mastTopY": 8.729,
     "bowZ": 5.214,
-    "sternZ": -5.786
+    "sternZ": -5.786,
+    "hullLength": 11.0
   },
   "catamaran_kite": {
     "length": 12.67,
@@ -36,7 +29,8 @@
     "waterlineY": 1,
     "mastTopY": 16.63,
     "bowZ": 6.315,
-    "sternZ": -5.685
+    "sternZ": -5.685,
+    "hullLength": 12.0
   },
   "schooner_brisa": {
     "length": 15.691,
@@ -46,7 +40,8 @@
     "waterlineY": 1.05,
     "mastTopY": 16.12,
     "bowZ": 5.555,
-    "sternZ": -7.445
+    "sternZ": -7.445,
+    "hullLength": 13.0
   },
   "bathtub": {
     "length": 3.196,
@@ -56,6 +51,44 @@
     "waterlineY": 0.55,
     "mastTopY": 3.715,
     "bowZ": 1.262,
-    "sternZ": -1.186
+    "sternZ": -1.186,
+    "hullLength": 2.448
+  },
+  "lances": {
+    "lance_classic": {
+      "length": 5.5,
+      "gripZ": -2.39,
+      "axisY": 0.224,
+      "tipZ": 2.75,
+      "buttZ": -2.75
+    },
+    "lance_long": {
+      "length": 7,
+      "gripZ": -3.14,
+      "axisY": 0.224,
+      "tipZ": 3.5,
+      "buttZ": -3.5
+    },
+    "lance_heavy": {
+      "length": 5.5,
+      "gripZ": -2.39,
+      "axisY": 0.228,
+      "tipZ": 2.75,
+      "buttZ": -2.75
+    },
+    "lance_copper": {
+      "length": 5.5,
+      "gripZ": -2.39,
+      "axisY": 0.239,
+      "tipZ": 2.75,
+      "buttZ": -2.75
+    },
+    "lance_swordfish": {
+      "length": 5.52,
+      "gripZ": -1.89,
+      "axisY": 0.36,
+      "tipZ": 2.76,
+      "buttZ": -2.76
+    }
   }
 }

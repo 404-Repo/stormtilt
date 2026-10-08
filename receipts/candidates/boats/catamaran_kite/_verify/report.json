@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 106,
+  "tris": 8890,
+  "materials": 16,
+  "size": [
+   5.515,
+   16.63,
+   12.67
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0539,
+    "edgeDensity": 0.6796
+   },
+   "right": {
+    "coverage": 0.1856,
+    "edgeDensity": 0.3189
+   },
+   "back": {
+    "coverage": 0.0537,
+    "edgeDensity": 0.6722
+   },
+   "left": {
+    "coverage": 0.1854,
+    "edgeDensity": 0.2999
+   }
+  },
+  "error": null,
+  "name": "catamaran_kite_a",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 106,
+  "tris": 9286,
+  "materials": 16,
+  "size": [
+   5.501,
+   16.63,
+   12.67
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0536,
+    "edgeDensity": 0.7788
+   },
+   "right": {
+    "coverage": 0.1854,
+    "edgeDensity": 0.3336
+   },
+   "back": {
+    "coverage": 0.0547,
+    "edgeDensity": 0.7869
+   },
+   "left": {
+    "coverage": 0.1851,
+    "edgeDensity": 0.3294
+   }
+  },
+  "error": null,
+  "name": "catamaran_kite_b",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 110,
+  "tris": 4190,
+  "materials": 16,
+  "size": [
+   5.527,
+   16.63,
+   12.125
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0568,
+    "edgeDensity": 0.7652
+   },
+   "right": {
+    "coverage": 0.1882,
+    "edgeDensity": 0.3377
+   },
+   "back": {
+    "coverage": 0.0559,
+    "edgeDensity": 0.7189
+   },
+   "left": {
+    "coverage": 0.1881,
+    "edgeDensity": 0.3239
+   }
+  },
+  "error": null,
+  "name": "catamaran_kite_c",
+  "problems": []
+ }
+]

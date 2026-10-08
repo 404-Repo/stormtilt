@@ -1,0 +1,7 @@
+  // ---- shell: three lathes (outer enamel, sunflower roll rim, inner enamel) squashed to an oval plan ----
+  const oval = (geo) => { const p = geo.attributes.position; for (let i = 0; i < p.count; i++) p.setXYZ(i, p.getX(i) * HB, p.getY(i), p.getZ(i) * HA); geo.computeVertexNormals(); return geo; };
+  const lat = (pts, mat, name) => add(oval(new THREE.LatheGeometry(pts.map(([r, y]) => new THREE.Vector2(r, y)), 48)), mat, name);
+  lat([[0.001, BOTY], [0.72, BOTY + 0.01], [0.84, BOTY + 0.04], [0.9, BOTY + 0.12], [0.94, 0.5], [0.975, 0.8], [1.0, RIMY - 0.03]], enamel, 'hull');
+  lat([[0.995, RIMY - 0.04], [1.035, RIMY - 0.02], [1.05, RIMY + 0.02], [1.035, RIMY + 0.06], [0.995, RIMY + 0.075], [0.955, RIMY + 0.06], [0.94, RIMY + 0.02], [0.94, RIMY - 0.02]], sunM, 'hull');
+  lat([[0.94, RIMY - 0.02], [0.915, 0.8], [0.88, 0.55], [0.83, FLOOR + 0.06], [0.74, FLOOR], [0.001, FLOOR]], enamel, 'deck');
+  const rimAt = (a) => [Math.sin(a) * HB, Math.cos(a) * HA]; // plan point on the rim, a=0 at the bow

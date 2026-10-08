@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 165,
+  "tris": 4210,
+  "materials": 14,
+  "size": [
+   10.2,
+   21.97,
+   23.211
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1148,
+    "edgeDensity": 0.1636
+   },
+   "right": {
+    "coverage": 0.1203,
+    "edgeDensity": 0.2722
+   },
+   "back": {
+    "coverage": 0.1284,
+    "edgeDensity": 0.164
+   },
+   "left": {
+    "coverage": 0.1215,
+    "edgeDensity": 0.2819
+   }
+  },
+  "error": null,
+  "name": "c1_prims",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 198,
+  "tris": 14122,
+  "materials": 13,
+  "size": [
+   9.8,
+   21.97,
+   23.001
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.108,
+    "edgeDensity": 0.1765
+   },
+   "right": {
+    "coverage": 0.1182,
+    "edgeDensity": 0.2951
+   },
+   "back": {
+    "coverage": 0.1237,
+    "edgeDensity": 0.2241
+   },
+   "left": {
+    "coverage": 0.1193,
+    "edgeDensity": 0.2995
+   }
+  },
+  "error": null,
+  "name": "c2_loft",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 139,
+  "tris": 7996,
+  "materials": 13,
+  "size": [
+   9.8,
+   21.97,
+   23.081
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1112,
+    "edgeDensity": 0.1445
+   },
+   "right": {
+    "coverage": 0.1167,
+    "edgeDensity": 0.2948
+   },
+   "back": {
+    "coverage": 0.1274,
+    "edgeDensity": 0.2018
+   },
+   "left": {
+    "coverage": 0.1183,
+    "edgeDensity": 0.3063
+   }
+  },
+  "error": null,
+  "name": "c3_layers",
+  "problems": []
+ }
+]

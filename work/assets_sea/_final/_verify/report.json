@@ -1,0 +1,420 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 19,
+  "tris": 816,
+  "materials": 5,
+  "size": [
+   0.9,
+   0.717,
+   0.717
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.2673,
+    "edgeDensity": 0.1691
+   },
+   "right": {
+    "coverage": 0.2298,
+    "edgeDensity": 0.1906
+   },
+   "back": {
+    "coverage": 0.2795,
+    "edgeDensity": 0.1595
+   },
+   "left": {
+    "coverage": 0.2412,
+    "edgeDensity": 0.2019
+   }
+  },
+  "error": null,
+  "name": "barrel_float",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 17,
+  "tris": 1604,
+  "materials": 5,
+  "size": [
+   1.12,
+   1.841,
+   1.12
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1721,
+    "edgeDensity": 0.1627
+   },
+   "right": {
+    "coverage": 0.1721,
+    "edgeDensity": 0.1649
+   },
+   "back": {
+    "coverage": 0.172,
+    "edgeDensity": 0.1604
+   },
+   "left": {
+    "coverage": 0.172,
+    "edgeDensity": 0.1584
+   }
+  },
+  "error": null,
+  "name": "buoy_lane",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 198,
+  "tris": 14122,
+  "materials": 13,
+  "size": [
+   9.8,
+   21.97,
+   23.001
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1086,
+    "edgeDensity": 0.2325
+   },
+   "right": {
+    "coverage": 0.1193,
+    "edgeDensity": 0.4087
+   },
+   "back": {
+    "coverage": 0.1241,
+    "edgeDensity": 0.282
+   },
+   "left": {
+    "coverage": 0.1201,
+    "edgeDensity": 0.3872
+   }
+  },
+  "error": null,
+  "name": "galleon_nimbus",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 14,
+  "tris": 512,
+  "materials": 5,
+  "size": [
+   1.201,
+   0.198,
+   0.7
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0451,
+    "edgeDensity": 0.2248
+   },
+   "right": {
+    "coverage": 0.0561,
+    "edgeDensity": 0.2223
+   },
+   "back": {
+    "coverage": 0.0481,
+    "edgeDensity": 0.208
+   },
+   "left": {
+    "coverage": 0.0561,
+    "edgeDensity": 0.2346
+   }
+  },
+  "error": null,
+  "name": "gull",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 169,
+  "tris": 3191,
+  "materials": 13,
+  "size": [
+   5.74,
+   7.1,
+   15.001
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1527,
+    "edgeDensity": 0.3134
+   },
+   "right": {
+    "coverage": 0.2184,
+    "edgeDensity": 0.3175
+   },
+   "back": {
+    "coverage": 0.1363,
+    "edgeDensity": 0.3324
+   },
+   "left": {
+    "coverage": 0.2182,
+    "edgeDensity": 0.314
+   }
+  },
+  "error": null,
+  "name": "judges_barge",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 12,
+  "tris": 1472,
+  "materials": 3,
+  "size": [
+   0.75,
+   0.162,
+   0.75
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1701,
+    "edgeDensity": 0.1419
+   },
+   "right": {
+    "coverage": 0.1701,
+    "edgeDensity": 0.1136
+   },
+   "back": {
+    "coverage": 0.1701,
+    "edgeDensity": 0.1064
+   },
+   "left": {
+    "coverage": 0.1701,
+    "edgeDensity": 0.1067
+   }
+  },
+  "error": null,
+  "name": "lifebuoy",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 56,
+  "tris": 1956,
+  "materials": 9,
+  "size": [
+   16.553,
+   26.746,
+   17.134
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1295,
+    "edgeDensity": 0.2305
+   },
+   "right": {
+    "coverage": 0.1245,
+    "edgeDensity": 0.2532
+   },
+   "back": {
+    "coverage": 0.1303,
+    "edgeDensity": 0.2556
+   },
+   "left": {
+    "coverage": 0.1225,
+    "edgeDensity": 0.2316
+   }
+  },
+  "error": null,
+  "name": "lighthouse",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 14,
+  "tris": 605,
+  "materials": 2,
+  "size": [
+   8.508,
+   2.398,
+   6.003
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1159,
+    "edgeDensity": 0.0895
+   },
+   "right": {
+    "coverage": 0.1126,
+    "edgeDensity": 0.1496
+   },
+   "back": {
+    "coverage": 0.0813,
+    "edgeDensity": 0.1194
+   },
+   "left": {
+    "coverage": 0.0837,
+    "edgeDensity": 0.1447
+   }
+  },
+  "error": null,
+  "name": "reef_rocks",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 50,
+  "tris": 1564,
+  "materials": 8,
+  "size": [
+   19.631,
+   38.041,
+   18.926
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1848,
+    "edgeDensity": 0.1934
+   },
+   "right": {
+    "coverage": 0.1771,
+    "edgeDensity": 0.207
+   },
+   "back": {
+    "coverage": 0.1862,
+    "edgeDensity": 0.2317
+   },
+   "left": {
+    "coverage": 0.178,
+    "edgeDensity": 0.2142
+   }
+  },
+  "error": null,
+  "name": "sea_stack_a",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 62,
+  "tris": 2092,
+  "materials": 8,
+  "size": [
+   23.015,
+   53.303,
+   21.009
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1735,
+    "edgeDensity": 0.2164
+   },
+   "right": {
+    "coverage": 0.1576,
+    "edgeDensity": 0.2426
+   },
+   "back": {
+    "coverage": 0.168,
+    "edgeDensity": 0.2647
+   },
+   "left": {
+    "coverage": 0.1569,
+    "edgeDensity": 0.2534
+   }
+  },
+  "error": null,
+  "name": "sea_stack_b",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 130,
+  "tris": 2897,
+  "materials": 17,
+  "size": [
+   2.88,
+   3.63,
+   8.45
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1629,
+    "edgeDensity": 0.2595
+   },
+   "right": {
+    "coverage": 0.2608,
+    "edgeDensity": 0.2701
+   },
+   "back": {
+    "coverage": 0.1715,
+    "edgeDensity": 0.2478
+   },
+   "left": {
+    "coverage": 0.2621,
+    "edgeDensity": 0.2686
+   }
+  },
+  "error": null,
+  "name": "spectator_boat",
+  "problems": []
+ }
+]

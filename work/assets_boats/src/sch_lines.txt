@@ -1,0 +1,4 @@
+  const L = 13, ZS = -6.5, ST = 52;
+  const half = (t) => t < 0.45 ? 2.0 - 0.9 * Math.pow((0.45 - t) / 0.45, 1.8) : 2.0 * Math.pow(Math.max(0, 1 - Math.pow((t - 0.45) / 0.55, 2.2)), 0.8);
+  const sheer = (t) => t < 0.4 ? 2.3 + 0.25 * Math.pow((0.4 - t) / 0.4, 2) : 2.3 + 0.55 * Math.pow((t - 0.4) / 0.6, 2);
+  const bottom = (t) => t < 0.32 ? 0.45 + 1.25 * Math.pow((0.32 - t) / 0.32, 1.5) : t > 0.58 ? 0.45 + (sheer(1) - 0.08 - 0.45) * Math.pow((t - 0.58) / 0.42, 1.9) : 0.45;

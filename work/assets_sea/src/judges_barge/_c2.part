@@ -1,0 +1,8 @@
+// candidate 2: the punt side profile (raked bow and stern, sheer rising to the ends) as one Shape extruded
+// across the beam; a second, slightly wider extrusion of a thin profile strip for the cobalt band
+  const prof = (b, t) => { const s = new THREE.Shape(); s.moveTo(-5.4, b); s.lineTo(5.4, b); s.quadraticCurveTo(6.6, b + 0.2, 7.0, t + 0.15); s.lineTo(-7.0, t + 0.15); s.quadraticCurveTo(-6.6, b + 0.2, -5.4, b); return s; };
+  const ext = (sh, w, mat) => { const geo = new THREE.ExtrudeGeometry(sh, { depth: w, bevelEnabled: false, curveSegments: 8 }); geo.translate(0, 0, -w / 2); const m = add(geo, mat); m.rotation.y = -Math.PI / 2; return m; };
+  ext(prof(0, D - 0.15), 5.6, teak);
+  const band = new THREE.Shape(); band.moveTo(-5.6, 0.45); band.lineTo(5.6, 0.45); band.quadraticCurveTo(6.1, 0.5, 6.25, 0.68); band.lineTo(-6.25, 0.68); band.quadraticCurveTo(-6.1, 0.5, -5.6, 0.45); ext(band, 5.72, cobalt);
+  const strake = new THREE.Shape(); strake.moveTo(-7.02, D - 0.2); strake.lineTo(7.02, D - 0.2); strake.lineTo(7.02, D); strake.lineTo(-7.02, D); ext(strake, 5.74, sunM);
+  add(new THREE.BoxGeometry(5.5, 0.06, 13.9), deckM, 0, D, 0);

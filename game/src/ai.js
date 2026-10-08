@@ -23,7 +23,7 @@ export class CaptainAI {
     if (myReach > theirReach + 0.6 && line > 0.7) d = Math.min(myReach - 0.35, theirReach + 0.5);
     if (this.wantRam) d = ramEdge - 1.3;
     this.d = d;
-    this.couchDone = t + tp - Math.max(0.12, p.lead + gauss() * p.jitter);   // when it wants the lance fully down
+    this.lead = Math.max(0.12, p.lead + gauss() * p.jitter);   // seconds before the pass it wants the lance fully down
     this.feintAt = p.feint > 0 && Math.random() < p.feint ? t + tp - rnd(0.9, 1.4) : -1;
     this.feintOff = (Math.random() < 0.5 ? -1 : 1) * rnd(3.5, 5);
     this.chase = null;
@@ -85,8 +85,7 @@ export class CaptainAI {
     if (Math.abs(err) < 0.4) s = 0;
     this.input.steer += (s - this.input.steer) * Math.min(1, dt * (6 + 6 * p.steer));
     // couch: start lowering so the lance is fully down at couchDone; keep it up under a live cell
-    const startAt = this.couchDone - me.lance.couch;
-    let couch = t >= startAt && ttp > -0.3;
+    let couch = ttp <= this.lead + me.lance.couch && ttp > -0.3;
     if (this.chase && this.chase.kind === 'cell' && this.chase.c.struck === 0 && t < this.chase.c.strikeAt + 0.05) {
       const c = this.chase.c; if (Math.hypot(me.x - c.x, me.z - c.z) < c.r * me.lance.rod + 2) couch = couch && ttp < 0.4;
     }

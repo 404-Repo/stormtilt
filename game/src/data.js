@@ -76,7 +76,7 @@ export const LANCE_ORDER = ['lance_classic', 'lance_long', 'lance_heavy', 'lance
 export const CAPTAINS = {
   player: { name: 'You', title: 'the challenger', hat: 0xf2b630, coat: 0xd7372f },
   pip: {
-    name: 'Pip Tiller', title: 'the Rookie', sea: 'regatta', boat: 'sloop_red', tint: 0xf2b630, lance: 'lance_classic', footing: 3,
+    name: 'Pip Tiller', title: 'the Rookie', sea: 'regatta', boat: 'sloop_red', tint: 0xf2b630, lance: 'lance_classic', footing: 4,
     ai: { lead: 1.25, jitter: 0.35, line: 0.55, react: 0.7, bolt: 0, roller: 0.2, gust: 0.2, ram: 0, dodge: 0, feint: 0, steer: 0.7 },
     spoil: { boat: 'bathtub' },
     intro: 'Is it... is it supposed to rock like this?', win: 'I WON? Mum! MUM!', lose: 'Okay. Okay. Bath time.',
@@ -84,7 +84,7 @@ export const CAPTAINS = {
     tip: 'Hold COUCH as the gold ring closes on Pip. Too early and Pip braces.',
   },
   barnacle: {
-    name: 'Bosun Barnacle', title: 'the Battering Ram', sea: 'regatta', boat: 'tug_barnacle', lance: 'lance_heavy', footing: 3,
+    name: 'Bosun Barnacle', title: 'the Battering Ram', sea: 'regatta', boat: 'tug_barnacle', lance: 'lance_heavy', footing: 5,
     ai: { lead: 0.8, jitter: 0.25, line: 0.05, react: 0.5, bolt: 0, roller: 0.1, gust: 0, ram: 0.75, dodge: 0, feint: 0, steer: 0.85 },
     spoil: { boat: 'tug_barnacle' },
     intro: 'Forty years at sea. Never once steered round anything.', win: 'Har! Mind the barnacles on yer way down.', lose: 'Me tug... take care of her.',
@@ -92,7 +92,7 @@ export const CAPTAINS = {
     tip: 'Barnacle wants to ram. Keep your hull clear of his and hit from the edge of your reach.',
   },
   volta: {
-    name: 'Doc Volta', title: 'the Lightning Chaser', sea: 'thunder', boat: 'sloop_red', tint: 0xf3eee3, lance: 'lance_copper', footing: 3,
+    name: 'Doc Volta', title: 'the Lightning Chaser', sea: 'thunder', boat: 'sloop_red', tint: 0xf3eee3, lance: 'lance_copper', footing: 5,
     ai: { lead: 0.75, jitter: 0.25, line: 0.6, react: 0.45, bolt: 1.0, roller: 0.1, gust: 0.2, ram: 0, dodge: 0.2, feint: 0, steer: 0.9 },
     spoil: { lance: 'lance_copper' },
     intro: 'One point twenty-one gigawatts! Approximately!', win: 'SCIENCE!', lose: 'My hair... was already like this.',
@@ -100,7 +100,7 @@ export const CAPTAINS = {
     tip: 'Keep your lance UP under a storm cell when it strikes: the bolt charges it. Couch under one and your mast takes it.',
   },
   brisa: {
-    name: 'Contessa Brisa', title: 'the Duelist', sea: 'thunder', boat: 'schooner_brisa', lance: 'lance_long', footing: 3,
+    name: 'Contessa Brisa', title: 'the Duelist', sea: 'thunder', boat: 'schooner_brisa', lance: 'lance_long', footing: 5,
     ai: { lead: 0.42, jitter: 0.14, line: 0.92, react: 0.3, bolt: 0.4, roller: 0.3, gust: 0.3, ram: 0, dodge: 0.7, feint: 0, steer: 1.0 },
     spoil: { boat: 'schooner_brisa' },
     intro: 'En garde, darling. Do try to keep up.', win: 'Delightful. Next.', lose: 'Ah. A worthy... splash.',
@@ -108,7 +108,7 @@ export const CAPTAINS = {
     tip: 'Brisa\'s lance is long: she hits from where you cannot. Close the gap, but not into a ram.',
   },
   kite: {
-    name: 'Kite Kowalski', title: 'the Speedster', sea: 'gale', boat: 'catamaran_kite', lance: 'lance_classic', footing: 3,
+    name: 'Kite Kowalski', title: 'the Speedster', sea: 'gale', boat: 'catamaran_kite', lance: 'lance_classic', footing: 5,
     ai: { lead: 0.6, jitter: 0.2, line: 0.5, react: 0.4, bolt: 0.2, roller: 0.9, gust: 1.0, ram: 0, dodge: 0.3, feint: 0, steer: 1.0 },
     spoil: { boat: 'catamaran_kite' },
     intro: 'Duuude. The gusts out here? Unreal.', win: 'Gnarly wipeout, bro!', lose: 'Totally worth it.',
@@ -116,7 +116,7 @@ export const CAPTAINS = {
     tip: 'Dark streaks on the water are gust lanes. Ride one in and you hit harder.',
   },
   gilly: {
-    name: 'The Gilly Twins', title: 'the Tricksters', sea: 'gale', boat: 'sloop_red', tint: 0x2f9a5a, lance: 'lance_swordfish', footing: 4,
+    name: 'The Gilly Twins', title: 'the Tricksters', sea: 'gale', boat: 'sloop_red', tint: 0x2f9a5a, lance: 'lance_swordfish', footing: 6,
     ai: { lead: 0.55, jitter: 0.3, line: 0.5, react: 0.35, bolt: 0.3, roller: 0.4, gust: 0.4, ram: 0.1, dodge: 0.3, feint: 0.85, steer: 1.0 },
     spoil: { lance: 'lance_swordfish' },
     intro: 'We are the Gilly Twins! (Two of us. Four footing.)', win: 'High five! No, other hand!', lose: 'It was HIS fault!',
@@ -124,7 +124,7 @@ export const CAPTAINS = {
     tip: 'The Twins switch lines at the last second. Couch late and watch which way they go.',
   },
   marrow: {
-    name: 'Lady Marrow', title: 'the Drowned Captain', sea: 'rogue', boat: 'schooner_brisa', tint: 0x5c6a8a, lance: 'lance_long', footing: 3,
+    name: 'Lady Marrow', title: 'the Drowned Captain', sea: 'rogue', boat: 'schooner_brisa', tint: 0x5c6a8a, lance: 'lance_long', footing: 5,
     ai: { lead: 0.45, jitter: 0.16, line: 0.88, react: 0.3, bolt: 0.5, roller: 1.0, gust: 0.3, ram: 0, dodge: 0.6, feint: 0.3, steer: 1.0 },
     spoil: { lance: 'lance_long' },
     intro: 'I have been overboard before, child. It is quite cold.', win: 'Join me below...', lose: 'The sea remembers.',
@@ -132,7 +132,7 @@ export const CAPTAINS = {
     tip: 'Rogue waves rise from the deep. Fly off one at the pass for HIGH GROUND.',
   },
   nimbus: {
-    name: 'Admiral Nimbus', title: 'Lord of the Storm', sea: 'eye', boat: 'galleon_nimbus', lance: 'lance_heavy', footing: 6, boss: true,
+    name: 'Admiral Nimbus', title: 'Lord of the Storm', sea: 'eye', boat: 'galleon_nimbus', lance: 'lance_heavy', footing: 8, boss: true,
     ai: { lead: 0.5, jitter: 0.18, line: 0.7, react: 0.3, bolt: 0.9, roller: 0.6, gust: 0.5, ram: 0.3, dodge: 0.3, feint: 0.2, steer: 0.9 },
     spoil: { lance: 'lance_heavy' },
     intro: 'You sail into MY storm? Kneel, or swim.', win: 'The storm takes all.', lose: 'Impossible... the storm... obeys... YOU?',

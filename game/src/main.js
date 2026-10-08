@@ -47,9 +47,13 @@ const game = {
 };
 game.weather = new Weather(game);
 window.__game = game;
+game.debugWx = Q.get('wx');
+game.log = []; const LOG = (s) => { game.log.push(`${game.t.toFixed(2)} ${s}`); if (game.log.length > 200) game.log.shift(); };
 
 // ---------------------------------------------------------------- assets
-let BOATDIMS = {}, GALLEON = null;
+let BOATDIMS = {}, GALLEON = null, HAVE = null;
+const has = (n) => !HAVE || HAVE.has(n);
+window.__has = has;
 const DEF_DIMS = { length: 12, beam: 3.9, keelToDeck: 2.25, captainZ: 2.6, waterlineY: 1.0, mastTopY: 16, bowZ: 6, sternZ: -6 };
 async function loadJSON(u) { try { const r = await fetch(u); return r.ok ? await r.json() : null; } catch (e) { return null; } }
 function dimsFor(id) {
@@ -75,13 +79,14 @@ function tintHull(obj, tint) {
   return obj;
 }
 async function makeHull(boatId, tint) {
+  if (!has(boatId)) return placeholderHull(dimsFor(boatId), tint);
   const m = await ASSET(`./assets/${boatId}.js`);
   if (!m.children.length) return placeholderHull(dimsFor(boatId), tint);
   return tintHull(m, tint);
 }
 const LANCE_INFO = {};
 async function makeLance(id) {
-  const m = await ASSET(`./assets/${id}.js`);
+  const m = has(id) ? await ASSET(`./assets/${id}.js`) : new THREE.Group();
   const g = new THREE.Group();
   if (!m.children.length) { g.add(placeholderLance()); LANCE_INFO[id] = { len: 5.5, grip: 0.6 }; return g; }
   // put the back end at z=0 and the shaft axis at y=0
@@ -94,15 +99,19 @@ async function makeLance(id) {
   return g;
 }
 async function makeCaptain(id) {
+  if (!has('cap_' + id)) return placeholderCaptain(id);
   const m = await ASSET(`./assets/cap_${id}.js`, { keepHierarchy: true, height: id === 'nimbus' ? 2.6 : (id === 'pip' || id === 'gilly' ? 1.55 : 1.85) });
   if (!m.children.length) return placeholderCaptain(id);
   m.rotation.y = 0;
   return m;
 }
 async function makeShield() {
-  const m = await ASSET('./assets/lifebuoy.js', { height: 0.72 });
+  if (!has('lifebuoy')) return null;
+  const m = await ASSET('./assets/lifebuoy.js');
   if (!m.children.length) return null;
-  const g = new THREE.Group(); m.rotation.x = Math.PI / 2; m.position.y = -0.36; g.add(m); return g;
+  const sz = new THREE.Box3().setFromObject(m).getSize(new THREE.Vector3());
+  const k = 0.62 / Math.max(sz.x, sz.z);
+  const g = new THREE.Group(); m.scale.setScalar(k); m.rotation.x = Math.PI / 2; m.position.y = -0.31; g.add(m); return g;
 }
 // --- dev placeholders, replaced by 404 assets as they land (never shipped)
 function placeholderHull(d, tint) {
@@ -143,20 +152,21 @@ game.rivalOf = (y) => (game.match ? (y === game.match.A ? game.match.B : game.ma
 game.strikeFx = (top, bottom) => {
   fx.bolts.strike(top, bottom); world.flash = 1; ocean.userData.mat.uniforms.uFlash.value = 1;
   audio.play('thunder', { vol: 1.2, delay: 0.05 });
-  for (let i = 0; i < 30; i++) fx.sparks.emit(bottom.x, bottom.y, bottom.z, (Math.random() - 0.5) * 14, Math.random() * 10, (Math.random() - 0.5) * 14, { life: 0.5, size: 2, grow: 0.3, alpha: 1, drag: 2, grav: 4, color: new THREE.Color(0x9fe8ff) });
+  for (let i = 0; i < 30; i++) fx.sparks.emit(bottom.x, bottom.y, bottom.z, (Math.random() - 0.5) * 14, Math.random() * 10, (Math.random() - 0.5) * 14, { life: 0.5, size: 0.7, grow: 0.3, alpha: 1, drag: 2, grav: 4, color: new THREE.Color(0x9fe8ff) });
 };
 game.onStrike = (cell, boats) => {
   const inR = boats.filter((b) => !b.overboard && Math.hypot(b.x - cell.x, b.z - cell.z) < cell.r * b.lance.rod + b.boat.beam * 0.5);
   const up = inR.filter((b) => b.lanceUp).sort((a, b) => b.captainY - a.captainY);
   const h = sea.height(cell.x, cell.z);
   if (up.length) {
-    const b = up[0]; b.charged = true; b.chargeT = 0;
+    const b = up[0]; b.charged = true; b.chargeT = 0; LOG(`strike: charged ${b === game.match?.A ? 'A' : 'B'}`);
     const tip = b.lanceTip(new THREE.Vector3());
     game.strikeFx(new THREE.Vector3(tip.x + 4, 70, tip.z + 6), tip);
     audio.play('zap', { vol: 1.1 });
     if (b === game.match?.A) ui.banner('CHARGED!', 'your lance caught the bolt: next hit knocks out', 1.6, 'charge');
     else ui.banner(`${game.match?.capB.name.toUpperCase()} IS CHARGED`, 'do not let that lance touch you', 1.5, 'bad');
   } else if (inR.length) {
+    LOG(`strike: zapped ${inR.length}`);
     for (const b of inR) {
       b.stun = 1.3;
       const top = new THREE.Vector3(b.x, b.y + b.dims.mastTopY - b.dims.waterlineY, b.z);
@@ -165,11 +175,12 @@ game.onStrike = (cell, boats) => {
       else ui.banner('RIVAL ZAPPED!', 'they couched under the cell', 1.4, 'good');
     }
   } else {
+    LOG(`strike: water (A ${Math.hypot(boats[0].x - cell.x, boats[0].z - cell.z).toFixed(1)} m)`);
     game.strikeFx(new THREE.Vector3(cell.x, 70, cell.z), new THREE.Vector3(cell.x, h, cell.z));
     wake.ring(cell.x, cell.z, 4, 0.9, 3);
   }
 };
-game.onTakeoff = (y) => { if (y === game.match?.A) { audio.play('whoosh', { vol: 0.8 }); } };
+game.onTakeoff = (y) => { LOG(`takeoff ${y === game.match?.A ? 'A' : 'B'} vy ${y.vy.toFixed(1)}`); if (y === game.match?.A) { audio.play('whoosh', { vol: 0.8 }); } };
 game.onLand = (y, impact) => {
   const p = new THREE.Vector3(y.x, sea.height(y.x, y.z), y.z);
   for (let i = 0; i < 40; i++) { const a = Math.random() * 6.283; fx.spray.emit(p.x + Math.cos(a) * 3, p.y + 0.3, p.z + Math.sin(a) * 4, Math.cos(a) * 7, 4 + Math.random() * 6, Math.sin(a) * 7, { life: 1.3, size: 2.4, grow: 2.4, alpha: 0.8, drag: 1, grav: 9 }); }
@@ -182,7 +193,7 @@ game.onSplash = (p) => {
   wake.ring(p.x, p.z, 3, 1, 4); wake.blob(p.x, p.z, 5, 1);
   audio.play('splash', { vol: 1.2 });
 };
-game.onSpout = (b) => { audio.play('whoosh', { vol: 1 }); if (b === game.match?.A) ui.banner('SPUN OUT!', 'the waterspout grabbed you', 1.3, 'bad'); };
+game.onSpout = (b) => { LOG('spout'); audio.play('whoosh', { vol: 1 }); if (b === game.match?.A) ui.banner('SPUN OUT!', 'the waterspout grabbed you', 1.3, 'bad'); };
 game.wipe = (then) => {
   const w = $('wipe'); w.className = 'go'; audio.play('whoosh', { vol: 0.5 });
   setTimeout(() => { then(); dir.mode = 'crane'; game.craneT = 0; dir.update(0, ctxFor()); dir.snap(); }, 380);
@@ -422,7 +433,10 @@ document.addEventListener('contextmenu', (e) => e.preventDefault());
 (async () => {
   game.state = 'boot';
   const art = new Image(); art.src = './img/title.jpg'; art.onload = () => { $('title-art').style.backgroundImage = 'url(./img/title.jpg)'; $('title').classList.add('art-on'); };
-  [BOATDIMS, GALLEON] = await Promise.all([loadJSON('./assets/boats.json'), loadJSON('./assets/galleon.json')]);
+  let alist, slist;
+  [BOATDIMS, GALLEON, alist, slist] = await Promise.all([loadJSON('./assets/boats.json'), loadJSON('./assets/galleon.json'), loadJSON('./audio/list.json'), loadJSON('./assets/list.json')]);
+  if (alist) audio.have = new Set(alist);
+  if (slist) HAVE = new Set(slist);
   BOATDIMS ||= {};
   requestAnimationFrame(frame);
   game.state = 'title';

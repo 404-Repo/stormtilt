@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 11,
+  "tris": 1948,
+  "materials": 6,
+  "size": [
+   0.48,
+   0.48,
+   5.5
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0139,
+    "edgeDensity": 0.5721
+   },
+   "right": {
+    "coverage": 0.0244,
+    "edgeDensity": 0.715
+   },
+   "back": {
+    "coverage": 0.017,
+    "edgeDensity": 0.5911
+   },
+   "left": {
+    "coverage": 0.0247,
+    "edgeDensity": 0.566
+   }
+  },
+  "error": null,
+  "name": "lance_copper_a",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 25,
+  "tris": 2844,
+  "materials": 6,
+  "size": [
+   0.484,
+   0.479,
+   5.5
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0142,
+    "edgeDensity": 0.5569
+   },
+   "right": {
+    "coverage": 0.0245,
+    "edgeDensity": 0.7047
+   },
+   "back": {
+    "coverage": 0.0171,
+    "edgeDensity": 0.6718
+   },
+   "left": {
+    "coverage": 0.0247,
+    "edgeDensity": 0.5118
+   }
+  },
+  "error": null,
+  "name": "lance_copper_b",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 12,
+  "tris": 1254,
+  "materials": 6,
+  "size": [
+   0.452,
+   0.452,
+   5.5
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0127,
+    "edgeDensity": 0.4473
+   },
+   "right": {
+    "coverage": 0.0233,
+    "edgeDensity": 0.6809
+   },
+   "back": {
+    "coverage": 0.0152,
+    "edgeDensity": 0.4859
+   },
+   "left": {
+    "coverage": 0.0235,
+    "edgeDensity": 0.5337
+   }
+  },
+  "error": null,
+  "name": "lance_copper_c",
+  "problems": []
+ }
+]

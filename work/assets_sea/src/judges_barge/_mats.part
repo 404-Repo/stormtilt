@@ -1,0 +1,4 @@
+  const white = M(0xf3eee3), cobalt = M(0x2a5bd7), redM = M(0xd7372f), sunM = M(0xf2b630), dark = M(0x2a2830, { roughness: 0.5 });
+  const teak = M(0xa8652f, { roughness: 0.6 }); teak.name = 'timber'; const deckM = M(0xc89a62, { roughness: 0.65 }); deckM.name = 'timber';
+  const brass = M(0xc9a043, { metalness: 0.75, roughness: 0.3 }); brass.name = 'metal'; const rope = M(0xb59a6a, { roughness: 0.8 });
+  const D = 1.3;

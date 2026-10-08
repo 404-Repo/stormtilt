@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 83,
+  "tris": 6980,
+  "materials": 23,
+  "size": [
+   1.4,
+   3.715,
+   3.196
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1133,
+    "edgeDensity": 0.3845
+   },
+   "right": {
+    "coverage": 0.1274,
+    "edgeDensity": 0.3933
+   },
+   "back": {
+    "coverage": 0.1095,
+    "edgeDensity": 0.3708
+   },
+   "left": {
+    "coverage": 0.1266,
+    "edgeDensity": 0.3679
+   }
+  },
+  "error": null,
+  "name": "bathtub_a",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 83,
+  "tris": 8292,
+  "materials": 23,
+  "size": [
+   1.402,
+   3.715,
+   3.196
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1172,
+    "edgeDensity": 0.3708
+   },
+   "right": {
+    "coverage": 0.1307,
+    "edgeDensity": 0.3665
+   },
+   "back": {
+    "coverage": 0.1124,
+    "edgeDensity": 0.368
+   },
+   "left": {
+    "coverage": 0.1297,
+    "edgeDensity": 0.3742
+   }
+  },
+  "error": null,
+  "name": "bathtub_b",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 84,
+  "tris": 8436,
+  "materials": 23,
+  "size": [
+   1.379,
+   3.715,
+   3.196
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1044,
+    "edgeDensity": 0.4117
+   },
+   "right": {
+    "coverage": 0.118,
+    "edgeDensity": 0.4504
+   },
+   "back": {
+    "coverage": 0.103,
+    "edgeDensity": 0.3797
+   },
+   "left": {
+    "coverage": 0.1157,
+    "edgeDensity": 0.4311
+   }
+  },
+  "error": null,
+  "name": "bathtub_c",
+  "problems": []
+ }
+]

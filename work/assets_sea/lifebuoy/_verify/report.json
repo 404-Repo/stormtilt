@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 12,
+  "tris": 1472,
+  "materials": 3,
+  "size": [
+   0.75,
+   0.162,
+   0.75
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1701,
+    "edgeDensity": 0.1419
+   },
+   "right": {
+    "coverage": 0.1701,
+    "edgeDensity": 0.1136
+   },
+   "back": {
+    "coverage": 0.1701,
+    "edgeDensity": 0.1064
+   },
+   "left": {
+    "coverage": 0.1701,
+    "edgeDensity": 0.1067
+   }
+  },
+  "error": null,
+  "name": "c1_tori",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 9,
+  "tris": 1152,
+  "materials": 3,
+  "size": [
+   0.797,
+   0.162,
+   0.798
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1499,
+    "edgeDensity": 0.2159
+   },
+   "right": {
+    "coverage": 0.1498,
+    "edgeDensity": 0.2245
+   },
+   "back": {
+    "coverage": 0.1497,
+    "edgeDensity": 0.2449
+   },
+   "left": {
+    "coverage": 0.1499,
+    "edgeDensity": 0.2317
+   }
+  },
+  "error": null,
+  "name": "c2_lathe",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 12,
+  "tris": 1360,
+  "materials": 3,
+  "size": [
+   0.732,
+   0.16,
+   0.732
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.2012,
+    "edgeDensity": 0.1789
+   },
+   "right": {
+    "coverage": 0.2012,
+    "edgeDensity": 0.1771
+   },
+   "back": {
+    "coverage": 0.2012,
+    "edgeDensity": 0.1837
+   },
+   "left": {
+    "coverage": 0.2012,
+    "edgeDensity": 0.1806
+   }
+  },
+  "error": null,
+  "name": "c3_extrude",
+  "problems": []
+ }
+]

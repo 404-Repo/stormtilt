@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 109,
+  "tris": 18712,
+  "materials": 13,
+  "size": [
+   5.01,
+   8.729,
+   11.752
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0772,
+    "edgeDensity": 0.2928
+   },
+   "right": {
+    "coverage": 0.1332,
+    "edgeDensity": 0.3447
+   },
+   "back": {
+    "coverage": 0.099,
+    "edgeDensity": 0.3653
+   },
+   "left": {
+    "coverage": 0.1406,
+    "edgeDensity": 0.3158
+   }
+  },
+  "error": null,
+  "name": "tug_barnacle_a",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 113,
+  "tris": 26064,
+  "materials": 13,
+  "size": [
+   5.041,
+   9.14,
+   11.752
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0836,
+    "edgeDensity": 0.285
+   },
+   "right": {
+    "coverage": 0.1445,
+    "edgeDensity": 0.3121
+   },
+   "back": {
+    "coverage": 0.101,
+    "edgeDensity": 0.3601
+   },
+   "left": {
+    "coverage": 0.1535,
+    "edgeDensity": 0.2992
+   }
+  },
+  "error": null,
+  "name": "tug_barnacle_b",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 109,
+  "tris": 12664,
+  "materials": 13,
+  "size": [
+   5.145,
+   8.669,
+   11.954
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0803,
+    "edgeDensity": 0.3139
+   },
+   "right": {
+    "coverage": 0.1312,
+    "edgeDensity": 0.3516
+   },
+   "back": {
+    "coverage": 0.092,
+    "edgeDensity": 0.4188
+   },
+   "left": {
+    "coverage": 0.1386,
+    "edgeDensity": 0.3289
+   }
+  },
+  "error": null,
+  "name": "tug_barnacle_c",
+  "problems": []
+ }
+]

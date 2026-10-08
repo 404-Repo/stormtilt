@@ -112,7 +112,8 @@ export class World {
     this.dressing.clear(); this.bobbers = [];
     const L = TUNING.laneHalf;
     const put = async (name, x, z, o = {}) => {
-      const m = await ASSET(`./assets/${name}.js`, o.h ? { height: o.h } : {});
+      if (window.__has && !window.__has(name)) return new THREE.Group();
+      const m = await ASSET(`./assets/${name}.js`, { ...(o.h ? { height: o.h } : {}), ...(o.kh ? { keepHierarchy: true } : {}) });
       m.position.set(x, o.y ?? 0, z); m.rotation.y = o.ry ?? 0;
       if (o.s) m.scale.multiplyScalar(o.s);
       if (o.noShadow) m.traverse((c) => { c.castShadow = false; });
@@ -124,30 +125,32 @@ export class World {
     // lane buoys every 26 m on both sides
     for (let z = -78; z <= 78; z += 26) for (const s of [-1, 1]) jobs.push(put('buoy_lane', s * (L + 3), z, { bob: true, wl: 0.55, noShadow: true }));
     if (kind === 'regatta' || kind === 'eye') {
-      jobs.push(put('lighthouse', 120, 250, { ry: -0.6, noShadow: true }));
-      jobs.push(put('judges_barge', -(L + 22), 6, { ry: Math.PI / 2, bob: true, wl: 0.9 }));
-      for (const [x, z, ry] of [[L + 20, -40, -1.4], [L + 24, 30, -1.8], [-(L + 18), -55, 1.3], [-(L + 26), 60, 1.7], [L + 34, 95, -2.2], [-(L + 30), 120, 2]]) jobs.push(put('spectator_boat', x, z, { ry, bob: true, wl: 0.6 }));
-      jobs.push(put('sea_stack_a', -160, 300, { ry: 0.4, noShadow: true }));
+      // the regatta crowds the far end of the lane and its sides, where the chase camera looks
+      jobs.push(put('lighthouse', 70, 330, { ry: -0.6, noShadow: true }));
+      jobs.push(put('judges_barge', L + 20, 112, { ry: -2.2, bob: true, wl: 0.9 }));
+      for (const [x, z, ry] of [[L + 14, 40, -1.4], [-(L + 12), 70, 1.3], [L + 18, 150, -2.4], [-(L + 16), 128, 2.0], [-(L + 10), -20, 1.6], [L + 12, -60, -1.6], [-6, 175, 3.0], [14, 168, 2.8]]) jobs.push(put('spectator_boat', x, z, { ry, bob: true, wl: 0.6 }));
+      jobs.push(put('sea_stack_a', -95, 290, { ry: 0.4, noShadow: true }));
+      jobs.push(put('sea_stack_b', -150, 360, { ry: 2.4, noShadow: true }));
     }
     if (kind === 'thunder') {
-      jobs.push(put('sea_stack_b', -140, 260, { ry: 1.2, noShadow: true }));
-      jobs.push(put('sea_stack_a', 170, 330, { ry: 2.2, noShadow: true }));
-      jobs.push(put('lighthouse', 220, 420, { ry: -0.6, noShadow: true }));
+      jobs.push(put('sea_stack_b', -80, 260, { ry: 1.2, noShadow: true }));
+      jobs.push(put('sea_stack_a', 90, 300, { ry: 2.2, noShadow: true }));
+      jobs.push(put('lighthouse', 30, 420, { ry: -0.6, noShadow: true }));
       for (const [x, z] of [[-(L + 14), -20], [L + 16, 40]]) jobs.push(put('reef_rocks', x, z, { ry: Math.random() * 6 }));
     }
     if (kind === 'gale') {
-      for (const [x, z, n] of [[-(L + 30), 60, 'sea_stack_b'], [L + 36, -10, 'sea_stack_a'], [-(L + 60), -80, 'sea_stack_a'], [L + 70, 140, 'sea_stack_b'], [-120, 260, 'sea_stack_b']]) jobs.push(put(n, x, z, { ry: Math.random() * 6, noShadow: true }));
+      for (const [x, z, n] of [[-(L + 30), 120, 'sea_stack_b'], [L + 36, 80, 'sea_stack_a'], [-(L + 60), 220, 'sea_stack_a'], [L + 70, 200, 'sea_stack_b'], [-20, 320, 'sea_stack_b'], [L + 20, -40, 'sea_stack_a']]) jobs.push(put(n, x, z, { ry: Math.random() * 6, noShadow: true }));
       for (const [x, z] of [[-(L + 12), 20], [L + 12, -50]]) jobs.push(put('reef_rocks', x, z, { ry: Math.random() * 6 }));
     }
     if (kind === 'rogue') {
-      jobs.push(put('sea_stack_b', -150, 300, { ry: 1, noShadow: true }));
-      jobs.push(put('sea_stack_a', 190, 250, { ry: 3, noShadow: true }));
+      jobs.push(put('sea_stack_b', -70, 300, { ry: 1, noShadow: true }));
+      jobs.push(put('sea_stack_a', 110, 250, { ry: 3, noShadow: true }));
       for (const [x, z] of [[-(L + 18), 10], [L + 16, 70], [L + 20, -60]]) jobs.push(put('barrel_float', x, z, { bob: true, wl: 0.3 }));
     }
     if (kind === 'eye') {
       for (const [x, z] of [[-(L + 14), 30], [L + 14, -30]]) jobs.push(put('lifebuoy', x, z, { bob: true, wl: 0.1 }));
     }
-    for (let i = 0; i < 5; i++) jobs.push(put('gull', (Math.random() - 0.5) * 80, (Math.random() - 0.5) * 140, { y: 14 + Math.random() * 10 }).then((m) => { m.userData.gull = { a: Math.random() * 6, r: 20 + Math.random() * 30, cx: m.position.x, cz: m.position.z, y: m.position.y, sp: 0.2 + Math.random() * 0.2 }; }));
+    for (let i = 0; i < 5; i++) jobs.push(put('gull', (Math.random() - 0.5) * 80, (Math.random() - 0.5) * 140, { y: 14 + Math.random() * 10, kh: true, noShadow: true }).then((m) => { m.userData.gull = { a: Math.random() * 6, r: 20 + Math.random() * 30, cx: m.position.x, cz: m.position.z, y: m.position.y, sp: 0.2 + Math.random() * 0.2 }; }));
     await Promise.all(jobs);
   }
   update(dt, t, sea) {
@@ -159,7 +162,7 @@ export class World {
       const g = m.userData.gull; if (!g) continue;
       g.a += dt * g.sp; m.position.set(g.cx + Math.cos(g.a) * g.r, g.y + Math.sin(g.a * 3) * 1.2, g.cz + Math.sin(g.a) * g.r);
       m.rotation.y = -g.a; m.rotation.z = 0.25;
-      const j = m.userData.joints; if (j) { const f = Math.sin(t * 6 + g.a * 5) * 0.35; if (j.wingL) j.wingL.rotation.z = f; if (j.wingR) j.wingR.rotation.z = -f; }
+      const j = m.userData.joints; if (j) { const f = Math.sin(t * 6 + g.a * 5) * 0.35; if (j.wingL) j.wingL.rotation.z = f; if (j.wingR) j.wingR.rotation.z = f; }
     }
     // lightning flash decays
     this.flash = Math.max(0, this.flash - dt * 3.2);

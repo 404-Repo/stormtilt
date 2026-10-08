@@ -1,0 +1,2 @@
+{"utc": "2026-10-08T08:48:13Z", "game": "game7", "what": "art_concept_02_thunder_bolt_r2", "kind": "image-std", "api_id": "bfbeea76-8673-492e-8401-975940109276", "credits_max_hold": 77, "ok": true, "result_id": "6b29c20d-38eb-42ca-90bc-0add2274f7d7", "file": "/Users/atlas/astrocade-game7/ref/concept/02_thunder_bolt.png", "bytes": 6332715, "sha16": "3f54be5e839b8ca4", "secs": 36.3}
+ALLDONE

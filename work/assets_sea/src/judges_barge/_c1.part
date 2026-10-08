@@ -1,0 +1,7 @@
+// candidate 1: primitives: a deep box hull with sloped end boxes for the raked bow and stern, cobalt and
+// sunflower bands as proud boxes
+  add(new THREE.BoxGeometry(5.6, 1.3, 11.2), teak, 0, 0.65, 0);
+  for (const s of [-1, 1]) { const e = add(new THREE.BoxGeometry(5.6, 1.6, 1.7), teak, 0, 0.55, s * 6.0); e.rotation.x = s * 0.7; }
+  add(new THREE.BoxGeometry(5.6, 0.6, 14.0), teak, 0, D - 0.3, 0);
+  add(new THREE.BoxGeometry(5.72, 0.22, 11.4), cobalt, 0, 0.55, 0); add(new THREE.BoxGeometry(5.74, 0.14, 14.1), sunM, 0, D - 0.07, 0);
+  add(new THREE.BoxGeometry(5.5, 0.06, 13.9), deckM, 0, D, 0);

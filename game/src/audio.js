@@ -34,6 +34,7 @@ export class Audio {
     if (this.buf.has(name)) return;
     this.buf.set(name, null);
     try {
+      if (this.have && !this.have.has(file(name))) return;
       const r = await fetch(`./audio/${file(name)}.mp3`); if (!r.ok) return;
       const a = await r.arrayBuffer(); this.buf.set(name, await this.ctx.decodeAudioData(a));
     } catch (e) { /* missing file: synth fallback */ }
@@ -83,18 +84,30 @@ export class Audio {
   }
   playMusic(name, vol = 1) {
     if (!this.ctx || this.musicName === name) return;
-    this.musicName = name;
+    this.musicName = name; this.musicVol = vol;
     const old = this.music; const now = this.ctx.currentTime;
     if (old) { old.g.gain.setTargetAtTime(0, now, 0.4); setTimeout(() => { try { old.s.stop(); } catch (e) { } }, 2500); }
     this.music = null;
-    const start = () => {
+    const base = file(name);
+    const list = [base, base + '_b', base + '_c'];
+    Promise.all(list.map((n) => this.load(n))).then(() => {
       if (this.musicName !== name) return;
-      const b = this.buf.get(name); if (!b) return;
-      const s = this.ctx.createBufferSource(); s.buffer = b; s.loop = true;
-      const g = this.ctx.createGain(); g.gain.value = 0; g.gain.setTargetAtTime(vol, this.ctx.currentTime, 0.5);
-      s.connect(g).connect(this.mBus); s.start(); this.music = { s, g };
-    };
-    if (this.buf.get(name)) start(); else this.load(name).then(start);
+      const takes = list.map((n) => this.buf.get(n)).filter(Boolean);
+      if (!takes.length) return;
+      this.queue(name, takes, 0, this.ctx.currentTime + 0.05);
+    });
+  }
+  // chain the takes back to back with a short crossfade, forever
+  queue(name, takes, i, at) {
+    if (this.musicName !== name) return;
+    const b = takes[i % takes.length], xf = Math.min(1.2, b.duration * 0.08);
+    const s = this.ctx.createBufferSource(); s.buffer = b;
+    const g = this.ctx.createGain(); g.gain.setValueAtTime(0, at); g.gain.linearRampToValueAtTime(this.musicVol, at + xf);
+    g.gain.setValueAtTime(this.musicVol, at + b.duration - xf); g.gain.linearRampToValueAtTime(0, at + b.duration);
+    s.connect(g).connect(this.mBus); s.start(at);
+    this.music = { s, g };
+    const next = at + b.duration - xf;
+    setTimeout(() => this.queue(name, takes, i + 1, next), Math.max(0, (next - this.ctx.currentTime - 1.5) * 1000));
   }
   stopMusic() { this.musicName = ''; if (this.music) { const m = this.music; m.g.gain.setTargetAtTime(0, this.ctx.currentTime, 0.3); setTimeout(() => { try { m.s.stop(); } catch (e) { } }, 1500); this.music = null; } }
   bed(level, bright = 600) { if (!this.ctx) return; this.bedG.gain.setTargetAtTime(level, this.ctx.currentTime, 0.4); this.bedF.frequency.setTargetAtTime(bright, this.ctx.currentTime, 0.4); }

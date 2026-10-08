@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 12,
+  "tris": 1856,
+  "materials": 5,
+  "size": [
+   0.452,
+   0.79,
+   5.52
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0076,
+    "edgeDensity": 0.5284
+   },
+   "right": {
+    "coverage": 0.0193,
+    "edgeDensity": 0.499
+   },
+   "back": {
+    "coverage": 0.0122,
+    "edgeDensity": 0.5477
+   },
+   "left": {
+    "coverage": 0.0193,
+    "edgeDensity": 0.4859
+   }
+  },
+  "error": null,
+  "name": "lance_swordfish_a",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 14,
+  "tris": 1364,
+  "materials": 5,
+  "size": [
+   0.452,
+   0.79,
+   5.52
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.008,
+    "edgeDensity": 0.4927
+   },
+   "right": {
+    "coverage": 0.021,
+    "edgeDensity": 0.5093
+   },
+   "back": {
+    "coverage": 0.013,
+    "edgeDensity": 0.4914
+   },
+   "left": {
+    "coverage": 0.021,
+    "edgeDensity": 0.4236
+   }
+  },
+  "error": null,
+  "name": "lance_swordfish_b",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 14,
+  "tris": 1780,
+  "materials": 5,
+  "size": [
+   0.452,
+   0.79,
+   5.52
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.007,
+    "edgeDensity": 0.4434
+   },
+   "right": {
+    "coverage": 0.0186,
+    "edgeDensity": 0.5291
+   },
+   "back": {
+    "coverage": 0.0116,
+    "edgeDensity": 0.5695
+   },
+   "left": {
+    "coverage": 0.0184,
+    "edgeDensity": 0.4968
+   }
+  },
+  "error": null,
+  "name": "lance_swordfish_c",
+  "problems": []
+ }
+]

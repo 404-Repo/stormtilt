@@ -1,0 +1,476 @@
+{
+ "size": [
+  390,
+  844
+ ],
+ "band": [
+  0.06,
+  0.86
+ ],
+ "claims": {
+  "C1_surface_detail": {
+   "dir": ">=",
+   "threshold": 38.0,
+   "what": "mean Sobel gradient magnitude of luma (0..255 scale) in the band: modelled, textured surfaces"
+  },
+  "C2_flat_share": {
+   "dir": "<=",
+   "threshold": 0.52,
+   "what": "share of band pixels in flat patches (7x7 luma std < 2.0 at 390 px)"
+  },
+  "C3_highlights": {
+   "dir": ">=",
+   "threshold": 0.012,
+   "what": "share of band pixels with luma >= 225: specular glints, foam and spray read as near-white"
+  },
+  "C4_foam_cream": {
+   "dir": ">=",
+   "threshold": 0.03,
+   "what": "share of band pixels that are cream-white (HSV S <= 0.30 and V >= 0.80): foam, spray, sails in light"
+  },
+  "C5_value_range": {
+   "dir": ">=",
+   "threshold": 195,
+   "what": "luma p98 minus p2 in the band (0..255): real highlights and real shadows"
+  },
+  "C6_saturated_share": {
+   "dir": ">=",
+   "threshold": 0.22,
+   "what": "share of band pixels with HSV saturation >= 0.35 and value >= 0.25 (guard: never a grey state)"
+  }
+ },
+ "frames": {
+  "ref/concept/01_regatta_chase.png": {
+   "C1_surface_detail": 52.2061882019043,
+   "C2_flat_share": 0.3241405508072175,
+   "C3_highlights": 0.06868376068376068,
+   "C4_foam_cream": 0.0397644824311491,
+   "C5_value_range": 216.49365234375,
+   "C6_saturated_share": 0.5688015194681861,
+   "pass": {
+    "C1_surface_detail": true,
+    "C2_flat_share": true,
+    "C3_highlights": true,
+    "C4_foam_cream": true,
+    "C5_value_range": true,
+    "C6_saturated_share": true
+   }
+  },
+  "ref/concept/02_thunder_bolt.png": {
+   "C1_surface_detail": 60.15909957885742,
+   "C2_flat_share": 0.1686343779677113,
+   "C3_highlights": 0.019931623931623933,
+   "C4_foam_cream": 0.08082431149097816,
+   "C5_value_range": 210.11444091796875,
+   "C6_saturated_share": 0.575661918328585,
+   "pass": {
+    "C1_surface_detail": true,
+    "C2_flat_share": true,
+    "C3_highlights": true,
+    "C4_foam_cream": true,
+    "C5_value_range": true,
+    "C6_saturated_share": true
+   }
+  },
+  "ref/concept/03_clash.png": {
+   "C1_surface_detail": 46.18416976928711,
+   "C2_flat_share": 0.3787350427350427,
+   "C3_highlights": 0.043445394112060776,
+   "C4_foam_cream": 0.06476353276353276,
+   "C5_value_range": 217.74159240722656,
+   "C6_saturated_share": 0.6716353276353276,
+   "pass": {
+    "C1_surface_detail": true,
+    "C2_flat_share": true,
+    "C3_highlights": true,
+    "C4_foam_cream": true,
+    "C5_value_range": true,
+    "C6_saturated_share": true
+   }
+  },
+  "ref/concept/04_gale_straits.png": {
+   "C1_surface_detail": 42.651084899902344,
+   "C2_flat_share": 0.4443342830009497,
+   "C3_highlights": 0.0580360873694207,
+   "C4_foam_cream": 0.22530674264007597,
+   "C5_value_range": 222.23423767089844,
+   "C6_saturated_share": 0.5755555555555556,
+   "pass": {
+    "C1_surface_detail": true,
+    "C2_flat_share": true,
+    "C3_highlights": true,
+    "C4_foam_cream": true,
+    "C5_value_range": true,
+    "C6_saturated_share": true
+   }
+  },
+  "ref/concept/05_rogue_deep.png": {
+   "C1_surface_detail": 55.79603576660156,
+   "C2_flat_share": 0.2712934472934473,
+   "C3_highlights": 0.14493827160493827,
+   "C4_foam_cream": 0.14227920227920227,
+   "C5_value_range": 222.93240356445312,
+   "C6_saturated_share": 0.743977207977208,
+   "pass": {
+    "C1_surface_detail": true,
+    "C2_flat_share": true,
+    "C3_highlights": true,
+    "C4_foam_cream": true,
+    "C5_value_range": true,
+    "C6_saturated_share": true
+   }
+  },
+  "ref/concept/06_eye_storm.png": {
+   "C1_surface_detail": 55.24338150024414,
+   "C2_flat_share": 0.24769610636277303,
+   "C3_highlights": 0.015525166191832859,
+   "C4_foam_cream": 0.06598670465337132,
+   "C5_value_range": 214.0762939453125,
+   "C6_saturated_share": 0.2600911680911681,
+   "pass": {
+    "C1_surface_detail": true,
+    "C2_flat_share": true,
+    "C3_highlights": true,
+    "C4_foam_cream": true,
+    "C5_value_range": true,
+    "C6_saturated_share": true
+   }
+  },
+  "ref/concept/07_overboard.png": {
+   "C1_surface_detail": 57.412750244140625,
+   "C2_flat_share": 0.250659069325736,
+   "C3_highlights": 0.18328584995251662,
+   "C4_foam_cream": 0.4308907882241216,
+   "C5_value_range": 211.75045776367188,
+   "C6_saturated_share": 0.28942450142450143,
+   "pass": {
+    "C1_surface_detail": true,
+    "C2_flat_share": true,
+    "C3_highlights": true,
+    "C4_foam_cream": true,
+    "C5_value_range": true,
+    "C6_saturated_share": true
+   }
+  },
+  "floor/_frames/f1.png": {
+   "C1_surface_detail": 26.850017547607422,
+   "C2_flat_share": 0.6520759734093068,
+   "C3_highlights": 3.0389363722697055e-05,
+   "C4_foam_cream": 0.004558404558404558,
+   "C5_value_range": 179.54861450195312,
+   "C6_saturated_share": 0.5435403608736942,
+   "pass": {
+    "C1_surface_detail": false,
+    "C2_flat_share": false,
+    "C3_highlights": false,
+    "C4_foam_cream": false,
+    "C5_value_range": false,
+    "C6_saturated_share": true
+   }
+  },
+  "floor/_frames/f2.png": {
+   "C1_surface_detail": 28.42131805419922,
+   "C2_flat_share": 0.682693257359924,
+   "C3_highlights": 0.0012003798670465336,
+   "C4_foam_cream": 0.004850902184235517,
+   "C5_value_range": 160.9552001953125,
+   "C6_saturated_share": 0.6231528964862298,
+   "pass": {
+    "C1_surface_detail": false,
+    "C2_flat_share": false,
+    "C3_highlights": false,
+    "C4_foam_cream": false,
+    "C5_value_range": false,
+    "C6_saturated_share": true
+   }
+  },
+  "floor/_frames/f3.png": {
+   "C1_surface_detail": 25.957324981689453,
+   "C2_flat_share": 0.6836087369420702,
+   "C3_highlights": 7.977207977207978e-05,
+   "C4_foam_cream": 0.02054320987654321,
+   "C5_value_range": 182.3741912841797,
+   "C6_saturated_share": 0.5705185185185185,
+   "pass": {
+    "C1_surface_detail": false,
+    "C2_flat_share": false,
+    "C3_highlights": false,
+    "C4_foam_cream": false,
+    "C5_value_range": false,
+    "C6_saturated_share": true
+   }
+  },
+  "floor/_frames/f4.png": {
+   "C1_surface_detail": 34.240474700927734,
+   "C2_flat_share": 0.6204938271604938,
+   "C3_highlights": 0.010096866096866096,
+   "C4_foam_cream": 0.01445014245014245,
+   "C5_value_range": 156.73719787597656,
+   "C6_saturated_share": 0.5944577397910731,
+   "pass": {
+    "C1_surface_detail": false,
+    "C2_flat_share": false,
+    "C3_highlights": false,
+    "C4_foam_cream": false,
+    "C5_value_range": false,
+    "C6_saturated_share": true
+   }
+  },
+  "floor/_frames/f5.png": {
+   "C1_surface_detail": 32.53378677368164,
+   "C2_flat_share": 0.6385489078822412,
+   "C3_highlights": 4.938271604938271e-05,
+   "C4_foam_cream": 0.009660018993352327,
+   "C5_value_range": 160.7425994873047,
+   "C6_saturated_share": 0.5941272554605888,
+   "pass": {
+    "C1_surface_detail": false,
+    "C2_flat_share": false,
+    "C3_highlights": false,
+    "C4_foam_cream": false,
+    "C5_value_range": false,
+    "C6_saturated_share": true
+   }
+  },
+  "floor/_frames/f6.png": {
+   "C1_surface_detail": 25.19870376586914,
+   "C2_flat_share": 0.6925166191832859,
+   "C3_highlights": 1.899335232668566e-05,
+   "C4_foam_cream": 0.015411206077872745,
+   "C5_value_range": 165.26119995117188,
+   "C6_saturated_share": 0.6021044634377968,
+   "pass": {
+    "C1_surface_detail": false,
+    "C2_flat_share": false,
+    "C3_highlights": false,
+    "C4_foam_cream": false,
+    "C5_value_range": false,
+    "C6_saturated_share": true
+   }
+  },
+  "floor/_frames/l1.png": {
+   "C1_surface_detail": 31.423311233520508,
+   "C2_flat_share": 0.6319240265906932,
+   "C3_highlights": 5.3181386514719845e-05,
+   "C4_foam_cream": 0.008125356125356125,
+   "C5_value_range": 162.0039825439453,
+   "C6_saturated_share": 0.5459107312440645,
+   "pass": {
+    "C1_surface_detail": false,
+    "C2_flat_share": false,
+    "C3_highlights": false,
+    "C4_foam_cream": false,
+    "C5_value_range": false,
+    "C6_saturated_share": true
+   }
+  },
+  "floor/_frames/l2.png": {
+   "C1_surface_detail": 25.92390251159668,
+   "C2_flat_share": 0.6579639126305793,
+   "C3_highlights": 0.00011016144349477682,
+   "C4_foam_cream": 0.0034681861348528015,
+   "C5_value_range": 167.68600463867188,
+   "C6_saturated_share": 0.5500778727445395,
+   "pass": {
+    "C1_surface_detail": false,
+    "C2_flat_share": false,
+    "C3_highlights": false,
+    "C4_foam_cream": false,
+    "C5_value_range": false,
+    "C6_saturated_share": true
+   }
+  },
+  "ref/bar/moonpull_1.png": {
+   "C1_surface_detail": 83.289306640625,
+   "C2_flat_share": 0.0721747388414055,
+   "C3_highlights": 0.006697056030389364,
+   "C4_foam_cream": 0.012387464387464388,
+   "C5_value_range": 147.3354949951172,
+   "C6_saturated_share": 0.5443988603988604,
+   "pass": {
+    "C1_surface_detail": true,
+    "C2_flat_share": true,
+    "C3_highlights": false,
+    "C4_foam_cream": false,
+    "C5_value_range": false,
+    "C6_saturated_share": true
+   }
+  },
+  "ref/bar/moonpull_2.png": {
+   "C1_surface_detail": 67.4809341430664,
+   "C2_flat_share": 0.0552934472934473,
+   "C3_highlights": 0.010936372269705603,
+   "C4_foam_cream": 0.015088319088319087,
+   "C5_value_range": 138.8133544921875,
+   "C6_saturated_share": 0.5908338081671415,
+   "pass": {
+    "C1_surface_detail": true,
+    "C2_flat_share": true,
+    "C3_highlights": false,
+    "C4_foam_cream": false,
+    "C5_value_range": false,
+    "C6_saturated_share": true
+   }
+  },
+  "ref/bar/moonpull_3.png": {
+   "C1_surface_detail": 31.158105850219727,
+   "C2_flat_share": 0.2024653371320038,
+   "C3_highlights": 0.003996201329534663,
+   "C4_foam_cream": 0.011498575498575499,
+   "C5_value_range": 125.45426177978516,
+   "C6_saturated_share": 0.5978727445394112,
+   "pass": {
+    "C1_surface_detail": false,
+    "C2_flat_share": true,
+    "C3_highlights": false,
+    "C4_foam_cream": false,
+    "C5_value_range": false,
+    "C6_saturated_share": true
+   }
+  },
+  "ref/bar/moonpull_4.png": {
+   "C1_surface_detail": 51.52021026611328,
+   "C2_flat_share": 0.25979107312440647,
+   "C3_highlights": 0.009948717948717949,
+   "C4_foam_cream": 0.2489610636277303,
+   "C5_value_range": 164.44261169433594,
+   "C6_saturated_share": 0.3670807217473884,
+   "pass": {
+    "C1_surface_detail": true,
+    "C2_flat_share": true,
+    "C3_highlights": false,
+    "C4_foam_cream": true,
+    "C5_value_range": false,
+    "C6_saturated_share": true
+   }
+  },
+  "ref/bar/podium_bellkeeper_1.png": {
+   "C1_surface_detail": 63.883243560791016,
+   "C2_flat_share": 0.15753086419753087,
+   "C3_highlights": 0.004341880341880342,
+   "C4_foam_cream": 0.03390693257359924,
+   "C5_value_range": 179.80369567871094,
+   "C6_saturated_share": 0.5924064577397911,
+   "pass": {
+    "C1_surface_detail": true,
+    "C2_flat_share": true,
+    "C3_highlights": false,
+    "C4_foam_cream": true,
+    "C5_value_range": false,
+    "C6_saturated_share": true
+   }
+  },
+  "ref/bar/podium_bellkeeper_2.png": {
+   "C1_surface_detail": 41.42981719970703,
+   "C2_flat_share": 0.45885280151946817,
+   "C3_highlights": 0.0026818613485280153,
+   "C4_foam_cream": 0.03651661918328585,
+   "C5_value_range": 201.16700744628906,
+   "C6_saturated_share": 0.060258309591642925,
+   "pass": {
+    "C1_surface_detail": true,
+    "C2_flat_share": true,
+    "C3_highlights": false,
+    "C4_foam_cream": true,
+    "C5_value_range": true,
+    "C6_saturated_share": false
+   }
+  },
+  "ref/bar/podium_bellkeeper_3.png": {
+   "C1_surface_detail": 39.472652435302734,
+   "C2_flat_share": 0.43400949667616334,
+   "C3_highlights": 0.002962962962962963,
+   "C4_foam_cream": 0.019487179487179488,
+   "C5_value_range": 183.5301055908203,
+   "C6_saturated_share": 0.16818993352326686,
+   "pass": {
+    "C1_surface_detail": true,
+    "C2_flat_share": true,
+    "C3_highlights": false,
+    "C4_foam_cream": false,
+    "C5_value_range": false,
+    "C6_saturated_share": false
+   }
+  },
+  "ref/bar/podium_farseek_1.png": {
+   "C1_surface_detail": 59.50575637817383,
+   "C2_flat_share": 0.1501272554605888,
+   "C3_highlights": 0.00443684710351377,
+   "C4_foam_cream": 0.1029553656220323,
+   "C5_value_range": 188.6822052001953,
+   "C6_saturated_share": 0.36633998100664766,
+   "pass": {
+    "C1_surface_detail": true,
+    "C2_flat_share": true,
+    "C3_highlights": false,
+    "C4_foam_cream": true,
+    "C5_value_range": false,
+    "C6_saturated_share": true
+   }
+  },
+  "ref/bar/podium_farseek_2.png": {
+   "C1_surface_detail": 50.347782135009766,
+   "C2_flat_share": 0.20101044634377968,
+   "C3_highlights": 0.0042431149097815766,
+   "C4_foam_cream": 0.10213485280151947,
+   "C5_value_range": 188.89064025878906,
+   "C6_saturated_share": 0.4148414055080722,
+   "pass": {
+    "C1_surface_detail": true,
+    "C2_flat_share": true,
+    "C3_highlights": false,
+    "C4_foam_cream": true,
+    "C5_value_range": false,
+    "C6_saturated_share": true
+   }
+  },
+  "ref/bar/podium_sundrift_1.png": {
+   "C1_surface_detail": 74.4046859741211,
+   "C2_flat_share": 0.015426400759734093,
+   "C3_highlights": 0.003111111111111111,
+   "C4_foam_cream": 0.2274605887939221,
+   "C5_value_range": 207.63182067871094,
+   "C6_saturated_share": 0.25289268755935423,
+   "pass": {
+    "C1_surface_detail": true,
+    "C2_flat_share": true,
+    "C3_highlights": false,
+    "C4_foam_cream": true,
+    "C5_value_range": true,
+    "C6_saturated_share": true
+   }
+  },
+  "ref/bar/podium_sundrift_2.png": {
+   "C1_surface_detail": 65.55154418945312,
+   "C2_flat_share": 0.036250712250712254,
+   "C3_highlights": 0.0010750237416904083,
+   "C4_foam_cream": 0.021781576448243113,
+   "C5_value_range": 173.45680236816406,
+   "C6_saturated_share": 0.3998746438746439,
+   "pass": {
+    "C1_surface_detail": true,
+    "C2_flat_share": true,
+    "C3_highlights": false,
+    "C4_foam_cream": false,
+    "C5_value_range": false,
+    "C6_saturated_share": true
+   }
+  },
+  "ref/bar/podium_sundrift_3.png": {
+   "C1_surface_detail": 45.9522819519043,
+   "C2_flat_share": 0.06081671415004748,
+   "C3_highlights": 0.0011320037986704654,
+   "C4_foam_cream": 0.002358974358974359,
+   "C5_value_range": 146.3660125732422,
+   "C6_saturated_share": 0.3436999050332384,
+   "pass": {
+    "C1_surface_detail": true,
+    "C2_flat_share": true,
+    "C3_highlights": false,
+    "C4_foam_cream": false,
+    "C5_value_range": false,
+    "C6_saturated_share": true
+   }
+  }
+ }
+}

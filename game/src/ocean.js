@@ -122,7 +122,7 @@ float crestFoam(vec2 p) {
     float m = 1.0 - smoothstep(b.w - 8.0, b.w + 6.0, abs(v));
     // foam rides the lip and trails behind it
     float lip = exp(-pow((u + b.z * 0.25) / (b.z * 0.35), 2.0));
-    float trail = smoothstep(0.0, -b.z * 3.0, u) * exp(u / (b.z * 3.0)) * 0.6;
+    float trail = smoothstep(0.0, -b.z * 2.0, u) * exp(u / (b.z * 2.2)) * 0.32;
     f = max(f, (lip + trail) * m * clamp(b.y / 2.0, 0.0, 1.0));
   }
   return f;
@@ -258,8 +258,9 @@ void main() {
   if (wuv.x > 0.0 && wuv.x < 1.0 && wuv.y > 0.0 && wuv.y < 1.0) wake = texture2D(uWake, wuv).r;
   float topFoam = smoothstep(0.78, 0.98, h) * 0.55;
   float fn = fbm(uv * 1.3 + vec2(uTime * 0.1, 0.0));
-  float foam = clamp(vCrest * 1.2 + topFoam + wake * 1.25, 0.0, 1.6);
-  float foamMask = smoothstep(0.35, 0.75, foam * (0.55 + 0.75 * fn));
+  float fh = noise(uv * 4.5 + vec2(uTime * 0.3, -uTime * 0.2)) * noise(uv * 2.1 - vec2(0.0, uTime * 0.15));
+  float foam = clamp(vCrest * 1.25 + topFoam + wake * 1.25, 0.0, 1.6);
+  float foamMask = smoothstep(0.42, 0.8, foam * (0.3 + 0.7 * fn + 0.9 * fh));
   vec3 foamCol = uFoam * (0.78 + 0.32 * diff) + uSunCol * 0.05;
   col = mix(col, foamCol, foamMask * 0.92);
 

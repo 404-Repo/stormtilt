@@ -178,7 +178,7 @@ export class Bolts {
       m.position.copy(a).addScaledVector(d, 0.5); m.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), d.normalize());
       g.add(m);
     };
-    for (let i = 0; i < pts.length - 1; i++) { seg(pts[i], pts[i + 1], 0.22, this.mat); seg(pts[i], pts[i + 1], 1.1, this.glow); }
+    for (let i = 0; i < pts.length - 1; i++) { seg(pts[i], pts[i + 1], 0.16, this.mat); seg(pts[i], pts[i + 1], 0.55, this.glow); }
     for (let b = 0; b < 3; b++) {
       const i = 2 + Math.floor(Math.random() * (n - 5)); let a = pts[i].clone();
       for (let j = 0; j < 4; j++) { const c = a.clone().add(new THREE.Vector3((Math.random() - 0.5) * 8, -4 - Math.random() * 4, (Math.random() - 0.5) * 8)); seg(a, c, 0.1, this.mat); a = c; }

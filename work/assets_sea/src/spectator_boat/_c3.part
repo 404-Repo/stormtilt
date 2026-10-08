@@ -1,0 +1,14 @@
+// candidate 3: stacked plan-view slabs (ExtrudeGeometry of a sampled planform): a narrow cobalt keel slab,
+// a cobalt bilge slab, a white topside ring and a teak capping ring; chunky toy layering
+  const DECKY = 1.35, BOWLIFT = 0.1, L2 = 4.0;
+  const outline = (k, inset = 0) => { const pts = [], N = 18; for (let i = 0; i <= N; i++) { const z = -L2 + 2 * L2 * i / N, s = z / L2;
+      const hb = (s >= 0 ? 1.4 * Math.pow(Math.max(0, 1 - Math.pow(s, 2.2)), 0.55) : 1.4 * (1 - 0.1 * s * s)) * k - inset; pts.push([Math.max(0.02, hb), z]); }
+    const sh = new THREE.Shape(); sh.moveTo(-pts[0][0], -pts[0][1]); pts.forEach(([x, z]) => sh.lineTo(x, -z)); for (let i = pts.length - 1; i >= 0; i--) sh.lineTo(-pts[i][0], -pts[i][1]); return sh; };
+  const slab = (sh, y0, h, mat) => { const geo = new THREE.ExtrudeGeometry(sh, { depth: h, bevelEnabled: false, curveSegments: 3 }); geo.rotateX(-Math.PI / 2); return add(geo, mat, 0, y0, 0); };
+  const sc = (sh, s) => { sh.getPoints().forEach(() => {}); return sh; };
+  { const k = slab(outline(0.55), 0, 0.35, cobalt); k.scale.z = 0.86; }
+  { const k = slab(outline(0.85), 0.35, 0.5, cobalt); k.scale.z = 0.95; }
+  { const sh = outline(1.0); sh.holes.push(new THREE.Path(outline(1.0, 0.14).getPoints())); slab(sh, 0.85, 0.8, white); }
+  slab(outline(1.0, 0.05), 0.85, DECKY - 0.85, deckM);
+  { const sh = outline(1.03); sh.holes.push(new THREE.Path(outline(1.0, 0.12).getPoints())); slab(sh, 1.65, 0.09, teak); }
+  { const sh = outline(1.02); sh.holes.push(new THREE.Path(outline(0.99).getPoints())); slab(sh, 0.88, 0.14, teak); }

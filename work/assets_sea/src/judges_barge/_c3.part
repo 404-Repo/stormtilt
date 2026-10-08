@@ -1,0 +1,9 @@
+// candidate 3: a different reading: twin pontoon barge: two capsule floats with conical ends, a slab deck
+// platform on cross beams, cobalt skirting boards
+  for (const s of [-1, 1]) { const p = add(new THREE.CapsuleGeometry(0.75, 11.0, 4, 12), cobalt, s * 1.9, 0.75, 0); p.rotation.x = Math.PI / 2; p.scale.set(1, 1, 0.9);
+    add(new THREE.CylinderGeometry(0.78, 0.78, 0.18, 12), sunM, s * 1.9, 0.75, 3.5).rotation.x = Math.PI / 2; add(new THREE.CylinderGeometry(0.78, 0.78, 0.18, 12), sunM, s * 1.9, 0.75, -3.5).rotation.x = Math.PI / 2; }
+  for (const z of [-5, -2.5, 0, 2.5, 5]) add(new THREE.BoxGeometry(5.0, 0.25, 0.3), teak, 0, 1.0, z);
+  add(new THREE.BoxGeometry(5.6, 0.28, 14.0), teak, 0, D - 0.14, 0);
+  for (const s of [-1, 1]) add(new THREE.BoxGeometry(0.08, 0.35, 14.0), sunM, s * 2.84, D - 0.18, 0);
+  for (const s of [-1, 1]) add(new THREE.BoxGeometry(5.68, 0.35, 0.08), sunM, 0, D - 0.18, s * 7.02);
+  add(new THREE.BoxGeometry(5.5, 0.06, 13.9), deckM, 0, D, 0);

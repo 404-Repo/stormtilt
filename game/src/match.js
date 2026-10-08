@@ -11,7 +11,7 @@ export class Match {
     this.sea = SEAS[cfg.sea];
     this.A = cfg.A; this.B = cfg.B;            // Yacht objects. A charges +Z (player 1), B charges -Z.
     this.capA = CAPTAINS[cfg.capA]; this.capB = CAPTAINS[cfg.capB];
-    this.footA = cfg.footA ?? 3; this.footB = cfg.footB ?? (this.capB.footing || 3);
+    this.footA = cfg.footA ?? 5; this.footB = cfg.footB ?? (this.capB.footing || 3);
     this.maxA = this.footA; this.maxB = this.footB;
     this.tilt = 0; this.phase = 'intro'; this.pt = 0; this.over = false; this.winner = null;
     this.stats = { hits: 0, taken: 0, late: 0, high: 0, charged: 0, rams: 0, koBy: '' };
@@ -31,13 +31,15 @@ export class Match {
     g.controls?.reset(); g.controls2?.reset();
     // weather for this tilt; the boss escalates
     const closing = this.A.boat.speed + this.B.boat.speed;
-    const tp = (2 * S) / closing + 1.7;   // intro is 1.7 s with the yachts already moving slowly
+    const tp = (2 * S) / (closing * 0.97);   // the yachts sail from the first frame of the intro
     const opts = {};
     if (this.boss) {
       if (this.bossPhase >= 2) { opts.extraCells = 1; opts.cellAt = this.A; }
       if (this.bossPhase >= 3) opts.extraRollers = 1;
     }
     opts.flip = this.tilt % 2 === 0;
+    if (g.debugWx === 'cell') { opts.extraCells = 1; opts.cellAt = this.A; }
+    if (g.debugWx === 'roller') { opts.extraRollers = 1; opts.flip = false; }
     g.weather.spawnTilt(this.sea, t, tp, this.A, this.B, opts);
     if (this.aiB) this.aiB.planTilt(t, tp);
     if (this.aiA) this.aiA.planTilt(t, tp);
@@ -136,7 +138,8 @@ export class Match {
       g.dir.fovKick = (ra.hit || rb.hit) ? -6 : 0;
       // the banner leads with what the player did
       const tags = (r) => [r.charged && 'CHARGED', r.high && 'HIGH GROUND', r.late && 'LATE COUCH', r.gust && 'FULL SAIL'].filter(Boolean);
-      if (ra.hit && !rb.hit) g.ui.banner(tags(ra)[0] ? `${tags(ra).join(' + ')}!` : 'HIT!', `${this.capB.name} loses ${dmgOnB} footing`, 1.6, 'good');
+      const extra = (r) => tags(r).slice(1).map((x) => '+ ' + x.toLowerCase()).join(' ');
+      if (ra.hit && !rb.hit) g.ui.banner(tags(ra)[0] ? `${tags(ra)[0]}!` : 'HIT!', `${extra(ra)} ${extra(ra) ? '. ' : ''}${this.capB.name} loses ${dmgOnB}`, 1.6, 'good');
       else if (ra.hit && rb.hit) g.ui.banner('BOTH HIT!', `you dealt ${dmgOnB}, took ${dmgOnA}${tags(rb).length ? ' (' + tags(rb).join(', ').toLowerCase() + ')' : ''}`, 1.6, dmgOnB >= dmgOnA ? 'good' : 'bad');
       else if (!ra.hit && rb.hit) g.ui.banner(tags(rb)[0] ? `${tags(rb)[0]}!` : 'STRUCK!', `you lose ${dmgOnA} footing. ${ra.why || ''}`, 1.6, 'bad');
       else g.ui.banner(ra.braced ? 'GLANCED OFF' : 'MISS', ra.why || rb.why || '', 1.3, 'meh');
@@ -156,6 +159,7 @@ export class Match {
     if (this.boss) { const f = this.footB / this.maxB; this.bossPhase = f <= 0.34 ? 3 : f <= 0.67 ? 2 : 1; }
     g.ui.pips(this.footA, this.maxA, this.footB, this.maxB);
     g.onPass?.(res);
+    g.log?.push(`${t.toFixed(2)} pass tilt ${this.tilt}: lat ${lateral.toFixed(1)} A:${JSON.stringify(ra)} B:${JSON.stringify(rb)} foot ${this.footA}-${this.footB}${res.ram ? ' RAM' : ''}`);
     this.result = res;
   }
   attack(att, def, t) {
@@ -177,7 +181,7 @@ export class Match {
     r.gust = att.gust > 0.6;
     let dmg = 1 + (r.late ? 1 : 0) + (r.high ? 1 : 0) + (r.gust ? 1 : 0) + att.lance.dmg;
     if (early && !r.charged) { dmg -= 1; def.braced = 1.2; if (dmg <= 0) { r.braced = true; r.why = 'couched too early: they braced'; return r; } }
-    if (r.charged) dmg = 99;
+    if (r.charged) dmg = 3 + (r.late ? 1 : 0) + (r.high ? 1 : 0);
     // the bathtub is a small target: needs a solid hit
     r.hit = true; r.dmg = Math.min(dmg, 99);
     return r;

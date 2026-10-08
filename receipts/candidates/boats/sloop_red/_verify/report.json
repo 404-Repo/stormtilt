@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 130,
+  "tris": 15549,
+  "materials": 24,
+  "size": [
+   3.937,
+   15.926,
+   12.035
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0479,
+    "edgeDensity": 0.5661
+   },
+   "right": {
+    "coverage": 0.1643,
+    "edgeDensity": 0.2815
+   },
+   "back": {
+    "coverage": 0.0573,
+    "edgeDensity": 0.4569
+   },
+   "left": {
+    "coverage": 0.1619,
+    "edgeDensity": 0.273
+   }
+  },
+  "error": null,
+  "name": "sloop_red_a",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 128,
+  "tris": 17220,
+  "materials": 24,
+  "size": [
+   3.991,
+   15.926,
+   12.035
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0464,
+    "edgeDensity": 0.5235
+   },
+   "right": {
+    "coverage": 0.1642,
+    "edgeDensity": 0.2867
+   },
+   "back": {
+    "coverage": 0.0573,
+    "edgeDensity": 0.4573
+   },
+   "left": {
+    "coverage": 0.1637,
+    "edgeDensity": 0.264
+   }
+  },
+  "error": null,
+  "name": "sloop_red_b",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 193,
+  "tris": 16839,
+  "materials": 20,
+  "size": [
+   3.914,
+   15.91,
+   12.089
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0484,
+    "edgeDensity": 0.519
+   },
+   "right": {
+    "coverage": 0.1665,
+    "edgeDensity": 0.3189
+   },
+   "back": {
+    "coverage": 0.0557,
+    "edgeDensity": 0.4669
+   },
+   "left": {
+    "coverage": 0.1657,
+    "edgeDensity": 0.2979
+   }
+  },
+  "error": null,
+  "name": "sloop_red_c",
+  "problems": []
+ }
+]

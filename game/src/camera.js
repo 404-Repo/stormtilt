@@ -53,7 +53,7 @@ export class Director {
         if (e > 0.05) {
           // two-shot: blend toward a framing that holds both captains and both bows
           const a = me.worldOfCaptain(new THREE.Vector3()), b = foe.worldOfCaptain(new THREE.Vector3());
-          const dir = new THREE.Vector3().addScaledVector(f, -0.8).addScaledVector(left, 0.3).setY(0.42).normalize();
+          const dir = new THREE.Vector3().addScaledVector(f, -0.75).addScaledVector(left, 0.32).setY(0.62).normalize();
           const bowA = new THREE.Vector3(me.x, me.y + 1, me.z).addScaledVector(f, me.dims.length * 0.5);
           const pts = [a, b, bowA, new THREE.Vector3(foe.x, foe.y + 1, foe.z)];
           const keepPos = this.wantPos.clone(), keepTgt = aim.clone();
@@ -67,8 +67,8 @@ export class Director {
       const f = me.forward(new THREE.Vector3()); const left = new THREE.Vector3(f.z, 0, -f.x);
       const a = me.worldOfCaptain(new THREE.Vector3()), b = foe.worldOfCaptain(new THREE.Vector3());
       // from above and between the hulls, slightly ahead of the chaser: both captains, the lances crossing
-      const dir = new THREE.Vector3().addScaledVector(f, 0.55).addScaledVector(left, 0.45).setY(0.7).normalize();
-      this.frame([a, b, a.clone().setY(a.y + 2.5), b.clone().setY(b.y + 2.5)], dir, 1.35, 9);
+      const dir = new THREE.Vector3().addScaledVector(f, 0.3).addScaledVector(left, 0.4).setY(0.95).normalize();
+      this.frame([a, b, a.clone().setY(a.y + 2.5), b.clone().setY(b.y + 2.5)], dir, 1.45, 15);
       this.k = 7;
     } else if (mode === 'follow' && ctx.subject) {
       const s = ctx.subject;

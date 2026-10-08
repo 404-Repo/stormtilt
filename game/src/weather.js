@@ -11,10 +11,17 @@ export class Weather {
     this.cells = []; this.gusts = []; this.spouts = [];
     this.group = new THREE.Group(); this.scene.add(this.group);
     // shared visuals
-    this.ringGeo = new THREE.RingGeometry(0.92, 1.0, 64, 1); this.ringGeo.rotateX(-Math.PI / 2);
+    this.ringGeo = new THREE.RingGeometry(0.86, 1.0, 64, 1); this.ringGeo.rotateX(-Math.PI / 2);
     this.discGeo = new THREE.CircleGeometry(1, 48); this.discGeo.rotateX(-Math.PI / 2);
-    this.cloudMat = new THREE.MeshStandardMaterial({ color: 0x2d2642, roughness: 1, emissive: 0x231a3c, emissiveIntensity: 0.6, transparent: true, opacity: 0.92 });
-    this.cloudGeo = new THREE.IcosahedronGeometry(1, 2);
+    // soft cloud puff texture
+    const cv = document.createElement('canvas'); cv.width = cv.height = 128; const cx = cv.getContext('2d');
+    for (let i = 0; i < 14; i++) {
+      const x = 30 + Math.random() * 68, y = 34 + Math.random() * 60, r = 18 + Math.random() * 26;
+      const g = cx.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, 'rgba(255,255,255,0.55)'); g.addColorStop(1, 'rgba(255,255,255,0)');
+      cx.fillStyle = g; cx.beginPath(); cx.arc(x, y, r, 0, 6.283); cx.fill();
+    }
+    this.puffTex = new THREE.CanvasTexture(cv); this.puffTex.colorSpace = THREE.SRGBColorSpace;
+    this.shaftGeo = new THREE.CylinderGeometry(1, 1.15, 1, 28, 1, true); this.shaftGeo.translate(0, 0.5, 0);
   }
   clear() {
     for (const c of this.cells) this.group.remove(c.g);
@@ -37,12 +44,12 @@ export class Weather {
     // lightning cells: strike a little before the pass, somewhere between the boats
     const nc = pickN(W.cells || 0) + (opts.extraCells || 0);
     for (let i = 0; i < nc; i++) {
-      const strikeIn = tp - rnd(0.9, 2.2);
-      const frac = rnd(0.25, 0.55);
-      const toward = Math.random() < 0.5 ? A : B;
-      const z = toward.z + (0 - toward.z) * (1 - frac) * 0.9;
-      const x = opts.cellAt ? opts.cellAt.x + rnd(-3, 3) : rnd(-L + 6, L - 6);
-      this.addCell(x, z, t + Math.max(1.6, strikeIn), opts.cellAt ? 7.5 : 6.5);
+      // each cell is laid in one yacht's path so it can be caught (or must be dodged) a little before the pass
+      const strikeIn = Math.max(2.2, tp - rnd(0.8, 2.0));
+      const toward = opts.cellAt || ((i + (opts.flip ? 1 : 0)) % 2 === 0 ? A : B);
+      const z = toward.z + toward.dir * toward.boat.speed * 0.95 * strikeIn;
+      const x = THREE.MathUtils.clamp(toward.x + (opts.cellAt ? rnd(-2, 2) : rnd(-9, 9)), -L + 6, L - 6);
+      this.addCell(x, z, t + strikeIn, opts.cellAt ? 7.5 : 6.5);
     }
     // gust lanes
     const ng = pickN(W.gusts || 0);
@@ -68,20 +75,28 @@ export class Weather {
   addCell(x, z, strikeAt, r) {
     const g = new THREE.Group();
     const ring = new THREE.Mesh(this.ringGeo, new THREE.MeshBasicMaterial({ color: 0x9fe8ff, transparent: true, opacity: 0.8, depthWrite: false, toneMapped: false, blending: THREE.AdditiveBlending }));
-    const disc = new THREE.Mesh(this.discGeo, new THREE.MeshBasicMaterial({ color: 0x4a3a8a, transparent: true, opacity: 0.18, depthWrite: false }));
+    const disc = new THREE.Mesh(this.discGeo, new THREE.MeshBasicMaterial({ color: 0x2a1f5a, transparent: true, opacity: 0.3, depthWrite: false }));
     const inner = new THREE.Mesh(this.ringGeo, ring.material.clone());
     g.add(ring, disc, inner);
-    // the cloud: a lumpy cluster high above
+    // the cloud: soft dark puffs high above, lit from inside when it is about to strike
     const cloud = new THREE.Group();
-    for (let i = 0; i < 9; i++) {
-      const m = new THREE.Mesh(this.cloudGeo, this.cloudMat);
-      const a = (i / 9) * Math.PI * 2; m.position.set(Math.cos(a) * rnd(2, 6), rnd(-1, 1.5), Math.sin(a) * rnd(2, 6));
-      m.scale.set(rnd(4, 7), rnd(2.5, 4), rnd(4, 7)); cloud.add(m);
+    const puffMat = new THREE.SpriteMaterial({ map: this.puffTex, color: 0x3a2f5c, transparent: true, depthWrite: false, fog: false });
+    for (let i = 0; i < 16; i++) {
+      const sp = new THREE.Sprite(puffMat); const a = Math.random() * 6.283, rr = Math.random() * r * 0.9;
+      sp.position.set(Math.cos(a) * rr, rnd(-2, 4), Math.sin(a) * rr); const sc = rnd(13, 22); sp.scale.set(sc, sc * 0.7, 1); cloud.add(sp);
     }
-    cloud.position.y = 34; g.add(cloud);
+    cloud.position.y = 21; g.add(cloud);
+    // a shaft of rain under it
+    const shaftMat = new THREE.ShaderMaterial({
+      transparent: true, depthWrite: false, side: THREE.DoubleSide, uniforms: { uT: { value: 0 }, uP: { value: 0 }, uFade: { value: 1 } },
+      vertexShader: 'varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);} ',
+      fragmentShader: 'varying vec2 vUv; uniform float uT; uniform float uP; uniform float uFade; float h(float x){return fract(sin(x*91.7)*437.5);} void main(){ float c=floor(vUv.x*90.0); float s=fract(vUv.y*3.0+uT*2.2+h(c)); float streak=smoothstep(0.75,1.0,s)*step(0.45,h(c+3.0)); float a=(0.16+0.4*streak)*smoothstep(0.0,0.15,vUv.y)*smoothstep(1.0,0.7,vUv.y); gl_FragColor=vec4(mix(vec3(0.55,0.5,0.8),vec3(0.75,0.95,1.0),uP),a*(0.8+0.6*uP)*uFade);} ',
+    });
+    const shaft = new THREE.Mesh(this.shaftGeo, shaftMat); shaft.scale.set(r * 0.85, 22, r * 0.85); g.add(shaft);
+    cloud.userData.puff = puffMat; cloud.userData.shaft = shaftMat;
     const glow = new THREE.PointLight(0x9fe8ff, 0, 60, 1.5); glow.position.y = 30; g.add(glow);
     g.position.set(x, 0, z); this.group.add(g);
-    this.cells.push({ g, ring, inner, disc, cloud, glow, x, z, r, strikeAt, vx: rnd(-1.2, 1.2), struck: 0, rearm: 3.4 });
+    this.cells.push({ g, ring, inner, disc, cloud, glow, x, z, r, strikeAt, vx: rnd(-0.6, 0.6), struck: 0, rearm: 3.4 });
   }
   addGust(x, hw) {
     // dark ruffled streak drawn by the sea shader + wind-line particles
@@ -120,6 +135,12 @@ export class Weather {
       c.disc.material.opacity = 0.12 + 0.2 * pulse;
       c.glow.intensity = pulse * 40 * (0.5 + 0.5 * Math.sin(t * 37));
       c.cloud.rotation.y += dt * 0.2;
+      const fl = pulse * (0.5 + 0.5 * Math.sin(t * 37)) * (Math.random() < 0.3 ? 1 : 0.3);
+      c.cloud.userData.puff.color.setRGB(0.035 + fl * 0.5, 0.03 + fl * 0.65, 0.07 + fl * 0.8);
+      c.cloud.userData.shaft.uniforms.uT.value = t; c.cloud.userData.shaft.uniforms.uP.value = pulse;
+      const cam = this.game.world.camera.position; const dc = Math.hypot(cam.x - c.x, cam.z - c.z);
+      c.cloud.userData.shaft.uniforms.uFade.value = THREE.MathUtils.smoothstep(dc, c.r * 0.9, c.r * 2.2);
+      c.cloud.visible = !(dc < c.r * 1.6 && cam.y > 12);
       if (toStrike <= 0 && c.struck < 2) {
         c.struck++; c.strikeAt = t + c.rearm;
         this.game.onStrike?.(c, boats);
