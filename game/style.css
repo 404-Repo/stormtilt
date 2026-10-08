@@ -181,3 +181,18 @@ button { font-family: var(--display); color: var(--ink); border: 0; cursor: poin
 .tiltno i { display: block; font-style: normal; color: #fff; font-size: 11px; text-align: center; margin-top: 2px; letter-spacing: .04em; border-top: 1px solid rgba(255,255,255,.25); padding-top: 2px; }
 .tiltno.pop { animation: pop .3s cubic-bezier(.2,1.6,.4,1); }
 .mid.small { padding: 8px 10px; font-size: 12px; flex: none; min-width: 120px; background: rgba(243,238,227,.85); }
+/* the title must fit any phone: sizes follow the viewport height as well as its width */
+.logo .l1 { font-size: min(17vw, 11vh, 96px); }
+.logo .l2 { font-size: min(21vw, 13vh, 118px); }
+#title { overflow: hidden; }
+@media (orientation: landscape) {
+  #title { flex-direction: row; align-items: center; justify-content: center; gap: 4vw; padding: 12px calc(env(safe-area-inset-right) + 16px) 12px calc(env(safe-area-inset-left) + 16px); background: linear-gradient(90deg, rgba(16,20,40,.0) 0%, rgba(16,20,40,.25) 45%, rgba(16,20,40,.82) 100%); }
+  .logo { margin: 0; }
+  .logo .l1 { font-size: min(9vw, 20vh, 96px); }
+  .logo .l2 { font-size: min(11vw, 24vh, 118px); }
+  .logo small { font-size: min(13px, 3.2vh); margin-top: 4px; }
+  #title .menu { max-width: 360px; gap: 8px; }
+  #title .menu .big { padding: min(16px, 3vh) 34px; font-size: min(22px, 5.5vh); }
+  #title .menu .mid { padding: min(12px, 2.6vh) 12px; font-size: min(13px, 3.4vh); }
+  #title.art-on .art { mask-image: none; -webkit-mask-image: none; }
+}
