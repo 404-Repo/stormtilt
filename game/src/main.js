@@ -550,10 +550,10 @@ function frame() {
     const startAt = 0.22 + A.lance.couch;     // start holding this long before the pass
     const k = (ttp - startAt) / 1.6;
     const state = A.couch >= 1 ? 'locked' : (Math.abs(ttp - startAt) < 0.18 ? 'now' : k < 0 ? 'late' : '');
-    ui.timing(sx, sy, ttp < 3.2 && p.z < 1 ? k : null, state);
+    ui.timing(sx, sy, ttp < 2.2 && p.z < 1 ? k : null, state);
     const lat = (B.x + B.vx * Math.min(ttp, 2)) - (A.x + A.vx * Math.min(ttp, 2));
     const ramEdge = (A.boat.beam + B.boat.beam) / 2 + TUNING.hitGap;
-    ui.gauge(lat, ramEdge, A.lance.reach + B.boat.beam * 0.12, B.lance.reach + A.boat.beam * 0.12, ttp < 5.5 && ttp > 0);
+    ui.gauge(lat, ramEdge, A.lance.reach + B.boat.beam * 0.12, B.lance.reach + A.boat.beam * 0.12, ttp < 3.8 && ttp > 0);
     $('gauge').classList.toggle('danger', ttp < 2.8 && ttp > 0 && lat < ramEdge + 0.2);
     cellTag(m);
     rampMarker(m, ttp);
