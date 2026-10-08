@@ -18,6 +18,7 @@ export class Match {
     this.aiB = cfg.humanB ? null : new CaptainAI(game, this.B, this.A, this.capB.ai);
     this.aiA = cfg.autoA ? new CaptainAI(game, this.A, this.B, cfg.autoA) : null;   // used by the attract mode and tests
     this.boss = !!this.capB.boss; this.bossPhase = 1;
+    this.two = !!cfg.humanB; this.nB = this.two ? 'P2' : this.capB.name;
   }
   begin() { this.nextTilt(true); }
   nextTilt(first = false) {
@@ -109,8 +110,8 @@ export class Match {
       g.dir.shake = 1.4;
       const push = 12;
       if (Math.abs(ma - mb) < 0.15) { lines.push('RAM! hulls bounce'); A.vx -= push * Math.sign(lateral || 1) * 0.6; B.vx += push * Math.sign(lateral || 1) * 0.6; A.stun = B.stun = 0.6; }
-      else if (ma > mb) { this.footB -= 1; res.dmgB = 1; lines.push(`RAM! ${this.capB.name} shoved`); B.vx += push * Math.sign(lateral || 1); B.stun = 1.0; B.hitAnim = 0.6; }
-      else { this.footA -= 1; res.dmgA = 1; this.stats.taken++; lines.push(`RAM! You are shoved`); A.vx -= push * Math.sign(lateral || 1); A.stun = 1.0; A.hitAnim = 0.6; }
+      else if (ma > mb) { this.footB -= 1; res.dmgB = 1; lines.push(`RAM! ${this.nB} shoved`); B.vx += push * Math.sign(lateral || 1); B.stun = 1.0; B.hitAnim = 0.6; }
+      else { this.footA -= 1; res.dmgA = 1; this.stats.taken++; lines.push(this.two ? 'RAM! P1 shoved' : 'RAM! You are shoved'); A.vx -= push * Math.sign(lateral || 1); A.stun = 1.0; A.hitAnim = 0.6; }
       g.ui.banner('RAM!', lines[0], 1.4, 'ram');
     } else {
       const dmgOnB = ra.hit ? ra.dmg : 0, dmgOnA = rb.hit ? rb.dmg : 0;
@@ -139,9 +140,10 @@ export class Match {
       // the banner leads with what the player did
       const tags = (r) => [r.charged && 'CHARGED', r.high && 'HIGH GROUND', r.late && 'LATE COUCH', r.gust && 'FULL SAIL'].filter(Boolean);
       const extra = (r) => tags(r).slice(1).map((x) => '+ ' + x.toLowerCase()).join(' ');
-      if (ra.hit && !rb.hit) g.ui.banner(tags(ra)[0] ? `${tags(ra)[0]}!` : 'HIT!', `${extra(ra)} ${extra(ra) ? '. ' : ''}${this.capB.name} loses ${dmgOnB}`, 1.6, 'good');
-      else if (ra.hit && rb.hit) g.ui.banner('BOTH HIT!', `you dealt ${dmgOnB}, took ${dmgOnA}${tags(rb).length ? ' (' + tags(rb).join(', ').toLowerCase() + ')' : ''}`, 1.6, dmgOnB >= dmgOnA ? 'good' : 'bad');
-      else if (!ra.hit && rb.hit) g.ui.banner(tags(rb)[0] ? `${tags(rb)[0]}!` : 'STRUCK!', `you lose ${dmgOnA} footing. ${ra.why || ''}`, 1.6, 'bad');
+      const nA = this.two ? 'P1' : 'you';
+      if (ra.hit && !rb.hit) g.ui.banner(tags(ra)[0] ? `${tags(ra)[0]}!` : 'HIT!', `${extra(ra)} ${extra(ra) ? '. ' : ''}${this.nB} loses ${dmgOnB}`, 1.6, 'good');
+      else if (ra.hit && rb.hit) g.ui.banner('BOTH HIT!', this.two ? `P1 dealt ${dmgOnB}, P2 dealt ${dmgOnA}` : `you dealt ${dmgOnB}, took ${dmgOnA}${tags(rb).length ? ' (' + tags(rb).join(', ').toLowerCase() + ')' : ''}`, 1.6, dmgOnB >= dmgOnA ? 'good' : 'bad');
+      else if (!ra.hit && rb.hit) g.ui.banner(tags(rb)[0] ? `${tags(rb)[0]}!` : 'STRUCK!', `${nA} lose${this.two ? 's' : ''} ${dmgOnA} footing. ${ra.why || ''}`, 1.6, this.two ? 'good' : 'bad');
       else g.ui.banner(ra.braced ? 'GLANCED OFF' : 'MISS', ra.why || rb.why || '', 1.3, 'meh');
       if (rb.braced && ra.hit === false && rb.hit === false) { /* both braced */ }
     }

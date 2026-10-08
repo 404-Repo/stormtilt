@@ -163,8 +163,9 @@ game.onStrike = (cell, boats) => {
     const tip = b.lanceTip(new THREE.Vector3());
     game.strikeFx(new THREE.Vector3(tip.x + 4, 70, tip.z + 6), tip);
     audio.play('zap', { vol: 1.1 });
-    if (b === game.match?.A) ui.banner('CHARGED!', 'your lance caught the bolt: next hit knocks out', 1.6, 'charge');
-    else ui.banner(`${game.match?.capB.name.toUpperCase()} IS CHARGED`, 'do not let that lance touch you', 1.5, 'bad');
+    const two = current?.twoP;
+    if (b === game.match?.A) ui.banner(two ? 'P1 CHARGED!' : 'CHARGED!', two ? 'P1 caught the bolt' : 'your lance caught the bolt: your next hit lands for 3', 1.6, 'charge');
+    else ui.banner(two ? 'P2 CHARGED!' : `${game.match?.capB.name.toUpperCase()} IS CHARGED`, two ? 'P2 caught the bolt' : 'do not let that lance touch you', 1.5, two ? 'charge' : 'bad');
   } else if (inR.length) {
     LOG(`strike: zapped ${inR.length}`);
     for (const b of inR) {
@@ -218,7 +219,7 @@ async function startMatch(cfg) {
   ]);
   const m = new Match(game, { sea: cfg.sea, A, B, capA: cfg.capA || 'player', capB: cfg.capB, humanB: cfg.twoP, autoA: cfg.autoA, footA: cfg.footA, footB: cfg.footB });
   game.match = m; current = cfg;
-  ui.names(cfg.twoP ? 'P1' : 'YOU', cfg.twoP ? 'P2' : capB.name.toUpperCase(), cfg.twoP ? '' : './img/cap_player.png', cfg.twoP ? '' : `./img/cap_${cfg.capB}.png`);
+  ui.names(cfg.twoP ? 'P1' : 'YOU', cfg.twoP ? 'P2' : capB.name.toUpperCase(), './img/cap_player.png', `./img/cap_${cfg.capB}.png`);
   $('hud').classList.remove('hidden'); $('p2').classList.toggle('hidden', !cfg.twoP);
   $('hud').classList.toggle('twop', !!cfg.twoP);
   m.begin();
@@ -386,13 +387,22 @@ function ctxFor() {
   }
   return c;
 }
+// dynamic resolution: a phone that cannot hold ~45 fps drops pixel ratio in steps (never below 1)
+let slowT = 0, fastT = 0;
+function autoRes(f) {
+  if (document.hidden || game.state === 'boot') return;
+  if (f < 42) { slowT++; fastT = 0; } else if (f > 57) { fastT++; slowT = 0; } else { slowT = Math.max(0, slowT - 1); }
+  const r = world.renderer.getPixelRatio();
+  if (slowT >= 4 && r > 1) { world.renderer.setPixelRatio(Math.max(1, r - 0.25)); world.resize(); slowT = 0; }
+  else if (fastT >= 20 && r < world.dpr) { world.renderer.setPixelRatio(Math.min(world.dpr, r + 0.25)); world.resize(); fastT = 0; }
+}
 const clock = new THREE.Clock();
 let fpsAcc = 0, fpsN = 0, fps = 60;
 const tmpV = new THREE.Vector3();
 function frame() {
   requestAnimationFrame(frame);
   const realDt = Math.min(clock.getDelta(), 0.1);
-  fpsAcc += realDt; fpsN++; if (fpsAcc > 0.5) { fps = Math.round(fpsN / fpsAcc); fpsAcc = 0; fpsN = 0; }
+  fpsAcc += realDt; fpsN++; if (fpsAcc > 0.5) { fps = Math.round(fpsN / fpsAcc); fpsAcc = 0; fpsN = 0; autoRes(fps); }
   const m = game.match;
   // slow motion at the pass
   let ts = 1;
@@ -425,7 +435,7 @@ function frame() {
   const ctx = ctxFor();
   dir.update(realDt * (ts === 0 ? 0 : 1), ctx);
   fx.rain.step(dt, world.camera);
-  fx.spray.mat.uniforms.uScale.value = innerHeight * world.dpr * 0.5 / Math.tan(THREE.MathUtils.degToRad(world.camera.fov / 2));
+  fx.spray.mat.uniforms.uScale.value = innerHeight * world.renderer.getPixelRatio() * 0.5 / Math.tan(THREE.MathUtils.degToRad(world.camera.fov / 2));
   fx.sparks.mat.uniforms.uScale.value = fx.spray.mat.uniforms.uScale.value; fx.wind.mat.uniforms.uScale.value = fx.spray.mat.uniforms.uScale.value;
   world.aimShadow(m ? tmpV.set((m.A.x + m.B.x) / 2, 0, Math.max(-60, Math.min(60, m.A.z + 14))) : tmpV.set(0, 0, 0));
   // HUD: timing ring and pass gauge for the human

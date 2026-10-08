@@ -44,9 +44,9 @@
   "tris": 3816,
   "materials": 14,
   "size": [
-   0.907,
+   0.886,
    1.85,
-   0.751
+   0.666
   ],
   "groundOffset": 0,
   "centreOffset": [
@@ -55,20 +55,20 @@
   ],
   "sides": {
    "front": {
-    "coverage": 0.1435,
-    "edgeDensity": 0.1276
+    "coverage": 0.1452,
+    "edgeDensity": 0.1291
    },
    "right": {
-    "coverage": 0.1033,
-    "edgeDensity": 0.1155
+    "coverage": 0.1012,
+    "edgeDensity": 0.1207
    },
    "back": {
-    "coverage": 0.1517,
-    "edgeDensity": 0.08
+    "coverage": 0.1511,
+    "edgeDensity": 0.082
    },
    "left": {
-    "coverage": 0.112,
-    "edgeDensity": 0.1214
+    "coverage": 0.1109,
+    "edgeDensity": 0.1245
    }
   },
   "error": null,

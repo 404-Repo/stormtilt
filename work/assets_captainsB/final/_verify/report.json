@@ -1,0 +1,154 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 22,
+  "tris": 6088,
+  "materials": 12,
+  "size": [
+   0.648,
+   1.55,
+   0.367
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1545,
+    "edgeDensity": 0.1524
+   },
+   "right": {
+    "coverage": 0.1147,
+    "edgeDensity": 0.1267
+   },
+   "back": {
+    "coverage": 0.15,
+    "edgeDensity": 0.1182
+   },
+   "left": {
+    "coverage": 0.1148,
+    "edgeDensity": 0.1296
+   }
+  },
+  "error": null,
+  "name": "cap_gilly",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 25,
+  "tris": 3912,
+  "materials": 10,
+  "size": [
+   0.869,
+   1.85,
+   0.498
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1564,
+    "edgeDensity": 0.1242
+   },
+   "right": {
+    "coverage": 0.095,
+    "edgeDensity": 0.1505
+   },
+   "back": {
+    "coverage": 0.1476,
+    "edgeDensity": 0.1006
+   },
+   "left": {
+    "coverage": 0.0949,
+    "edgeDensity": 0.1359
+   }
+  },
+  "error": null,
+  "name": "cap_kite",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 27,
+  "tris": 3816,
+  "materials": 14,
+  "size": [
+   0.886,
+   1.85,
+   0.666
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1452,
+    "edgeDensity": 0.1291
+   },
+   "right": {
+    "coverage": 0.1012,
+    "edgeDensity": 0.1207
+   },
+   "back": {
+    "coverage": 0.1511,
+    "edgeDensity": 0.082
+   },
+   "left": {
+    "coverage": 0.1109,
+    "edgeDensity": 0.1245
+   }
+  },
+  "error": null,
+  "name": "cap_marrow",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 20,
+  "tris": 6712,
+  "materials": 9,
+  "size": [
+   1.114,
+   1.85,
+   0.598
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.2071,
+    "edgeDensity": 0.1792
+   },
+   "right": {
+    "coverage": 0.1228,
+    "edgeDensity": 0.16
+   },
+   "back": {
+    "coverage": 0.2037,
+    "edgeDensity": 0.0899
+   },
+   "left": {
+    "coverage": 0.118,
+    "edgeDensity": 0.1564
+   }
+  },
+  "error": null,
+  "name": "cap_nimbus",
+  "problems": []
+ }
+]

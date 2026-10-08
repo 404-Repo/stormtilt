@@ -64,18 +64,18 @@
     add(H, sph(0.035, 8, 6), skin, [sx * 0.175, 0.18, 0], [0, 0, 0], [0.5, 1, 0.8]);
   }
   // hair: a lathe cap open at the face, with a fringe flick at the front
-  add(H, L([[0.172, 0.12], [0.185, 0.22], [0.16, 0.3], [0.1, 0.355], [0, 0.37]], 16, 0.6, Math.PI * 2 - 1.2), hairM);
+  add(H, L([[0.186, 0.12], [0.196, 0.22], [0.172, 0.3], [0.11, 0.36], [0, 0.375]], 16, 0.6, Math.PI * 2 - 1.2), hairM);
   add(H, sph(0.08, 10, 6), hairM, [-0.05, 0.3, 0.12], [0, 0, 0.5], [1.3, 0.5, 0.6]);
 
   // ---- beanie ----
   const cuffG = L([[0.188, -0.07], [0.195, -0.03], [0.192, 0.02], [0.18, 0.025]], 32), cp = cuffG.attributes.position;
   for (let i = 0; i < cp.count; i++) { const j = Math.floor(i / 4), f = 1 + (j % 2) * 0.05; cp.setX(i, cp.getX(i) * f); cp.setZ(i, cp.getZ(i) * f); }
   cuffG.computeVertexNormals();
-  add(HT, cuffG, hatG, [0, 0.0, 0]);
-  add(HT, L([[0.18, 0.02], [0.18, 0.08], [0.15, 0.16], [0.09, 0.2], [0, 0.21]], 18), hatG);
+  add(HT, cuffG, hatG, [0, 0.025, 0]);
+  add(HT, L([[0.18, 0.02], [0.18, 0.08], [0.15, 0.16], [0.09, 0.2], [0, 0.21]], 18), hatG, [0, 0.025, 0]);
   for (let i = 0; i < 14; i++) {
     const v = new THREE.Vector3(Math.sin(i * 2.4) * (0.5 + (i % 3) * 0.2), 0.6 + ((i * 3) % 5) * 0.1, Math.cos(i * 2.4) * (0.5 + (i % 3) * 0.2)).normalize();
-    add(HT, sph(0.04, 7, 5), hatG, [v.x * 0.06, 0.26 + v.y * 0.04 - 0.02, v.z * 0.06]);
+    add(HT, sph(0.05, 7, 5), hatG, [v.x * 0.075, 0.29 + v.y * 0.05 - 0.02, v.z * 0.075]);
   }
-  add(HT, sph(0.065, 10, 8), hatG, [0, 0.25, 0]);
+  add(HT, sph(0.085, 10, 8), hatG, [0, 0.28, 0]);
   return finish(R, 1.55);

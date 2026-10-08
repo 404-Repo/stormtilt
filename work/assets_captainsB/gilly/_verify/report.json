@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 22,
+  "tris": 6518,
+  "materials": 12,
+  "size": [
+   0.645,
+   1.55,
+   0.364
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1537,
+    "edgeDensity": 0.1342
+   },
+   "right": {
+    "coverage": 0.1131,
+    "edgeDensity": 0.1219
+   },
+   "back": {
+    "coverage": 0.1494,
+    "edgeDensity": 0.1078
+   },
+   "left": {
+    "coverage": 0.1131,
+    "edgeDensity": 0.1287
+   }
+  },
+  "error": null,
+  "name": "gilly_a",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 22,
+  "tris": 6088,
+  "materials": 12,
+  "size": [
+   0.648,
+   1.55,
+   0.367
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1545,
+    "edgeDensity": 0.1524
+   },
+   "right": {
+    "coverage": 0.1147,
+    "edgeDensity": 0.1267
+   },
+   "back": {
+    "coverage": 0.15,
+    "edgeDensity": 0.1182
+   },
+   "left": {
+    "coverage": 0.1148,
+    "edgeDensity": 0.1296
+   }
+  },
+  "error": null,
+  "name": "gilly_b",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 22,
+  "tris": 7454,
+  "materials": 12,
+  "size": [
+   0.655,
+   1.55,
+   0.376
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1616,
+    "edgeDensity": 0.141
+   },
+   "right": {
+    "coverage": 0.1176,
+    "edgeDensity": 0.1787
+   },
+   "back": {
+    "coverage": 0.1563,
+    "edgeDensity": 0.1245
+   },
+   "left": {
+    "coverage": 0.1175,
+    "edgeDensity": 0.1558
+   }
+  },
+  "error": null,
+  "name": "gilly_c",
+  "problems": []
+ }
+]

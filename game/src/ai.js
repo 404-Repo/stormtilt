@@ -44,6 +44,13 @@ export class CaptainAI {
       if (want > best && want > 0.4 && Math.abs(g.x - me.x) < 16) { best = want; this.chase = { kind: 'gust', g }; }
     }
     this.lineNoise = gauss() * (1.4 - p.steer) * 2.2;
+    // say what it is going for: the player should see the race for the weather
+    const ui = this.game.ui, human = !this.game.match?.cfg?.autoA && this.me === this.game.match?.B;
+    if (human && ui && Math.random() < 0.7) {
+      const k = this.wantRam ? 'ram' : this.chase?.kind;
+      const lines = { ram: ['RAMMING SPEED!', 'Brace yerself!'], cell: ['That bolt is MINE!', 'Lightning, come to papa!', 'I call the thunder!'], crest: ['Watch me fly!', 'Surf\'s up!', 'Catching that wave!'], gust: ['Feel the wind!', 'Riding the gust!'] }[k];
+      if (lines) setTimeout(() => ui.taunt(lines[Math.floor(Math.random() * lines.length)], 1.8), 1900);
+    }
   }
   update(dt, t, ttp) {
     const p = this.p, me = this.me, foe = this.foe;

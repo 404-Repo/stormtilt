@@ -18,11 +18,11 @@
   "sides": {
    "front": {
     "coverage": 0.2154,
-    "edgeDensity": 0.1838
+    "edgeDensity": 0.1837
    },
    "right": {
     "coverage": 0.1237,
-    "edgeDensity": 0.2094
+    "edgeDensity": 0.2096
    },
    "back": {
     "coverage": 0.2016,
@@ -30,7 +30,7 @@
    },
    "left": {
     "coverage": 0.1172,
-    "edgeDensity": 0.2034
+    "edgeDensity": 0.2031
    }
   },
   "error": null,
@@ -44,9 +44,9 @@
   "tris": 6712,
   "materials": 9,
   "size": [
-   1.117,
+   1.114,
    1.85,
-   0.599
+   0.598
   ],
   "groundOffset": 0,
   "centreOffset": [
@@ -55,20 +55,20 @@
   ],
   "sides": {
    "front": {
-    "coverage": 0.2074,
-    "edgeDensity": 0.1777
+    "coverage": 0.2071,
+    "edgeDensity": 0.1792
    },
    "right": {
-    "coverage": 0.1233,
-    "edgeDensity": 0.1602
+    "coverage": 0.1228,
+    "edgeDensity": 0.16
    },
    "back": {
     "coverage": 0.2037,
-    "edgeDensity": 0.0873
+    "edgeDensity": 0.0899
    },
    "left": {
-    "coverage": 0.1182,
-    "edgeDensity": 0.1579
+    "coverage": 0.118,
+    "edgeDensity": 0.1564
    }
   },
   "error": null,
@@ -94,19 +94,19 @@
   "sides": {
    "front": {
     "coverage": 0.2078,
-    "edgeDensity": 0.1476
+    "edgeDensity": 0.1473
    },
    "right": {
     "coverage": 0.1323,
-    "edgeDensity": 0.165
+    "edgeDensity": 0.1646
    },
    "back": {
     "coverage": 0.2128,
-    "edgeDensity": 0.0883
+    "edgeDensity": 0.0882
    },
    "left": {
     "coverage": 0.118,
-    "edgeDensity": 0.182
+    "edgeDensity": 0.1817
    }
   },
   "error": null,

@@ -228,15 +228,17 @@ void main() {
   float fade = 1.0 - smoothstep(15.0, 130.0, dist);
   // detail ripples: a sum of small directional waves with analytic slopes (smooth, no noise terraces)
   vec2 grad = vec2(0.0);
+  vec2 ruv = uv + vec2(fbm(uv * 0.05), fbm(uv * 0.05 + 7.3)) * 14.0;   // domain warp kills the interference grid
   for (int i = 0; i < 9; i++) {
     float fi = float(i);
-    float ang = fi * 2.399 + 0.7;
+    float ang = fi * 2.399 + 0.7 + sin(fi * 7.13) * 0.4;
     vec2 d = vec2(cos(ang), sin(ang));
-    float L = 1.3 + fi * 0.62;
+    float L = 1.1 + fi * 0.71 + fract(fi * 0.618) * 0.9;
     float k = 6.2831 / L;
     float w = sqrt(9.8 * k);
-    float a = 0.035 * L / 6.0;
-    grad += d * (a * k * cos(k * dot(d, uv) - w * uTime * 0.7 + fi * 1.7));
+    float env = 0.55 + 0.9 * noise(uv * (0.04 + fi * 0.011) + fi * 3.1);
+    float a = 0.035 * L / 6.0 * env;
+    grad += d * (a * k * cos(k * dot(d, ruv) - w * uTime * 0.7 + fi * 1.7));
   }
   float n2 = noise(uv * 0.08 + uTime * 0.02);
   vec3 N = normalize(vNormalW + vec3(-grad.x, 0.0, -grad.y) * fade * (0.6 + 0.8 * n2));
@@ -273,7 +275,7 @@ void main() {
 
   // sun glint
   vec3 H = normalize(uSunDir + V);
-  float spec = pow(max(dot(N, H), 0.0), 260.0) * 4.0 + pow(max(dot(N, H), 0.0), 40.0) * 0.18;
+  float spec = pow(max(dot(N, H), 0.0), 220.0) * 3.0 * (0.4 + 0.6 * fade) + pow(max(dot(N, H), 0.0), 40.0) * 0.18;
   col += uSunCol * spec;
 
   // foam: crest lines, the steepest swell tops, the wake canvas, broken up by noise
@@ -284,9 +286,9 @@ void main() {
   float fn = fbm(uv * 1.3 + vec2(uTime * 0.1, 0.0));
   float fh = noise(uv * 4.5 + vec2(uTime * 0.3, -uTime * 0.2)) * noise(uv * 2.1 - vec2(0.0, uTime * 0.15));
   float foam = clamp(vCrest * 1.25 + topFoam + wake * 1.25, 0.0, 1.6);
-  float lc = lace(uv * 0.55 + vec2(uTime * 0.05, 0.0));
-  float lc2 = lace(uv * 1.4 - vec2(0.0, uTime * 0.08));
-  float laceNet = 1.0 - smoothstep(0.05, 0.16, min(lc, lc2 * 1.3));     // thin bright threads
+  vec2 lw = uv * 0.85 + vec2(fbm(uv * 0.12 + uTime * 0.05), fbm(uv * 0.12 - 3.7)) * 2.6;
+  float lc = lace(lw);
+  float laceNet = (1.0 - smoothstep(0.02, 0.09, lc)) * smoothstep(0.25, 0.75, noise(uv * 0.9 + uTime * 0.1));     // broken organic threads
   float foamMask = smoothstep(0.42, 0.8, foam * (0.3 + 0.7 * fn + 0.9 * fh));
   // lace threads trail across the faces behind every crest and around wakes
   float patchy = smoothstep(0.42, 0.7, fbm(uv * 0.18 + vec2(uTime * 0.03, uTime * 0.02)));

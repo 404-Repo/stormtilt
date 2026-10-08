@@ -79,7 +79,7 @@
   }
   for (let j = 0; j <= 36; j++) { const i = j * 4 + 3; bp.setY(i, bp.getY(i) - 0.035 * (((j * 5) % 3) / 2) - (j % 2) * 0.015); }   // torn edge
   brim.computeVertexNormals();
-  add(HT, brim, hatM, [0, 0.015, 0], [0, 0, 0], [1.15, 1, 1.15]);
+  add(HT, brim, hatM, [0, 0.0, 0], [0, 0, 0], [1.02, 1, 1.02]);
   // serrated plumes: extruded leaf outlines bent backwards
   const leaf = new THREE.Shape(); leaf.moveTo(0, 0);
   for (let i = 1; i <= 8; i++) leaf.lineTo(0.05 * Math.sin(Math.PI * i / 9) + (i % 2) * 0.015, i * 0.045);
