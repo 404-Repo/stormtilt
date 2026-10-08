@@ -1,0 +1,22 @@
+{
+  "label": "Game B",
+  "persona": "indie",
+  "play_seconds": 540.3,
+  "fun": 6,
+  "nuance": 6,
+  "nuance_found": "One verb, catch a gust in the bell and give it to a machine, but each stage changes what the gust does: the seed wheel and gate, copper grilles that turn a gust into an updraft, a hanging bridge, mill caps and tail sails, pipe wheels with a wrong-pipe valve to turn first, a timed shutter that creeps shut so you must catch and fill the grille before the ring empties, and carvings in the Hollow. The Guardian fight adds a real read: dodge telegraphed slams, catch its spent breath, and feed only the vane whose colour matches the guardian's heart (gold, then teal; the rose vane shrugs it off). That is one real decision, but most of the first nine minutes are an authored sequence with one correct order, so I did not find a trade-off that changes my strategy.",
+  "pace": 5,
+  "pace_word": "a bit slow",
+  "feedback_juice": 7,
+  "looks": 8,
+  "audio": "Procedural wind and ambience bed with soft chime and whoosh effects on catch, give and mill turns; no sequenced music heard in the stretches I read, and the effects are quiet and sparse.",
+  "would_replay": "maybe",
+  "would_quit_at_s": 100,
+  "understood_goal_by_s": 20,
+  "furthest_progress": "Woke all three windmills (Sails, Pipes, Ladders; sky bridge complete), crossed to the Hollow, fed two carvings, descended to the well floor and fought the Guardian: 2 of 3 vanes fed (rose rejected, gold done), teal vane pending with the breath held and 1 of 3 pips left.",
+  "used_movement_assist": "yes, about 90 times (it hung the harness when asked for 'carving (out)' and several times near the loft; I fell back to direct stick walking there)",
+  "control_trouble": "The goto assist stalled a handful of times (carving, Mill of Sails once), costing a few minutes of real time, and I fell off the loft twice. The camera clipped into walls and pipes, leaving the screen half black or showing only a teal pipe, so on the Guardian floor I could not always see my character or the telegraphs. That is partly a game camera issue a real player would also hit.",
+  "best_moment": "Giving the gust to the Mill of Sails and getting the cutaway of the sails turning, and later the Guardian fight where the colour of its heart tells you which vane to feed.",
+  "worst_moment": "Loft detour: the updraft ended, I got carried back to the terrace by an invisible current, and the objective text did not tell me the next gust chain (ladders 1 to 3), so I wandered for about 3 minutes.",
+  "verdict": "A handsome, genuinely authored little adventure with a clear fantasy and good moments (mill cutaways, the timed shutter, the Guardian colour read). It plays like a guided puzzle chain more than a system: the one verb is catch and give, and in nine minutes I had no real trade-off beyond doing the next thing in order. Navigation is the weak point, with invisible current walls, a camera that clips into geometry, and an objective marker that sends you to the wrong tier. Without the assist I think I would have stalled at the loft. I would play it a bit more for the Guardian and the Hollow, but it is not something I would tell friends about."
+}

@@ -1,0 +1,22 @@
+{
+  "label": "Game A",
+  "persona": "indie",
+  "play_seconds": 540.2,
+  "fun": 7,
+  "nuance": 7,
+  "nuance_found": "Each pass is a spacing game on one lateral gauge: stay out of the blue RAM zone (hulls bounce or get shoved), stay inside the gold reach band, and the far edge of it is the safe place to hit from. On top of that, every rival changes the rule: Barnacle rams so you hit from the edge of reach, Doc Volta and storm cells charge your lance only if you sail under them with the lance UP (couch under one and you get ZAPPED and lose the charge), Brisa has a longer reach so you must close the gap and she gets late-couch and high-ground bonuses, Kite has gust lanes and waterspouts that spin you out, the Gilly Twins switch lines so you couch late, Marrow has rogue waves where flying off the crest gives high ground. Charge, high ground and late couch all stack damage (dealt 3 vs took 2), and you can deliberately dodge out of reach when the rival is charged and you are not. There is also a loadout layer: spoils from each win unlock yachts and lances at The Dock (Contessa's Schooner for height, Copper Rod to catch lightning from far, Iron Tug wins rams). I equipped Schooner plus Copper Rod and it changed my results (dealt 3 took 1 against the Twins).",
+  "pace": 7,
+  "pace_word": "right",
+  "feedback_juice": 8,
+  "looks": 8,
+  "audio": "Procedural wind and thunder bed, a regatta music loop, and rich samples for charge, jump, land, lance crack, body thud, whoosh, splash, horn; every event is audible and the hit stingers land well.",
+  "would_replay": "yes",
+  "would_quit_at_s": 130,
+  "understood_goal_by_s": 60,
+  "furthest_progress": "Beat 6 rivals in the ladder (Pip, Barnacle, Doc Volta, Contessa Brisa, Kite Kowalski, The Gilly Twins); reached rival 7 Lady Marrow (Rogue Deep) and lost to her twice (best hits 2-2 trades). Best score 2,500. Unlocked yachts and lances equipped at The Dock; did not try Endless Squall or 2 Players.",
+  "used_movement_assist": "not offered",
+  "control_trouble": "The steer slider plus couch button need two thumbs; my fingers dropped the slider between acts several times so the gauge marker sat on RAM, and I often released couch a fraction early (lance not couched). Early passes I also misjudged how long to hold couch (about 2 s through contact). A real thumb pair would do better than me, but the hold-through-contact timing is not taught clearly.",
+  "best_moment": "Charged lance landing 3 damage off a crest with high ground against the Gilly Twins right after equipping Schooner and Copper Rod, then the VICTORY screen with Spoils.",
+  "worst_moment": "Brisa and Marrow: a fast pass where the gauge and the 'hit from where you cannot' rule are hard to read in 1 to 2 seconds, so losses felt like timing luck and ZAPPED for couching under a storm I had not read.",
+  "verdict": "Better than the usual jam fare. It is one verb, hold the lance, but there is a real trade-off underneath: where you sit on the gauge, whether you couch late, and whether you passed under a storm with the lance up decide a pass that lasts about 10 seconds. Each rival teaches one new rule with a tip card (ram, storm, reach, gust lanes, line-switch, rogue waves), and the dock adds builds, so at minute eight I was playing differently than at minute one (dodging out of reach when the enemy was charged and I was not). Production is genuinely high, with good sound and juice. The weakness is legibility under time pressure and two-thumb control on a phone, plus a stretch of near-identical passes between hits. I would keep it and come back for Marrow."
+}
