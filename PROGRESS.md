@@ -75,7 +75,7 @@ personality (line, couch lead and jitter, bolt/crest/gust appetite, ram, dodge, 
 
 **Assets through the 404 loop so far: 31 modules**, each 3 candidates, the verify sheet, a pick by eye (receipts in
 `receipts/candidates/`): 5 yachts + the boss galleon, 5 lances, 11 sea props, 5 captains with a 9-joint rig. Atlas so far
-about 3,255 credits (ledger `atlas_calls.jsonl`): 7 concept frames, title art, 9 captain sheets and VS portraits, 5 sky
+3,439 credits at max hold over 65 calls, 2 failed (ledger `atlas_calls.jsonl`, read at this milestone; the sea-props agent logged its 4 calls too): 7 concept frames, title art, 9 captain sheets and VS portraits, 5 sky
 panoramas, 8 music cues in 3 takes each (chained as playlists), 30 SFX and stings.
 
 **Honest gaps at this point**
