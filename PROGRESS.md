@@ -163,8 +163,8 @@ game's own source modules. Every asset is 3 candidates, the Metal verify sheet a
 | RESULT | **PASS** | **PASS** | **PASS** |
 
 Verdict blocks: `work/jam_verdict_final_tunnel.txt`, `work/jam_verdict_final_local.txt`, `work/jam_verdict_tunnel_m4.txt`.
-`ship.mjs`: 52 modules parse, nothing leaves the folder. `live.mjs` on the tunnel: ready 1.2 s, moved 45.5 m. The two
-commits after 7368900 (closing camera, rival card, title layout) are CSS and camera only; I did not re-run the gate on them.
+`ship.mjs`: 52 modules parse, nothing leaves the folder. `live.mjs` on the tunnel: ready 1.2 s, moved 45.5 m. Re-run on the final commit 155a768 over the tunnel: **PASS**, ready 4.0 s, 3.6 MB, moved 4.5 m, 289 draws, 219k tris,
+0 errors, 0 404s (`work/jam_verdict_head_tunnel.txt`).
 The 60 fps is an M4 Metal GPU, not a phone. Three.js loads from cdn.jsdelivr.net (flagged, not failed).
 
 **Coordinator's defect, fixed:** the title wordmark was cut off at the top in 844x390 landscape. The wordmark and menu now

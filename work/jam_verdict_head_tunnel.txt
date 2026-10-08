@@ -1,0 +1,19 @@
+=== 404 JAM VERDICT ===
+url             https://feb-tablet-norman-routines.trycloudflare.com/
+utc             2026-10-08T14:43:38.503Z
+commit          155a768
+viewport        390x844 @3x phone, real touch, Android Chrome UA
+network         4G: 4 Mbps down, 1 Mbps up, 60 ms latency, CPU 2x slower
+ready           4.0 s   budget 20 s   PASS
+weight          3.6 MB   budget 10 MB   PASS
+started         yes (tap on #startb)
+moved           4.5 m   needs 1 m   PASS
+peak draws      289   budget 900   PASS
+peak tris       219,434   budget 1,500,000   PASS
+median fps      60 (ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version))
+errors          0   PASS
+404s            0   PASS
+external deps   none   cdn: cdn.jsdelivr.net
+outside folder  none, every file came from the game folder
+RESULT: PASS
+=== END ===
