@@ -176,3 +176,4 @@ button { font-family: var(--display); color: var(--ink); border: 0; cursor: poin
 #celltag { position: absolute; left: 0; top: 0; display: none; pointer-events: none; transform-origin: 0 0; }
 #celltag::before { content: attr(data-t); position: absolute; left: 0; top: 0; transform: translate(-50%, -100%); white-space: nowrap; font: 900 12px var(--font); letter-spacing: .06em; color: #08202a; background: var(--cyan); padding: 4px 8px; border-radius: 8px; box-shadow: 0 0 14px rgba(159,232,255,.8); }
 #celltag.warn::before { background: #ff6a5e; color: #fff; box-shadow: 0 0 14px rgba(255,90,80,.9); animation: throb .2s ease-in-out infinite alternate; }
+#pause .mid, #pause .big { flex: none; min-width: 220px; }
