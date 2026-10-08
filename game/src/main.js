@@ -78,6 +78,15 @@ function tintHull(obj, tint) {
   });
   return obj;
 }
+// sailcloth: panel seams and a faint weave, multiplied over every sail's flat colour
+const SAILCLOTH = (() => {
+  const cv = document.createElement('canvas'); cv.width = cv.height = 256; const c = cv.getContext('2d');
+  c.fillStyle = '#fff'; c.fillRect(0, 0, 256, 256);
+  for (let i = 0; i < 4000; i++) { const v = 235 + Math.random() * 20; c.fillStyle = `rgb(${v},${v},${v})`; c.fillRect(Math.random() * 256, Math.random() * 256, 2, 1); }
+  c.fillStyle = 'rgba(120,110,95,0.35)'; for (let y = 0; y < 256; y += 32) c.fillRect(0, y, 256, 2);
+  c.fillStyle = 'rgba(120,110,95,0.12)'; for (let y = 0; y < 256; y += 32) c.fillRect(0, y + 3, 256, 1);
+  const t = new THREE.CanvasTexture(cv); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(3, 3); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; return t;
+})();
 async function makeHull(boatId, tint, own = false) {
   if (!has(boatId)) return placeholderHull(dimsFor(boatId), tint);
   const m = await ASSET(`./assets/${boatId}.js`);
@@ -90,7 +99,7 @@ async function makeHull(boatId, tint, own = false) {
       if (!o.isMesh || !o.material || Array.isArray(o.material)) return;
       const c = o.material.color; if (!c) return;
       const hsl = {}; c.clone().convertLinearToSRGB().getHSL(hsl);
-      if (o.material.side === THREE.DoubleSide && hsl.l > 0.6) { o.material = o.material.clone(); o.material.transparent = true; o.material.depthWrite = true; sails.push(o.material); }
+      if (o.material.side === THREE.DoubleSide && (hsl.l > 0.6 || (boatId === 'galleon_nimbus' && o.geometry.attributes.uv))) { o.material = o.material.clone(); if (o.geometry.attributes.uv) { o.material.map = SAILCLOTH; o.material.needsUpdate = true; } o.material.transparent = true; o.material.depthWrite = true; sails.push(o.material); }
     });
     m.userData.sails = sails;
   }
@@ -442,7 +451,8 @@ function cellTag(m) {
   const c = best.c, inside = Math.hypot(A.x - c.x, A.z - c.z) < c.r * A.lance.rod + A.boat.beam * 0.5;
   const p = tmpV.set(c.x, sea.height(c.x, c.z) + 6, c.z).project(world.camera);
   if (p.z > 1) { el.style.display = 'none'; return; }
-  el.style.display = 'block'; el.style.transform = `translate(${(p.x * 0.5 + 0.5) * innerWidth}px, ${(-p.y * 0.5 + 0.5) * innerHeight}px)`;
+  const cx = Math.max(110, Math.min(innerWidth - 110, (p.x * 0.5 + 0.5) * innerWidth)), cy = Math.max(110, Math.min(innerHeight - 220, (-p.y * 0.5 + 0.5) * innerHeight));
+  el.style.display = 'block'; el.style.transform = `translate(${cx}px, ${cy}px)`;
   const warn = inside && A.couch > 0.3;
   el.className = warn ? 'warn' : '';
   el.dataset.t = warn ? 'LET GO! LANCE UP OR BE ZAPPED' : inside ? `LANCE UP: BOLT IN ${Math.ceil(best.ts)}` : `STORM CELL: SAIL UNDER IT, LANCE UP`;

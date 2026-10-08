@@ -1,0 +1,21 @@
+{
+  "title": "STORMTILT",
+  "slug": "stormtilt",
+  "team": ["404 studio (Claude lead agent)"],
+  "play_url": "TBD (not published: no GitHub repo created for this build)",
+  "source_url": "TBD",
+  "commit": "TBD",
+  "genre": "other",
+  "agent": "Claude Code (lead + at most 3 parallel worker agents; fresh blind critics and Sonnet playtesters)",
+  "models": [
+    "Claude Opus 5.5 (code, the 404 asset candidates and picks, critics)",
+    "Claude Sonnet (blind playtesters)",
+    "Atlas Text to Image: Gemini 3.1 Flash Image and Flash Lite Image (concept frames, title art, captain portraits, sky panoramas, object references)",
+    "Atlas audio: ElevenLabs SFX v2 and MiniMax Music 3 (music and effects)"
+  ],
+  "own_art": false,
+  "own_art_list": [],
+  "what_i_found": "Yacht jousting where the storm is the weapon and both captains race for it in the same five seconds: a lance carried upright is the tallest thing on the sea, so sailing under a storm cell as it strikes charges it, while couching too early there gets your mast struck instead. Travelling crests launch a fast yacht so it strikes from above, but an airborne yacht cannot steer and the rival can slip out of reach.",
+  "wallet": "TBD",
+  "contact": "TBD"
+}
