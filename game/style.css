@@ -17,7 +17,7 @@ button { font-family: var(--display); color: var(--ink); border: 0; cursor: poin
 /* ---------------- HUD */
 #hud { position: fixed; inset: 0; pointer-events: none; z-index: 10; }
 #cards { position: absolute; top: calc(env(safe-area-inset-top) + 10px); left: 10px; right: 10px; display: flex; align-items: flex-start; justify-content: space-between; gap: 6px; }
-.card { display: flex; align-items: center; gap: 6px; background: rgba(20, 26, 51, 0.72); border-radius: 14px; padding: 5px 8px 5px 5px; max-width: 46%; backdrop-filter: blur(4px); box-shadow: 0 3px 0 rgba(0,0,0,.25); }
+.card { display: flex; align-items: center; gap: 6px; background: rgba(20, 26, 51, 0.72); border-radius: 14px; padding: 5px 8px 5px 5px; max-width: 40%; min-width: 0; overflow: hidden; backdrop-filter: blur(4px); box-shadow: 0 3px 0 rgba(0,0,0,.25); }
 .card.them { padding: 5px 5px 5px 8px; }
 .card .face { width: 42px; height: 42px; border-radius: 10px; background: #2a3358 center/cover no-repeat; flex: none; border: 2px solid var(--gold); }
 .card.them .face { border-color: #8fd0ff; }

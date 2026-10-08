@@ -56,11 +56,11 @@ export class Director {
         if (e > 0.05) {
           // two-shot: blend toward a framing that holds both captains and both bows
           const a = me.worldOfCaptain(new THREE.Vector3()), b = foe.worldOfCaptain(new THREE.Vector3());
-          const dir = new THREE.Vector3().addScaledVector(f, -0.75).addScaledVector(left, 0.32).setY(0.62).normalize();
+          const dir = new THREE.Vector3().addScaledVector(f, -0.82).addScaledVector(left, 0.36).setY(0.36).normalize();
           const bowA = new THREE.Vector3(me.x, me.y + 1, me.z).addScaledVector(f, me.dims.length * 0.5);
           const pts = [a, b, bowA, new THREE.Vector3(foe.x, foe.y + 1, foe.z)];
           const keepPos = this.wantPos.clone(), keepTgt = aim.clone();
-          this.frame(pts, dir, 0.86, Math.max(9, Math.max(me.dims.length, foe.dims.length) * 0.8));
+          this.frame(pts, dir, 0.78, Math.max(8, Math.max(me.dims.length, foe.dims.length) * 0.8));
           this.wantPos.lerp(keepPos, 1 - e); this.wantTgt.lerpVectors(keepTgt, this.wantTgt, e);
         } else this.wantTgt.copy(aim);
       } else this.wantTgt.copy(aim);
