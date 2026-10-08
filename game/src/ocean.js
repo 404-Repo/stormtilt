@@ -122,7 +122,7 @@ float crestFoam(vec2 p) {
     float m = 1.0 - smoothstep(b.w - 8.0, b.w + 6.0, abs(v));
     // foam rides the lip and trails behind it
     float lip = exp(-pow((u + b.z * 0.25) / (b.z * 0.35), 2.0));
-    float trail = smoothstep(0.0, -b.z * 2.0, u) * exp(u / (b.z * 2.2)) * 0.32;
+    float trail = smoothstep(0.0, -b.z * 1.5, u) * exp(u / (b.z * 1.4)) * 0.18;
     f = max(f, (lip + trail) * m * clamp(b.y / 2.0, 0.0, 1.0));
   }
   return f;
@@ -290,8 +290,10 @@ void main() {
   float topFoam = smoothstep(0.45, 0.18, vJ) * uFoamAmt;
   float foam = vCrest * 1.3 + topFoam + wake * 1.35;
   float fn = fbm(uv * 0.55 + vec2(uTime * 0.08, uTime * 0.05));
-  float fm = foam * (0.45 + 0.75 * fn);
-  float foamMask = smoothstep(0.6, 0.66, fm);
+  // broken foam: the patch is eaten by holes and streaks so it reads as churned water, not a sticker
+  float holes = noise(uv * 2.6 + vec2(uTime * 0.2, -uTime * 0.1)) * 0.6 + noise(uv * 6.0 - uTime * 0.3) * 0.4;
+  float fm = foam * (0.4 + 0.75 * fn) * (0.55 + 0.75 * holes);
+  float foamMask = smoothstep(0.58, 0.7, fm) * (0.75 + 0.25 * holes);
   float edge = smoothstep(0.46, 0.54, fm) - foamMask;
   col = mix(col, col * 0.78 + vec3(0.0, 0.04, 0.07), clamp(edge, 0.0, 1.0) * 0.55);
   // shaded foam: lit tops, a cooler belly toward the trough side, a bright lip at its leading edge

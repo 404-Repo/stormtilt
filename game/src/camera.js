@@ -60,7 +60,7 @@ export class Director {
           const bowA = new THREE.Vector3(me.x, me.y + 1, me.z).addScaledVector(f, me.dims.length * 0.5);
           const pts = [a, b, bowA, new THREE.Vector3(foe.x, foe.y + 1, foe.z)];
           const keepPos = this.wantPos.clone(), keepTgt = aim.clone();
-          this.frame(pts, dir, 0.86, 9);
+          this.frame(pts, dir, 0.86, Math.max(9, Math.max(me.dims.length, foe.dims.length) * 0.8));
           this.wantPos.lerp(keepPos, 1 - e); this.wantTgt.lerpVectors(keepTgt, this.wantTgt, e);
         } else this.wantTgt.copy(aim);
       } else this.wantTgt.copy(aim);
@@ -71,7 +71,8 @@ export class Director {
       const a = me.worldOfCaptain(new THREE.Vector3()), b = foe.worldOfCaptain(new THREE.Vector3());
       // from above and between the hulls, slightly ahead of the chaser: both captains, the lances crossing
       const dir = new THREE.Vector3().addScaledVector(f, 0.3).addScaledVector(left, 0.4).setY(0.95).normalize();
-      this.frame([a, b, a.clone().setY(a.y + 2.5), b.clone().setY(b.y + 2.5)], dir, 0.95, this.cam.aspect > 1 ? 15 : 10);
+      const big = Math.max(me.dims.length, foe.dims.length);
+      this.frame([a, b, a.clone().setY(a.y + 2.5), b.clone().setY(b.y + 2.5)], dir, 0.95, Math.max(this.cam.aspect > 1 ? 15 : 10, big * 0.85));
       this.k = 7;
     } else if (mode === 'follow' && ctx.subject) {
       const s = ctx.subject;

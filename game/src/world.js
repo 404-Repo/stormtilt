@@ -143,12 +143,10 @@ export class World {
       jobs.push(put('lighthouse', 30, 420, { ry: -0.6, noShadow: true }));
       for (const [x, z] of [[-(L + 14), -20], [L + 16, 40]]) jobs.push(put('reef_rocks', x, z, { ry: Math.random() * 6 }));
       jobs.push(put('shipwreck', L + 22, 120, { ry: -0.8, bob: false }));
-      jobs.push(put('sea_arch', -110, 380, { ry: 0.5, noShadow: true }));
     }
     if (kind === 'gale') {
       for (const [x, z, n] of [[-(L + 30), 120, 'sea_stack_b'], [L + 36, 80, 'sea_stack_a'], [-(L + 60), 220, 'sea_stack_a'], [L + 70, 200, 'sea_stack_b'], [-20, 320, 'sea_stack_b'], [L + 20, -40, 'sea_stack_a']]) jobs.push(put(n, x, z, { ry: Math.random() * 6, noShadow: true }));
       for (const [x, z] of [[-(L + 12), 20], [L + 12, -50]]) jobs.push(put('reef_rocks', x, z, { ry: Math.random() * 6 }));
-      jobs.push(put('sea_arch', 60, 360, { ry: -0.3, noShadow: true }));
       jobs.push(put('island_far', -200, 560, { ry: 2.6, noShadow: true }));
     }
     if (kind === 'rogue') {
