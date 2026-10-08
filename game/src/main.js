@@ -407,7 +407,7 @@ function ctxFor() {
   const c = { me: m?.A, foe: m?.B, ttp: m ? m.ttp() : 9, mode: 'chase', seaH: (x, z) => sea.height(x, z), time: game.t, craneT: game.craneT };
   if (!m) { c.mode = 'title'; return c; }
   if (current?.twoP) { c.mode = 'broadcast'; return c; }
-  if (m.phase === 'intro') { c.mode = game.craneT < 1.3 ? 'crane' : 'chase'; }
+  if (m.phase === 'intro') { c.mode = game.craneT < 1.05 ? 'crane' : 'chase'; }
   else if (m.phase === 'pass') c.mode = 'pass';
   else if (m.phase === 'after' || m.phase === 'done' || m.phase === 'wiping') {
     const r = m.result || {};
@@ -564,6 +564,8 @@ function frame() {
 addEventListener('resize', () => { world.resize(); dir.baseFov = world.camera.fov; });
 world.resize(); dir.baseFov = world.camera.fov;
 document.addEventListener('contextmenu', (e) => e.preventDefault());
+// a tap during the follow shot skips straight to the next tilt
+$('view').addEventListener('pointerdown', () => { if (game.match && game.match.phase === 'after') game.match.skip = true; });
 (async () => {
   game.state = 'boot';
   const art = new Image(); art.src = './img/title.jpg'; art.onload = () => { $('title-art').style.backgroundImage = 'url(./img/title.jpg)'; $('title').classList.add('art-on'); };

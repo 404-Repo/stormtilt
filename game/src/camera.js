@@ -83,7 +83,7 @@ export class Director {
     } else if (mode === 'crane') {
       const t = ctx.craneT || 0;
       // from high behind the chaser's start, sweeping down toward the chase position
-      const e = Math.min(1, t / 1.25), s = e * e * (3 - 2 * e);
+      const e = Math.min(1, t / 1.0), s = e * e * (3 - 2 * e);
       const z0 = me ? me.z : -90, x0 = me ? me.x : 0;
       const hi = new THREE.Vector3(x0 + 26, 42, z0 - 40), lo = new THREE.Vector3(x0 - 2.2, (me ? me.y + me.deckY() : 1) + 4.2, z0 - 9.5 + (me ? me.dims.captainZ : 0));
       this.wantPos.lerpVectors(hi, lo, s);

@@ -79,16 +79,16 @@ export class Match {
     }
     if (this.phase === 'intro') {
       // yachts already sailing; inputs live so a thumb is never ignored
-      if (this.pt > 1.3) this.phase = 'charge';
+      if (this.pt > 1.05) this.phase = 'charge';
     }
     A.update(dt, t, inA, g.sea, g.fx, g.wake); B.update(dt, t, inB, g.sea, g.fx, g.wake);
     if (this.phase === 'charge') {
       if (!this.passed && B.z - A.z <= 0) { this.passed = true; this.resolvePass(t); this.phase = 'pass'; this.pt = 0; }
     } else if (this.phase === 'pass') {
-      if (this.pt > 0.75) { this.phase = 'after'; this.pt = 0; }
+      if (this.pt > 0.62) { this.phase = 'after'; this.pt = 0; }
     } else if (this.phase === 'after') {
       const ko = this.result && (this.result.koA || this.result.koB);
-      if (this.pt > (ko ? 3.4 : 1.35)) {
+      if (this.pt > (ko ? 3.0 : 1.0) || (this.skip && this.pt > 0.35 && !ko)) { this.skip = false;
         if (this.footA <= 0 || this.footB <= 0) return this.finish();
         this.game.wipe(() => this.nextTilt());
         this.phase = 'wiping'; this.pt = 0;
