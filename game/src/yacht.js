@@ -29,6 +29,7 @@ export class Yacht {
     this.lanceModel.position.z = -(o.gripZ ?? 0.6);
     this.shield = o.shield || null;
     if (this.shield) { this.shield.position.set(0.42, 1.15, 0.25); this.shield.rotation.y = 0.5; this.capRoot.add(this.shield); }
+    if (o.buddy) { this.buddy = o.buddy; this.buddy.position.set(-0.7, this.deckY(), this.dims.captainZ - 1.7); this.buddy.rotation.y = 0.5; this.body.add(this.buddy); }
     game.scene.add(this.root);
     this.reset(0, 0);
   }
@@ -187,6 +188,7 @@ export class Yacht {
       if (k >= 1) { this.hatPop = 0; j.hat.position.y = this.hatY0 ?? j.hat.position.y; j.hat.rotation.x = 0; }
       else { this.hatY0 ??= j.hat.position.y; j.hat.position.y = this.hatY0 + Math.sin(k * Math.PI) * 0.6 * this.hatPopP; j.hat.rotation.x = Math.sin(k * Math.PI * 2) * 0.8; }
     }
+    if (this.buddy) { const bj = this.buddy.userData.joints || {}; const w = Math.sin(t * 7); if (bj.armL) bj.armL.rotation.z = 2.2 + w * 0.5; if (bj.armR) bj.armR.rotation.z = -0.3; this.buddy.position.y = this.deckY() + Math.abs(Math.sin(t * 5)) * 0.12; }
     if (this.overboard) this.animOverboard(dt);
   }
 

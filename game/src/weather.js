@@ -140,7 +140,9 @@ export class Weather {
       c.cloud.userData.shaft.uniforms.uT.value = t; c.cloud.userData.shaft.uniforms.uP.value = pulse;
       const cam = this.game.world.camera.position; const dc = Math.hypot(cam.x - c.x, cam.z - c.z);
       c.cloud.userData.shaft.uniforms.uFade.value = THREE.MathUtils.smoothstep(dc, c.r * 1.3, c.r * 3.6);
-      c.cloud.visible = !(dc < c.r * 1.6 && cam.y > 12);
+      const d3 = Math.hypot(cam.x - c.x, cam.y - 21, cam.z - c.z);
+      c.cloud.userData.puff.opacity = THREE.MathUtils.smoothstep(d3, c.r + 8, c.r + 26);
+      c.cloud.visible = c.cloud.userData.puff.opacity > 0.02;
       if (toStrike <= 0 && c.struck < 2) {
         c.struck++; c.strikeAt = t + c.rearm;
         this.game.onStrike?.(c, boats);

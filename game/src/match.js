@@ -50,6 +50,7 @@ export class Match {
       const tip = this.tiltTip();
       g.ui.banner(`TILT ${this.tilt}`, tip, 1.5);
     }
+    if (this.bossLine) { g.ui.banner(this.bossLine[0], this.bossLine[1], 2.6, 'charge'); g.world.flash = 1; g.audio.play('thunder', { vol: 1.3 }); this.bossLine = null; }
     if (Math.random() < 0.55 || this.tilt === 1) g.ui.taunt(this.capB.taunts[Math.floor(Math.random() * this.capB.taunts.length)]);
     g.audio.play('horn', { delay: 1.2, vol: 0.8 });
   }
@@ -158,7 +159,13 @@ export class Match {
     if (res.koA) { A.knockOverboard(new THREE.Vector3(-1, 0, 0)); this.stats.koBy = this.capB.name; }
     if (res.koB) { B.knockOverboard(new THREE.Vector3(1, 0, 0)); }
     if (res.koA || res.koB) { g.audio.play('whoosh'); g.audio.play('cheer', { delay: 0.6 }); }
-    if (this.boss) { const f = this.footB / this.maxB; this.bossPhase = f <= 0.34 ? 3 : f <= 0.67 ? 2 : 1; }
+    if (this.boss) {
+      const f = this.footB / this.maxB, old = this.bossPhase;
+      this.bossPhase = f <= 0.34 ? 3 : f <= 0.67 ? 2 : 1;
+      if (this.bossPhase > old && !res.koB) {
+        this.bossLine = this.bossPhase === 2 ? ['THE ADMIRAL CALLS THE STORM', 'his clouds hunt you now: keep your lance up under them'] : ['THE SEA ANSWERS HIM', 'rogue crests every tilt: fly or be flown over'];
+      }
+    }
     g.ui.pips(this.footA, this.maxA, this.footB, this.maxB);
     g.onPass?.(res);
     g.log?.push(`${t.toFixed(2)} pass tilt ${this.tilt}: lat ${lateral.toFixed(1)} A:${JSON.stringify(ra)} B:${JSON.stringify(rb)} foot ${this.footA}-${this.footB}${res.ram ? ' RAM' : ''}`);

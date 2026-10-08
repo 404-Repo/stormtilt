@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 45,
+  "tris": 3892,
+  "materials": 11,
+  "size": [
+   190.498,
+   52.961,
+   72.309
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.134,
+    "edgeDensity": 0.3804
+   },
+   "right": {
+    "coverage": 0.1103,
+    "edgeDensity": 0.3273
+   },
+   "back": {
+    "coverage": 0.1394,
+    "edgeDensity": 0.3228
+   },
+   "left": {
+    "coverage": 0.111,
+    "edgeDensity": 0.3232
+   }
+  },
+  "error": null,
+  "name": "c1_heightfield",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 45,
+  "tris": 1968,
+  "materials": 11,
+  "size": [
+   165.784,
+   51.728,
+   63.734
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1669,
+    "edgeDensity": 0.5722
+   },
+   "right": {
+    "coverage": 0.1092,
+    "edgeDensity": 0.5055
+   },
+   "back": {
+    "coverage": 0.1664,
+    "edgeDensity": 0.5187
+   },
+   "left": {
+    "coverage": 0.1093,
+    "edgeDensity": 0.4644
+   }
+  },
+  "error": null,
+  "name": "c2_contours",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 45,
+  "tris": 2164,
+  "materials": 11,
+  "size": [
+   182.103,
+   47.811,
+   60.899
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1229,
+    "edgeDensity": 0.238
+   },
+   "right": {
+    "coverage": 0.101,
+    "edgeDensity": 0.1741
+   },
+   "back": {
+    "coverage": 0.1275,
+    "edgeDensity": 0.1513
+   },
+   "left": {
+    "coverage": 0.0971,
+    "edgeDensity": 0.2106
+   }
+  },
+  "error": null,
+  "name": "c3_blobs",
+  "problems": []
+ }
+]

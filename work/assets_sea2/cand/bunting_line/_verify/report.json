@@ -1,0 +1,131 @@
+[
+ {
+  "ok": true,
+  "mounts": [
+   "left",
+   "right"
+  ],
+  "meshes": 46,
+  "tris": 980,
+  "materials": 6,
+  "size": [
+   24.66,
+   2.726,
+   0.583
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0114,
+    "edgeDensity": 0.6033
+   },
+   "right": {
+    "coverage": 0.0054,
+    "edgeDensity": 0.8187
+   },
+   "back": {
+    "coverage": 0.0114,
+    "edgeDensity": 0.7089
+   },
+   "left": {
+    "coverage": 0.0054,
+    "edgeDensity": 0.7306
+   }
+  },
+  "error": null,
+  "name": "c1_prims",
+  "problems": []
+ },
+ {
+  "ok": false,
+  "mounts": [
+   "left",
+   "right"
+  ],
+  "meshes": 27,
+  "tris": 1288,
+  "materials": 6,
+  "size": [
+   24.66,
+   2.715,
+   0.612
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.012,
+    "edgeDensity": 0.6327
+   },
+   "right": {
+    "coverage": 0.0042,
+    "edgeDensity": 0.7389
+   },
+   "back": {
+    "coverage": 0.0123,
+    "edgeDensity": 0.5493
+   },
+   "left": {
+    "coverage": 0.0042,
+    "edgeDensity": 0.6932
+   }
+  },
+  "error": null,
+  "name": "c2_extrude",
+  "problems": [
+   "right face is empty",
+   "left face is empty"
+  ]
+ },
+ {
+  "ok": false,
+  "mounts": [
+   "left",
+   "right"
+  ],
+  "meshes": 27,
+  "tris": 1398,
+  "materials": 6,
+  "size": [
+   24.66,
+   2.732,
+   0.758
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0129,
+    "edgeDensity": 0.6003
+   },
+   "right": {
+    "coverage": 0.0033,
+    "edgeDensity": 0.7237
+   },
+   "back": {
+    "coverage": 0.012,
+    "edgeDensity": 0.515
+   },
+   "left": {
+    "coverage": 0.0031,
+    "edgeDensity": 0.7247
+   }
+  },
+  "error": null,
+  "name": "c3_cloth",
+  "problems": [
+   "right face is empty",
+   "left face is empty"
+  ]
+ }
+]

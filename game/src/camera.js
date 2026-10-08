@@ -77,7 +77,7 @@ export class Director {
       this.wantTgt.copy(s);
       this.wantPos.copy(s).addScaledVector(dir, ctx.followDist || 14);
       this.wantPos.y = Math.max(this.wantPos.y, ctx.seaH(this.wantPos.x, this.wantPos.z) + 2);
-      this.k = 3;
+      this.k = 4.5;
     } else if (mode === 'crane') {
       const t = ctx.craneT || 0;
       // from high behind the chaser's start, sweeping down toward the chase position

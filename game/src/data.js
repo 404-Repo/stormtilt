@@ -133,7 +133,7 @@ export const CAPTAINS = {
   },
   nimbus: {
     short: 'THE ADMIRAL', name: 'Admiral Nimbus', title: 'Lord of the Storm', sea: 'eye', boat: 'galleon_nimbus', lance: 'lance_heavy', footing: 8, boss: true,
-    ai: { lead: 0.5, jitter: 0.18, line: 0.7, react: 0.3, bolt: 0.9, roller: 0.6, gust: 0.5, ram: 0.3, dodge: 0.3, feint: 0.2, steer: 0.9 },
+    ai: { lead: 0.5, jitter: 0.18, line: 0.7, react: 0.3, bolt: 0.9, roller: 0.6, gust: 0.5, ram: 0.15, dodge: 0.3, feint: 0.2, steer: 0.9 },
     spoil: { lance: 'lance_heavy' },
     intro: 'You sail into MY storm? Kneel, or swim.', win: 'The storm takes all.', lose: 'Impossible... the storm... obeys... YOU?',
     taunts: ['THUNDER!', 'Bow to the storm!', 'I AM the weather!'],

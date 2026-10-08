@@ -144,7 +144,8 @@ const yachtCache = {};
 async function buildYacht(capId, boatId, lanceId, tint, d) {
   const [hull, captain, lanceModel, shield] = await Promise.all([makeHull(boatId, tint), makeCaptain(capId), makeLance(lanceId), makeShield()]);
   const li = LANCE_INFO[lanceId];
-  return new Yacht(game, { boat: boatId, lance: lanceId, dims: dimsFor(boatId), dir: d, hull, captain, lanceModel, shield, lanceLen: li.len, gripZ: li.grip, capScale: capId === 'nimbus' ? 1.4 : 1 });
+  const buddy = capId === 'gilly' ? await makeCaptain('gilly') : null;
+  return new Yacht(game, { buddy, boat: boatId, lance: lanceId, dims: dimsFor(boatId), dir: d, hull, captain, lanceModel, shield, lanceLen: li.len, gripZ: li.grip, capScale: capId === 'nimbus' ? 1.4 : 1 });
 }
 
 // ---------------------------------------------------------------- game hooks
@@ -382,8 +383,9 @@ function ctxFor() {
     } else {
       const subj = (r.dmgA > (r.dmgB || 0) ? m.A.capRoot : m.B.capRoot);
       c.mode = 'follow'; c.subject = subj.getWorldPosition(new THREE.Vector3());
-      c.followDist = 16;
-      c.followDir = new THREE.Vector3(-0.7, 0.42, -0.58).normalize();
+      c.followDist = 10.5;
+      const fb = r.dmgA > (r.dmgB || 0) ? m.A : m.B;
+      c.followDir = new THREE.Vector3(-0.75 * fb.dir, 0.3, 0.6 * fb.dir).normalize();
     }
   }
   return c;
