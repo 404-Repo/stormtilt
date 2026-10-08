@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#1b2440">
+<title>Stormtilt</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b2440'/%3E%3Cpath d='M10 44 Q22 36 32 44 T54 44 L54 54 L10 54Z' fill='%231d8a8a'/%3E%3Cpath d='M14 40 L50 14' stroke='%23f3eee3' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M36 8 L30 22 L38 22 L32 34' stroke='%239fe8ff' stroke-width='3' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="./style.css">
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<div id="view"><canvas id="c"></canvas></div>
+<div id="flash"></div>
+<div id="wipe"></div>
+
+<!-- HUD -->
+<div id="hud" class="hidden">
+  <div id="cards">
+    <div class="card me" id="card-a"><div class="face" id="face-a"></div><div class="who"><b id="name-a">YOU</b><div class="pips" id="pips-a"></div></div></div>
+    <div class="tiltno" id="tiltno">TILT 1</div>
+    <div class="card them" id="card-b"><div class="who"><b id="name-b">RIVAL</b><div class="pips" id="pips-b"></div></div><div class="face" id="face-b"></div></div>
+  </div>
+  <button id="b-pause" class="round" aria-label="pause">II</button>
+  <div id="banner"></div>
+  <div id="sub"></div>
+  <div id="taunt"></div>
+  <div id="gauge"><div class="zone ram"></div><div class="zone hit" id="g-hit"></div><div class="zone miss"></div><i id="g-me"></i><i id="g-them"></i></div>
+  <div id="stick"><div class="track"></div><div class="knob" id="knob"></div><span class="lbl">STEER</span></div>
+  <div id="couch"><div class="ring"></div><span class="lbl">HOLD<br><b>COUCH</b></span></div>
+  <div id="hint"></div>
+  <!-- second player (top half, rotated) -->
+  <div id="p2" class="hidden">
+    <div id="stick2"><div class="track"></div><div class="knob" id="knob2"></div><span class="lbl">STEER</span></div>
+    <div id="couch2"><div class="ring"></div><span class="lbl">HOLD<br><b>COUCH</b></span></div>
+  </div>
+</div>
+
+<!-- screens -->
+<div id="title" class="screen">
+  <div class="art" id="title-art"></div>
+  <div class="logo"><span class="l1">STORM</span><span class="l2">TILT</span><small>yacht jousting</small></div>
+  <div class="menu">
+    <button id="startb" class="big">PLAY</button>
+    <div class="row">
+      <button id="b-quick" class="mid">QUICK MATCH</button>
+      <button id="b-2p" class="mid">2 PLAYERS</button>
+    </div>
+    <div class="row">
+      <button id="b-endless" class="mid">ENDLESS SQUALL</button>
+      <button id="b-dock" class="mid">THE DOCK</button>
+    </div>
+  </div>
+  <div id="loading">charting the storm...</div>
+</div>
+
+<div id="ladder" class="screen hidden">
+  <h2>THE SQUALL CUP</h2>
+  <div id="ladder-list"></div>
+  <div class="row"><button id="b-ladder-back" class="mid">BACK</button><button id="b-ladder-go" class="big">SAIL</button></div>
+</div>
+
+<div id="vs" class="screen hidden">
+  <div class="vs-a"><img id="vs-img-a" alt=""><div class="vs-name" id="vs-name-a"></div></div>
+  <div class="vs-mid">VS</div>
+  <div class="vs-b"><img id="vs-img-b" alt=""><div class="vs-name" id="vs-name-b"></div><div class="vs-line" id="vs-line"></div></div>
+  <div class="vs-sea" id="vs-sea"></div>
+  <div class="vs-tip" id="vs-tip"></div>
+</div>
+
+<div id="dock" class="screen hidden">
+  <h2>THE DOCK</h2>
+  <h3>Yacht</h3><div class="pick" id="pick-boat"></div>
+  <h3>Lance</h3><div class="pick" id="pick-lance"></div>
+  <div class="row"><button id="b-dock-done" class="big">DONE</button></div>
+</div>
+
+<div id="result" class="screen hidden">
+  <div class="res-title" id="res-title"></div>
+  <div class="res-sub" id="res-sub"></div>
+  <div class="medals" id="res-medals"></div>
+  <div class="spoils" id="res-spoils"></div>
+  <div class="row"><button id="b-res-again" class="mid">REMATCH</button><button id="b-res-next" class="big">NEXT</button></div>
+</div>
+
+<div id="pause" class="screen hidden">
+  <h2>PAUSED</h2>
+  <button id="b-resume" class="big">RESUME</button>
+  <button id="b-sound" class="mid">SOUND: ON</button>
+  <button id="b-quit" class="mid">QUIT MATCH</button>
+</div>
+
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

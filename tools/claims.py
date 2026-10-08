@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""YACHT JOUSTING: measure the concept-frame claims (ref/CLAIMS.md) on any png/jpg or directory of them.
+"""STORMTILT (yacht jousting): measure the concept-frame claims (ref/CLAIMS.md) on any png/jpg or directory of them.
 
 Every frame is centre-cropped to the 390:844 portrait shape the game is played at and resampled to
 390x844 before anything is measured. Statistics are taken inside the band y = 6%..86% of the frame so
@@ -18,11 +18,12 @@ BAND = (0.06, 0.86)          # vertical measurement band, fractions of frame hei
 
 # name: (direction, threshold, short description). direction '>=' or '<='.
 CLAIMS = {
-    "C1_saturated_share": (">=", 0.30, "share of band pixels with HSV saturation >= 0.35 and value >= 0.25"),
-    "C2_flat_share":      ("<=", 0.40, "share of band pixels in flat patches (7x7 luma std < 2.0 at 390 px)"),
-    "C3_food_warmth":     (">=", 0.13, "share of band pixels in saturated warm food hues (hue 0-60 deg, S >= 0.45, V >= 0.35)"),
-    "C4_value_range":     (">=", 178,  "luma p98 minus p2 in the band (0..255): real highlights and real shadows"),
-    "C5_median_luma":     ("<=", 155,  "median luma in the band (0..255): the frame is not washed out pale"),
+    "C1_surface_detail":  (">=", 38.0,  "mean Sobel gradient magnitude of luma (0..255 scale) in the band: modelled, textured surfaces"),
+    "C2_flat_share":      ("<=", 0.52,  "share of band pixels in flat patches (7x7 luma std < 2.0 at 390 px)"),
+    "C3_highlights":      (">=", 0.012, "share of band pixels with luma >= 225: specular glints, foam and spray read as near-white"),
+    "C4_foam_cream":      (">=", 0.030, "share of band pixels that are cream-white (HSV S <= 0.30 and V >= 0.80): foam, spray, sails in light"),
+    "C5_value_range":     (">=", 195,   "luma p98 minus p2 in the band (0..255): real highlights and real shadows"),
+    "C6_saturated_share": (">=", 0.22,  "share of band pixels with HSV saturation >= 0.35 and value >= 0.25 (guard: never a grey state)"),
 }
 
 def load(path):
@@ -50,14 +51,15 @@ def measure(path):
     luma = (0.2126 * band[..., 0] + 0.7152 * band[..., 1] + 0.0722 * band[..., 2]) * 255
     sat = (s >= 0.35) & (v >= 0.25)
     out = {}
-    out["C1_saturated_share"] = float(sat.mean())
+    sx = ndimage.sobel(luma, 0); sy = ndimage.sobel(luma, 1)
+    out["C1_surface_detail"] = float(np.hypot(sx, sy).mean())
     mu = ndimage.uniform_filter(luma, 7); mu2 = ndimage.uniform_filter(luma * luma, 7)
     std = np.sqrt(np.maximum(mu2 - mu * mu, 0))
     out["C2_flat_share"] = float((std < 2.0).mean())
-    warm = (h < 60) & (s >= 0.45) & (v >= 0.35)
-    out["C3_food_warmth"] = float(warm.mean())
-    out["C4_value_range"] = float(np.percentile(luma, 98) - np.percentile(luma, 2))
-    out["C5_median_luma"] = float(np.percentile(luma, 50))
+    out["C3_highlights"] = float((luma >= 225).mean())
+    out["C4_foam_cream"] = float(((s <= 0.30) & (v >= 0.80)).mean())
+    out["C5_value_range"] = float(np.percentile(luma, 98) - np.percentile(luma, 2))
+    out["C6_saturated_share"] = float(sat.mean())
     out["pass"] = {k: (out[k] >= t if d == ">=" else out[k] <= t) for k, (d, t, _) in CLAIMS.items()}
     return out
 
@@ -85,7 +87,7 @@ def main():
     for f, r in rows.items():
         cells = []
         for k in keys:
-            v = r[k]; s = f"{v:.0f}" if k in ("C4_value_range", "C5_median_luma") else f"{v:.3f}"
+            v = r[k]; s = f"{v:.0f}" if k in ("C1_surface_detail", "C5_value_range") else f"{v:.3f}"
             cells.append(f"{s + ('' if r['pass'][k] else '*'):>8s}")
         print(f"{os.path.basename(f)[:34]:34s} " + " ".join(cells) + f"  {sum(r['pass'].values())}/{len(keys)}")
     print("(* = fails the claim)")
