@@ -309,9 +309,9 @@ game.onMatchEnd = (m) => {
         const nm = isBoat ? BOATS[id].name : LANCES[id].name;
         $('res-spoils').innerHTML = `<b>SPOILS</b> you won ${capB.name}'s ${isBoat ? 'yacht' : 'lance'}: <i>${nm}</i>. Equip it at THE DOCK.`;
       }
-      if (cfg.mode === 'endless') { game.streak = (game.streak || 0) + 1; save.endlessBest = Math.max(save.endlessBest, game.streak); $('res-sub').textContent += `   streak ${game.streak}`; }
+      if (cfg.mode === 'endless') { game.streak = (game.streak || 0) + 1; save.endlessBest = Math.max(save.endlessBest, game.streak); $('res-sub').insertAdjacentHTML('beforeend', `<div class="score">STREAK <b>${game.streak}</b></div>`); }
     } else if (cfg.mode === 'endless') {
-      $('res-sub').textContent += `   streak ended at ${game.streak || 0} (best ${save.endlessBest})`; game.streak = 0;
+      $('res-sub').insertAdjacentHTML('beforeend', `<div class="score">streak ended at <b>${game.streak || 0}</b> best ${save.endlessBest}</div>`); game.streak = 0;
     }
     persist();
     const cupDone = cfg.mode === 'cup' && won && LADDER.indexOf(key) === LADDER.length - 1;

@@ -24,7 +24,8 @@ fs.mkdirSync(path.join(OUT, 'f'), { recursive: true });
 const log = (o) => fs.appendFileSync(path.join(OUT, 'log.jsonl'), JSON.stringify({ wall: Date.now(), ...o }) + '\n');
 const hideUrl = (s) => String(s).replace(/https?:\/\/[^\s)'"]+/g, (u) => '<' + (u.split('?')[0].split('/').pop() || 'url') + '>');
 
-const b = await puppeteer.launch({ headless: 'new', args: ['--enable-gpu', '--ignore-gpu-blocklist', '--use-angle=metal', '--mute-audio'] });
+// STORMTILT copy: the system Chrome binary with its own profile, so other projects' pattern-based Chrome-for-Testing cleanups do not kill a live session
+const b = await puppeteer.launch({ headless: 'new', executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', userDataDir: path.join(OUT, '.profile'), args: ['--enable-gpu', '--ignore-gpu-blocklist', '--use-angle=metal', '--mute-audio', '--no-first-run', '--no-default-browser-check'] });
 let sst = newState(), p, cdp, handles = {}, shots = 0, actN = 0, aSeen = 0, cSeen = 0, nodeCons = [], playMs = 0, loads = 0, firstSound = null, anySound = false;
 async function open() {
   if (p) await p.close().catch(() => {});
