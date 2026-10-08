@@ -240,22 +240,23 @@ void main() {
     float a = 0.035 * L / 6.0 * env;
     grad += d * (a * k * cos(k * dot(d, ruv) - w * uTime * 0.7 + fi * 1.7));
   }
-  float n2 = noise(uv * 0.08 + uTime * 0.02);
-  vec3 N = normalize(vNormalW + vec3(-grad.x, 0.0, -grad.y) * fade * (0.6 + 0.8 * n2));
+  // toon water: the swell's own normal sets three flat value bands; the ripples only make sparse glints
+  vec3 Nb = normalize(vNormalW);
+  vec3 N = normalize(vNormalW + vec3(-grad.x, 0.0, -grad.y) * fade * 0.45);
   if (dot(N, V) < 0.02) N = normalize(N + V * 0.1);
-
-  float fres = 0.02 + 0.98 * pow(1.0 - max(dot(N, V), 0.0), 5.0);
-  vec3 R = reflect(-V, N); R.y = abs(R.y);
-  vec3 refl = skyColor(R);
-
-  // body colour: deep in the troughs, a lit translucent shallow colour on faces and crests (subsurface look)
   float h = clamp(vH / max(uAmp, 0.3) * 0.5 + 0.5, 0.0, 1.0);
+  float diff = max(dot(Nb, uSunDir), 0.0);
   float facing = pow(max(dot(-V, uSunDir) * 0.5 + 0.5, 0.0), 2.0);
-  float sss = clamp(h * 0.9 + vCrest * 0.6, 0.0, 1.0) * (0.55 + 0.45 * facing);
-  vec3 body = mix(uDeep, uShallow, sss);
-  float diff = max(dot(N, uSunDir), 0.0);
-  body *= 0.75 + 0.45 * diff;
-  body += uSunCol * 0.06 * diff;
+  float lum = h * 0.62 + diff * 0.3 + vCrest * 0.25 + facing * 0.08 - 0.1;
+  float bw = 0.018 + dist * 0.00025;
+  float b1 = smoothstep(0.26 - bw, 0.26 + bw, lum), b2 = smoothstep(0.52 - bw, 0.52 + bw, lum), b3 = smoothstep(0.74 - bw, 0.74 + bw, lum);
+  vec3 cMid = mix(uDeep, uShallow, 0.5);
+  vec3 banded = mix(mix(mix(uDeep * 1.05, cMid, b1), mix(cMid, uShallow, 0.6), b2), uShallow * 1.1, b3);
+  vec3 smoothC = mix(uDeep, uShallow * 1.05, clamp(lum * 1.15, 0.0, 1.0));
+  vec3 body = mix(banded, smoothC, 0.35);
+  float fres = pow(1.0 - max(dot(Nb, V), 0.0), 4.0);
+  body = mix(body, mix(uSkyHor, uSkyTop, 0.35), smoothstep(0.45, 0.75, fres) * 0.3);
+  float fres2 = fres;
 
   // gust lanes: darker, ruffled water with streaks running down the lane
   float gust = 0.0;
@@ -271,38 +272,33 @@ void main() {
     body = mix(body, body * 0.55 + uDeep * 0.2, gust * 0.8);
     body += vec3(0.75, 0.9, 1.0) * smoothstep(0.62, 0.8, st) * gust * 0.35;
   }
-  vec3 col = mix(body, refl, fres * 0.85);
+  vec3 col = body;
 
-  // sun glint
+  // sun glints: sparse, crisp sparkles plus a soft sheen toward the sun
   vec3 H = normalize(uSunDir + V);
-  float spec = pow(max(dot(N, H), 0.0), 220.0) * 3.0 * (0.4 + 0.6 * fade) + pow(max(dot(N, H), 0.0), 40.0) * 0.18;
-  col += uSunCol * spec;
+  float sp = pow(max(dot(N, H), 0.0), 320.0);
+  col += uSunCol * (smoothstep(0.35, 0.45, sp) * 1.3 * (0.3 + 0.7 * fade) + pow(max(dot(Nb, H), 0.0), 60.0) * 0.25);
 
   // foam: crest lines, the steepest swell tops, the wake canvas, broken up by noise
   vec2 wuv = vec2((vWorld.x - uWakeRect.x) * uWakeRect.z, (vWorld.z - uWakeRect.y) * uWakeRect.w);
   float wake = 0.0;
   if (wuv.x > 0.0 && wuv.x < 1.0 && wuv.y > 0.0 && wuv.y < 1.0) wake = texture2D(uWake, wuv).r;
-  float topFoam = smoothstep(0.8, 0.98, h) * 0.3 + smoothstep(0.62, 0.3, vJ) * 0.9;
-  float fn = fbm(uv * 1.3 + vec2(uTime * 0.1, 0.0));
-  float fh = noise(uv * 4.5 + vec2(uTime * 0.3, -uTime * 0.2)) * noise(uv * 2.1 - vec2(0.0, uTime * 0.15));
-  float foam = clamp(vCrest * 1.25 + topFoam + wake * 1.25, 0.0, 1.6);
-  vec2 lw = uv * 0.85 + vec2(fbm(uv * 0.12 + uTime * 0.05), fbm(uv * 0.12 - 3.7)) * 2.6;
-  float lc = lace(lw);
-  float laceNet = (1.0 - smoothstep(0.02, 0.09, lc)) * smoothstep(0.25, 0.75, noise(uv * 0.9 + uTime * 0.1));     // broken organic threads
-  float foamMask = smoothstep(0.42, 0.8, foam * (0.3 + 0.7 * fn + 0.9 * fh));
-  // lace threads trail across the faces behind every crest and around wakes
-  float patchy = smoothstep(0.42, 0.7, fbm(uv * 0.18 + vec2(uTime * 0.03, uTime * 0.02)));
-  float near = 1.0 - smoothstep(25.0, 110.0, dist);
-  float crestOnly = clamp(vCrest * 1.25 + topFoam, 0.0, 1.0);
-  foamMask = max(foamMask, laceNet * smoothstep(0.12, 0.7, crestOnly) * patchy * 0.8 * near);
-  vec3 foamCol = uFoam * (0.78 + 0.32 * diff) + uSunCol * 0.05;
-  col = mix(col, foamCol, foamMask * 0.92);
+  // crisp foam: crests, the most bunched-up swell tops and the wake canvas, with a soft shadow band at its edge
+  float topFoam = smoothstep(0.55, 0.28, vJ) * 1.0;
+  float foam = vCrest * 1.3 + topFoam + wake * 1.35;
+  float fn = fbm(uv * 0.55 + vec2(uTime * 0.08, uTime * 0.05));
+  float fm = foam * (0.45 + 0.75 * fn);
+  float foamMask = smoothstep(0.6, 0.66, fm);
+  float edge = smoothstep(0.46, 0.54, fm) - foamMask;
+  col = mix(col, col * 0.78 + vec3(0.0, 0.04, 0.07), clamp(edge, 0.0, 1.0) * 0.55);
+  vec3 foamCol = uFoam * (0.86 + 0.18 * diff);
+  col = mix(col, foamCol, foamMask);
 
   // bioluminescence on broken water at night
   col = mix(col, col * 0.55 + uGlowCol * 0.55, uGlow * foamMask * 0.6) + uGlowCol * uGlow * smoothstep(0.88, 1.0, h) * 0.12 * (0.6 + 0.4 * sin(uTime * 2.0 + uv.x * 0.3));
 
   // lightning flash lifts the whole sea for a moment
-  col += vec3(0.55, 0.7, 0.95) * uFlash * (0.25 + fres);
+  col += vec3(0.55, 0.7, 0.95) * uFlash * (0.25 + fres2);
 
   // aerial haze toward the horizon (sky coloured, not grey)
   float hz = smoothstep(uHazeDist * 0.25, uHazeDist, dist);

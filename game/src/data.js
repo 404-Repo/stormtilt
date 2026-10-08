@@ -14,7 +14,7 @@ export const SEAS = {
     name: 'Thunderhead Reach', blurb: 'violet dusk, the lightning walks the water',
     sky: { top: 0x2a2148, hor: 0xd8708a, haze: 0x8a6c9c }, skyTex: 'sky_thunder.jpg',
     sun: { dir: [0.6, 0.22, 0.75], col: 0xff9a70, int: 2.6 }, hemi: [0x9a8cff, 0x2a3c55, 1.1],
-    water: { deep: 0x163f63, shallow: 0x2e8fa0, foam: 0xece8f2 },
+    water: { deep: 0x17405f, shallow: 0x3aa9b0, foam: 0xf0ecf6 },
     swell: [{ angle: -30, L: 52, A: 1.35, Q: 0.55 }, { angle: 10, L: 30, A: 0.68, Q: 0.6 }, { angle: 60, L: 15, A: 0.32, Q: 0.6 }, { angle: -70, L: 8, A: 0.14, Q: 0.5 }],
     weather: { rollers: [0, 1], cells: [1, 2], gusts: 0, spouts: 0, rogue: 0, rain: 1.0 },
     exposure: 1.05, glow: 0, dressing: 'thunder',

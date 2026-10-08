@@ -73,10 +73,10 @@ export default function (THREE) {
     const geo = warp(merge(list), s0 * 0.25, 0.5, 2); smooth(geo); return add(geo, foamMat);
   };
   // ---- shared hull definition: the bow half of a wooden ship, local frame, keel at y=0, bow toward +z ----
-  const LH = 11.5, BH = 2.3;
+  const LH = 10.5, BH = 2.3;
   const beam = (s) => (s < 0.5 ? BH : BH * Math.sqrt(Math.max(0.004, 1 - Math.pow((s - 0.5) / 0.5, 2))));
   const keelY = (s) => 1.9 * Math.pow(Math.max(0, (s - 0.55) / 0.45), 2);
-  const sheerY = (s) => 3.2 + 1.5 * s * s;
+  const sheerY = (s) => 3.2 + 1.0 * s * s;
   // u in [0,1]: 0 = port sheer, 0.5 = keel, 1 = starboard sheer
   const hullPt = (s, u, inset = 0) => {
     const f = Math.PI * u - Math.PI, c = Math.cos(f), b = Math.max(0, beam(s) - inset);
@@ -85,18 +85,18 @@ export default function (THREE) {
   };
   const brokenS = (u) => 0.03 + 0.16 * hash3(Math.floor(u * 11), 3, 5) + 0.05 * Math.sin(u * 23);
   const HG = new THREE.Group(); g.add(HG);
-  HG.rotation.x = -0.6; HG.rotation.z = 0.14; HG.position.set(0, 0.6, -2);   // negative x pitches the bow UP (traps.md)
+  HG.rotation.x = -0.3; HG.rotation.z = 0.16; HG.position.set(0, -0.2, -2);   // negative x pitches the bow UP (traps.md)
   const T1 = M(0x5b4331, { roughness: 0.65 }), T2 = M(0x6e5038, { roughness: 0.65 }), TD = M(0x3f2f24, { roughness: 0.7 }), MOSS = M(0x56703a, { roughness: 0.75 });
   [T1, T2, TD].forEach((m) => { m.name = 'timber'; m.side = THREE.DoubleSide; }); MOSS.name = 'foliage';
   const tube = (pts, r, mat, parent, seg = 6) => { const cv = new THREE.CatmullRomCurve3(pts); return add(new THREE.TubeGeometry(cv, Math.max(4, pts.length * 2), r, seg, false), mat, 0, 0, 0, parent); };
 
   // c2, profile: one lofted hull skin from the section function, open at a jagged broken edge, planking as alternating
   // vertex-coloured strakes with moss toward the waterline; exposed ribs past the break, gunwales, foredeck, bowsprit
-  const NS = 24, NR = 22, pos = [], col = [], idx = [], c = new THREE.Color(), ca = new THREE.Color(0x5b4331), cb = new THREE.Color(0x705139), cm = new THREE.Color(0x58703b), cd = new THREE.Color(0x3f2f24);
+  const NS = 24, NR = 22, pos = [], col = [], idx = [], c = new THREE.Color(), ca = new THREE.Color(0x5b4331), cb = new THREE.Color(0x7a5a3e), cm = new THREE.Color(0x58703b), cd = new THREE.Color(0x3f2f24);
   for (let j = 0; j <= NS; j++) { const u = j / NS, s0 = brokenS(u);
     for (let i = 0; i <= NR; i++) { const s = s0 + (1 - s0) * i / NR, q = hullPt(s, u); pos.push(q.x, q.y, q.z);
       c.copy(Math.floor(u * NS / 2) % 2 ? ca : cb); if (Math.abs(u - 0.5) > 0.42) c.copy(cd);
-      const moss = (1 - i / NR) * 0.8 * (0.5 + 0.5 * fbm(q.x * 0.8, q.y * 0.8, q.z * 0.8, 2)) - (q.y / 4) * 0.4; if (moss > 0.25) c.lerp(cm, Math.min(1, moss));
+      const moss = (1 - i / NR) * 0.8 * (0.5 + 0.5 * fbm(q.x * 0.8, q.y * 0.8, q.z * 0.8, 2)) - (q.y / 4) * 0.4; if (moss > 0.12) c.lerp(cm, Math.min(1, moss * 1.4));
       col.push(c.r, c.g, c.b); } }
   for (let j = 0; j < NS; j++) for (let i = 0; i < NR; i++) { const a = j * (NR + 1) + i, b = a + 1, d = a + NR + 1, e = d + 1; idx.push(a, d, b, b, d, e); }
   const hg = new THREE.BufferGeometry(); hg.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); hg.setAttribute('color', new THREE.Float32BufferAttribute(col, 3)); hg.setIndex(idx); hg.computeVertexNormals();
@@ -108,11 +108,11 @@ export default function (THREE) {
   stem.push(hullPt(1, 0.5).add(new THREE.Vector3(0, sheerY(1) - keelY(1) + 0.6, 0.2))); tube(stem, 0.22, TD, HG);
   const dk = new THREE.Shape(); for (let i = 0; i <= 8; i++) { const s = 0.62 + 0.33 * i / 8; dk.lineTo(beam(s) * 0.93, s * LH); } for (let i = 8; i >= 0; i--) { const s = 0.62 + 0.33 * i / 8; dk.lineTo(-beam(s) * 0.93, s * LH); }
   const dg = new THREE.ExtrudeGeometry(dk, { depth: 0.18, bevelEnabled: false }); dg.rotateX(Math.PI / 2); add(dg, T2, 0, sheerY(0.78) - 0.35, 0, HG);
-  const bs = add(new THREE.CylinderGeometry(0.1, 0.2, 3.6, 8), TD, 0, 0, 0, HG); bs.position.set(0, sheerY(1) + 0.6, LH + 1.4); bs.rotation.x = Math.PI / 2 - 0.35;
+  const bs = add(new THREE.CylinderGeometry(0.1, 0.2, 2.8, 8), TD, 0, 0, 0, HG); bs.position.set(0, sheerY(1) + 0.4, LH + 1.1); bs.rotation.x = Math.PI / 2 - 0.35;
   // ---- shared extras, in world space so the rags hang plumb: snapped mast, yard, rags, rope, rubble ----
   HG.updateMatrixWorld(true);
   const W = (s, u, dy = 0) => HG.localToWorld(hullPt(s, u).add(new THREE.Vector3(0, dy, 0)));
-  const mb = W(0.42, 0.5, 0.4), mDir = new THREE.Vector3(0.35, 1, -0.55).normalize(), mLen = 7.6;
+  const mb = W(0.42, 0.5, 0.4), mDir = new THREE.Vector3(0.35, 1, -0.55).normalize(), mLen = 6.6;
   const mast = add(new THREE.CylinderGeometry(0.2, 0.3, mLen, 10), TD); mast.position.copy(mb).addScaledVector(mDir, mLen / 2);
   mast.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), mDir);
   const mt = mb.clone().addScaledVector(mDir, mLen);
@@ -122,7 +122,7 @@ export default function (THREE) {
   const yard = add(new THREE.CylinderGeometry(0.12, 0.14, yLen, 8), TD); yard.position.copy(yc); yard.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), yDir);
   const canvas = M(0xd9ccab, { roughness: 0.85, side: THREE.DoubleSide }); canvas.name = 'fabric';
   for (let k = 0; k < 3; k++) {
-    const top = yc.clone().addScaledVector(yDir, (k - 1) * 1.6), w = rr(1.0, 1.5), h = rr(1.8, 2.8);
+    const top = yc.clone().addScaledVector(yDir, (k - 1) * 1.6), w = rr(1.4, 1.9), h = rr(2.4, 3.4);
     const q = new THREE.PlaneGeometry(w, h, 4, 6), p = q.attributes.position;
     for (let i = 0; i < p.count; i++) { let x = p.getX(i), y = p.getY(i); const t = (h / 2 - y) / h;
       if (t > 0.95) y += rr(0, 0.8);                       // ragged bottom edge
@@ -132,7 +132,7 @@ export default function (THREE) {
     const rag = add(q, canvas); rag.position.copy(top); rag.rotation.y = Math.atan2(-yDir.z, yDir.x) * 0.6; rag.rotation.z = -0.32 * 0.9;
   }
   const rope = M(0xb59a6a, { roughness: 0.8 }); rope.name = 'fabric';
-  const ye = yc.clone().addScaledVector(yDir, yLen / 2), bt = HG.localToWorld(new THREE.Vector3(0, sheerY(1) + 1.1, LH + 2.8));
+  const ye = yc.clone().addScaledVector(yDir, yLen / 2), bt = HG.localToWorld(new THREE.Vector3(0, sheerY(1) + 0.8, LH + 2.3));
   tube([ye, ye.clone().lerp(bt, 0.5).add(new THREE.Vector3(0, -1.2, 0)), bt], 0.05, rope, g, 4);
   const ye2 = yc.clone().addScaledVector(yDir, -yLen / 2);
   tube([ye2, ye2.clone().add(new THREE.Vector3(-0.3, -2.2, 0.2)), ye2.clone().add(new THREE.Vector3(-0.1, -3.4, 0.6))], 0.045, rope, g, 4);

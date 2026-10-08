@@ -90,7 +90,7 @@ export class Weather {
     const shaftMat = new THREE.ShaderMaterial({
       transparent: true, depthWrite: false, side: THREE.DoubleSide, uniforms: { uT: { value: 0 }, uP: { value: 0 }, uFade: { value: 1 } },
       vertexShader: 'varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);} ',
-      fragmentShader: 'varying vec2 vUv; uniform float uT; uniform float uP; uniform float uFade; float h(float x){return fract(sin(x*91.7)*437.5);} void main(){ float c=floor(vUv.x*90.0); float s=fract(vUv.y*3.0+uT*2.2+h(c)); float streak=smoothstep(0.75,1.0,s)*step(0.45,h(c+3.0)); float a=(0.16+0.4*streak)*smoothstep(0.0,0.15,vUv.y)*smoothstep(1.0,0.7,vUv.y); gl_FragColor=vec4(mix(vec3(0.55,0.5,0.8),vec3(0.75,0.95,1.0),uP),a*(0.8+0.6*uP)*uFade);} ',
+      fragmentShader: 'varying vec2 vUv; uniform float uT; uniform float uP; uniform float uFade; float h(float x){return fract(sin(x*91.7)*437.5);} void main(){ float c=floor(vUv.x*170.0); float fx=fract(vUv.x*170.0); float s=fract(vUv.y*2.4+uT*2.6+h(c)); float streak=smoothstep(0.82,1.0,s)*step(0.5,h(c+3.0))*smoothstep(0.0,0.5,fx)*smoothstep(1.0,0.5,fx); float a=(0.12+0.22*streak)*smoothstep(0.0,0.15,vUv.y)*smoothstep(1.0,0.7,vUv.y); gl_FragColor=vec4(mix(vec3(0.55,0.5,0.8),vec3(0.75,0.95,1.0),uP),a*(0.8+0.6*uP)*uFade);} ',
     });
     const shaft = new THREE.Mesh(this.shaftGeo, shaftMat); shaft.scale.set(r * 0.85, 22, r * 0.85); g.add(shaft);
     cloud.userData.puff = puffMat; cloud.userData.shaft = shaftMat;
@@ -139,7 +139,7 @@ export class Weather {
       c.cloud.userData.puff.color.setRGB(0.035 + fl * 0.5, 0.03 + fl * 0.65, 0.07 + fl * 0.8);
       c.cloud.userData.shaft.uniforms.uT.value = t; c.cloud.userData.shaft.uniforms.uP.value = pulse;
       const cam = this.game.world.camera.position; const dc = Math.hypot(cam.x - c.x, cam.z - c.z);
-      c.cloud.userData.shaft.uniforms.uFade.value = THREE.MathUtils.smoothstep(dc, c.r * 0.9, c.r * 2.2);
+      c.cloud.userData.shaft.uniforms.uFade.value = THREE.MathUtils.smoothstep(dc, c.r * 1.3, c.r * 3.6);
       c.cloud.visible = !(dc < c.r * 1.6 && cam.y > 12);
       if (toStrike <= 0 && c.struck < 2) {
         c.struck++; c.strikeAt = t + c.rearm;

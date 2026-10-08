@@ -1,7 +1,7 @@
   // ---- shared extras, in world space so the rags hang plumb: snapped mast, yard, rags, rope, rubble ----
   HG.updateMatrixWorld(true);
   const W = (s, u, dy = 0) => HG.localToWorld(hullPt(s, u).add(new THREE.Vector3(0, dy, 0)));
-  const mb = W(0.42, 0.5, 0.4), mDir = new THREE.Vector3(0.35, 1, -0.55).normalize(), mLen = 7.6;
+  const mb = W(0.42, 0.5, 0.4), mDir = new THREE.Vector3(0.35, 1, -0.55).normalize(), mLen = 6.6;
   const mast = add(new THREE.CylinderGeometry(0.2, 0.3, mLen, 10), TD); mast.position.copy(mb).addScaledVector(mDir, mLen / 2);
   mast.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), mDir);
   const mt = mb.clone().addScaledVector(mDir, mLen);
@@ -11,7 +11,7 @@
   const yard = add(new THREE.CylinderGeometry(0.12, 0.14, yLen, 8), TD); yard.position.copy(yc); yard.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), yDir);
   const canvas = M(0xd9ccab, { roughness: 0.85, side: THREE.DoubleSide }); canvas.name = 'fabric';
   for (let k = 0; k < 3; k++) {
-    const top = yc.clone().addScaledVector(yDir, (k - 1) * 1.6), w = rr(1.0, 1.5), h = rr(1.8, 2.8);
+    const top = yc.clone().addScaledVector(yDir, (k - 1) * 1.6), w = rr(1.4, 1.9), h = rr(2.4, 3.4);
     const q = new THREE.PlaneGeometry(w, h, 4, 6), p = q.attributes.position;
     for (let i = 0; i < p.count; i++) { let x = p.getX(i), y = p.getY(i); const t = (h / 2 - y) / h;
       if (t > 0.95) y += rr(0, 0.8);                       // ragged bottom edge
@@ -21,7 +21,7 @@
     const rag = add(q, canvas); rag.position.copy(top); rag.rotation.y = Math.atan2(-yDir.z, yDir.x) * 0.6; rag.rotation.z = -0.32 * 0.9;
   }
   const rope = M(0xb59a6a, { roughness: 0.8 }); rope.name = 'fabric';
-  const ye = yc.clone().addScaledVector(yDir, yLen / 2), bt = HG.localToWorld(new THREE.Vector3(0, sheerY(1) + 1.1, LH + 2.8));
+  const ye = yc.clone().addScaledVector(yDir, yLen / 2), bt = HG.localToWorld(new THREE.Vector3(0, sheerY(1) + 0.8, LH + 2.3));
   tube([ye, ye.clone().lerp(bt, 0.5).add(new THREE.Vector3(0, -1.2, 0)), bt], 0.05, rope, g, 4);
   const ye2 = yc.clone().addScaledVector(yDir, -yLen / 2);
   tube([ye2, ye2.clone().add(new THREE.Vector3(-0.3, -2.2, 0.2)), ye2.clone().add(new THREE.Vector3(-0.1, -3.4, 0.6))], 0.045, rope, g, 4);

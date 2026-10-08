@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 122,
+  "tris": 9760,
+  "materials": 10,
+  "size": [
+   40.283,
+   9.935,
+   6.563
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1155,
+    "edgeDensity": 0.4647
+   },
+   "right": {
+    "coverage": 0.0691,
+    "edgeDensity": 0.4507
+   },
+   "back": {
+    "coverage": 0.1158,
+    "edgeDensity": 0.4547
+   },
+   "left": {
+    "coverage": 0.0726,
+    "edgeDensity": 0.438
+   }
+  },
+  "error": null,
+  "name": "c1_roundbox",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 37,
+  "tris": 8748,
+  "materials": 10,
+  "size": [
+   40.188,
+   9.947,
+   6.597
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1005,
+    "edgeDensity": 0.54
+   },
+   "right": {
+    "coverage": 0.0654,
+    "edgeDensity": 0.4963
+   },
+   "back": {
+    "coverage": 0.1011,
+    "edgeDensity": 0.6525
+   },
+   "left": {
+    "coverage": 0.0696,
+    "edgeDensity": 0.6362
+   }
+  },
+  "error": null,
+  "name": "c2_lumps",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 119,
+  "tris": 11948,
+  "materials": 10,
+  "size": [
+   40.071,
+   9.884,
+   6.434
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1133,
+    "edgeDensity": 0.4357
+   },
+   "right": {
+    "coverage": 0.069,
+    "edgeDensity": 0.3951
+   },
+   "back": {
+    "coverage": 0.1144,
+    "edgeDensity": 0.4316
+   },
+   "left": {
+    "coverage": 0.0722,
+    "edgeDensity": 0.4277
+   }
+  },
+  "error": null,
+  "name": "c3_pillows",
+  "problems": []
+ }
+]

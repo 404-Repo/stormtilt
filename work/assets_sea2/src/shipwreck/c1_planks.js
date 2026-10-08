@@ -12,7 +12,7 @@
       const sa = s0 + (1 - s0) * i / NSEG, sb = s0 + (1 - s0) * (i + 1) / NSEG;
       const a = hullPt(sa, u), b = hullPt(sb, u), across = hullPt((sa + sb) / 2, u + du / 2).sub(hullPt((sa + sb) / 2, u - du / 2));
       Z.subVectors(b, a); const len = Z.length(); Z.normalize(); Y.copy(across).addScaledVector(Z, -across.dot(Z)); const wid = Y.length(); Y.normalize(); X.crossVectors(Y, Z);
-      const box = add(new THREE.BoxGeometry(0.18, wid * 1.04, len * 1.03), (k + i) % 3 === 0 ? T2 : (k % 2 ? T1 : TD), 0, 0, 0, HG);
+      const box = add(new THREE.BoxGeometry(0.18, wid * 1.04, len * 1.03), k % 2 ? T1 : T2, 0, 0, 0, HG);
       mtx.makeBasis(X, Y, Z); box.quaternion.setFromRotationMatrix(mtx); box.position.copy(a).add(b).multiplyScalar(0.5);
       if (k < 2 && i < 4 && rnd() > 0.4) { const mo = add(new THREE.BoxGeometry(0.2, wid * 0.6, len * 0.8), MOSS, 0, 0, 0, HG); mo.quaternion.copy(box.quaternion); mo.position.copy(box.position).addScaledVector(X, side ? 0.03 : -0.03); }
     }
@@ -23,5 +23,5 @@
   for (const sr of [0.0, -0.08]) { const pts = []; for (let i = 0; i <= 8; i++) pts.push(hullPt(Math.max(0, sr), 0.08 + 0.84 * i / 8, 0.1).add(new THREE.Vector3(0, 0, sr * LH))); tube(pts, 0.16, TD, HG); }
   for (const u of [0.0, 1.0]) { const pts = []; for (let i = 0; i <= 10; i++) { const s = brokenS(u) + (1 - brokenS(u)) * i / 10; pts.push(hullPt(s, u).add(new THREE.Vector3(0, 0.1, 0))); } tube(pts, 0.16, T2, HG); }
   const deck = add(new THREE.BoxGeometry(BH * 1.4, 0.18, LH * 0.25), T2, 0, sheerY(0.75) - 0.45, LH * 0.72, HG);
-  const bs = add(new THREE.CylinderGeometry(0.1, 0.2, 3.6, 8), TD, 0, 0, 0, HG); bs.position.set(0, sheerY(1) + 0.6, LH + 1.4); bs.rotation.x = Math.PI / 2 - 0.35;
+  const bs = add(new THREE.CylinderGeometry(0.1, 0.2, 2.8, 8), TD, 0, 0, 0, HG); bs.position.set(0, sheerY(1) + 0.4, LH + 1.1); bs.rotation.x = Math.PI / 2 - 0.35;
 //@include _extras.js
