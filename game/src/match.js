@@ -15,6 +15,7 @@ export class Match {
     this.maxA = this.footA; this.maxB = this.footB;
     this.tilt = 0; this.phase = 'intro'; this.pt = 0; this.over = false; this.winner = null;
     this.stats = { hits: 0, taken: 0, late: 0, high: 0, charged: 0, rams: 0, koBy: '' };
+    this.score = 0; this.combo = 1;
     const ai = cfg.tempest ? { ...this.capB.ai, lead: Math.max(0.3, this.capB.ai.lead - 0.25), jitter: this.capB.ai.jitter * 0.6, steer: 1, react: this.capB.ai.react * 0.7, panic: 0 } : this.capB.ai;
     this.aiB = cfg.humanB ? null : new CaptainAI(game, this.B, this.A, ai);
     this.aiA = cfg.autoA ? new CaptainAI(game, this.A, this.B, cfg.autoA) : null;   // used by the attract mode and tests
@@ -154,6 +155,16 @@ export class Match {
       if (rb.braced && ra.hit === false && rb.hit === false) { /* both braced */ }
     }
     this.footA = Math.max(0, this.footA); this.footB = Math.max(0, this.footB);
+    // score: every pip you knock off is 100 x the combo; style adds; the combo grows while you land hits without taking any
+    if (!this.two) {
+      const ra2 = res.a || {}; let pts = 0;
+      if (res.dmgB) pts += res.dmgB * 100 * this.combo;
+      if (ra2.late) pts += 50; if (ra2.high) pts += 75; if (ra2.charged) pts += 100; if (ra2.gust) pts += 40;
+      if (res.dmgB && !res.dmgA) this.combo = Math.min(5, this.combo + 1); else if (res.dmgA) this.combo = 1;
+      if (this.footB <= 0) pts += 500 + this.footA * 150;
+      this.score += pts;
+      if (pts) g.ui.scorePop?.(pts, this.combo);
+    }
     res.koA = this.footA <= 0; res.koB = this.footB <= 0;
     // simultaneous knockouts: the bigger hit wins; a dead tie keeps both on 1
     if (res.koA && res.koB) {

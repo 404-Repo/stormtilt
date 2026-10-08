@@ -259,7 +259,7 @@ async function startMatch(cfg) {
     buildYacht(cfg.capB, cfg.boatB || capB.boat, cfg.lanceB || capB.lance, cfg.tintB ?? capB.tint, -1),
   ]);
   const m = new Match(game, { tempest: cfg.tempest, sea: cfg.sea, A, B, capA: cfg.capA || 'player', capB: cfg.capB, humanB: cfg.twoP, autoA: cfg.autoA, footA: cfg.footA, footB: cfg.footB });
-  game.match = m; current = cfg;
+  game.match = m; current = cfg; ui.resetScore();
   ui.names(cfg.twoP ? 'P1' : 'YOU', cfg.twoP ? 'P2' : (capB.short || capB.name.toUpperCase()), './img/cap_player.png', `./img/cap_${cfg.capB}.png`);
   $('hud').classList.remove('hidden'); $('p2').classList.toggle('hidden', !cfg.twoP);
   $('hud').classList.toggle('twop', !!cfg.twoP);
@@ -288,7 +288,7 @@ game.onMatchEnd = (m) => {
     $('res-sub').textContent = won ? `"${capB.lose}"  ${capB.name}` : `"${capB.win}"  ${capB.name}`;
     if (!won) $('res-sub').textContent += `.  Tip: ${capB.tip}`;
     const st = m.stats;
-    const score = (m.maxB - m.footB) * 100 + st.late * 50 + st.high * 100 + st.charged * 200 + (won ? 1000 + m.footA * 150 : 0);
+    const score = m.score;
     save.best[cfg.capB] = Math.max(save.best[cfg.capB] || 0, score);
     $('res-sub').innerHTML += `<div class="score">SCORE <b>${score.toLocaleString('en-US')}</b>  best ${save.best[cfg.capB].toLocaleString('en-US')}</div>`;
     const medals = [];
@@ -456,11 +456,11 @@ function cellTag(m) {
   const c = best.c, inside = Math.hypot(A.x - c.x, A.z - c.z) < c.r * A.lance.rod + A.boat.beam * 0.5;
   const p = tmpV.set(c.x, sea.height(c.x, c.z) + 6, c.z).project(world.camera);
   if (p.z > 1) { el.style.display = 'none'; return; }
-  const cx = Math.max(130, Math.min(innerWidth - 130, (p.x * 0.5 + 0.5) * innerWidth)), cy = Math.max(110, Math.min(innerHeight - 220, (-p.y * 0.5 + 0.5) * innerHeight));
+  const cx = Math.max(150, Math.min(innerWidth - 150, (p.x * 0.5 + 0.5) * innerWidth)), cy = Math.max(110, Math.min(innerHeight - 220, (-p.y * 0.5 + 0.5) * innerHeight));
   el.style.display = 'block'; el.style.transform = `translate(${cx}px, ${cy}px)`;
   const warn = inside && A.couch > 0.3;
   el.className = warn ? 'warn' : '';
-  el.dataset.t = warn ? 'LET GO! LANCE UP OR BE ZAPPED' : inside ? `LANCE UP: BOLT IN ${Math.ceil(best.ts)}` : `STORM CELL: SAIL UNDER IT, LANCE UP`;
+  el.dataset.t = warn ? 'LET GO! LANCE UP OR BE ZAPPED' : inside ? `LANCE UP: BOLT IN ${Math.ceil(best.ts)}` : 'STORM CELL: LANCE UP UNDER IT';
 }
 // where will my current line meet a crest, and will that put me in the air at the pass?
 function rampMarker(m, ttp) {
