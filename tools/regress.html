@@ -1,0 +1,21 @@
+<!doctype html><meta charset="utf-8"><title>raw vs assetlib</title>
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/" } }</script>
+<body style="margin:0;background:#222"><script type="module">
+// The ~/404_assetlib regression, pointed at OUR loader and OUR assets: triangles counted with
+// instances expanded, straight from the module vs through ASSET(). Loss means the loader is wrong.
+import * as THREE from 'three';
+import { ASSET } from '../game/assetlib.js';
+import { AVAILABLE } from '../game/src/assets_list.js';
+const tris = (o) => { let t = 0; o.updateMatrixWorld(true); o.traverse((m) => { if (!m.isMesh || !m.geometry) return; const g = m.geometry; const n = (g.index ? g.index.count : g.attributes.position.count) / 3; t += n * (m.isInstancedMesh ? m.count : 1); }); return Math.round(t); };
+const out = [];
+for (const name of AVAILABLE) {
+  try {
+    const mod = await import(`../game/assets/${name}.js`);
+    const raw = mod.default(THREE);
+    const lib = await ASSET(`../game/assets/${name}.js`);
+    const lib2 = await ASSET(`../game/assets/${name}.js`, { keepHierarchy: true });
+    out.push({ name, raw: tris(raw), lib: tris(lib), tree: tris(lib2) });
+  } catch (e) { out.push({ name, error: e.message }); }
+}
+window.__RAW__ = out; window.__DONE__ = true;
+</script>

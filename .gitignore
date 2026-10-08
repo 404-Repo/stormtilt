@@ -1,0 +1,5 @@
+node_modules
+tools/recipe/node_modules
+work/**/frames_raw/
+*.log
+.DS_Store
