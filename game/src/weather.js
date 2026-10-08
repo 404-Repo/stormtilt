@@ -136,7 +136,7 @@ export class Weather {
       c.glow.intensity = pulse * 40 * (0.5 + 0.5 * Math.sin(t * 37));
       c.cloud.rotation.y += dt * 0.2;
       const fl = pulse * (0.5 + 0.5 * Math.sin(t * 37)) * (Math.random() < 0.3 ? 1 : 0.3);
-      c.cloud.userData.puff.color.setRGB(0.035 + fl * 0.5, 0.03 + fl * 0.65, 0.07 + fl * 0.8);
+      const cc = this.game.match?.sea.cloud || [0.08, 0.07, 0.14]; c.cloud.userData.puff.color.setRGB(cc[0] + fl * 0.5, cc[1] + fl * 0.65, cc[2] + fl * 0.8);
       c.cloud.userData.shaft.uniforms.uT.value = t; c.cloud.userData.shaft.uniforms.uP.value = pulse;
       const cam = this.game.world.camera.position; const dc = Math.hypot(cam.x - c.x, cam.z - c.z);
       c.cloud.userData.shaft.uniforms.uFade.value = THREE.MathUtils.smoothstep(dc, c.r * 1.3, c.r * 3.6);

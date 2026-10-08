@@ -1,0 +1,32 @@
+{
+ "pair_01.png": {
+  "ours": "A",
+  "mine": "frames_c2/pip_t2_chase.png",
+  "ref": "../ref/concept/01_regatta_chase.png"
+ },
+ "pair_02.png": {
+  "ours": "A",
+  "mine": "frames_c2/volta_t1_chase.png",
+  "ref": "../ref/concept/02_thunder_bolt.png"
+ },
+ "pair_03.png": {
+  "ours": "B",
+  "mine": "frames_c2/pip_t2_pass.png",
+  "ref": "../ref/concept/03_clash.png"
+ },
+ "pair_04.png": {
+  "ours": "B",
+  "mine": "frames_c2/kite_t2_chase.png",
+  "ref": "../ref/concept/04_gale_straits.png"
+ },
+ "pair_05.png": {
+  "ours": "B",
+  "mine": "frames_c2/marrow_t2_chase.png",
+  "ref": "../ref/concept/05_rogue_deep.png"
+ },
+ "pair_06.png": {
+  "ours": "B",
+  "mine": "frames_c2/nimbus_t1_chase.png",
+  "ref": "../ref/concept/06_eye_storm.png"
+ }
+}

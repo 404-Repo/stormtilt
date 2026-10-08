@@ -180,6 +180,7 @@ uniform float uSkyOn;
 uniform float uGlow;      // bioluminescence (night sea)
 uniform vec3 uGlowCol;
 uniform float uFlash;     // lightning flash
+uniform float uFoamAmt;
 uniform vec4 uRect;
 uniform float uIsFar;
 uniform vec4 uGust[4];   // x, halfwidth, z0, z1 (halfwidth 0 = off)
@@ -284,7 +285,7 @@ void main() {
   float wake = 0.0;
   if (wuv.x > 0.0 && wuv.x < 1.0 && wuv.y > 0.0 && wuv.y < 1.0) wake = texture2D(uWake, wuv).r;
   // crisp foam: crests, the most bunched-up swell tops and the wake canvas, with a soft shadow band at its edge
-  float topFoam = smoothstep(0.45, 0.18, vJ) * 1.0;
+  float topFoam = smoothstep(0.45, 0.18, vJ) * uFoamAmt;
   float foam = vCrest * 1.3 + topFoam + wake * 1.35;
   float fn = fbm(uv * 0.55 + vec2(uTime * 0.08, uTime * 0.05));
   float fm = foam * (0.45 + 0.75 * fn);
@@ -330,7 +331,7 @@ export function makeOceanMaterial(sea, wakeTex) {
     uWake: { value: wakeTex }, uWakeRect: { value: new THREE.Vector4() },
     uSky: { value: null }, uSkyOn: { value: 0 },
     uGlow: { value: 0 }, uGlowCol: { value: new THREE.Color(0x40ffe0) },
-    uFlash: { value: 0 },
+    uFlash: { value: 0 }, uFoamAmt: { value: 1 },
     uGust: { value: Array.from({ length: 4 }, () => new THREE.Vector4()) },
   };
   const mat = new THREE.ShaderMaterial({ uniforms: u, vertexShader: VERT, fragmentShader: FRAG });

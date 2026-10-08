@@ -91,7 +91,7 @@ export class World {
     u.uSunDir.value.copy(sd); u.uSunCol.value.set(S.sun.col);
     u.uDeep.value.set(S.water.deep); u.uShallow.value.set(S.water.shallow); u.uFoam.value.set(S.water.foam);
     u.uSkyTop.value.set(S.sky.top); u.uSkyHor.value.set(S.sky.hor); u.uHaze.value.set(S.sky.haze);
-    u.uGlow.value = S.glow;
+    u.uGlow.value = S.glow; u.uFoamAmt.value = S.foam ?? 1;
     this.skyU.uTexOn.value = 0; u.uSkyOn.value = 0;
     const tex = await this.loadTex(S.skyTex);
     if (tex && this.seaId === id) { this.skyU.uTex.value = tex; this.skyU.uTexOn.value = 1; u.uSky.value = tex; u.uSkyOn.value = 1; }

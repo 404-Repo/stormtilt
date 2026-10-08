@@ -17,7 +17,7 @@ export const SEAS = {
     water: { deep: 0x17405f, shallow: 0x3aa9b0, foam: 0xf0ecf6 },
     swell: [{ angle: -30, L: 52, A: 1.35, Q: 0.55 }, { angle: 10, L: 30, A: 0.68, Q: 0.6 }, { angle: 60, L: 15, A: 0.32, Q: 0.6 }, { angle: -70, L: 8, A: 0.14, Q: 0.5 }],
     weather: { rollers: [0, 1], cells: [1, 2], gusts: 0, spouts: 0, rogue: 0, rain: 1.0 },
-    exposure: 1.05, glow: 0, dressing: 'thunder',
+    exposure: 1.05, glow: 0, dressing: 'thunder', cloud: [0.06, 0.05, 0.11],
   },
   gale: {
     name: 'Gale Straits', blurb: 'the wind is a road, if you can find it',
@@ -35,7 +35,7 @@ export const SEAS = {
     water: { deep: 0x071f3a, shallow: 0x135e7a, foam: 0x9fdcec },
     swell: [{ angle: 10, L: 60, A: 1.49, Q: 0.5 }, { angle: -40, L: 33, A: 0.74, Q: 0.6 }, { angle: 70, L: 14, A: 0.30, Q: 0.6 }, { angle: 0, L: 8, A: 0.11, Q: 0.5 }],
     weather: { rollers: [0, 1], cells: [0, 1], gusts: 0, spouts: 0, rogue: 1, rain: 0.2 },
-    exposure: 1.15, glow: 1, dressing: 'rogue',
+    exposure: 1.15, glow: 1, foam: 0.35, dressing: 'rogue', cloud: [0.16, 0.17, 0.3],
   },
   eye: {
     name: 'Eye of the Storm', blurb: 'calm water, a ring of storm, and the Admiral',
