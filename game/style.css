@@ -123,7 +123,7 @@ button { font-family: var(--display); color: var(--ink); border: 0; cursor: poin
 #vs .vs-a { left: -4%; bottom: 6%; animation: inl .4s ease-out; }
 #vs .vs-b { right: -4%; top: 6%; animation: inr .4s ease-out; }
 #vs img { width: 100%; max-height: 40vh; object-fit: contain; filter: drop-shadow(0 8px 0 rgba(0,0,0,.3)); }
-.vs-name { font-family: var(--display); font-size: 22px; color: #fff; text-shadow: 0 3px 0 rgba(0,0,0,.35); }
+.vs-name { font-family: var(--display); font-size: clamp(16px, 5.4vw, 22px); max-width: 100%; padding: 0 6px; overflow-wrap: anywhere; color: #fff; text-shadow: 0 3px 0 rgba(0,0,0,.35); }
 .vs-name small { display: block; font: 800 12px var(--font); letter-spacing: .2em; text-transform: uppercase; opacity: .9; }
 .vs-line { font-weight: 800; font-size: 13px; max-width: 90%; background: #fff; color: var(--ink); border-radius: 12px; padding: 6px 10px; margin-top: 6px; }
 .vs-mid { font-family: var(--display); font-size: 84px; color: var(--sun); -webkit-text-stroke: 3px var(--ink); z-index: 2; animation: pop .4s cubic-bezier(.2,1.6,.4,1); }

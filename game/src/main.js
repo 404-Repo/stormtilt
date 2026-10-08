@@ -285,7 +285,7 @@ game.onMatchEnd = (m) => {
     $('b-res-next').textContent = 'MENU';
   } else {
     $('res-title').textContent = won ? 'VICTORY' : 'OVERBOARD';
-    $('res-sub').textContent = won ? `"${capB.lose}"  ${capB.name}` : `"${capB.win}"  ${capB.name}`;
+    $('res-sub').textContent = (won ? `"${capB.lose}"  ${capB.name}` : `"${capB.win}"  ${capB.name}`) + ' ';
     if (!won) $('res-sub').textContent += `.  Tip: ${capB.tip}`;
     const st = m.stats;
     const score = m.score;
