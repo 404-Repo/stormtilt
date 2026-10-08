@@ -88,3 +88,56 @@ panoramas, 8 music cues in 3 takes each (chained as playlists), 30 SFX and sting
 - 2P banners still speak to "you" (P1).
 - Sub-agent slip: the sea-props agent's first Atlas calls wrote 4 reference images into ~/astrocade-game6/ref/ before its
   scratch folder existed; it moved them out (game6's git status is clean).
+
+## Milestone 3: content complete (2026-10-08)
+
+The whole game exists and plays from the title to the Squall Cup champion card. Commit **4031920**.
+
+**Content**
+- **Five seas**, each its own light, palette, weather and set dressing: Regatta Bay (gold afternoon, spectators, judges'
+  barge, breakwater, bunting, lighthouse, island), Thunderhead Reach (violet dusk, rain, storm cells, wreck, arch),
+  Gale Straits (teal gale, gust lanes, waterspouts, sea stacks), Rogue Deep (moonlit, cyan foam, rogue waves, whale
+  tail, wreck), Eye of the Storm (red-gold calm, the Admiral's galleon).
+- **Eight rivals and a boss**, each with a portrait, VS line, taunts, barks that announce what they are going for
+  ("That bolt is MINE!", "RAMMING SPEED!") and an AI personality: Pip (rookie, sometimes forgets to couch), Bosun
+  Barnacle (rams, heavy lance), Doc Volta (chases lightning, copper rod), Contessa Brisa (late couch, long lance,
+  dodges), Kite (catamaran, gusts and crests), the Gilly Twins (two on one deck, feint a line switch), Lady Marrow
+  (rogue waves, long lance), Admiral Nimbus (8 footing, three phases: he calls cells onto you, then rogue crests).
+- **The weather verbs**, each telegraphed before it matters: storm cells (a shrinking ring, a rain shaft, a tag that
+  says "LANCE UP: BOLT IN 2", and "LET GO!" in red if you couch under it), crest launch markers ("AIR AT THE PASS" when
+  your current line will put you in the air at the clash), gust lanes, waterspouts, rogue waves. From the second tilt
+  every sea has a storm cell to race for.
+- **Progression and modes**: the Squall Cup ladder, spoils (each rival's yacht or lance), The Dock (5 yachts, 5
+  lances), medals, a score and a best per rival, Quick Match, Endless Squall (streak), 2 players on one phone.
+- **51 asset modules through the 404 loop** (3 candidates, verify sheet, pick by eye; receipts in
+  `receipts/candidates/`): 5 yachts + the galleon, 5 lances, 9 captains on a shared 9-joint rig, 19 sea props and set
+  pieces. `harness/ship.mjs`: 52 modules parse, nothing leaves the folder. Game folder 8.9 MB on disk, 3.4 MB to load.
+- Atlas: 3,439 credits at max hold over 65 calls, 2 failed (ledger): 7 concept frames, title, 9 captain sheets, 5
+  skies, 4 + 4 + 4 + 2 object reference sheets, 26 audio calls (8 music cues in 3 takes each, ~30 SFX).
+
+**Critic rounds** (fresh harsh critic each, blind pairs, keys outside the folder, in-motion frames):
+
+| round | vs podium (10) | vs floor (6) | vs concept (6) | property named first | what I changed |
+|---|---|---|---|---|---|
+| 1 | 6 won, 4 lost (all to SUNDRIFT) | 6 of 6 | 0 of 6 | the water: marbled noise, hex foam lines, blobs | toon water: banded values, crisp foam with an edge shadow, sparse glints; closer chase; rain fixes |
+| 2 | 6 won, 4 lost (all to SUNDRIFT) | 5 of 6 | 0 of 6 | milky white wash over the lower half | own sails fade to 7% in the chase, spray can never cover the lens, less landing foam; telephoto chase; impact flash and hit-stop |
+
+The round-2 changes have not been judged yet. The concept column has lost 12 of 12, all to illustrations with a camera
+inside the action; the next critic round will say whether that gap is execution or format.
+
+**Solo tester sessions** (fresh Sonnet testers on the panel harness, 300 s, our game only):
+
+| run | persona | fun / nuance / juice | what they said decided it | what I changed |
+|---|---|---|---|---|
+| solo1 | casual | 5 / 5 / 7 | "wait 6 s, then hold a button"; "too early" with no clue why; Barnacle's ram unfair | a storm cell in every sea from tilt 2, couch window 0.55 s late / 1.4 s early, ram warning on the gauge |
+| solo2 s01 | casual | 6 / 6 / 8 | lost the first 3 matches; the storm rule only made sense afterwards | Pip easier (forgets to couch 45%), cell tags BEFORE the strike, charge 6.5 s to 4.7 s |
+| solo2 s02 | indie | 6 / 6 / 8 | "a real either/or" (lance up = charged, couched = zapped) but "8 s of dead sailing", tells come after | same, plus snappier steering |
+
+**My gate** (skill 0.5 touch bot, 5 cup matches after the last changes): won 4 of 5, lost once to Barnacle; matches 21 to
+70 s, 2 to 7 tilts, most finishing 1-0 on footing; peak 334 draws, 0.23 M tris, 0 console errors.
+
+**Honest gaps**
+- The latest tester fixes (cell tags, rookie Pip, shorter charge) are not tester-verified yet.
+- No real phone; no human has played; nobody has listened to the audio (the testers read a sound log).
+- The galleon's sails are flat colour; the critic called them unfinished.
+- 2P banners name P1/P2, but the broadcast camera and P2's mirrored controls have only been checked in screenshots.
