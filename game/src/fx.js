@@ -17,8 +17,10 @@ varying float vA; varying vec3 vC;
 void main() {
   vec2 d = gl_PointCoord - 0.5; float r = length(d);
   if (r > 0.5) discard;
-  float a = smoothstep(0.5, 0.15, r) * vA;
-  gl_FragColor = vec4(vC, a);
+  // toon spray: a crisp puff with a soft shaded lower edge
+  float a = smoothstep(0.5, 0.44, r) * vA;
+  float shade = 0.82 + 0.18 * smoothstep(0.3, -0.3, d.y);
+  gl_FragColor = vec4(vC * shade, a);
   #include <colorspace_fragment>
 }`;
 

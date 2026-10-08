@@ -294,7 +294,10 @@ void main() {
   float foamMask = smoothstep(0.6, 0.66, fm);
   float edge = smoothstep(0.46, 0.54, fm) - foamMask;
   col = mix(col, col * 0.78 + vec3(0.0, 0.04, 0.07), clamp(edge, 0.0, 1.0) * 0.55);
-  vec3 foamCol = uFoam * (0.86 + 0.18 * diff);
+  // shaded foam: lit tops, a cooler belly toward the trough side, a bright lip at its leading edge
+  float fsh = smoothstep(-0.2, 0.6, dot(Nb, uSunDir));
+  vec3 foamCol = mix(uFoam * vec3(0.78, 0.86, 0.92), uFoam * 1.04, fsh);
+  foamCol = mix(foamCol, vec3(1.0), smoothstep(0.66, 0.7, fm) * (1.0 - smoothstep(0.7, 0.8, fm)) * 0.35);
   col = mix(col, foamCol, foamMask);
 
   // bioluminescence on broken water at night
