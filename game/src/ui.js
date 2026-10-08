@@ -28,7 +28,10 @@ export class UI {
     this.bannerT = dur;
     void b.offsetWidth; b.classList.add('pop');
   }
-  taunt(text, dur = 2.2) { const t = this.el.taunt; t.textContent = text; t.className = 'show'; this.tauntT = dur; }
+  taunt(text, dur = 2.2) {
+    if (this.hintT > 0.3) return;   // one callout at a time
+    const t = this.el.taunt; t.textContent = text; t.className = 'show'; this.tauntT = dur;
+  }
   hint(text, dur = 3) { const h = this.el.hint; h.textContent = text; h.className = text ? 'show' : ''; this.hintT = dur; }
   update(dt) {
     if (this.bannerT > 0) { this.bannerT -= dt; if (this.bannerT <= 0) { this.el.banner.className = ''; this.el.sub.className = ''; } }

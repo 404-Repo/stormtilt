@@ -55,6 +55,8 @@ export class World {
     const sc = this.sun.shadow.camera; sc.left = -34; sc.right = 34; sc.top = 34; sc.bottom = -34; sc.near = 10; sc.far = 260;
     this.sun.shadow.mapSize.set(2048, 2048); this.sun.shadow.bias = -0.0004; this.sun.shadow.normalBias = 0.04;
     this.scene.add(this.sun, this.sun.target);
+    // a cool rim from opposite the sun: hulls and captains get an edge against the sea
+    this.rim = new THREE.DirectionalLight(0x9fd0ff, 1.3); this.scene.add(this.rim, this.rim.target);
     this.flashLight = new THREE.DirectionalLight(0xbfe6ff, 0); this.flashLight.position.set(0, 100, 0); this.scene.add(this.flashLight);
     this.pmrem = new THREE.PMREMGenerator(r);
     this.texCache = new Map();
@@ -183,5 +185,6 @@ export class World {
   aimShadow(center) {
     const d = this.sunDir || new THREE.Vector3(0, 1, 0);
     this.sun.position.copy(center).addScaledVector(d, 120); this.sun.target.position.copy(center);
+    this.rim.position.copy(center).add(new THREE.Vector3(-d.x * 100, 60, -d.z * 100)); this.rim.target.position.copy(center);
   }
 }

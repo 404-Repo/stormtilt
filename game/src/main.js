@@ -451,7 +451,7 @@ function cellTag(m) {
   const c = best.c, inside = Math.hypot(A.x - c.x, A.z - c.z) < c.r * A.lance.rod + A.boat.beam * 0.5;
   const p = tmpV.set(c.x, sea.height(c.x, c.z) + 6, c.z).project(world.camera);
   if (p.z > 1) { el.style.display = 'none'; return; }
-  const cx = Math.max(110, Math.min(innerWidth - 110, (p.x * 0.5 + 0.5) * innerWidth)), cy = Math.max(110, Math.min(innerHeight - 220, (-p.y * 0.5 + 0.5) * innerHeight));
+  const cx = Math.max(130, Math.min(innerWidth - 130, (p.x * 0.5 + 0.5) * innerWidth)), cy = Math.max(110, Math.min(innerHeight - 220, (-p.y * 0.5 + 0.5) * innerHeight));
   el.style.display = 'block'; el.style.transform = `translate(${cx}px, ${cy}px)`;
   const warn = inside && A.couch > 0.3;
   el.className = warn ? 'warn' : '';
@@ -476,7 +476,7 @@ function rampMarker(m, ttp) {
   if (!best) { el.style.display = 'none'; return; }
   const p = tmpV.set(best.px, sea.height(best.px, best.pz) + 1.5, best.pz).project(world.camera);
   if (p.z > 1) { el.style.display = 'none'; return; }
-  el.style.display = 'block'; el.style.transform = `translate(${(p.x * 0.5 + 0.5) * innerWidth}px, ${(-p.y * 0.5 + 0.5) * innerHeight}px)`;
+  el.style.display = 'block'; el.style.transform = `translate(${Math.max(80, Math.min(innerWidth - 80, (p.x * 0.5 + 0.5) * innerWidth))}px, ${Math.max(110, Math.min(innerHeight - 220, (-p.y * 0.5 + 0.5) * innerHeight))}px)`;
   el.className = best.score === 2 ? '' : 'meh';
   if (best.score === 2 && !game.rampTold && !save.toldRamp && m.tilt > 1) { game.rampTold = true; save.toldRamp = 1; persist(); ui.hint('Steer onto the gold arrow: fly off the crest and strike from above', 3.5); }
   el.lastChild.textContent = best.score === 2 ? 'AIR AT THE PASS' : best.gap > 0 ? 'too early' : 'too late';
@@ -526,8 +526,9 @@ function frame() {
     for (const y of [m.A, m.B]) {
       const sails = y.hull.userData.sails; if (!sails) continue;
       const near = Math.hypot(cp.x - y.x, cp.z - y.z) < y.dims.length * 0.75 && cp.y < y.y + y.dims.mastTopY;
-      const want = (y === m.A && ctx.mode === 'chase' && !current?.twoP) ? 0.07 : near ? 0.3 : 1;
-      for (const mt of sails) mt.opacity += (want - mt.opacity) * Math.min(1, realDt * 5);
+      const hide = y === m.A && ctx.mode === 'chase' && !current?.twoP;
+      const want = hide ? 0 : near ? 0.3 : 1;
+      for (const mt of sails) { mt.opacity += (want - mt.opacity) * Math.min(1, realDt * 6); mt.visible = mt.opacity > 0.04; }
     }
   }
   fx.rain.step(dt, world.camera);
@@ -547,8 +548,11 @@ function frame() {
     const ramEdge = (A.boat.beam + B.boat.beam) / 2 + TUNING.hitGap;
     ui.gauge(lat, ramEdge, A.lance.reach + B.boat.beam * 0.12, B.lance.reach + A.boat.beam * 0.12, ttp < 5.5 && ttp > 0);
     $('gauge').classList.toggle('danger', ttp < 2.8 && ttp > 0 && lat < ramEdge + 0.2);
-    rampMarker(m, ttp);
     cellTag(m);
+    rampMarker(m, ttp);
+    const busy = ui.bannerT > 0;
+    if (busy || $('celltag').style.display === 'block') $('ramp').style.display = 'none';
+    if (busy) $('celltag').style.display = 'none';
   } else { ui.timing(0, 0, null, ''); ui.gauge(0, 0, 0, 0, false); $('ramp').style.display = 'none'; $('celltag').style.display = 'none'; }
   ui.update(realDt);
   world.renderer.render(world.scene, world.camera);
