@@ -15,7 +15,8 @@ export class Match {
     this.maxA = this.footA; this.maxB = this.footB;
     this.tilt = 0; this.phase = 'intro'; this.pt = 0; this.over = false; this.winner = null;
     this.stats = { hits: 0, taken: 0, late: 0, high: 0, charged: 0, rams: 0, koBy: '' };
-    this.aiB = cfg.humanB ? null : new CaptainAI(game, this.B, this.A, this.capB.ai);
+    const ai = cfg.tempest ? { ...this.capB.ai, lead: Math.max(0.3, this.capB.ai.lead - 0.25), jitter: this.capB.ai.jitter * 0.6, steer: 1, react: this.capB.ai.react * 0.7, panic: 0 } : this.capB.ai;
+    this.aiB = cfg.humanB ? null : new CaptainAI(game, this.B, this.A, ai);
     this.aiA = cfg.autoA ? new CaptainAI(game, this.A, this.B, cfg.autoA) : null;   // used by the attract mode and tests
     this.boss = !!this.capB.boss; this.bossPhase = 1;
     this.two = !!cfg.humanB; this.nB = this.two ? 'P2' : this.capB.name;

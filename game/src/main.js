@@ -258,7 +258,7 @@ async function startMatch(cfg) {
     buildYacht(cfg.capA || 'player', boatA, lanceA, cfg.tintA, 1),
     buildYacht(cfg.capB, cfg.boatB || capB.boat, cfg.lanceB || capB.lance, cfg.tintB ?? capB.tint, -1),
   ]);
-  const m = new Match(game, { sea: cfg.sea, A, B, capA: cfg.capA || 'player', capB: cfg.capB, humanB: cfg.twoP, autoA: cfg.autoA, footA: cfg.footA, footB: cfg.footB });
+  const m = new Match(game, { tempest: cfg.tempest, sea: cfg.sea, A, B, capA: cfg.capA || 'player', capB: cfg.capB, humanB: cfg.twoP, autoA: cfg.autoA, footA: cfg.footA, footB: cfg.footB });
   game.match = m; current = cfg;
   ui.names(cfg.twoP ? 'P1' : 'YOU', cfg.twoP ? 'P2' : (capB.short || capB.name.toUpperCase()), './img/cap_player.png', `./img/cap_${cfg.capB}.png`);
   $('hud').classList.remove('hidden'); $('p2').classList.toggle('hidden', !cfg.twoP);
@@ -315,19 +315,24 @@ game.onMatchEnd = (m) => {
     }
     persist();
     const cupDone = cfg.mode === 'cup' && won && LADDER.indexOf(key) === LADDER.length - 1;
-    if (cupDone) { $('res-title').textContent = 'SQUALL CUP CHAMPION'; }
+    if (cupDone) {
+      $('res-title').textContent = save.tempest ? 'TEMPEST CUP CHAMPION' : 'SQUALL CUP CHAMPION';
+      if (!save.tempest) { save.tempest = 1; save.cup = 0; $('res-spoils').innerHTML = '<b>UNLOCKED</b> the TEMPEST CUP: the same eight captains, sharper, with one more footing each. PLAY starts it.'; }
+      else save.cup = LADDER.length - 1;
+      persist();
+    }
     $('b-res-next').textContent = cfg.mode === 'cup' ? (won ? (cupDone ? 'MENU' : 'NEXT RIVAL') : 'TRY AGAIN') : cfg.mode === 'endless' ? (won ? 'NEXT RIVAL' : 'MENU') : 'MENU';
   }
   audio.sting(won ? 'm_victory' : 'm_defeat', 0.9);
   setTimeout(() => { $('hud').classList.add('hidden'); ui.screen('result'); }, 600);
 };
 function nextCupRival() { return LADDER[Math.min(save.cup, LADDER.length - 1)]; }
-function cupMatch(capB) { const c = CAPTAINS[capB]; showVS(capB, () => startMatch({ mode: 'cup', capB, sea: c.sea, footB: Q.has('kb') ? 1 : undefined })); }
+function cupMatch(capB) { const c = CAPTAINS[capB]; showVS(capB, () => startMatch({ mode: 'cup', capB, sea: c.sea, tempest: !!save.tempest, footB: Q.has('kb') ? 1 : (save.tempest ? (c.footing || 5) + 1 : undefined) })); }
 function showVS(capB, then) {
   const c = CAPTAINS[capB];
   $('vs-img-a').src = './img/cap_player.png'; $('vs-img-b').src = `./img/cap_${capB}.png`;
   $('vs-name-a').textContent = 'YOU'; $('vs-name-b').innerHTML = `${c.name}<small>${c.title}</small>`;
-  $('vs-line').textContent = `"${c.intro}"`; $('vs-sea').textContent = `${SEAS[c.sea].name}: ${SEAS[c.sea].blurb}`;
+  $('vs-line').textContent = `"${c.intro}"`; $('vs-sea').textContent = `${save.tempest ? 'TEMPEST CUP . ' : ''}${SEAS[c.sea].name}: ${SEAS[c.sea].blurb}`;
   $('vs-tip').textContent = c.tip || '';
   ui.screen('vs'); audio.play('horn', { vol: 0.7 });
   setTimeout(then, Q.has('fast') ? 50 : 1700);
