@@ -74,6 +74,8 @@ export default function (THREE) {
   };
   // ---- shared: stone layout (running bond, varied, never a grid), core, light tower, lamp post ----
   const SC = [0x9c968a, 0xb6ac98, 0xc99a4f, 0xbf6e44, 0x857d72, 0xd4b47c].map((c) => { const m = M(c, { roughness: 0.42 }); m.name = 'stone'; return m; });
+  // mostly warm greys, an ochre or rust stone now and then: varied, never a checkerboard
+  const pick = (i) => { const h = hash3(i, 2, 9); return h < 0.3 ? 0 : h < 0.55 ? 1 : h < 0.75 ? 4 : h < 0.85 ? 5 : h < 0.93 ? 2 : 3; };
   const layout = []; // [cx, cy, cz, sx, sy, sz]
   const course = (y0, h, zc, d, jitter) => { let x = -20 + rr(0, 1.2) * jitter;
     if (x > -20) layout.push([(-20 + x) / 2, y0 + h / 2, zc, x + 20, h * rr(0.85, 1), d]);
@@ -108,8 +110,8 @@ export default function (THREE) {
   const rbox = (sx, sy, sz) => { const b = Math.min(0.18, sz * 0.1), w = sx - 2 * b, h = sy - 2 * b, r = Math.min(w, h) * 0.32, s = new THREE.Shape();
     s.moveTo(-w / 2 + r, -h / 2); s.lineTo(w / 2 - r, -h / 2); s.quadraticCurveTo(w / 2, -h / 2, w / 2, -h / 2 + r); s.lineTo(w / 2, h / 2 - r);
     s.quadraticCurveTo(w / 2, h / 2, w / 2 - r, h / 2); s.lineTo(-w / 2 + r, h / 2); s.quadraticCurveTo(-w / 2, h / 2, -w / 2, h / 2 - r); s.lineTo(-w / 2, -h / 2 + r); s.quadraticCurveTo(-w / 2, -h / 2, -w / 2 + r, -h / 2);
-    const q = new THREE.ExtrudeGeometry(s, { depth: sz - 2 * b, bevelEnabled: true, bevelSize: b, bevelThickness: b, bevelSegments: 1, curveSegments: 2 }); q.translate(0, 0, -(sz - 2 * b) / 2); return q; };
-  layout.forEach(([x, y, z, sx, sy, sz], i) => { const m = add(rbox(sx * 0.97, sy * 0.97, sz), SC[Math.floor(hash3(i, 2, 9) * 6)], x, y, z); m.rotation.set(rr(-0.03, 0.03), rr(-0.04, 0.04), rr(-0.04, 0.04)); });
+    const q = new THREE.ExtrudeGeometry(s, { depth: sz - 2 * b, bevelEnabled: true, bevelSize: b, bevelThickness: b, bevelSegments: 1, curveSegments: 1 }); q.translate(0, 0, -(sz - 2 * b) / 2); return q; };
+  layout.forEach(([x, y, z, sx, sy, sz], i) => { const m = add(rbox(sx * 0.97, sy * 0.97, sz), SC[pick(i)], x, y, z); m.rotation.set(rr(-0.03, 0.03), rr(-0.04, 0.04), rr(-0.04, 0.04)); });
 
   // placement: base at y = 0, centred on x and z (vertex-measured, per the asset contract)
   const box = new THREE.Box3(), v = new THREE.Vector3(), m4 = new THREE.Matrix4(), im = new THREE.Matrix4();

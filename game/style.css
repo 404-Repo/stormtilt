@@ -30,7 +30,7 @@ button { font-family: var(--display); color: var(--ink); border: 0; cursor: poin
 .pips i.lost { opacity: .22; filter: grayscale(1); }
 .pips.many i { width: 11px; height: 11px; }
 .pips.many { gap: 2px; }
-.tiltno { margin-top: 8px; font-family: var(--display); font-size: 12px; color: var(--gold); letter-spacing: .1em; text-shadow: 0 2px 0 rgba(0,0,0,.4); white-space: nowrap; }
+.tiltno { margin-top: 10px; font-family: var(--display); font-size: 11px; color: var(--gold); letter-spacing: .1em; white-space: nowrap; background: rgba(20,26,51,.78); padding: 4px 8px; border-radius: 9px; }
 #b-pause { position: absolute; top: calc(env(safe-area-inset-top) + 64px); right: 12px; width: 38px; height: 38px; border-radius: 50%; background: rgba(20,26,51,.6); color: var(--foam); font-size: 13px; pointer-events: auto; }
 
 #banner { position: absolute; left: 0; right: 0; top: 30%; text-align: center; font-family: var(--display); font-size: clamp(30px, 10vw, 64px); line-height: 1; color: #fff; letter-spacing: .02em; opacity: 0; text-shadow: 0 4px 0 #b02a22, 0 8px 18px rgba(0,0,0,.45); padding: 0 12px; }
@@ -45,9 +45,9 @@ button { font-family: var(--display); color: var(--ink); border: 0; cursor: poin
 #sub { position: absolute; left: 0; right: 0; top: calc(30% + clamp(36px, 11vw, 70px)); text-align: center; font-weight: 700; font-size: 15px; opacity: 0; text-shadow: 0 2px 4px rgba(0,0,0,.7); padding: 0 24px; transition: opacity .2s; }
 #sub.show { opacity: 1; }
 #taunt { position: absolute; right: 14px; top: calc(env(safe-area-inset-top) + 66px); max-width: 64%; background: #fff; color: var(--ink); font-weight: 800; font-size: 14px; padding: 8px 12px; border-radius: 14px 4px 14px 14px; opacity: 0; transform: translateY(-6px); transition: opacity .2s, transform .2s; box-shadow: 0 4px 0 rgba(0,0,0,.25); margin-right: 44px; }
-#taunt.show { opacity: 1; transform: none; }
-#hint { position: absolute; left: 16px; right: 16px; top: calc(env(safe-area-inset-top) + 118px); text-align: center; font-size: 14px; font-weight: 700; background: rgba(20,26,51,.75); border-radius: 12px; padding: 8px 10px; opacity: 0; transition: opacity .3s; }
-#hint.show { opacity: 1; }
+#taunt.show { opacity: 1; transform: none; transition: opacity .08s, transform .08s; }
+#hint { position: absolute; left: 16px; right: 16px; top: calc(env(safe-area-inset-top) + 118px); text-align: center; font-size: 14px; font-weight: 700; background: rgba(20,26,51,.9); border-radius: 12px; padding: 8px 10px; opacity: 0; transition: opacity .3s; }
+#hint.show { opacity: 1; transition: opacity .08s; }
 
 /* pass gauge: where you will pass relative to the rival, ram / hit / miss */
 #gauge { position: absolute; left: 50%; transform: translateX(-50%); bottom: calc(env(safe-area-inset-bottom) + 128px); width: min(64vw, 280px); height: 12px; border-radius: 6px; background: rgba(20,26,51,.7); transition: opacity .25s; opacity: 0; }

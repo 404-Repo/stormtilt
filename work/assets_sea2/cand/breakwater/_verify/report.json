@@ -3,12 +3,12 @@
   "ok": true,
   "mounts": null,
   "meshes": 122,
-  "tris": 9760,
+  "tris": 6848,
   "materials": 10,
   "size": [
-   40.283,
-   9.935,
-   6.563
+   40.34,
+   9.919,
+   6.555
   ],
   "groundOffset": 0,
   "centreOffset": [
@@ -17,20 +17,20 @@
   ],
   "sides": {
    "front": {
-    "coverage": 0.1155,
-    "edgeDensity": 0.4647
+    "coverage": 0.1132,
+    "edgeDensity": 0.3084
    },
    "right": {
-    "coverage": 0.0691,
-    "edgeDensity": 0.4507
+    "coverage": 0.068,
+    "edgeDensity": 0.2404
    },
    "back": {
-    "coverage": 0.1158,
-    "edgeDensity": 0.4547
+    "coverage": 0.1134,
+    "edgeDensity": 0.3328
    },
    "left": {
-    "coverage": 0.0726,
-    "edgeDensity": 0.438
+    "coverage": 0.0717,
+    "edgeDensity": 0.2922
    }
   },
   "error": null,
@@ -55,20 +55,20 @@
   ],
   "sides": {
    "front": {
-    "coverage": 0.1005,
-    "edgeDensity": 0.54
+    "coverage": 0.0994,
+    "edgeDensity": 0.3687
    },
    "right": {
-    "coverage": 0.0654,
-    "edgeDensity": 0.4963
+    "coverage": 0.0647,
+    "edgeDensity": 0.3191
    },
    "back": {
-    "coverage": 0.1011,
-    "edgeDensity": 0.6525
+    "coverage": 0.1,
+    "edgeDensity": 0.3538
    },
    "left": {
-    "coverage": 0.0696,
-    "edgeDensity": 0.6362
+    "coverage": 0.0689,
+    "edgeDensity": 0.3755
    }
   },
   "error": null,
@@ -79,12 +79,12 @@
   "ok": true,
   "mounts": null,
   "meshes": 119,
-  "tris": 11948,
+  "tris": 8428,
   "materials": 10,
   "size": [
-   40.071,
+   40.051,
    9.884,
-   6.434
+   6.448
   ],
   "groundOffset": 0,
   "centreOffset": [
@@ -93,20 +93,20 @@
   ],
   "sides": {
    "front": {
-    "coverage": 0.1133,
-    "edgeDensity": 0.4357
+    "coverage": 0.1113,
+    "edgeDensity": 0.3059
    },
    "right": {
-    "coverage": 0.069,
-    "edgeDensity": 0.3951
+    "coverage": 0.0677,
+    "edgeDensity": 0.2731
    },
    "back": {
-    "coverage": 0.1144,
-    "edgeDensity": 0.4316
+    "coverage": 0.1124,
+    "edgeDensity": 0.3057
    },
    "left": {
-    "coverage": 0.0722,
-    "edgeDensity": 0.4277
+    "coverage": 0.0711,
+    "edgeDensity": 0.3271
    }
   },
   "error": null,

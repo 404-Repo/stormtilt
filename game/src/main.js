@@ -219,7 +219,7 @@ async function startMatch(cfg) {
   ]);
   const m = new Match(game, { sea: cfg.sea, A, B, capA: cfg.capA || 'player', capB: cfg.capB, humanB: cfg.twoP, autoA: cfg.autoA, footA: cfg.footA, footB: cfg.footB });
   game.match = m; current = cfg;
-  ui.names(cfg.twoP ? 'P1' : 'YOU', cfg.twoP ? 'P2' : capB.name.toUpperCase(), './img/cap_player.png', `./img/cap_${cfg.capB}.png`);
+  ui.names(cfg.twoP ? 'P1' : 'YOU', cfg.twoP ? 'P2' : (capB.short || capB.name.toUpperCase()), './img/cap_player.png', `./img/cap_${cfg.capB}.png`);
   $('hud').classList.remove('hidden'); $('p2').classList.toggle('hidden', !cfg.twoP);
   $('hud').classList.toggle('twop', !!cfg.twoP);
   m.begin();
@@ -350,7 +350,8 @@ function openDock() {
   const mk = (el, ids, table, owned, cur, set) => ids.forEach((id) => {
     const b = document.createElement('button'); const have = !!owned[id];
     b.className = 'opt' + (cur === id ? ' sel' : '') + (have ? '' : ' locked');
-    b.innerHTML = `<b>${have ? table[id].name : 'LOCKED'}</b><small>${have ? table[id].desc : 'win it from a rival'}</small>`;
+    const from = LADDER.find((c) => CAPTAINS[c].spoil && (CAPTAINS[c].spoil.boat === id || CAPTAINS[c].spoil.lance === id));
+    b.innerHTML = `<b>${have ? '' : '&#128274; '}${table[id].name}</b><small>${have ? table[id].desc : 'beat ' + (from ? CAPTAINS[from].name : 'a rival') + ' to win it'}</small>`;
     if (have) b.addEventListener('click', go(() => { set(id); persist(); openDock(); }));
     el.appendChild(b);
   });

@@ -1,5 +1,7 @@
   // ---- shared: stone layout (running bond, varied, never a grid), core, light tower, lamp post ----
   const SC = [0x9c968a, 0xb6ac98, 0xc99a4f, 0xbf6e44, 0x857d72, 0xd4b47c].map((c) => { const m = M(c, { roughness: 0.42 }); m.name = 'stone'; return m; });
+  // mostly warm greys, an ochre or rust stone now and then: varied, never a checkerboard
+  const pick = (i) => { const h = hash3(i, 2, 9); return h < 0.3 ? 0 : h < 0.55 ? 1 : h < 0.75 ? 4 : h < 0.85 ? 5 : h < 0.93 ? 2 : 3; };
   const layout = []; // [cx, cy, cz, sx, sy, sz]
   const course = (y0, h, zc, d, jitter) => { let x = -20 + rr(0, 1.2) * jitter;
     if (x > -20) layout.push([(-20 + x) / 2, y0 + h / 2, zc, x + 20, h * rr(0.85, 1), d]);
