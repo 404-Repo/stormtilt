@@ -1,0 +1,22 @@
+{
+  "label": "Game B",
+  "persona": "indie",
+  "play_seconds": 540.5,
+  "fun": 6,
+  "nuance": 7,
+  "nuance_found": "Real loadout trade-offs plus a timing verb with a failure state on both sides. Each pass you read a distance bar (RAM / gold / out of reach) and choose between lancing from the edge of your reach or accepting a ram. Hold-couch too early and the rival braces (a MISS). Storm cells charge a lance only if you pass under with it UP, but couching under one zaps your own mast. Crests give you air for a 'strike from above' bonus. At The Dock the yachts and lances are real choices: Iron Tug wins every ram but is slow, Skimmer Cat is fast but fragile, Copper Rod catches lightning from far away. Each rival forces a different answer (Barnacle rams, Brisa has a long lance, Kite brings gust lanes and waterspouts that spin you out), so I was playing differently by minute five: ram Brisa with the Tug, avoid spouts versus Kite.",
+  "pace": 7,
+  "pace_word": "right",
+  "feedback_juice": 9,
+  "looks": 9,
+  "audio": "Music tracks that change by region (regatta, thunder, gale, rogue), a sting for victory and defeat, and a constant stream of real sampled effects: lance crack, body thud, thunder, wind gusts, horn, splash, crowd cheer, laugh.",
+  "would_replay": "yes",
+  "would_quit_at_s": null,
+  "understood_goal_by_s": 12,
+  "furthest_progress": "Squall Cup ladder: beat Pip Tiller (first match, 2,000 pts), Bosun Barnacle (2,100), Doc Volta (2,100) and Kite Kowalski in Endless Squall (1,950, 'Unshaken', unlocked Skimmer Cat). Lost twice to Contessa Brisa (4th of 8 rivals) in the Quick Match, once with Iron Tug and once with Skimmer Cat, and was still fighting her when time ran out.",
+  "used_movement_assist": "not offered",
+  "control_trouble": "I could not read the distance bar and the 3D camera at the same time in 0.5 s snapshots, so my couch timing was often blind and I took rams or MISSes; a real thumb would be sharper. The sideways steer slider is also hard to nudge precisely with my harness. The pause and quit taps landed on the VS card twice because the countdown timing varied.",
+  "best_moment": "Copper Rod catches a bolt out of a clear sky, I am charged, and the Iron Tug rams Kite hard into a waterspout before the victory sting plays and a yacht unlocks.",
+  "worst_moment": "Brisa beat me three times in a row from outside my reach with almost no counterplay that I could see, and each loss dumped me back to the menu with a 6 s VS card to sit through.",
+  "verdict": "This is a proper little game, not just a template. I picked it up in ten seconds from the on-screen text and then it kept changing the question: new rival, new hazard, new reason to swap my boat. The Dock gives real trade-offs (a slow tug that wins every ram, a fast cat that folds), and each opponent is a small puzzle (Barnacle rams, Brisa out-ranges you, Kite hides in gust lanes and waterspouts). It looks like a shipped mobile game and the feedback is loud in the best way. Weak spots: one bar to read while a cinematic camera swings around, Brisa feels like a difficulty wall, and the VS cards between retries drag. I would still keep it and play again this week."
+}

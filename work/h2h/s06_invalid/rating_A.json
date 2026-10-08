@@ -1,0 +1,22 @@
+{
+  "label": "Game A",
+  "persona": "indie",
+  "play_seconds": 241.7,
+  "fun": 6,
+  "nuance": 7,
+  "nuance_found": "Light-relay puzzle: three mirrors chain (mirror 1 feeds mirror 2, mirror 2 has to be aimed at mirror 3 on a raised island, mirror 3 then aims at a stela crystal). The beam has to hit a mirror at the right height and angle, a mirror only reflects within a limited arc, and 'the last lit mirror' is the one you re-aim to reach the next dark stela. Also a push/pull block that only moves from the right side. I got 2 of 3 stelae lit by working it out; it did change how I played (aim from the end of the chain, not the start).",
+  "pace": 4,
+  "pace_word": "a bit slow",
+  "feedback_juice": 6,
+  "looks": 8,
+  "audio": "A generated wind/drone ambience loop with sparse sequenced notes; I heard no effect sounds at all when grabbing, turning mirrors or lighting a stela. Silent for the first 39 s during a long load.",
+  "would_replay": "maybe",
+  "would_quit_at_s": null,
+  "understood_goal_by_s": 80,
+  "furthest_progress": "Level 1, The Sunken Court: block pulled, mirror 1 and 2 chained, mirror 3 on the island lit, 2 of 3 stelae lit (triangle and spiral glyphs); infinity stela still dark at about 233 s. Gate not opened.",
+  "used_movement_assist": "yes, about 14 times",
+  "control_trouble": "Holding Use on a mirror failed on the first press after every walk (needed a release, pause and second press), so mirror turning cost me many retries, and the phone became unresponsive at 242 s (screenshots failing, reload returned 'Connection closed'), so I could not reach the 540 s minimum. I cannot tell if the game or the harness crashed. The assist was also stopped by the pushed block once.",
+  "best_moment": "Swinging mirror 3's beam onto a crystal and seeing the glyph light up with the hint 'Mirrors can pass the light to each other'.",
+  "worst_moment": "About 75 s of loading before the menu, then the phone going dead mid-puzzle.",
+  "verdict": "Good bones: this is a real puzzle verb, aiming a beam through a chain of mirrors with height and arc limits, and the game teaches it in stages with in-world notes. It looks like a finished game in motion, but it is slow to load, has no effect sounds, and the mirror interaction is fiddly (the first Use press often did nothing). I only saw about four minutes before the phone stopped responding, so I cannot speak to later levels. As far as I got it is more thoughtful than a plain genre template, but it was not yet a keeper."
+}

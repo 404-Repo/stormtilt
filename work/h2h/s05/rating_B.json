@@ -1,0 +1,22 @@
+{
+  "label": "Game B",
+  "persona": "competitive",
+  "play_seconds": 541,
+  "fun": 3,
+  "nuance": 5,
+  "nuance_found": "Mirror relay: hold Use at a mirror and steer left/right to swing its beam until a chime says it caught a stela crystal. The notes and prompts hint that lit mirrors can pass light to other mirrors, and that you can push blocks and hang from ledges. I only ever got 1 of 3 stelae lit, so I never saw the relay or the trade-off, just the single aim-and-wait action.",
+  "pace": 2,
+  "pace_word": "too slow",
+  "feedback_juice": 4,
+  "looks": 7,
+  "audio": "A loading bar then a short chord and a long pad at the start, then mostly sparse effects: dull noise bursts for footsteps and mirror turning, a 1320 Hz chime when a beam catches. No music for most of the session.",
+  "would_replay": "no",
+  "would_quit_at_s": 100,
+  "understood_goal_by_s": 75,
+  "furthest_progress": "Level 1 The Sunken Court: read the field notes, pushed the stone block out of the sunbeam, lit stela 1 of 3 (the infinity glyph) with mirror 1, found the hang-and-crack route toward mirror 3 on the island but never got past the crack (stuck for several minutes), then restarted the level at about 493 s. Levels 2 to 4 stayed locked.",
+  "used_movement_assist": "yes, about 45 times",
+  "control_trouble": "Fingers: my Use hold needs two fingers (Use plus stick) and the first Use press after a walk often did not grab, so I retried a lot. Camera: in the crack the camera clipped inside walls and showed black or a wall for seconds, which a real thumb would hit too. The assist walked me into the crack and then reported 'stuck' every time, hanging 12 s per call.",
+  "best_moment": "Beam finally catching the stela: the chime, the glyph lighting up at the top and the objective changing to 'Stelae lit: 1 of 3'.",
+  "worst_moment": "Standing in the crack for several minutes with the camera inside a wall and no idea if I was on the route or not.",
+  "verdict": "Gorgeous 3D art and a nice idea, a Zelda-ish light puzzle with a story. But for me it is a walk, a text note, then fiddling a mirror with no clock, no score and nothing that rewards speed. First half minute is a loading bar, the first real action is at 75 s, and I got one of three puzzle pieces lit in 9 minutes. The hang-and-crack route got me stuck with a broken camera. I would have deleted it by the 2 minute mark. Someone who likes slow exploration would love the look, not me."
+}

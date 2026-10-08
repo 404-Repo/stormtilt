@@ -1,0 +1,22 @@
+{
+  "label": "Game A",
+  "persona": "competitive",
+  "play_seconds": 540.1,
+  "fun": 6,
+  "nuance": 6,
+  "nuance_found": "Hold COUCH only when the ring turns gold (too early = glanced off, too late = late couch and you lose footing). Riding a gust lane or being airborne before the hit makes your lance land harder (high ground / charged). A storm cell punishes a couch under it (zapped) so you keep lance up there. Waterspouts spin you out. Rival gets charged too, so there is a dodge-or-trade call. Real depth, but the best line is the same each pass: steer into a lane, wait for gold, hold.",
+  "pace": 5,
+  "pace_word": "a bit slow",
+  "feedback_juice": 8,
+  "looks": 8,
+  "audio": "Music changes per rival (regatta, thunder, gale) with a victory or defeat sting, plus lance crack, body thud, charge, thunder, wind gust, splash and horn effects on every pass. Always something audible.",
+  "would_replay": "maybe",
+  "would_quit_at_s": 235,
+  "understood_goal_by_s": 60,
+  "furthest_progress": "Won 4 matches (victory sting at about 52, 105, 131 and 194 s) through the regatta and thunder stages, then reached the Gale Straits stage against Kite Kowalski: lost there at about 245, 303 and 477 s (OVERBOARD, score 400, best 500), got him down to 1 pip once, reached tilt 18 in one match, and was mid 5th attempt at tilt 6 at 540 s. Also 1 loss in the thunder stage (about 165 s).",
+  "used_movement_assist": "not offered",
+  "control_trouble": "I only see every 0.5 s so timing the gold ring window and the steer slider was clumsy; I often held COUCH a beat early or late. A thumb on a live screen would do the timing better. I tapped REMATCH/TRY AGAIN a few times before the button registered, which looked like a harness tap issue (a held tap worked).",
+  "best_moment": "A charged lance from the air landing on a rival with the camera swoop, big BOTH HIT / RAM text and the victory sting.",
+  "worst_moment": "Dead time between passes: each tilt is a 5 to 8 s camera loop of spin-outs, swoops and a blank cut with nothing to do, and the score only shows at the end of a match so I could not chase it live.",
+  "verdict": "Looks like a real made game and sounds great, and the gold-ring couch with gust lanes and storm cells is a legit risk and reward system I could feel getting better at. But as a score chaser I get nothing live: no running score or multiplier, each match runs 1 to 3 minutes, and between every pass I just wait through camera swoops and spin-outs. Rival 2 started beating me and the loop felt samey by about 4 minutes. I would keep it for a day or two for the polish and the jousting feel, but it does not hook me the way a run-based game does."
+}

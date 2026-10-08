@@ -1,0 +1,92 @@
+{
+ "s01": {
+  "A": "stormtilt",
+  "B": "sundrift",
+  "persona": "casual",
+  "ports": {
+   "A": 8870,
+   "B": 8871
+  }
+ },
+ "s02": {
+  "A": "sundrift",
+  "B": "stormtilt",
+  "persona": "competitive",
+  "ports": {
+   "A": 8872,
+   "B": 8873
+  }
+ },
+ "s03": {
+  "A": "stormtilt",
+  "B": "bellkeeper",
+  "persona": "indie",
+  "ports": {
+   "A": 8902,
+   "B": 8903
+  }
+ },
+ "s04": {
+  "A": "bellkeeper",
+  "B": "stormtilt",
+  "persona": "casual",
+  "ports": {
+   "A": 8900,
+   "B": 8901
+  }
+ },
+ "s05": {
+  "A": "stormtilt",
+  "B": "farseek",
+  "persona": "competitive",
+  "ports": {
+   "A": 8878,
+   "B": 8879
+  }
+ },
+ "s06": {
+  "A": "farseek",
+  "B": "stormtilt",
+  "persona": "indie",
+  "ports": {
+   "A": 8892,
+   "B": 8893
+  }
+ },
+ "s07": {
+  "A": "stormtilt",
+  "B": "moonpull",
+  "persona": "casual",
+  "ports": {
+   "A": 8890,
+   "B": 8891
+  }
+ },
+ "s08": {
+  "A": "moonpull",
+  "B": "stormtilt",
+  "persona": "indie",
+  "ports": {
+   "A": 8894,
+   "B": 8895
+  }
+ },
+ "s09": {
+  "A": "stormtilt",
+  "B": "olives",
+  "persona": "competitive",
+  "ports": {
+   "A": 8896,
+   "B": 8897
+  }
+ },
+ "s10": {
+  "A": "olives",
+  "B": "stormtilt",
+  "persona": "casual",
+  "ports": {
+   "A": 8898,
+   "B": 8899
+  }
+ }
+}

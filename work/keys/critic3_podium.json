@@ -1,0 +1,52 @@
+{
+ "pair_01.png": {
+  "ours": "B",
+  "mine": "frames_c3/pip_t1_chase.png",
+  "ref": "../ref/bar/podium_sundrift_1.png"
+ },
+ "pair_02.png": {
+  "ours": "B",
+  "mine": "frames_c3/pip_t1_pass.png",
+  "ref": "../ref/bar/podium_bellkeeper_1.png"
+ },
+ "pair_03.png": {
+  "ours": "B",
+  "mine": "frames_c3/volta_t1_close.png",
+  "ref": "../ref/bar/podium_sundrift_2.png"
+ },
+ "pair_04.png": {
+  "ours": "A",
+  "mine": "frames_c3/volta_t2_pass.png",
+  "ref": "../ref/bar/podium_farseek_1.png"
+ },
+ "pair_05.png": {
+  "ours": "B",
+  "mine": "frames_c3/kite_t1_close.png",
+  "ref": "../ref/bar/podium_sundrift_3.png"
+ },
+ "pair_06.png": {
+  "ours": "B",
+  "mine": "frames_c3/kite_t1_pass.png",
+  "ref": "../ref/bar/podium_bellkeeper_2.png"
+ },
+ "pair_07.png": {
+  "ours": "A",
+  "mine": "frames_c3/marrow_t2_chase.png",
+  "ref": "../ref/bar/podium_farseek_2.png"
+ },
+ "pair_08.png": {
+  "ours": "A",
+  "mine": "frames_c3/nimbus_t1_chase.png",
+  "ref": "../ref/bar/podium_bellkeeper_3.png"
+ },
+ "pair_09.png": {
+  "ours": "A",
+  "mine": "frames_c3/barnacle_t2_close.png",
+  "ref": "../ref/bar/podium_sundrift_1.png"
+ },
+ "pair_10.png": {
+  "ours": "B",
+  "mine": "frames_c3/barnacle_t1_pass.png",
+  "ref": "../ref/bar/podium_bellkeeper_1.png"
+ }
+}

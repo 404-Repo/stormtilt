@@ -1,0 +1,12 @@
+{
+  "persona": "indie",
+  "invalid_session": true,
+  "keep_playing": "A",
+  "keep_playing_margin": "slight",
+  "keep_playing_why": "NOT A REAL JUDGEMENT. Game B never produced a readable frame (screenshot failed on port 8885, also after /reload), and Game A's page closed under the harness after 42 s. 'A' is only the default because I saw 42 s of it and it looked good with a promising 'move the sea with a lantern' premise; I saw nothing of B.",
+  "better_made": "A",
+  "better_made_margin": "slight",
+  "better_made_why": "NOT A REAL JUDGEMENT. Judged on 42 s of A (painterly harbour, ambience, though the chase camera swings with the stick) against zero visible frames of B. Discard this line.",
+  "furthest_A": "Reached Nell in the harbour square with the Talk button showing at 42 s; page closed before I pressed it. Session incomplete.",
+  "furthest_B": "none; never rendered a readable frame"
+}

@@ -3,3 +3,11 @@ tools/recipe/node_modules
 work/**/frames_raw/
 *.log
 .DS_Store
+work/h2h/**/A/
+work/h2h/**/B/
+work/h2h/**/B_hung_1/
+work/solo*/s*/f/
+work/solo*/s*/*.jpg
+work/frames_c*/
+work/killtest/
+work/**/.profile/

@@ -1,0 +1,22 @@
+{
+  "label": "Game B",
+  "persona": "casual",
+  "play_seconds": 541.8,
+  "fun": 7,
+  "nuance": 7,
+  "nuance_found": "Real trade-offs: steering to aim the lance also moves your hull toward the rival (white mark on the range bar must sit in the gold band or you get rammed), you must NOT couch under a storm cell (zapped) but keep the lance up so the bolt charges it for a harder hit, and you must start holding when the ring turns gold or the other boat braces. Each rival changes the plan (Barnacle rams, Doc Volta uses storms), and wins unlock new yachts and lances at the Dock.",
+  "pace": 7,
+  "pace_word": "right",
+  "feedback_juice": 9,
+  "looks": 8,
+  "audio": "Sea-shanty style music loop on the match screen, plus horn, lance crack, body thud, thunder, wind gust, splash and a defeat sting; every hit and zap has its own sound. Voiced reaction samples ('whoa').",
+  "would_replay": "yes",
+  "would_quit_at_s": null,
+  "understood_goal_by_s": 10,
+  "furthest_progress": "Beat Pip Tiller in the first match (score 1,950, unlocked The Bathtub yacht). Lost twice to Bosun Barnacle (best 400). In Endless Squall beat Doc Volta (score 2,100, streak 1, won the Copper Rod lance) then lost to Barnacle in the streak; best Endless score 2,100.",
+  "used_movement_assist": "not offered",
+  "control_trouble": "Some. I only get a screenshot every 0.5 s and cannot hold two fingers precisely, so the timing of the hold (start when the ring turns gold, keep holding through the pass) and the left/right steering were hard; I lost many rounds to 'too early' and 'lance not couched'. A real thumb on the screen would manage it better. The game itself told me what I did wrong every time.",
+  "best_moment": "Thunderstruck: sailing under a storm cell with my lance up, the bolt charges it, then landing the charged hit on Doc Volta for the win with the slow-motion strike and 'Victory'.",
+  "worst_moment": "Losing three or four times in a row to Barnacle because the ram, aim and hold timing all clash, with the next round starting before I had read why I lost.",
+  "verdict": "I got it in ten seconds: two boats rush each other, hold the big red button at the right moment, do not get hit. It is loud, colourful and every hit makes a big satisfying crunch with words on screen telling me exactly what happened ('Both hit', 'Struck', 'Zapped', 'Thunderstruck'). Each rival has a funny line and a different trick, and winning gives me a new boat or lance, so there is a reason to go again. It is hard and the timing is tight, and I would be annoyed after three losses in a row, but it is the kind of thing I would play on the bus and try one more time. Small mess-ups: the pause menu buttons are stretched, and some text on the VS screen is cut off."
+}

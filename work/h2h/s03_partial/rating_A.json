@@ -1,0 +1,22 @@
+{
+  "label": "Game A",
+  "persona": "indie",
+  "play_seconds": 550.4,
+  "fun": 6,
+  "nuance": 7,
+  "nuance_found": "Each joust pass layers several systems that fight each other. A distance marker has to sit in a gold band (blue side = you get rammed, far side = out of reach), and it is pushed around by the rival. A storm cell flips the rule: couch under it and the bolt zaps your mast, but keep the lance UP until the bolt lands and you get a CHARGED lance (+1 damage), so you must delay your couch, which costs timing. Crests give air and high ground. Every rival punishes a different habit (Barnacle rams, Doc Volta hunts bolts, Brisa's long lance hits first, so the charge-then-couch line is too slow against her). Loadout unlocks (Iron Tug wins rams but is slow; Copper Rod catches lightning from afar, which removes the wait for the bolt) change the right line. I changed how I played between minute one and minute five.",
+  "pace": 5,
+  "pace_word": "a bit slow",
+  "feedback_juice": 8,
+  "looks": 8,
+  "audio": "Looping regatta music plus rain and wind ambience, crunchy lance cracks and body thuds, thunder booms and a charge zap, a horn at match start, a defeat sting; hits feel good and the thunder cues the storm mechanic.",
+  "would_replay": "yes",
+  "would_quit_at_s": 400,
+  "understood_goal_by_s": 45,
+  "furthest_progress": "Beat Pip Tiller (2,100), Bosun Barnacle (2,100) and Doc Volta (2,250), unlocked Iron Tug and Copper Rod, then lost to Contessa Brisa (rival 4) about six times, once reaching a 1 v 1 sudden-death final tilt (tilt 5) before losing. Best score 2,250.",
+  "used_movement_assist": "not offered",
+  "control_trouble": "The steer slider drives a laggy, high-gain marker, and I only see it every 0.5 s, so I overshot into the ram or out-of-reach zones constantly; I needed two fingers (slider plus couch) and timed the couch blind. Several losses were my blind timing (releasing the couch early, pressing it under the cell before the bolt), not the game. A real thumb would do better, but the first 90 s gave me no feedback on slider-versus-marker response, which is a game clarity cost.",
+  "best_moment": "Landing a CHARGED Thunderstruck lance from the air on Doc Volta for 3 damage to close out a match.",
+  "worst_moment": "Brisa: her long lance connects before my couch registers, it feels like a stat check, and the Late Couch result text does not tell me what to change.",
+  "verdict": "This is the best jam-game idea I have seen in a while: jousting where the verb is one hold button, but the read is storm cells, crests, reach and ram bands, and every rival wants a different line. Charge-versus-couch timing is a genuine trade-off, and the loadout unlocks (slow tug that wins rams, copper rod that skips the bolt wait) give an actual build layer. It looks and sounds great on a phone, with commanding thunder, crunchy hits and a finished, characterful UI. The cost is pace (about 4 s of cinematic turnaround for each 1.5 s decision), a laggy marker whose response is never taught, results text that does not tell you what to fix, and a visibly broken pause menu (stretched buttons overlapping the title) plus an occasional blank frame. I would keep it and play it again this week."
+}

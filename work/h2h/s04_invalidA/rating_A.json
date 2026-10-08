@@ -1,0 +1,22 @@
+{
+  "label": "Game A",
+  "persona": "casual",
+  "play_seconds": 541,
+  "fun": null,
+  "nuance": null,
+  "nuance_found": "UNVERIFIED. I could not view any Game A screenshots (every image read returned 'media removed: request limit'), so I could not judge what I was doing. From the places list and sound log only: there are gusts you catch and release, wheels, a valve, grilles and updrafts, so the design looks like a wind-puzzle walker.",
+  "pace": null,
+  "pace_word": null,
+  "feedback_juice": null,
+  "looks": null,
+  "audio": "From the sound log only: a generated ambient loop (wind or drone) throughout, short chord stings on actions, and repeated noise bursts as effects. No sampled music heard.",
+  "would_replay": null,
+  "would_quit_at_s": null,
+  "understood_goal_by_s": null,
+  "furthest_progress": "UNVERIFIED. I never saw the screen. The /places and /goto names reached objectives around a morning bell, Mara, seed wheel, pipe wheel A and B, a pipes valve, and gust chains (chain:pipesA, chain:pipesB, chain:seed); the exact objective number is not known.",
+  "used_movement_assist": "yes, about 60 times; one /goto hung past the 120 s tool timeout (around 223 s) and I stopped using it afterward, walking with the stick for the remaining time",
+  "control_trouble": "Total: I could not see Game A at all, so my steering after the assist stopped was blind and my progress after about 220 s is unknown.",
+  "best_moment": "Unknown (could not see).",
+  "worst_moment": "Not being able to see the screen for the entire 541 s, and the assist failing with 'no standable spot' and 'unreachable' on many places.",
+  "verdict": "I cannot give an honest Game A verdict: image reads failed for the whole session. This rating is invalid as a player opinion and should be discarded or re-run. Evidence that is real: 541 s played, an ambient-only sound log, a movement assist that often could not reach places, and one hung /goto."
+}

@@ -1,0 +1,22 @@
+{
+  "label": "Game A",
+  "persona": "casual",
+  "play_seconds": 541.5,
+  "fun": 6,
+  "nuance": 7,
+  "nuance_found": "Each pass has a steer bar: a white mark must sit inside the gold band, near its right edge, to hit while the rival's ram or long lance cannot reach me. Too far left and I get rammed, too far right is out of reach and both miss. Storm cells punish holding the couch button too early (zapped), and a late couch loses the high ground. Flying off a wave crest or passing under a storm cell charges the lance for extra damage. Different rivals change the rule (Barnacle rams, Brisa has a long lance, Lady Marrow brings rogue waves).",
+  "pace": 6,
+  "pace_word": "a bit slow",
+  "feedback_juice": 8,
+  "looks": 8,
+  "audio": "Regatta music loop from the first tap, horn, wind and ambience, hit and zap effects; always something playing, never harsh.",
+  "would_replay": "maybe",
+  "would_quit_at_s": 210,
+  "understood_goal_by_s": 8,
+  "furthest_progress": "Beat Pip (Tilt 5, 2,250 pts) and Lady Marrow in Endless Squall (2,150 pts, streak 1, won Long Lance); lost to Contessa Brisa in Endless; lost 8 straight rematches to Bosun Barnacle (best round 3 to 4 of 5 pips, never won)",
+  "used_movement_assist": "not offered",
+  "control_trouble": "Marker steering is a rate-based slider and I only see the screen every 0.5 s, so I overshot or undershot the gold band often and mistimed the hold; a real thumb would tune it much better. I also could not react to the storm cell timing inside one act.",
+  "best_moment": "Lance crash into Pip with a charged hit, big HIT callout, splinters and confetti, 3 pips gone at once.",
+  "worst_moment": "Third loss in a row to Barnacle with the same unclear 'both hit' trades, plus 4 to 5 seconds of empty sea and a results wait after every round.",
+  "verdict": "I got the idea in seconds: hold the red button when the ring turns gold and hit the other boat. It looks great, the camera swoops, the sounds and crashes feel good, and each new captain has a funny intro and a twist, which I liked. The first rival fell over easily and I felt great. Then Barnacle started trading hits with me and I could not tell why I kept losing the same fight; the white mark bar is small and the storm cells zap you if you hold early, so it felt like homework by the third loss. Rounds are short and the unlocks in The Dock are a nice carrot, so I might keep it for a few commutes, but the early difficulty spike would get it deleted on a bad day."
+}

@@ -1,0 +1,23 @@
+{
+  "label": "Game A",
+  "persona": "indie",
+  "play_seconds": 542,
+  "fun": 6,
+  "nuance": 7,
+  "nuance_found": "Level 2 (seen): wardens each carry one glyph and must be lured onto the matching plate. You throw the sun disc to provoke a chosen warden, lead him to the plate, then step out of the stamp ring before it lands. A wrong warden gives DENIED; wardens patrol, so timing and positioning matter. Level 1 (inferred from place names only): block, three mirrors and stelae leading to a gate.",
+  "pace": 4,
+  "pace_word": "a bit slow",
+  "feedback_juice": 7,
+  "looks": 8,
+  "audio": "A generated wind/drone ambience loop plus sequenced sawtooth/triangle notes under the whole session and a square-wave 'bureaucracy' motif in level 2; very few distinct effects heard (most stretches said EFFECTS none, even while turning mirrors).",
+  "would_replay": "maybe",
+  "would_quit_at_s": 330,
+  "understood_goal_by_s": 37,
+  "furthest_progress": "Level 1 The Sunken Court fully solved (block pushed, 3 stelae lit via 3 relayed mirrors, gate opened, cinematic). Level 2 The Checkpoint: took Mira's sun disc, stamped all 3 plates (crescent, waves, disc) after one 'PROCESSED' reset, reached objective 'Light the barrier lamp' (throw the disc through the crystal beam) but did not complete it.",
+  "used_movement_assist": "yes, about 35 times",
+  "control_trouble": "Walking was mostly handed to the assist (about 35 uses); direct stick control and held Use presses were hard with 0.5 s snapshots. The camera clipped into rock and my own character (seen). Other trouble is not reliably known because early frames were unreadable.",
+  "best_moment": "Lead a warden onto his plate with a thrown disc and get PROCESSED: the stamp lands and the Gate Address icon lights.",
+  "worst_moment": "Waiting 10 to 20 s for the one matching warden to wander by while wrong wardens kept arriving.",
+  "verdict": "More designed than most jam games I judge, and the warden-luring verb in level 2 is odd and good: you throw your disc to make the right warden hate you, run him to his plate and dodge the stamp. Writing is funny and the world looks lovely. Against that, a lot of the nine minutes was waiting on patrols or walking, the audio was sparse with long effect-free stretches, and the camera clips into rock. Strong craft, one fresh idea; I would play level 3, but it is not yet a daily-open. Caveat: I could not view the first ~480 s of footage, so level 1 impressions are low confidence.",
+  "observation_caveat": "Screenshot reads (Read tool) returned 'media removed: request limit' for roughly the first 500 s of Game A, so I saw Game A's frames only from about play second 477 onward (level 2 Checkpoint: wardens, plates, PROCESSED stamp, barrier lamp, camera clipping into rock). Level 1 details (block, mirrors, stelae, gate, hold-to-turn, swallowed first touch) are inferred from /places names, HUD-less sound logs and my act sequence, not seen, and should be treated as low confidence."
+}

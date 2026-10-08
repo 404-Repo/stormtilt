@@ -1,0 +1,22 @@
+{
+  "label": "Game A",
+  "persona": "indie",
+  "play_seconds": 541.5,
+  "fun": 7,
+  "nuance": 6,
+  "nuance_found": "One verb (the tide dial) used as terrain, vehicle and weapon. Low water opens causeways and the sand bar, high water floats Tam's boat and the raft, and you must be on the right ground when you flip it or the sea carries you back. The boss (Undertow crab) is the best use: lure it with high water, strand it with low water, then slam the sea up to lift it and Shine the lantern, three times, with the crab getting warier each round. The Needles boat section needs you to hold the dial inside a moving band and drop it for low arches. The trade-off is real but the rules are told to you each step, so there is one right line per moment and no strategy that builds across minutes.",
+  "pace": 7,
+  "pace_word": "right",
+  "feedback_juice": 7,
+  "looks": 8,
+  "audio": "Ambient wind drone, separate looping music tracks per zone (harbour, flats, boss, finale), a chime on each objective, a rising tone as the dial moves, and a clear lantern-shine tone; the crab fight had its own music.",
+  "would_replay": "maybe",
+  "would_quit_at_s": 300,
+  "understood_goal_by_s": 12,
+  "furthest_progress": "Finished the whole story in about 5 min: harbour, Well Islet, Tam's boat, Sand Bar, Shellflats wreck lens, the Needles boat run, the 3-hit Undertow boss, lit the lighthouse and got the credits card (5 min, 73 m of sea moved, 3 knocks, 0 of 5 lost things found). Played on in free roam afterwards.",
+  "used_movement_assist": "yes, about 35 times",
+  "control_trouble": "The dial handle trails the finger and I only see every 0.5 s, so the Needles band and the boss strand-then-raise timing were fiddly. The assist was used for almost all walking. Black or blank frames appeared after several assisted walks (cleared after a short wait).",
+  "best_moment": "Stranding the Undertow with low water, then slamming the sea up so it lifts off its shell and the Shine button appears.",
+  "worst_moment": "After the credits the world is empty: I could not reach the 5 lost things, Bram's spade quest had no pickup I could find, and the Stack is cut off, so there was nothing left to do for the last 4 minutes.",
+  "verdict": "This has the thing I look for: one verb, the tide, that is the terrain puzzle, the transport and the boss weapon, and it is taught by doing. The Undertow fight is a proper little pattern fight (lure high, strand low, snap up) with a crab that gets warier, and the Needles band is a nice twist on the same dial. It looks like a finished little game and the audio is clearly authored per zone. It is short and guided: a line of tutorial prompts, one right answer at each step, and it is over in about five minutes with the optional layer (lost things) invisible to me. I would play it again once, and tell someone to try the first five minutes, but there is no emergent depth yet."
+}

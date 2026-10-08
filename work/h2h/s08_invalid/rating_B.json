@@ -1,0 +1,22 @@
+{
+  "label": "Game B",
+  "persona": "indie",
+  "play_seconds": 0.5,
+  "fun": null,
+  "nuance": null,
+  "nuance_found": "not played: every screenshot on port 8885 failed ('harness:screenshot failed'), including after /reload; no frame was ever readable",
+  "pace": null,
+  "pace_word": null,
+  "feedback_juice": null,
+  "looks": null,
+  "audio": "SILENCE for the 0.5 s of play time that elapsed",
+  "would_replay": null,
+  "would_quit_at_s": null,
+  "understood_goal_by_s": null,
+  "furthest_progress": "none; Game B never rendered a readable frame",
+  "used_movement_assist": "not offered",
+  "control_trouble": "Harness failure: screenshots failed on port 8885, so I could not see the game at all.",
+  "best_moment": "none",
+  "worst_moment": "Blank harness from the first look.",
+  "verdict": "I could not see Game B, so there is no rating. Harness screenshots failed from the first look and again after /reload."
+}

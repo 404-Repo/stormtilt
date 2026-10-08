@@ -1,0 +1,22 @@
+{
+  "label": "Game B",
+  "persona": "indie",
+  "play_seconds": 542.4,
+  "fun": 7,
+  "nuance": 8,
+  "nuance_found": "Each pass is a small tactical puzzle on one verb (couch the lance) with several systems feeding it. (1) A range gauge with a gold band: too close and you are rammed and shoved, too far and you are out of reach, so you steer to keep the white mark in gold; Barnacle deliberately steers into you to ram. (2) Crests: flying off a crest gives high ground, which beats a flat hit (I lost 2 footing to high ground several times). (3) Storm cells: keep your lance UP under one and it charges your next hit (+1 damage, I landed 3 once), but couch under one and the bolt takes your mast, and the AI gets zapped by them too. So charging and striking conflict, and you choose each tilt which to take. (4) Press timing: too early is a bonk, you hold when the ring turns gold. (5) A tie on footing gives a sudden-death final tilt. Meta layer: 8-captain ladder with different yachts and lances unlocked from The Dock, per-captain behaviours (Pip rookie, Barnacle rammer, Kite fast catamaran with gust lanes). By minute five I was playing differently than in minute one.",
+  "pace": 7,
+  "pace_word": "right",
+  "feedback_juice": 9,
+  "looks": 9,
+  "audio": "Per-stage music tracks (regatta a, b, c, gale, title, thunder), lance crack and body thud on hits, wind gusts, thunder on bolts, horn at the VS card, victory and defeat stings, captain voice barks in speech bubbles.",
+  "would_replay": "yes",
+  "would_quit_at_s": 105,
+  "understood_goal_by_s": 12,
+  "furthest_progress": "Squall Cup: beat Pip Tiller twice (scores 2,000 and 1,800, medals Sky Knight and Thunderstruck, won his yacht The Bathtub and equipped it). Reached Bosun Barnacle (captain 2) but lost to him four times (best state 2 footing vs his 5, then 1 v 2). Also lost to Kite Kowalski in Endless Squall after trading a hit (streak 0, best score 100).",
+  "used_movement_assist": "not offered",
+  "control_trouble": "The steer handle moves the white mark very fast so I overshot into out-of-reach or ram constantly, and I only see every 0.5 s. The lance has to be held through a contact that comes 1.5 to 2 s after pressing and I kept releasing early (lost several tilts to 'lance not couched'); a real thumb would feel the rhythm. I also left a finger on the steer slider which blocked menu taps once. Barnacle was harder for me than it would be for a person.",
+  "best_moment": "Winning the sudden-death final tilt against Pip with a charged lance after Double Dunk Almost, 'HIT! Pip Tiller loses 1'.",
+  "worst_moment": "Losing again and again to Barnacle's rams because I could not hold the gold band and the couch at once; also the pause menu buttons render as two huge stretched cream panels.",
+  "verdict": "This is the one I wanted to keep playing. It is a jousting duel where nothing is a pure reflex: keep the gap in the gold band, take the crest for high ground, decide whether to sail under a storm cell with your lance up to charge it or avoid it so you can strike, and release the couch only when the ring turns gold. The storm cell is the clever bit, because the thing that makes you stronger also forbids you from striking at that moment, and the AI gets caught by it too, so reading the water matters. Captains have personalities that change what you do, there is a ladder and a Dock for yachts and lances, a sudden-death rule, medals, and every hit feels loud and chunky. The first two minutes are rough (the onboarding text is lines at the top you have to catch, and the contact comes late enough that you learn the timing by failing), and the difficulty spikes at Barnacle. But it has real systems and I changed how I played over time."
+}

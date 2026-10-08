@@ -1,0 +1,22 @@
+{
+  "label": "Game A",
+  "persona": "indie",
+  "play_seconds": 42.3,
+  "fun": 4,
+  "nuance": 2,
+  "nuance_found": "none (session ended at 42 s; I never reached the tide lantern/slider or any decision)",
+  "pace": 3,
+  "pace_word": "a bit slow",
+  "feedback_juice": 5,
+  "looks": 8,
+  "audio": "Harbour ambience loop plus a few sawtooth blips while walking; no music beyond ambience.",
+  "would_replay": "maybe",
+  "would_quit_at_s": null,
+  "understood_goal_by_s": 5,
+  "furthest_progress": "Reached Nell in Gullwick Harbour square and got the Talk button; never pressed it. Browser page for Game A closed under the harness at 42 s (Input.dispatchTouchEvent: Session closed), /reload failed, so the 540 s session is INCOMPLETE. This rating is based on 42 s only.",
+  "used_movement_assist": "no",
+  "control_trouble": "Chase camera yaws on sideways stick input, so I overshot and wandered about 35 s to reach Nell 7 m away; my coarse control made it worse. Then the page died (harness/page crash, not a game verdict, cause unknown).",
+  "best_moment": "The painterly harbour at golden hour and the lit lantern plaza look like a made thing.",
+  "worst_moment": "Camera swinging with the stick made a 7 m walk to the first objective disorienting; then the session died.",
+  "verdict": "I only got 42 seconds, so treat this as a first impression and not a review. It looks lovely, the opening text and the 'tide in your hand' framing promise a mechanic (drag the lantern to move the sea) that I never got to try. The walk to the first NPC was fiddly because the camera swings with the stick. I cannot say whether there is real nuance. Page crashed mid-session."
+}

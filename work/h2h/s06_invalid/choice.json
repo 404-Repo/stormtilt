@@ -1,0 +1,11 @@
+{
+  "persona": "indie",
+  "keep_playing": null,
+  "keep_playing_margin": null,
+  "keep_playing_why": "No valid choice. Game B never rendered (harness screenshots failed from the start, reload gave 'Connection closed'), and Game A's phone died at 242 s of 540 s. Judging only on A would be a forced pick against nothing.",
+  "better_made": null,
+  "better_made_margin": null,
+  "better_made_why": "No valid choice, same reason. For the record, A looked finished in motion but had no effect sounds, a roughly 75 s load, and a fiddly Use press; B is unknown.",
+  "furthest_A": "Level 1, The Sunken Court: 2 of 3 stelae lit (triangle and spiral), infinity stela still dark at about 233 s; phone died at 242 s",
+  "furthest_B": "none: never rendered"
+}

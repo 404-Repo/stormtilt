@@ -1,0 +1,22 @@
+{
+  "label": "Game B",
+  "persona": "competitive",
+  "play_seconds": 540,
+  "fun": 8,
+  "nuance": 8,
+  "nuance_found": "Each pass is a timing duel: a gauge shows where the rival is (RAM zone, gold band, out of reach) and you choose when to couch the lance. Late couch from the gold edge beats an early one. Bonuses stack: ride a gust or cross a crest to get AIRBORNE (strike from above, high ground), pass under a storm cell with the lance UP to get CHARGED (hits one harder), but couch under the cell and your own mast gets zapped. Rivals change the rules (Barnacle rams, Volta calls lightning, Brisa has a long lance, Kite brings gust lanes and waterspouts), so I had to change how I played each match.",
+  "pace": 6,
+  "pace_word": "a bit slow",
+  "feedback_juice": 9,
+  "looks": 9,
+  "audio": "Punchy sampled effects (hull land, jump, thunder, hit stings) and chord stingers on callouts; I did not notice a sustained music bed over the play.",
+  "would_replay": "yes",
+  "would_quit_at_s": null,
+  "understood_goal_by_s": 110,
+  "furthest_progress": "Beat 3 rivals in a row (Bosun Barnacle, Doc Volta, Contessa Brisa), best victory score 2,350; lost to the 4th rival, Kite Kowalski, at Tilt 10 around 540 s. Lost the first 4 Barnacle matches before learning the timing.",
+  "used_movement_assist": "not offered",
+  "control_trouble": "I only see the gauge every 0.5 s and the rival closes in about 1 s, so hitting the gold band was luck-heavy for me and many couches came too early. A real thumb would time this better. The stick and couch zones were clear.",
+  "best_moment": "Charged lance plus airborne couch at the gold edge: BOTH HIT with a flash and 'you dealt 3', then a VICTORY card with THUNDERSTRUCK and SKY KNIGHT badges.",
+  "worst_moment": "About 6 s of dead sailing after every pass, and being rammed or spun out by a waterspout when I could not see it coming.",
+  "verdict": "This is the one I kept wanting to run again. There is a rule to master (read the gauge, charge under the storm, go airborne, couch late) and every rival twists it, so there is always a better line and a badge or higher score to chase. Hits are loud, the victory screen pays you out with spoils and badges, and new rivals keep arriving. The dead time between passes and the slow first lessons drag a bit, and I lost four times at the start before it clicked, but I would play this again this week."
+}

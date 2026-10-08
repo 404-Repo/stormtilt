@@ -1,0 +1,22 @@
+{
+  "label": "Game B",
+  "persona": "casual",
+  "play_seconds": 540.1,
+  "fun": 5,
+  "nuance": 7,
+  "nuance_found": "Joust passes where I steer the gap (white mark must sit in the gold band: too close is a ram, too far is out of reach), hold COUCH only as the gold ring closes (too early and the rival braces, too late is a late couch), and keep the lance UP under storm cells until the bolt charges it (couch under one and the mast is zapped). Rivals change the answer: Barnacle rams, Brisa has a longer lance and gets charged by the bolts.",
+  "pace": 5,
+  "pace_word": "a bit slow",
+  "feedback_juice": 8,
+  "looks": 8,
+  "audio": "Looping regatta music that changed between stretches, wind and thunder, lance cracks, body thuds, a horn at the start, and a victory sting after a win and a defeat sting after a loss.",
+  "would_replay": "maybe",
+  "would_quit_at_s": 195,
+  "understood_goal_by_s": 45,
+  "furthest_progress": "Beat three rivals in order: Pip Tiller (second match, score 2,450), Bosun Barnacle (third try, score 1,950) and Doc Volta (first try, score 2,550). Lost to the fourth rival, Contessa Brisa, about 8 times; best was within one hit (Double dunk almost x3, score 1,350). Never reached The Dock or other menu modes.",
+  "used_movement_assist": "not offered",
+  "control_trouble": "Heavy. Two-thumb timing with a 0.5 s look rate is hard: holding COUCH at the right half second, steering the slider to hold the gap mark in gold, and spotting storm cells at the same time. Many of my losses were my own late or early couches. A stuck second finger also made menu taps get ignored once.",
+  "best_moment": "Landing a charged lance on Doc Volta ('Both hit, you dealt 3') and seeing his hearts drop to zero, then the VICTORY card with spoils.",
+  "worst_moment": "Losing again to Brisa on a ram or a zap I did not understand (out of reach, late couch, zapped) with the same four rules colliding.",
+  "verdict": "It looks and sounds like a real game, the camera swoops, the hits crunch, the rivals talk, and winning gives me a boat to equip. But my first two minutes were me being hit by rules I did not understand, and by the time I got the timing I was juggling three at once: the steer mark, the gold ring and the storm cells. The first rival is fun. By the third and fourth I would be on the bus saying this is homework and deleting it. If someone told me it gets easier I might come back, but it is not a 30-second hook for me."
+}

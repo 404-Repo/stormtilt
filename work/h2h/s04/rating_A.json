@@ -1,0 +1,22 @@
+{
+  "label": "Game A",
+  "persona": "casual",
+  "play_seconds": 541,
+  "fun": 3,
+  "nuance": 3,
+  "nuance_found": "none. The one real idea (carry a gust from Mara's outlet to a copper grille, then jump inside the roaring column to ride it up) is a good one, but I only worked it out by luck, and the only choice was where to walk.",
+  "pace": 3,
+  "pace_word": "too slow",
+  "feedback_juice": 6,
+  "looks": 7,
+  "audio": "Soft wind/drone ambience loop the whole time, chimes and a rising chord when a gust is caught or the grille roars, little noise-puff steps; pleasant but no tune.",
+  "would_replay": "no",
+  "would_quit_at_s": 60,
+  "understood_goal_by_s": 35,
+  "furthest_progress": "Canopy Terrace: rang the bell, took Mara's staff, caught her gust, gave it to the seed wheel, caught the second gust, released it into the copper grille and rode the updraft up to the balcony ledge (second run, about 330 s). First run got stuck at the same loop for about 190 s and I restarted. Never got past that balcony; objective text kept flipping back to 'Catch the seed wheel's gust past the gate'.",
+  "used_movement_assist": "not offered",
+  "control_trouble": "Some. Stick-and-camera relationship is hard for me to read (camera swings, so the same stick push goes different ways), but the game's camera also clips through walls and stair slabs, zooms to a close-up of the character's back and often hides the character completely, so I could not tell where I was. A real thumb would struggle too. The 'Return to last safe spot' in the pause menu helped.",
+  "best_moment": "The first chain: bell sounds dull, Mara's gust puffs, the gust curls into my bell, the seed wheel spins and the gate swings open with a big chime.",
+  "worst_moment": "Minutes of wandering with the character hidden behind geometry, not knowing where the next button would appear, and being carried back to the same ledge again and again.",
+  "verdict": "It is a pretty game and the opening three or four steps feel like a story with little rewards, but I spent most of my ten minutes lost. The objective text lies or lags, buttons only appear when you stand on an invisible spot, the camera sometimes shows me nothing but the back of her coat, and the world is a maze of ledges where you fall off and get sent back. There is no score, no progress bar, no quick win. I would have quit about a minute in. Not a Candy Crush or Subway Surfers kind of thing."
+}

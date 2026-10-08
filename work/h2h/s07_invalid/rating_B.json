@@ -1,0 +1,15 @@
+{
+  "label": "Game B",
+  "persona": "casual",
+  "play_seconds": 1.2,
+  "fun": null, "nuance": null, "nuance_found": "none (never saw the game)",
+  "pace": null, "pace_word": null, "feedback_juice": null, "looks": null,
+  "audio": "nothing heard; no sound ever played",
+  "would_replay": null, "would_quit_at_s": null, "understood_goal_by_s": null,
+  "furthest_progress": "none: the phone on port 8883 never showed a frame (screenshot failed, detached frame, session closed); /reload failed repeatedly over about 90 s",
+  "used_movement_assist": "not offered",
+  "control_trouble": "Harness failure on port 8883 from the start of my Game B turn: no screenshots at all. Not a rating of the game.",
+  "best_moment": "none",
+  "worst_moment": "A blank phone that never loaded.",
+  "verdict": "I could not play Game B at all, so I have no opinion of it. This is a harness failure, not evidence about the game; do not count it as a rating."
+}

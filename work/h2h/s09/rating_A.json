@@ -1,0 +1,22 @@
+{
+  "label": "Game A",
+  "persona": "competitive",
+  "play_seconds": 544.3,
+  "fun": 6,
+  "nuance": 6,
+  "nuance_found": "Release the steer before impact, hit with the white marker at the edge of the gold reach band (not the middle), fly off the wave crest 'AIR AT THE PASS' for the airborne high-ground bonus, and time the hold so you are charged by a lightning bolt but keep the lance UP under storm cells (couched under one = ZAPPED). Barnacle tries to ram so you must steer away and strike from max reach. Real but I never saw it compound into a score loop.",
+  "pace": 5,
+  "pace_word": "a bit slow",
+  "feedback_juice": 8,
+  "looks": 8,
+  "audio": "Music loop (regatta sample) from the start, thunder, charge whoosh, lance crack plus body thud on hits, splash, horn at each round start, defeat sting; punchy and constant.",
+  "would_replay": "maybe",
+  "would_quit_at_s": 300,
+  "understood_goal_by_s": 120,
+  "furthest_progress": "Quick Match vs Bosun Barnacle: reached Tilt 6 in a round (best score shown 800, last results 600 and 0); never beat Barnacle, got him down to 1-2 of 5 hearts a few times. Played about 540 s of repeated rematches.",
+  "used_movement_assist": "not offered",
+  "control_trouble": "Two-thumb timing (steer slider plus hold button) with 0.5 s frames; I mistimed several holds. A real thumb would do better. Hold also seems to auto-launch at crests, which I could not fully tell apart from my own input.",
+  "best_moment": "Charged, airborne, lance couched on Barnacle: slow-mo plunge into his deck, BOTH HIT burst of splinters.",
+  "worst_moment": "Each exchange is long dead time: ~7 s of drift, a replay flyby, and an overboard fall with zero input before the next round; losing to Barnacle repeatedly with a 0 score and no clear way to improve the score.",
+  "verdict": "Looks and sounds like a real product and the hits feel great, but as a score chaser the loop is slow. One joust is about 20 s, half of that I am just watching. The hold-and-release timing has depth (reach band, crest air, storm cells) yet the result screen gives me 0 or 600 and no multiplier, so I am not hunting a number. I would try a few more rounds on a bus, not build a week on it."
+}

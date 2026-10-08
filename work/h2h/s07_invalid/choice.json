@@ -1,0 +1,11 @@
+{
+  "persona": "casual",
+  "keep_playing": "A",
+  "keep_playing_margin": "slight",
+  "keep_playing_why": "I only saw Game A (about 80 s: it was clear in 20 s, looked and sounded great, and match 2 added a new rule). Game B never loaded on my phone, so this pick is by default and is NOT evidence that A beats B.",
+  "better_made": "A",
+  "better_made_margin": "slight",
+  "better_made_why": "A is the only one I could judge: polished visuals, layered sound and clear feedback, though the phone session died at about 80 s and I cannot say whether the game or the harness caused it. B showed me nothing (harness: screenshot failed, detached frame), so treat this line as no contest.",
+  "furthest_A": "Won match 1 vs Pip Tiller (score 1,950, Thunderstruck); reached Tilt 2 of match 2 vs Bosun Barnacle before the phone session died at about 80 s.",
+  "furthest_B": "none: phone on port 8883 never rendered, so nothing was played"
+}

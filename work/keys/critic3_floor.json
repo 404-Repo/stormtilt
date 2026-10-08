@@ -1,0 +1,32 @@
+{
+ "pair_01.png": {
+  "ours": "A",
+  "mine": "frames_c3/pip_t2_close.png",
+  "ref": "../floor/_frames/f1.png"
+ },
+ "pair_02.png": {
+  "ours": "A",
+  "mine": "frames_c3/volta_t2_chase.png",
+  "ref": "../floor/_frames/f2.png"
+ },
+ "pair_03.png": {
+  "ours": "A",
+  "mine": "frames_c3/kite_t2_close.png",
+  "ref": "../floor/_frames/f3.png"
+ },
+ "pair_04.png": {
+  "ours": "B",
+  "mine": "frames_c3/marrow_t1_close.png",
+  "ref": "../floor/_frames/f4.png"
+ },
+ "pair_05.png": {
+  "ours": "A",
+  "mine": "frames_c3/nimbus_t2_pass.png",
+  "ref": "../floor/_frames/f5.png"
+ },
+ "pair_06.png": {
+  "ours": "B",
+  "mine": "frames_c3/pip_t2_after.png",
+  "ref": "../floor/_frames/f6.png"
+ }
+}

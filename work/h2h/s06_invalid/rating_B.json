@@ -1,0 +1,22 @@
+{
+  "label": "Game B",
+  "persona": "indie",
+  "play_seconds": 9,
+  "fun": null,
+  "nuance": null,
+  "nuance_found": "not played: no frame ever rendered",
+  "pace": null,
+  "pace_word": null,
+  "feedback_juice": null,
+  "looks": null,
+  "audio": "SILENCE for the whole 9 s of play time",
+  "would_replay": null,
+  "would_quit_at_s": null,
+  "understood_goal_by_s": null,
+  "furthest_progress": "none: the harness could not capture a single screenshot (screenshot failed, reload returned Connection closed), same failure as Game A's phone after 242 s",
+  "used_movement_assist": "not offered",
+  "control_trouble": "Phone unresponsive for the whole session; could not play.",
+  "best_moment": "none",
+  "worst_moment": "Never getting a picture.",
+  "verdict": "I could not play Game B. The harness returned no screenshots from the start and a reload gave 'Connection closed', retried over about four minutes. I will not rate a game I have not seen."
+}

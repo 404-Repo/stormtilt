@@ -1,0 +1,22 @@
+{
+  "label": "Game A",
+  "persona": "casual",
+  "play_seconds": 562,
+  "fun": 5,
+  "nuance": 6,
+  "nuance_found": "Hold COUCH only as the ring turns gold (holding early makes the rival brace and you glance off), let go when a storm cell is under you or the bolt zaps your mast, fly off a wave crest for a charged strike from above (high ground), and keep the white marker inside the gold band so you are not rammed. Barnacle punishes steering into him. There is also a Dock to swap boat and lance.",
+  "pace": 5,
+  "pace_word": "a bit slow",
+  "feedback_juice": 8,
+  "looks": 8,
+  "audio": "A looping sea-shanty style music track under everything, plus thunder cracks, a charge whoosh, lance crack and body thud on every hit, wind gusts, splashes, a horn at match start, and a sad defeat sting.",
+  "would_replay": "maybe",
+  "would_quit_at_s": 130,
+  "understood_goal_by_s": 20,
+  "furthest_progress": "Squall Cup: beat Pip Tiller (cup screen showed him BEATEN), reached Bosun Barnacle (opponent 2 of 8) and kept losing to him (many defeat stings); late in the session I replayed a Pip match and was ahead 5 pips to 2 in Tilt 8 when time ran out. Never saw opponent 3.",
+  "used_movement_assist": "not offered",
+  "control_trouble": "Steering slider is very touchy and I only see it every 0.5 s, so lining up and keeping the marker in gold was mostly luck. Second-finger hold on COUCH often did not register at the first try, and a stuck finger once froze the result-screen buttons for about 40 s (my fault, not the game).",
+  "best_moment": "First hit on Pip from a crest: CHARGED, a big BOTH HIT burst of splinters and 'you dealt 3, took 1'.",
+  "worst_moment": "Barnacle: repeated losses to ram shoves and zaps I could not read in time, plus full-screen lightning flashes that hide the controls.",
+  "verdict": "It looks great and every hit feels like a real moment, and beating Pip felt good. But in 30 seconds I did not understand ring timing, the storm cells and the ram marker, and the text tips are long. Barnacle is a brick wall for a bus-ride player, I got zapped and rammed and did not know why until the third try. I would give it one more go for the drama of the last-pip fights, but I would probably delete it the same day. It is a 5, a good looking 5."
+}

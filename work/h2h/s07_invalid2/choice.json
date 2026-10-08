@@ -1,0 +1,12 @@
+{
+  "invalid_session": true,
+  "persona": "casual",
+  "keep_playing": null,
+  "keep_playing_margin": null,
+  "keep_playing_why": "Not judged: Game A phone session closed at 187.2 s and Game B was never played.",
+  "better_made": null,
+  "better_made_margin": null,
+  "better_made_why": "Not judged: no Game B play to compare against.",
+  "furthest_A": "Third rival beaten (Pip, Bosun Barnacle, Doc Volta); mid-fight vs Contessa Brisa, best score 2,400",
+  "furthest_B": "not played"
+}

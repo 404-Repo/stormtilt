@@ -1,0 +1,22 @@
+{
+  "label": "Game A",
+  "persona": "casual",
+  "play_seconds": 81.5,
+  "fun": 7,
+  "nuance": 7,
+  "nuance_found": "Not just hold-to-attack: couching under a storm cell zaps your own mast (keep the lance up while sailing under it), crests launch you for an airborne charged hit that lands one harder, Barnacle rams so you must keep the white mark in the gold band to stay clear, and hold timing matters (early and the rival braces, late and you get a Miss). I only partly mastered the spacing bar.",
+  "pace": 7,
+  "pace_word": "right",
+  "feedback_juice": 8,
+  "looks": 9,
+  "audio": "Music loop (regatta) plus thunder, charge, jump, lance crack, body thud, wind gust, splash and a horn; punchy and layered.",
+  "would_replay": "yes",
+  "would_quit_at_s": null,
+  "understood_goal_by_s": 20,
+  "furthest_progress": "Won match 1 vs Pip Tiller (Victory, score 1,950, Thunderstruck badge, won his yacht The Bathtub); then in match 2 vs Bosun Barnacle reached Tilt 2 (I had 4 of 5 hearts, he had 5) when the phone session died.",
+  "used_movement_assist": "not offered",
+  "control_trouble": "Left a finger down on the steer slider by mistake, which made the result-screen buttons ignore my taps for about 10 s (my error, not the game). Blind timing of the couch hold was hard with 0.5 s frames. Then the phone page closed (harness 'Session closed') at about 80 s and /reload would not bring it back, so I could not play the required 540 s. I cannot tell whether the game or the harness caused that.",
+  "best_moment": "Charged crest jump into a landed hit, then Pip falling off the boat into the sea and a big VICTORY card.",
+  "worst_moment": "Getting zapped by my own storm cell without having understood the rule, and the 5 s of dead camera sweeping between passes.",
+  "verdict": "I got it in about 20 seconds: sail at the other boat, hold the red button at the right moment, win. It looks gorgeous, sounds great, and the little jokes from Pip and Barnacle made me smile. The second rival changed the rules a little (he rams, you keep your distance), which is the kind of small new thing I like. The gaps between passes are a bit long and I was not sure how I steered the white mark, but I would play another round. Sadly it crashed on me at about a minute and a half, which I could not fix, so this rating is based on very little play."
+}

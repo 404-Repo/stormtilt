@@ -1,0 +1,22 @@
+{
+  "label": "Game A",
+  "persona": "competitive",
+  "play_seconds": 541,
+  "fun": 6,
+  "nuance": 5,
+  "nuance_found": "Hand brake gives a drift that pays small points and a drift meter; low-speed smashes of bollards and trees chain a SMASH x2/x3/x4 multiplier (FLATTENED, BOLLARD, LIGHTS OUT, CLIP, SWITCH callouts); crashing shows 'CRASH -270 LOST' so there is a real risk cost, and a magnet pulls you back to the road after a wipeout. Bonus time (+1/+2 MIN) came from scoring. I never worked out a repeatable best line, so the trade-off stayed fuzzy.",
+  "pace": 6,
+  "pace_word": "right",
+  "feedback_juice": 8,
+  "looks": 9,
+  "audio": "Procedural ambience drone with a sequenced synth loop under everything, engine tone, whoosh and impact noise bursts, chimes on score pops, phone vibration on drifts and hits; always something playing.",
+  "would_replay": "maybe",
+  "would_quit_at_s": 300,
+  "understood_goal_by_s": 125,
+  "furthest_progress": "Score 8691, combo x2 peak (x1 most of the run), 45 mi driven, in-game clock 01:49 (dusk to rain to night to past midnight), through a tunnel and past a torii gate section; about 12 crashes and magnet recoveries.",
+  "used_movement_assist": "not offered",
+  "control_trouble": "I steer with a slider thumb and only see the road every 0.5 s, so on curves I drifted off the road and crashed many times; open-loop acts of 3-5 s always ended in a ditch. The off-road recovery (5-8 s of dead time each) is partly my clumsiness, but the tiny gas/steer slider gave me no clear read of what it does.",
+  "best_moment": "Hand-brake drift into a SWITCH/CLIP chain at 60 mph with the pink skid lines and a +430 score pop under neon rain.",
+  "worst_moment": "Plowing off the road into a tree and sitting through 5-8 s of 'back to the road' magnet dead time with no score and no control.",
+  "verdict": "Gorgeous and punchy, the best-looking thing I have played on a phone in this kind of game, and the pop-ups, vibration and sound make every smash feel good. But it took me two minutes to learn what the score even wants, the HUD does not explain the combo, and a lot of my time went to crash recovery. Score climbs slowly between smashes. I would keep it for a few runs to chase a better chain, but I would not call it a week-long hook until the scoring is clearer."
+}
