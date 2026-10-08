@@ -177,7 +177,7 @@ game.onStrike = (cell, boats) => {
     game.strikeFx(new THREE.Vector3(tip.x + 4, 70, tip.z + 6), tip);
     audio.play('zap', { vol: 1.1 });
     const two = current?.twoP;
-    if (b === game.match?.A) ui.banner(two ? 'P1 CHARGED!' : 'CHARGED!', two ? 'P1 caught the bolt' : 'next hit lands for 3', 1.6, 'charge');
+    if (b === game.match?.A) ui.banner(two ? 'P1 CHARGED!' : 'CHARGED!', two ? 'P1 caught the bolt' : 'your next hit lands one harder', 1.6, 'charge');
     else ui.banner(two ? 'P2 CHARGED!' : `${game.match?.capB.name.toUpperCase()} IS CHARGED`, two ? 'P2 caught the bolt' : 'do not let that lance touch you', 1.5, two ? 'charge' : 'bad');
   } else if (inR.length) {
     LOG(`strike: zapped ${inR.length}`);
@@ -430,6 +430,23 @@ function autoRes(f) {
   if (slowT >= 4 && r > 1) { world.renderer.setPixelRatio(Math.max(1, r - 0.25)); world.resize(); slowT = 0; }
   else if (fastT >= 20 && r < world.dpr) { world.renderer.setPixelRatio(Math.min(world.dpr, r + 0.25)); world.resize(); fastT = 0; }
 }
+// a storm cell ahead tells you what to do BEFORE it strikes
+function cellTag(m) {
+  const el = $('celltag'), A = m.A; let best = null;
+  for (const c of game.weather.cells) {
+    if (c.struck > 0) continue; const ts = c.strikeAt - game.t; if (ts > 3.6 || ts < 0) continue;
+    const d = Math.hypot(A.x - c.x, A.z - c.z); if (d > 45) continue;
+    if (!best || d < best.d) best = { c, d, ts };
+  }
+  if (!best) { el.style.display = 'none'; return; }
+  const c = best.c, inside = Math.hypot(A.x - c.x, A.z - c.z) < c.r * A.lance.rod + A.boat.beam * 0.5;
+  const p = tmpV.set(c.x, sea.height(c.x, c.z) + 6, c.z).project(world.camera);
+  if (p.z > 1) { el.style.display = 'none'; return; }
+  el.style.display = 'block'; el.style.transform = `translate(${(p.x * 0.5 + 0.5) * innerWidth}px, ${(-p.y * 0.5 + 0.5) * innerHeight}px)`;
+  const warn = inside && A.couch > 0.3;
+  el.className = warn ? 'warn' : '';
+  el.dataset.t = warn ? 'LET GO! LANCE UP OR BE ZAPPED' : inside ? `LANCE UP: BOLT IN ${Math.ceil(best.ts)}` : `STORM CELL: SAIL UNDER IT, LANCE UP`;
+}
 // where will my current line meet a crest, and will that put me in the air at the pass?
 function rampMarker(m, ttp) {
   const el = $('ramp'), A = m.A; let best = null;
@@ -521,7 +538,8 @@ function frame() {
     ui.gauge(lat, ramEdge, A.lance.reach + B.boat.beam * 0.12, B.lance.reach + A.boat.beam * 0.12, ttp < 5.5 && ttp > 0);
     $('gauge').classList.toggle('danger', ttp < 2.8 && ttp > 0 && lat < ramEdge + 0.2);
     rampMarker(m, ttp);
-  } else { ui.timing(0, 0, null, ''); ui.gauge(0, 0, 0, 0, false); $('ramp').style.display = 'none'; }
+    cellTag(m);
+  } else { ui.timing(0, 0, null, ''); ui.gauge(0, 0, 0, 0, false); $('ramp').style.display = 'none'; $('celltag').style.display = 'none'; }
   ui.update(realDt);
   world.renderer.render(world.scene, world.camera);
   const info = world.renderer.info.render;

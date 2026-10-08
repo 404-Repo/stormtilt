@@ -196,7 +196,7 @@ export class Match {
     let dmg = 1 + (r.late ? 1 : 0) + (r.high ? 1 : 0) + (r.gust ? 1 : 0) + att.lance.dmg;
     if (early && !r.charged) { dmg -= 1; def.braced = 1.2; r.early = true; if (dmg <= 0) { r.braced = true; r.why = 'too early: hold when the ring turns gold'; return r; } }
     dmg = Math.min(dmg, 2);                       // a great hit is 2; only lightning does more
-    if (r.charged) dmg = 3;
+    if (r.charged) dmg = Math.min(3, dmg + 1);     // lightning adds one and can break the cap
     // the bathtub is a small target: needs a solid hit
     r.hit = true; r.dmg = Math.min(dmg, 99);
     return r;

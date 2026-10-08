@@ -1,0 +1,19 @@
+{
+  "label": "Game E",
+  "persona": "casual",
+  "play_seconds": 301,
+  "fun": 6,
+  "nuance": 6,
+  "nuance_found": "Under a storm cell, keep the lance UP until the lightning strikes to get CHARGED (hit for 3), then couch about a second later. Couch under the cell too early and you get zapped. On crest rounds, hold as the ring closes. Against the tugboat rival (Barnacle) you also have to steer to keep the white mark in the gold band so you do not get rammed. I only half understood that last bit.",
+  "pace": 6,
+  "pace_word": "right",
+  "feedback_juice": 8,
+  "audio": "Music from the first second, with a new track per round and a victory sting. Plenty of effects: horn, jump, land, lance crack, thud, thunder, charge, crowd cheer, defeat sting. The sound changed with play (charge and thunder on storms).",
+  "would_replay": "maybe",
+  "would_quit_at_s": 85,
+  "understood_goal_by_s": 25,
+  "control_trouble": "The couch timing is tight and I only see the screen every 0.5 s, so many early or late holds were mine. Steering while holding needs two fingers, which I barely tried.",
+  "best_moment": "First win at about 236 s: a charged lance in a storm knocked Pip off the boat, then the victory sting, a score of 2,400, two badges and his yacht as a prize.",
+  "worst_moment": "Three losses in a row and I could not tell why. The 'too early' and 'zapped' messages come after the damage, and the storm rule is only a tiny line of text.",
+  "verdict": "It looks gorgeous and sounds great. The hits feel big and the crowd cheers. The goal is simple: hold the button when the ring turns gold. But I lost my first three matches and I'd probably have deleted it by about a minute and a half. The storm rule, keeping your lance up until the lightning charges it, is never really explained and I mostly stumbled onto it. Once it clicked, my first win felt great, with a prize and a new rival. Then the tugboat guy added a steering thing I did not get. Not a game for the bus unless the early rounds teach you better. Maybe, if a friend pushed me."
+}

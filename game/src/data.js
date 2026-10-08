@@ -76,8 +76,8 @@ export const LANCE_ORDER = ['lance_classic', 'lance_long', 'lance_heavy', 'lance
 export const CAPTAINS = {
   player: { name: 'You', title: 'the challenger', hat: 0xf2b630, coat: 0xd7372f },
   pip: {
-    short: 'PIP', name: 'Pip Tiller', title: 'the Rookie', sea: 'regatta', boat: 'sloop_red', tint: 0xf2b630, lance: 'lance_classic', footing: 5,
-    ai: { lead: 1.25, jitter: 0.35, line: 0.55, react: 0.7, bolt: 0, roller: 0.2, gust: 0.2, ram: 0, dodge: 0, feint: 0, steer: 0.7 },
+    short: 'PIP', name: 'Pip Tiller', title: 'the Rookie', sea: 'regatta', boat: 'sloop_red', tint: 0xf2b630, lance: 'lance_classic', footing: 4,
+    ai: { lead: 1.25, jitter: 0.35, line: 0.55, react: 0.7, bolt: 0, roller: 0.2, gust: 0.2, ram: 0, dodge: 0, feint: 0, steer: 0.7, panic: 0.45 },
     spoil: { boat: 'bathtub' },
     intro: 'Is it... is it supposed to rock like this?', win: 'I WON? Mum! MUM!', lose: 'Okay. Okay. Bath time.',
     taunts: ['Please be gentle!', 'I read a book about this!', 'Which end is the pointy end?'],
@@ -144,7 +144,7 @@ export const LADDER = ['pip', 'barnacle', 'volta', 'brisa', 'kite', 'gilly', 'ma
 
 export const TUNING = {
   laneHalf: 26,          // lateral half-width of the tilt lane (buoys)
-  startZ: 80,            // each yacht starts this far from the centre
+  startZ: 66,            // each yacht starts this far from the centre
   hitGap: 0.35,          // hulls closer than half-beams + this = a ram
   late: 0.55,            // couched within this long before the pass = LATE COUCH
   early: 1.4,            // couched longer than this = the rival braces

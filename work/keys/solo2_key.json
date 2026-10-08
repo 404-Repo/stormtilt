@@ -1,0 +1,16 @@
+{
+ "s01": {
+  "game": "stormtilt",
+  "persona": "casual",
+  "label": "Game E",
+  "port": 8862,
+  "started": "ready on port 8862"
+ },
+ "s02": {
+  "game": "stormtilt",
+  "persona": "indie",
+  "label": "Game C",
+  "port": 8863,
+  "started": "ready on port 8863"
+ }
+}

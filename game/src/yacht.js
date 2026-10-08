@@ -63,7 +63,7 @@ export class Yacht {
     let steer = this.air || this.stun > 0 || this.overboard ? 0 : input.steer;
     const steerK = (this.couch > 0.5 ? 0.62 : 1) * B.turn;
     const vxT = -steer * B.speed * 0.5 * steerK * this.dir;   // +steer = toward the boat's starboard (screen right for the chaser)
-    this.vx += (vxT - this.vx) * Math.min(1, dt * 3.2 * B.turn);
+    this.vx += (vxT - this.vx) * Math.min(1, dt * 6.0 * B.turn);
     if (this.spin > 0) { this.spin -= dt; }
     // ---- speed
     let vT = B.speed * (1 + 0.38 * this.gust) * (this.couch > 0.5 ? 0.96 : 1) * (this.stun > 0 ? 0.55 : 1) * (this.landed > 0 ? 0.8 : 1);

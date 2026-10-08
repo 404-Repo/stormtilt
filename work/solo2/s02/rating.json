@@ -1,0 +1,19 @@
+{
+  "label": "Game C",
+  "persona": "indie",
+  "play_seconds": 300,
+  "fun": 6,
+  "nuance": 6,
+  "nuance_found": "The storm cell is a real either/or: if you have the couch held while passing under a cell you get zapped and stunned (miss), but if you keep the lance up through it you come out CHARGED and your next hit lands for 3. The rival AI falls for it too (RIVAL ZAPPED, and it gets charged), so the cell can swing a duel. On top of that, the ram-vs-reach bar means you steer to keep the white mark inside the gold band against Barnacle (too close and you are shoved, too far is a miss), and the crest arrow gives an airborne strike from high ground (it cost me 2 footing when Pip had it). Timing the couch late (ring gold, not green) is the third input. These do interact, but the steering was so laggy and the cell lane so hard to read that I never got to play it as a deliberate plan.",
+  "pace": 6,
+  "pace_word": "a bit slow",
+  "feedback_juice": 8,
+  "audio": "Looping regatta music with variants that swapped between rounds, plus thunder, wind gusts, lance crack, body thud, crowd cheer and a defeat sting; effects fired on every pass and result, though the music did not really change with the state of the duel.",
+  "would_replay": "maybe",
+  "would_quit_at_s": 250,
+  "understood_goal_by_s": 20,
+  "control_trouble": "Steering slider has momentum and I only see the screen every 0.5 s, so correcting the ram marker against Barnacle was mostly overshoot or undershoot; the couch timing at the gold ring was also tight for my coarse acts.",
+  "best_moment": "Keeping the lance up through a storm cell, getting CHARGED, then landing a 3 damage lance from above on the pass.",
+  "worst_moment": "Each duel is about 8 s of dead sailing between 2 s passes, and I was zapped or rammed several times without being able to read why until the banner told me afterward.",
+  "verdict": "It looks great and sounds great, and the one-verb joust has more under it than I expected: the storm cell either zaps you or charges you depending on whether you are holding the couch, the second rival adds a ram/reach lane you have to manage with the steer, and the high ground crest changes who wins a pass. That is a real trade-off. But the loop is slow, most of each duel is you waiting for the next pass, and the tell for what is going wrong only arrives after you lose it, so my first two matches were me guessing. I won one match and lost three, and by minute five I was playing differently (lance up under cells, steer early against Barnacle) which is a good sign. A bit more speed and clearer in-lane telegraphing and I would come back for the rival ladder. As it is, I would give it a few more runs and probably not keep it."
+}
