@@ -1,0 +1,94 @@
+{
+  "sloop_red": {
+    "length": 12.035,
+    "beam": 3.9,
+    "keelToDeck": 2.479,
+    "captainZ": 2.767,
+    "waterlineY": 1.05,
+    "mastTopY": 15.926,
+    "bowZ": 6.017,
+    "sternZ": -5.983,
+    "hullLength": 12.0
+  },
+  "tug_barnacle": {
+    "length": 11.752,
+    "beam": 4.6,
+    "keelToDeck": 2.271,
+    "captainZ": 1.964,
+    "waterlineY": 1,
+    "mastTopY": 8.729,
+    "bowZ": 5.214,
+    "sternZ": -5.786,
+    "hullLength": 11.0
+  },
+  "catamaran_kite": {
+    "length": 12.67,
+    "beam": 5.438,
+    "keelToDeck": 2.17,
+    "captainZ": 3.065,
+    "waterlineY": 1,
+    "mastTopY": 16.63,
+    "bowZ": 6.315,
+    "sternZ": -5.685,
+    "hullLength": 12.0
+  },
+  "schooner_brisa": {
+    "length": 15.691,
+    "beam": 3.999,
+    "keelToDeck": 2.587,
+    "captainZ": 2.305,
+    "waterlineY": 1.05,
+    "mastTopY": 16.12,
+    "bowZ": 5.555,
+    "sternZ": -7.445,
+    "hullLength": 13.0
+  },
+  "bathtub": {
+    "length": 3.196,
+    "beam": 1.39,
+    "keelToDeck": 0.38,
+    "captainZ": 0.312,
+    "waterlineY": 0.55,
+    "mastTopY": 3.715,
+    "bowZ": 1.262,
+    "sternZ": -1.186,
+    "hullLength": 2.448
+  },
+  "lances": {
+    "lance_classic": {
+      "length": 5.5,
+      "gripZ": -2.39,
+      "axisY": 0.224,
+      "tipZ": 2.75,
+      "buttZ": -2.75
+    },
+    "lance_long": {
+      "length": 7,
+      "gripZ": -3.14,
+      "axisY": 0.224,
+      "tipZ": 3.5,
+      "buttZ": -3.5
+    },
+    "lance_heavy": {
+      "length": 5.5,
+      "gripZ": -2.39,
+      "axisY": 0.228,
+      "tipZ": 2.75,
+      "buttZ": -2.75
+    },
+    "lance_copper": {
+      "length": 5.5,
+      "gripZ": -2.39,
+      "axisY": 0.239,
+      "tipZ": 2.75,
+      "buttZ": -2.75
+    },
+    "lance_swordfish": {
+      "length": 5.52,
+      "gripZ": -1.89,
+      "axisY": 0.36,
+      "tipZ": 2.76,
+      "buttZ": -2.76
+    }
+  }
+}
