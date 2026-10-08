@@ -196,3 +196,47 @@ button { font-family: var(--display); color: var(--ink); border: 0; cursor: poin
   #title .menu .mid { padding: min(12px, 2.6vh) 12px; font-size: min(13px, 3.4vh); }
   #title.art-on .art { mask-image: none; -webkit-mask-image: none; }
 }
+
+/* VS card: every block sits in its own grid cell, so the badge never covers a name or a line and nothing hangs off the
+   edge. Portrait stacks rival / VS / you; landscape puts you / VS / rival side by side. Portraits shrink to the room left. */
+#vs { display: grid; gap: 6px; padding: calc(env(safe-area-inset-top) + 8px) calc(env(safe-area-inset-right) + 12px) calc(env(safe-area-inset-bottom) + 10px) calc(env(safe-area-inset-left) + 12px);
+  grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) auto minmax(0, .8fr) auto; grid-template-areas: "sea" "b" "mid" "a" "tip"; }
+#vs .vs-a, #vs .vs-b { position: static; width: min(78%, 420px); min-height: 0; display: grid; grid-template-rows: minmax(0, 1fr); grid-auto-rows: auto; justify-items: center; align-self: stretch; }
+#vs .vs-b { grid-area: b; justify-self: end; }
+#vs .vs-a { grid-area: a; justify-self: start; }
+#vs img { width: 100%; height: 100%; min-height: 0; max-height: none; object-position: 50% 100%; }
+#vs .vs-mid { grid-area: mid; justify-self: center; line-height: normal; font-size: min(84px, 10vh); margin: -4px 0 -12px; }
+#vs .vs-sea { grid-area: sea; position: static; }
+#vs .vs-tip { grid-area: tip; position: static; justify-self: center; width: 100%; max-width: 560px; }
+#vs .vs-tip:empty { display: none; }
+.vs-name { overflow-wrap: normal; word-break: normal; line-height: 1.05; }
+.vs-line { max-width: 100%; }
+@media (orientation: landscape) {
+  #vs { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) auto; grid-template-areas: "sea sea sea" "a mid b" "tip tip tip"; column-gap: 2vw; }
+  #vs .vs-a, #vs .vs-b { width: 100%; max-width: 420px; justify-self: center; }
+  #vs .vs-mid { align-self: center; font-size: min(84px, 19vh); }
+  .vs-name { font-size: min(22px, 5.6vh); }
+  .vs-line { font-size: min(13px, 3.4vh); }
+  .vs-tip { font-size: min(13px, 3.4vh); padding: 6px 8px; }
+}
+
+/* result: never anchor overflow off the top (safe), and the title scales with the height too. In landscape the record
+   and the medals sit side by side with the buttons on one line beneath, so the cup-champion screen fits a short phone. */
+#result { justify-content: safe flex-end; overflow-y: auto; }
+.res-title { font-size: min(12vw, 72px); line-height: 1; }
+@media (orientation: landscape) {
+  #result { display: grid; justify-content: center; align-content: center; gap: 8px 20px; padding: calc(env(safe-area-inset-top) + 10px) calc(env(safe-area-inset-right) + 16px) calc(env(safe-area-inset-bottom) + 10px) calc(env(safe-area-inset-left) + 16px);
+    grid-template-columns: minmax(0, 420px) minmax(0, 420px); grid-template-areas: "title title" "sub medals" "spoils medals" "row1 row2"; }
+  #result:has(.medals:empty) { grid-template-areas: "title title" "sub sub" "spoils spoils" "row1 row2"; }
+  .res-title { grid-area: title; justify-self: center; font-size: min(6vw, 13vh, 72px); white-space: nowrap; }
+  .res-sub { grid-area: sub; align-self: center; justify-self: center; font-size: min(15px, 3.6vh); }
+  .res-sub .score { margin-top: 4px; }
+  .medals { grid-area: medals; align-self: center; align-content: center; }
+  .medals:empty { display: none; }
+  .medal { padding: 4px 8px; }
+  .spoils { grid-area: spoils; align-self: start; justify-self: center; font-size: min(14px, 3.4vh); padding: 6px 10px; }
+  #result > .row:nth-last-child(2) { grid-area: row1; justify-self: end; }
+  #result > .row:last-child { grid-area: row2; justify-self: start; align-items: center; }
+  #result .big { min-width: 0; padding: min(14px, 2.6vh) 28px; font-size: min(20px, 4.8vh); }
+  #result .mid:not(.small) { min-width: 0; padding: min(12px, 2.4vh) 14px; }
+}

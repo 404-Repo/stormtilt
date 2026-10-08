@@ -1,0 +1,69 @@
+{
+ "skill": 0.6,
+ "results": [
+  {
+   "capB": "Pip Tiller",
+   "winner": "A",
+   "tilts": 2,
+   "footA": 4,
+   "footB": 0,
+   "stats": {
+    "hits": 2,
+    "taken": 1,
+    "late": 2,
+    "high": 0,
+    "charged": 1,
+    "rams": 0,
+    "koBy": ""
+   },
+   "log": [
+    "0.98 takeoff B vy 4.7",
+    "3.20 takeoff B vy 3.8",
+    "5.20 strike: water (A 8.6 m)",
+    "6.15 pass tilt 1: lat 6.8 A:{\"hit\":true,\"dmg\":2,\"late\":true,\"high\":false,\"charged\":false,\"braced\":false,\"gust\":false,\"why\":\"\"} B:{\"hit\":true,\"dmg\":1,\"late\":false,\"high\":false,\"charged\":false,\"braced\":false,\"gust\":false,\"why\":\"\"} foot 4-2",
+    "11.06 strike: charged A",
+    "11.41 strike: charged A",
+    "12.18 takeoff B vy 9.3",
+    "12.40 takeoff A vy 8.0",
+    "12.92 pass tilt 2: lat 5.3 A:{\"hit\":true,\"dmg\":3,\"late\":true,\"high\":false,\"charged\":true,\"braced\":false,\"gust\":false,\"why\":\"\"} B:{\"hit\":false,\"dmg\":0,\"late\":false,\"high\":false,\"charged\":false,\"braced\":false,\"gust\":false,\"why\":\"lance not couched\"} foot 4-0",
+    "14.48 strike: water (A 47.9 m)",
+    "14.81 strike: water (A 47.4 m)"
+   ],
+   "secs": 21
+  },
+  {
+   "capB": "Bosun Barnacle",
+   "winner": "A",
+   "tilts": 2,
+   "footA": 1,
+   "footB": 0,
+   "stats": {
+    "hits": 2,
+    "taken": 2,
+    "late": 2,
+    "high": 1,
+    "charged": 2,
+    "rams": 0,
+    "koBy": ""
+   },
+   "log": [
+    "23.44 takeoff A vy 7.5",
+    "24.36 pass tilt 1: lat 5.9 A:{\"hit\":true,\"dmg\":3,\"late\":true,\"high\":true,\"charged\":true,\"braced\":false,\"gust\":false,\"why\":\"\"} B:{\"hit\":true,\"dmg\":2,\"late\":false,\"high\":false,\"charged\":false,\"braced\":false,\"gust\":false,\"why\":\"\"} foot 3-1",
+    "24.36 takeoff B vy 4.1",
+    "24.50 takeoff B vy 3.5",
+    "26.12 strike: charged B",
+    "27.03 takeoff B vy 4.7",
+    "30.37 strike: charged A",
+    "30.40 takeoff B vy 9.8",
+    "30.48 strike: charged A",
+    "31.48 pass tilt 2: lat 5.4 A:{\"hit\":true,\"dmg\":3,\"late\":true,\"high\":false,\"charged\":true,\"braced\":false,\"gust\":false,\"why\":\"\"} B:{\"hit\":true,\"dmg\":2,\"late\":false,\"high\":true,\"charged\":false,\"braced\":false,\"gust\":false,\"why\":\"\"} foot 1-0",
+    "33.78 strike: water (A 49.6 m)",
+    "33.89 strike: water (A 49.6 m)"
+   ],
+   "secs": 20
+  }
+ ],
+ "peakDraws": 385,
+ "peakTris": 229984,
+ "errs": []
+}

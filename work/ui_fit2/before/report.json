@@ -1,0 +1,530 @@
+[
+ {
+  "name": "667x375_title",
+  "bad": []
+ },
+ {
+  "name": "667x375_vs_pip",
+  "bad": [
+   "overlap vs-mid / vs-line 51x21",
+   "overlap vs-name-a / vs-tip 64x21"
+  ]
+ },
+ {
+  "name": "667x375_vs_barnacle",
+  "bad": [
+   "offscreen vs-line [300,225,672,273]",
+   "overlap vs-mid / vs-name-b 10x47",
+   "overlap vs-mid / vs-line 95x21",
+   "overlap vs-name-a / vs-tip 64x21"
+  ]
+ },
+ {
+  "name": "667x375_vs_volta",
+  "bad": [
+   "offscreen vs-line [301,225,672,255]",
+   "overlap vs-mid / vs-name-b 14x47",
+   "overlap vs-mid / vs-line 95x21",
+   "overlap vs-name-a / vs-tip 64x31"
+  ]
+ },
+ {
+  "name": "667x375_vs_brisa",
+  "bad": [
+   "overlap vs-mid / vs-name-b 6x47",
+   "overlap vs-mid / vs-line 49x21",
+   "overlap vs-name-a / vs-tip 64x21"
+  ]
+ },
+ {
+  "name": "667x375_vs_kite",
+  "bad": [
+   "overlap vs-mid / vs-line 49x21",
+   "overlap vs-name-a / vs-tip 64x21"
+  ]
+ },
+ {
+  "name": "667x375_vs_gilly",
+  "bad": [
+   "offscreen vs-line [306,225,667,255]",
+   "overlap vs-mid / vs-name-b 8x47",
+   "overlap vs-mid / vs-line 90x21",
+   "overlap vs-name-a / vs-tip 64x21"
+  ]
+ },
+ {
+  "name": "667x375_vs_marrow",
+  "bad": [
+   "offscreen vs-line [300,225,672,273]",
+   "overlap vs-mid / vs-name-b 14x47",
+   "overlap vs-mid / vs-line 95x21",
+   "overlap vs-name-a / vs-tip 64x21"
+  ]
+ },
+ {
+  "name": "667x375_vs_nimbus",
+  "bad": [
+   "overlap vs-mid / vs-name-b 11x47",
+   "overlap vs-mid / vs-line 60x21",
+   "overlap vs-name-a / vs-tip 64x31"
+  ]
+ },
+ {
+  "name": "667x375_res_champion",
+  "bad": [
+   "offscreen res-title [16,-270,651,-68]",
+   "offscreen res-sub [123,-56,543,23]",
+   "offscreen score [123,-8,543,23]",
+   "offscreen B [269,-8,357,23]"
+  ]
+ },
+ {
+  "name": "667x375_res_tempestchamp",
+  "bad": [
+   "offscreen res-title [16,-270,651,-68]",
+   "offscreen res-sub [123,-56,543,23]",
+   "offscreen score [123,-8,543,23]",
+   "offscreen B [269,-8,357,23]"
+  ]
+ },
+ {
+  "name": "667x375_res_victory",
+  "bad": [
+   "offscreen res-title [154,-149,512,-48]",
+   "offscreen res-sub [208,-36,458,23]",
+   "offscreen score [208,-8,458,23]",
+   "offscreen B [269,-8,357,23]"
+  ]
+ },
+ {
+  "name": "667x375_res_overboard",
+  "bad": [
+   "offscreen res-title [82,-40,584,61]"
+  ]
+ },
+ {
+  "name": "844x390_title",
+  "bad": []
+ },
+ {
+  "name": "844x390_vs_pip",
+  "bad": [
+   "overlap vs-mid / vs-line 11x21",
+   "overlap vs-name-a / vs-tip 64x20"
+  ]
+ },
+ {
+  "name": "844x390_vs_barnacle",
+  "bad": [
+   "overlap vs-mid / vs-line 69x21",
+   "overlap vs-name-a / vs-tip 64x20"
+  ]
+ },
+ {
+  "name": "844x390_vs_volta",
+  "bad": [
+   "overlap vs-mid / vs-line 54x21",
+   "overlap vs-name-a / vs-tip 64x20"
+  ]
+ },
+ {
+  "name": "844x390_vs_brisa",
+  "bad": [
+   "overlap vs-mid / vs-line 8x21",
+   "overlap vs-name-a / vs-tip 64x20"
+  ]
+ },
+ {
+  "name": "844x390_vs_kite",
+  "bad": [
+   "overlap vs-mid / vs-line 8x21",
+   "overlap vs-name-a / vs-tip 64x20"
+  ]
+ },
+ {
+  "name": "844x390_vs_gilly",
+  "bad": [
+   "overlap vs-mid / vs-line 49x21",
+   "overlap vs-name-a / vs-tip 64x20"
+  ]
+ },
+ {
+  "name": "844x390_vs_marrow",
+  "bad": [
+   "overlap vs-mid / vs-line 60x21",
+   "overlap vs-name-a / vs-tip 64x20"
+  ]
+ },
+ {
+  "name": "844x390_vs_nimbus",
+  "bad": [
+   "overlap vs-mid / vs-line 19x21",
+   "overlap vs-name-a / vs-tip 64x20"
+  ]
+ },
+ {
+  "name": "844x390_res_champion",
+  "bad": [
+   "offscreen res-title [16,-255,828,-53]",
+   "offscreen res-sub [212,-41,632,38]"
+  ]
+ },
+ {
+  "name": "844x390_res_tempestchamp",
+  "bad": [
+   "offscreen res-title [16,-255,828,-53]",
+   "offscreen res-sub [212,-41,632,38]"
+  ]
+ },
+ {
+  "name": "844x390_res_victory",
+  "bad": [
+   "offscreen res-title [242,-134,601,-33]",
+   "offscreen res-sub [296,-21,547,38]"
+  ]
+ },
+ {
+  "name": "844x390_res_overboard",
+  "bad": [
+   "offscreen res-title [170,-25,673,76]"
+  ]
+ },
+ {
+  "name": "932x430_title",
+  "bad": []
+ },
+ {
+  "name": "932x430_vs_pip",
+  "bad": [
+   "overlap vs-name-a / vs-tip 64x18"
+  ]
+ },
+ {
+  "name": "932x430_vs_barnacle",
+  "bad": [
+   "overlap vs-mid / vs-line 49x23",
+   "overlap vs-name-a / vs-tip 64x18"
+  ]
+ },
+ {
+  "name": "932x430_vs_volta",
+  "bad": [
+   "overlap vs-mid / vs-line 34x23",
+   "overlap vs-name-a / vs-tip 64x18"
+  ]
+ },
+ {
+  "name": "932x430_vs_brisa",
+  "bad": [
+   "overlap vs-name-a / vs-tip 64x18"
+  ]
+ },
+ {
+  "name": "932x430_vs_kite",
+  "bad": [
+   "overlap vs-name-a / vs-tip 64x18"
+  ]
+ },
+ {
+  "name": "932x430_vs_gilly",
+  "bad": [
+   "overlap vs-mid / vs-line 29x23",
+   "overlap vs-name-a / vs-tip 64x18"
+  ]
+ },
+ {
+  "name": "932x430_vs_marrow",
+  "bad": [
+   "overlap vs-mid / vs-line 40x23",
+   "overlap vs-name-a / vs-tip 64x18"
+  ]
+ },
+ {
+  "name": "932x430_vs_nimbus",
+  "bad": [
+   "overlap vs-name-a / vs-tip 64x18"
+  ]
+ },
+ {
+  "name": "932x430_res_champion",
+  "bad": [
+   "offscreen res-title [16,-215,916,-13]",
+   "offscreen res-sub [256,-1,676,78]"
+  ]
+ },
+ {
+  "name": "932x430_res_tempestchamp",
+  "bad": [
+   "offscreen res-title [16,-215,916,-13]",
+   "offscreen res-sub [256,-1,676,78]"
+  ]
+ },
+ {
+  "name": "932x430_res_victory",
+  "bad": [
+   "offscreen res-title [286,-94,645,7]"
+  ]
+ },
+ {
+  "name": "932x430_res_overboard",
+  "bad": []
+ },
+ {
+  "name": "960x540_title",
+  "bad": []
+ },
+ {
+  "name": "960x540_vs_pip",
+  "bad": [
+   "overlap vs-name-a / vs-tip 64x11"
+  ]
+ },
+ {
+  "name": "960x540_vs_barnacle",
+  "bad": [
+   "overlap vs-mid / vs-line 43x27",
+   "overlap vs-name-a / vs-tip 64x11"
+  ]
+ },
+ {
+  "name": "960x540_vs_volta",
+  "bad": [
+   "overlap vs-mid / vs-line 27x27",
+   "overlap vs-name-a / vs-tip 64x11"
+  ]
+ },
+ {
+  "name": "960x540_vs_brisa",
+  "bad": [
+   "overlap vs-name-a / vs-tip 64x11"
+  ]
+ },
+ {
+  "name": "960x540_vs_kite",
+  "bad": [
+   "overlap vs-name-a / vs-tip 64x11"
+  ]
+ },
+ {
+  "name": "960x540_vs_gilly",
+  "bad": [
+   "overlap vs-mid / vs-line 22x27",
+   "overlap vs-name-a / vs-tip 64x11"
+  ]
+ },
+ {
+  "name": "960x540_vs_marrow",
+  "bad": [
+   "overlap vs-mid / vs-line 34x27",
+   "overlap vs-name-a / vs-tip 64x11"
+  ]
+ },
+ {
+  "name": "960x540_vs_nimbus",
+  "bad": [
+   "overlap vs-name-a / vs-tip 64x11"
+  ]
+ },
+ {
+  "name": "960x540_res_champion",
+  "bad": [
+   "offscreen res-title [16,-105,944,97]"
+  ]
+ },
+ {
+  "name": "960x540_res_tempestchamp",
+  "bad": [
+   "offscreen res-title [16,-105,944,97]"
+  ]
+ },
+ {
+  "name": "960x540_res_victory",
+  "bad": []
+ },
+ {
+  "name": "960x540_res_overboard",
+  "bad": []
+ },
+ {
+  "name": "390x844_title",
+  "bad": []
+ },
+ {
+  "name": "390x844_vs_pip",
+  "bad": [
+   "offscreen vs-line [175,440,393,488]",
+   "overlap vs-mid / vs-name-b 30x46",
+   "overlap vs-mid / vs-line 82x40",
+   "overlap vs-name-a / vs-tip 62x11"
+  ]
+ },
+ {
+  "name": "390x844_vs_barnacle",
+  "bad": [
+   "offscreen vs-line [175,440,393,506]",
+   "overlap vs-mid / vs-name-b 70x46",
+   "overlap vs-mid / vs-line 82x40",
+   "overlap vs-name-a / vs-tip 62x11"
+  ]
+ },
+ {
+  "name": "390x844_vs_volta",
+  "bad": [
+   "offscreen vs-line [175,440,393,488]",
+   "overlap vs-mid / vs-name-b 78x46",
+   "overlap vs-mid / vs-line 82x40",
+   "overlap vs-name-a / vs-tip 62x29"
+  ]
+ },
+ {
+  "name": "390x844_vs_brisa",
+  "bad": [
+   "offscreen vs-line [175,440,393,488]",
+   "overlap vs-mid / vs-name-b 66x46",
+   "overlap vs-mid / vs-line 82x40",
+   "overlap vs-name-a / vs-tip 62x11"
+  ]
+ },
+ {
+  "name": "390x844_vs_kite",
+  "bad": [
+   "offscreen vs-line [175,440,393,488]",
+   "overlap vs-mid / vs-name-b 59x46",
+   "overlap vs-mid / vs-line 82x40",
+   "overlap vs-name-a / vs-tip 62x11"
+  ]
+ },
+ {
+  "name": "390x844_vs_gilly",
+  "bad": [
+   "offscreen vs-line [175,347,393,395]",
+   "overlap vs-mid / vs-line 82x32",
+   "overlap vs-name-a / vs-tip 62x11"
+  ]
+ },
+ {
+  "name": "390x844_vs_marrow",
+  "bad": [
+   "offscreen vs-line [175,440,393,506]",
+   "overlap vs-mid / vs-name-b 78x46",
+   "overlap vs-mid / vs-line 82x40",
+   "overlap vs-name-a / vs-tip 62x11"
+  ]
+ },
+ {
+  "name": "390x844_vs_nimbus",
+  "bad": [
+   "offscreen vs-line [175,425,393,473]",
+   "overlap vs-mid / vs-name-b 70x46",
+   "overlap vs-mid / vs-line 82x48",
+   "overlap vs-name-a / vs-tip 62x11"
+  ]
+ },
+ {
+  "name": "390x844_res_champion",
+  "bad": []
+ },
+ {
+  "name": "390x844_res_tempestchamp",
+  "bad": []
+ },
+ {
+  "name": "390x844_res_victory",
+  "bad": []
+ },
+ {
+  "name": "390x844_res_overboard",
+  "bad": []
+ },
+ {
+  "name": "430x932_title",
+  "bad": []
+ },
+ {
+  "name": "430x932_vs_pip",
+  "bad": [
+   "offscreen vs-line [193,481,433,529]",
+   "overlap vs-mid / vs-name-b 23x47",
+   "overlap vs-mid / vs-line 84x43",
+   "overlap vs-name-a / vs-tip 64x6"
+  ]
+ },
+ {
+  "name": "430x932_vs_barnacle",
+  "bad": [
+   "offscreen vs-line [193,481,433,529]",
+   "overlap vs-mid / vs-name-b 65x47",
+   "overlap vs-mid / vs-line 84x43",
+   "overlap vs-name-a / vs-tip 64x6"
+  ]
+ },
+ {
+  "name": "430x932_vs_volta",
+  "bad": [
+   "offscreen vs-line [193,481,433,529]",
+   "overlap vs-mid / vs-name-b 69x47",
+   "overlap vs-mid / vs-line 84x43",
+   "overlap vs-name-a / vs-tip 64x6"
+  ]
+ },
+ {
+  "name": "430x932_vs_brisa",
+  "bad": [
+   "offscreen vs-line [193,481,433,529]",
+   "overlap vs-mid / vs-name-b 61x47",
+   "overlap vs-mid / vs-line 84x43",
+   "overlap vs-name-a / vs-tip 64x6"
+  ]
+ },
+ {
+  "name": "430x932_vs_kite",
+  "bad": [
+   "offscreen vs-line [193,481,433,529]",
+   "overlap vs-mid / vs-name-b 53x47",
+   "overlap vs-mid / vs-line 84x43",
+   "overlap vs-name-a / vs-tip 64x6"
+  ]
+ },
+ {
+  "name": "430x932_vs_gilly",
+  "bad": [
+   "offscreen vs-line [193,379,433,427]",
+   "overlap vs-mid / vs-line 84x20",
+   "overlap vs-name-a / vs-tip 64x6"
+  ]
+ },
+ {
+  "name": "430x932_vs_marrow",
+  "bad": [
+   "offscreen vs-line [193,481,433,529]",
+   "overlap vs-mid / vs-name-b 69x47",
+   "overlap vs-mid / vs-line 84x43",
+   "overlap vs-name-a / vs-tip 64x6"
+  ]
+ },
+ {
+  "name": "430x932_vs_nimbus",
+  "bad": [
+   "offscreen vs-line [193,464,433,512]",
+   "overlap vs-mid / vs-name-b 65x47",
+   "overlap vs-mid / vs-line 84x48",
+   "overlap vs-name-a / vs-tip 64x6"
+  ]
+ },
+ {
+  "name": "430x932_res_champion",
+  "bad": []
+ },
+ {
+  "name": "430x932_res_tempestchamp",
+  "bad": []
+ },
+ {
+  "name": "430x932_res_victory",
+  "bad": []
+ },
+ {
+  "name": "430x932_res_overboard",
+  "bad": []
+ }
+]

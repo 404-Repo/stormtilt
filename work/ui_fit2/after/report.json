@@ -1,0 +1,314 @@
+[
+ {
+  "name": "667x375_title",
+  "bad": []
+ },
+ {
+  "name": "667x375_vs_pip",
+  "bad": []
+ },
+ {
+  "name": "667x375_vs_barnacle",
+  "bad": []
+ },
+ {
+  "name": "667x375_vs_volta",
+  "bad": []
+ },
+ {
+  "name": "667x375_vs_brisa",
+  "bad": []
+ },
+ {
+  "name": "667x375_vs_kite",
+  "bad": []
+ },
+ {
+  "name": "667x375_vs_gilly",
+  "bad": []
+ },
+ {
+  "name": "667x375_vs_marrow",
+  "bad": []
+ },
+ {
+  "name": "667x375_vs_nimbus",
+  "bad": []
+ },
+ {
+  "name": "667x375_res_champion",
+  "bad": []
+ },
+ {
+  "name": "667x375_res_tempestchamp",
+  "bad": []
+ },
+ {
+  "name": "667x375_res_victory",
+  "bad": []
+ },
+ {
+  "name": "667x375_res_overboard",
+  "bad": []
+ },
+ {
+  "name": "844x390_title",
+  "bad": []
+ },
+ {
+  "name": "844x390_vs_pip",
+  "bad": []
+ },
+ {
+  "name": "844x390_vs_barnacle",
+  "bad": []
+ },
+ {
+  "name": "844x390_vs_volta",
+  "bad": []
+ },
+ {
+  "name": "844x390_vs_brisa",
+  "bad": []
+ },
+ {
+  "name": "844x390_vs_kite",
+  "bad": []
+ },
+ {
+  "name": "844x390_vs_gilly",
+  "bad": []
+ },
+ {
+  "name": "844x390_vs_marrow",
+  "bad": []
+ },
+ {
+  "name": "844x390_vs_nimbus",
+  "bad": []
+ },
+ {
+  "name": "844x390_res_champion",
+  "bad": []
+ },
+ {
+  "name": "844x390_res_tempestchamp",
+  "bad": []
+ },
+ {
+  "name": "844x390_res_victory",
+  "bad": []
+ },
+ {
+  "name": "844x390_res_overboard",
+  "bad": []
+ },
+ {
+  "name": "932x430_title",
+  "bad": []
+ },
+ {
+  "name": "932x430_vs_pip",
+  "bad": []
+ },
+ {
+  "name": "932x430_vs_barnacle",
+  "bad": []
+ },
+ {
+  "name": "932x430_vs_volta",
+  "bad": []
+ },
+ {
+  "name": "932x430_vs_brisa",
+  "bad": []
+ },
+ {
+  "name": "932x430_vs_kite",
+  "bad": []
+ },
+ {
+  "name": "932x430_vs_gilly",
+  "bad": []
+ },
+ {
+  "name": "932x430_vs_marrow",
+  "bad": []
+ },
+ {
+  "name": "932x430_vs_nimbus",
+  "bad": []
+ },
+ {
+  "name": "932x430_res_champion",
+  "bad": []
+ },
+ {
+  "name": "932x430_res_tempestchamp",
+  "bad": []
+ },
+ {
+  "name": "932x430_res_victory",
+  "bad": []
+ },
+ {
+  "name": "932x430_res_overboard",
+  "bad": []
+ },
+ {
+  "name": "960x540_title",
+  "bad": []
+ },
+ {
+  "name": "960x540_vs_pip",
+  "bad": []
+ },
+ {
+  "name": "960x540_vs_barnacle",
+  "bad": []
+ },
+ {
+  "name": "960x540_vs_volta",
+  "bad": []
+ },
+ {
+  "name": "960x540_vs_brisa",
+  "bad": []
+ },
+ {
+  "name": "960x540_vs_kite",
+  "bad": []
+ },
+ {
+  "name": "960x540_vs_gilly",
+  "bad": []
+ },
+ {
+  "name": "960x540_vs_marrow",
+  "bad": []
+ },
+ {
+  "name": "960x540_vs_nimbus",
+  "bad": []
+ },
+ {
+  "name": "960x540_res_champion",
+  "bad": []
+ },
+ {
+  "name": "960x540_res_tempestchamp",
+  "bad": []
+ },
+ {
+  "name": "960x540_res_victory",
+  "bad": []
+ },
+ {
+  "name": "960x540_res_overboard",
+  "bad": []
+ },
+ {
+  "name": "390x844_title",
+  "bad": []
+ },
+ {
+  "name": "390x844_vs_pip",
+  "bad": []
+ },
+ {
+  "name": "390x844_vs_barnacle",
+  "bad": []
+ },
+ {
+  "name": "390x844_vs_volta",
+  "bad": []
+ },
+ {
+  "name": "390x844_vs_brisa",
+  "bad": []
+ },
+ {
+  "name": "390x844_vs_kite",
+  "bad": []
+ },
+ {
+  "name": "390x844_vs_gilly",
+  "bad": []
+ },
+ {
+  "name": "390x844_vs_marrow",
+  "bad": []
+ },
+ {
+  "name": "390x844_vs_nimbus",
+  "bad": []
+ },
+ {
+  "name": "390x844_res_champion",
+  "bad": []
+ },
+ {
+  "name": "390x844_res_tempestchamp",
+  "bad": []
+ },
+ {
+  "name": "390x844_res_victory",
+  "bad": []
+ },
+ {
+  "name": "390x844_res_overboard",
+  "bad": []
+ },
+ {
+  "name": "430x932_title",
+  "bad": []
+ },
+ {
+  "name": "430x932_vs_pip",
+  "bad": []
+ },
+ {
+  "name": "430x932_vs_barnacle",
+  "bad": []
+ },
+ {
+  "name": "430x932_vs_volta",
+  "bad": []
+ },
+ {
+  "name": "430x932_vs_brisa",
+  "bad": []
+ },
+ {
+  "name": "430x932_vs_kite",
+  "bad": []
+ },
+ {
+  "name": "430x932_vs_gilly",
+  "bad": []
+ },
+ {
+  "name": "430x932_vs_marrow",
+  "bad": []
+ },
+ {
+  "name": "430x932_vs_nimbus",
+  "bad": []
+ },
+ {
+  "name": "430x932_res_champion",
+  "bad": []
+ },
+ {
+  "name": "430x932_res_tempestchamp",
+  "bad": []
+ },
+ {
+  "name": "430x932_res_victory",
+  "bad": []
+ },
+ {
+  "name": "430x932_res_overboard",
+  "bad": []
+ }
+]
