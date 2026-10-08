@@ -100,8 +100,8 @@ export const CAPTAINS = {
     tip: 'Keep your lance UP under a storm cell when it strikes: the bolt charges it. Couch under one and your mast takes it.',
   },
   brisa: {
-    short: 'BRISA', name: 'Contessa Brisa', title: 'the Duelist', sea: 'thunder', boat: 'schooner_brisa', lance: 'lance_long', footing: 5,
-    ai: { lead: 0.42, jitter: 0.14, line: 0.92, react: 0.3, bolt: 0.4, roller: 0.3, gust: 0.3, ram: 0, dodge: 0.7, feint: 0, steer: 1.0 },
+    short: 'BRISA', name: 'Contessa Brisa', title: 'the Duelist', sea: 'thunder', boat: 'schooner_brisa', lance: 'lance_long', footing: 4,
+    ai: { lead: 0.55, jitter: 0.18, line: 0.8, react: 0.35, bolt: 0.4, roller: 0.3, gust: 0.3, ram: 0, dodge: 0.7, feint: 0, steer: 1.0 },
     spoil: { boat: 'schooner_brisa' },
     intro: 'En garde, darling. Do try to keep up.', win: 'Delightful. Next.', lose: 'Ah. A worthy... splash.',
     taunts: ['Touché!', 'How quaint.', 'Too slow, darling.'],

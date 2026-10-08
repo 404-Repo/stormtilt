@@ -370,6 +370,8 @@ $('b-resume').addEventListener('click', go(() => { game.paused = false; ui.scree
 $('b-quit').addEventListener('click', go(() => { game.paused = false; toTitle(); }));
 $('b-sound').addEventListener('click', go(() => { save.sound = save.sound ? 0 : 1; audio.setOn(!!save.sound); $('b-sound').textContent = `SOUND: ${save.sound ? 'ON' : 'OFF'}`; persist(); }));
 $('b-dock-done').addEventListener('click', go(toTitle));
+$('b-res-menu').addEventListener('click', go(toTitle));
+$('b-res-dock').addEventListener('click', go(openDock));
 function endlessNext() {
   const pool = LADDER.slice(0, 7); const capB = pool[Math.floor(Math.random() * pool.length)];
   const s = SEA_ORDER[Math.floor(Math.random() * 4)];
