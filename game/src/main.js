@@ -244,6 +244,11 @@ game.onMatchEnd = (m) => {
   } else {
     $('res-title').textContent = won ? 'VICTORY' : 'OVERBOARD';
     $('res-sub').textContent = won ? `"${capB.lose}"  ${capB.name}` : `"${capB.win}"  ${capB.name}`;
+    if (!won) $('res-sub').textContent += `.  Tip: ${capB.tip}`;
+    const st = m.stats;
+    const score = (m.maxB - m.footB) * 100 + st.late * 50 + st.high * 100 + st.charged * 200 + (won ? 1000 + m.footA * 150 : 0);
+    save.best[cfg.capB] = Math.max(save.best[cfg.capB] || 0, score);
+    $('res-sub').innerHTML += `<div class="score">SCORE <b>${score.toLocaleString('en-US')}</b>  best ${save.best[cfg.capB].toLocaleString('en-US')}</div>`;
     const medals = [];
     if (won && m.footA === m.maxA) medals.push(['UNSHAKEN', 'won without losing footing']);
     if (won && m.stats.charged) medals.push(['THUNDERSTRUCK', 'landed a charged lance']);
@@ -381,6 +386,15 @@ function frame() {
   // slow motion at the pass
   let ts = 1;
   if (m && m.phase === 'pass') ts = m.pt < 0.6 ? 0.22 : 0.6;
+  // first match ever: time slows in the couch window until the player holds, and the button pulses
+  const teach = m && game.state === 'match' && current?.capB === 'pip' && !save.beaten.pip && m.phase === 'charge' && m.tilt <= 2;
+  const cb = $('couch');
+  if (teach) {
+    const startAt = 0.22 + m.A.lance.couch, tt = m.ttp();
+    const win = tt < startAt + 0.12 && tt > 0.08 && m.A.couch < 1;
+    cb.classList.toggle('now', win);
+    if (win) { ts = 0.28; if (!game.taught) { ui.hint('HOLD COUCH NOW!', 1.2); } }
+  } else cb.classList.remove('now');
   if (game.paused) ts = 0;
   const dt = realDt * ts;
   game.t += dt; sea.t = game.t; game.craneT = (game.craneT || 0) + dt;

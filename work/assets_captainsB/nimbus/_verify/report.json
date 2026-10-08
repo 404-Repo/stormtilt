@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 20,
+  "tris": 7746,
+  "materials": 9,
+  "size": [
+   1.108,
+   1.85,
+   0.597
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.2154,
+    "edgeDensity": 0.1838
+   },
+   "right": {
+    "coverage": 0.1237,
+    "edgeDensity": 0.2094
+   },
+   "back": {
+    "coverage": 0.2016,
+    "edgeDensity": 0.1216
+   },
+   "left": {
+    "coverage": 0.1172,
+    "edgeDensity": 0.2034
+   }
+  },
+  "error": null,
+  "name": "nimbus_a",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 20,
+  "tris": 6712,
+  "materials": 9,
+  "size": [
+   1.117,
+   1.85,
+   0.599
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.2074,
+    "edgeDensity": 0.1777
+   },
+   "right": {
+    "coverage": 0.1233,
+    "edgeDensity": 0.1602
+   },
+   "back": {
+    "coverage": 0.2037,
+    "edgeDensity": 0.0873
+   },
+   "left": {
+    "coverage": 0.1182,
+    "edgeDensity": 0.1579
+   }
+  },
+  "error": null,
+  "name": "nimbus_b",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 20,
+  "tris": 7974,
+  "materials": 9,
+  "size": [
+   1.107,
+   1.85,
+   0.574
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.2078,
+    "edgeDensity": 0.1476
+   },
+   "right": {
+    "coverage": 0.1323,
+    "edgeDensity": 0.165
+   },
+   "back": {
+    "coverage": 0.2128,
+    "edgeDensity": 0.0883
+   },
+   "left": {
+    "coverage": 0.118,
+    "edgeDensity": 0.182
+   }
+  },
+  "error": null,
+  "name": "nimbus_c",
+  "problems": []
+ }
+]

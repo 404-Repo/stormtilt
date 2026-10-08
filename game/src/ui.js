@@ -17,7 +17,7 @@ export class UI {
     $('face-a').style.backgroundImage = faceA ? `url(${faceA})` : ''; $('face-b').style.backgroundImage = faceB ? `url(${faceB})` : '';
   }
   pips(a, ma, b, mb) {
-    const draw = (el, n, m) => { el.innerHTML = ''; for (let i = 0; i < m; i++) { const d = document.createElement('i'); if (i >= n) d.className = 'lost'; el.appendChild(d); } };
+    const draw = (el, n, m) => { el.innerHTML = ''; el.classList.toggle('many', m > 5); for (let i = 0; i < m; i++) { const d = document.createElement('i'); if (i >= n) d.className = 'lost'; el.appendChild(d); } };
     draw($('pips-a'), a, ma); draw($('pips-b'), b, mb);
   }
   tiltNo(n) { this.el.tiltno.textContent = `TILT ${n}`; }

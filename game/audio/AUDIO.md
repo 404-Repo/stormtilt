@@ -47,3 +47,57 @@ Notes
 - Missing files are listed as MISSING above (Atlas call failed with a connection reset after 18 min and the
   budget did not allow a second retry). Stand-ins: use `music_gale` for Rogue Deep, `sting_charge` plus
   `sfx_thunder` at low volume for the lance charge.
+
+## Pass 2 (2026-10-08): playlist takes and extra SFX
+
+Raw takes: `work/audio2/raw/`. Scripts: `work/audio2/jobs.py` (calls), `convert_music.sh`, `convert_sfx.sh`,
+`loopify.sh`. 13 Atlas calls, all succeeded first time, 559 credits.
+
+**Music playlist.** Play `music_<cue>.mp3`, then `_b`, then `_c`, crossfading, then repeat. Each new take used the
+cue's original prompt (with the preamble) plus " Continuation, same tempo and instrumentation." (rogue's first take
+used the plain prompt). This time the service returned 15.6 to 60 s takes, but at 96 kbps the full takes come to
+about 5 MB and break the 4.5 MB cap, so every take in the game is **cut to its first 16.5 s** (silence trimmed,
+1.5 s fade out, NOT made into a loop: these are playlist segments). A cue now cycles through about 48 to 50 s of
+different music instead of one 15 s loop. Full-length 96 kbps encodes are in `work/audio2/full/` (5.0 MB in total)
+if the size budget is raised. Loudness: two-pass loudnorm targeted at each cue's existing take (title -16.6,
+regatta -15.7, thunder -18.9, gale -16.3, boss -15.6, rogue -16 LUFS). The fade pulls the measured value about
+0.5 to 1 LU lower. Nobody has listened to these takes: key match and the absence of vocals are not checked.
+
+| file | duration | size | full take | LUFS / true peak dBTP |
+|---|---|---|---|---|
+| `music_title_b.mp3` | 16.50 s | 199 KB | 39.3 s | -17.6 / -2.7 |
+| `music_title_c.mp3` | 16.50 s | 199 KB | 21.8 s | -17.0 / -2.7 |
+| `music_regatta_b.mp3` | 16.50 s | 199 KB | 21.5 s | -16.6 / -1.4 |
+| `music_regatta_c.mp3` | 16.50 s | 199 KB | 20.6 s | -16.7 / -1.5 |
+| `music_thunder_b.mp3` | 16.50 s | 199 KB | 60.1 s | -19.5 / -6.4 |
+| `music_thunder_c.mp3` | 16.50 s | 199 KB | 20.7 s | -19.3 / -4.7 |
+| `music_gale_b.mp3` | 16.50 s | 199 KB | 31.3 s | -17.3 / -2.5 |
+| `music_gale_c.mp3` | 15.57 s | 187 KB | 15.6 s | -16.7 / -6.8 |
+| `music_rogue.mp3` | 16.50 s | 199 KB | 60.1 s | -17.1 / -3.2 |
+| `music_rogue_b.mp3` | 16.50 s | 199 KB | 25.4 s | -16.3 / -1.9 |
+| `music_rogue_c.mp3` | 16.50 s | 199 KB | 27.6 s | -16.6 / -1.5 |
+| `music_boss_b.mp3` | 16.50 s | 199 KB | 60.1 s | -16.0 / -4.4 |
+| `music_boss_c.mp3` | 16.50 s | 199 KB | 28.6 s | -16.3 / -3.4 |
+
+**SFX** (mono MP3 96 kbps, leading and trailing silence trimmed, loudnorm -14 LUFS, as in pass 1; they measure
+-14.4 to -16.3 LUFS, the same range as the pass 1 SFX at -16 to -17). `sfx_splash.mp3` from pass 1 was kept.
+
+| file | duration | size | requested | LUFS | prompt |
+|---|---|---|---|---|---|
+| `sfx_charge.mp3` | 2.00 s | 25 KB | 2 s | -14.4 | Electric crackle building and sustaining, Tesla coil buzzing high-voltage arcing sparks |
+| `sfx_charge2.mp3` | 2.00 s | 25 KB | 2 s | -16.0 | (alternate) Electric charge crackle, buzzing high-voltage arcing sparks rising and sustaining, Tesla coil |
+| `sfx_zap.mp3` | 1.00 s | 13 KB | 1 s | -15.8 | Sharp electric zap of a lightning bolt hitting a wooden ship mast |
+| `sfx_zap2.mp3` | 1.00 s | 13 KB | 1 s | -14.5 | (alternate) Electric zap, sharp crack of a lightning strike on wood with sizzle |
+| `sfx_jump.mp3` | 1.18 s | 15 KB | 1.2 s | -15.9 | A sailing yacht launching off a wave into the air, rushing water and wind whoosh |
+| `sfx_land.mp3` | 0.59 s | 8 KB | 1 s | -16.3 | Boat hull slapping down hard on water, heavy flat wet slam |
+| `sfx_gasp.mp3` | 1.40 s | 18 KB | 1.5 s | -15.7 | A small crowd of spectators gasping ooh in surprise |
+| `sfx_laugh.mp3` | 1.72 s | 21 KB | 2 s | -15.3 | A small crowd of spectators laughing heartily |
+| `sfx_whoa.mp3` | 1.48 s | 19 KB | 1.5 s | -14.4 | A cartoon man yelling whoaaa as he falls, comic voice, no other words |
+| `sfx_clank.mp3` | 0.42 s | 6 KB | 0.6 s | -18.6 | Armour and wood clank as a jousting lance is lowered into position |
+| `sfx_bell.mp3` | 1.50 s | 19 KB | 1.5 s | -15.3 | A ship's brass bell ringing twice, ding ding (the service gave one strike; the second ring is the same strike mixed in 0.45 s later at -1.4 dB) |
+| `sfx_rain.mp3` | 7.00 s | 85 KB | 8 s | -18.2 | Steady heavy rain falling on the sea and on canvas sails, loopable ambience (loop: last 1 s equal-power crossfaded into the first 1 s; set `loop = true`) |
+| `sfx_wind.mp3` | 7.00 s | 85 KB | 8 s | -18.7 | Storm wind howling over the sea, loopable ambience (same loop treatment) |
+
+The two ambience beds are normalised to -18 LUFS, 4 dB under the one-shot SFX, so they sit behind them.
+
+Total game/audio after pass 2: 4.42 MB (4,420,693 bytes before this section), 48 audio files.

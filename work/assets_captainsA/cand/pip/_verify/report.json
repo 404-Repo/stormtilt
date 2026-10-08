@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 27,
+  "tris": 7744,
+  "materials": 14,
+  "size": [
+   0.737,
+   1.55,
+   0.509
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.182,
+    "edgeDensity": 0.2444
+   },
+   "right": {
+    "coverage": 0.1362,
+    "edgeDensity": 0.2379
+   },
+   "back": {
+    "coverage": 0.1809,
+    "edgeDensity": 0.1997
+   },
+   "left": {
+    "coverage": 0.1362,
+    "edgeDensity": 0.2355
+   }
+  },
+  "error": null,
+  "name": "pip_A",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 27,
+  "tris": 7652,
+  "materials": 14,
+  "size": [
+   0.749,
+   1.55,
+   0.505
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1804,
+    "edgeDensity": 0.2469
+   },
+   "right": {
+    "coverage": 0.1352,
+    "edgeDensity": 0.2257
+   },
+   "back": {
+    "coverage": 0.1811,
+    "edgeDensity": 0.1935
+   },
+   "left": {
+    "coverage": 0.1352,
+    "edgeDensity": 0.2184
+   }
+  },
+  "error": null,
+  "name": "pip_B",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 27,
+  "tris": 7542,
+  "materials": 14,
+  "size": [
+   0.762,
+   1.55,
+   0.468
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1815,
+    "edgeDensity": 0.2682
+   },
+   "right": {
+    "coverage": 0.1374,
+    "edgeDensity": 0.232
+   },
+   "back": {
+    "coverage": 0.1829,
+    "edgeDensity": 0.1987
+   },
+   "left": {
+    "coverage": 0.1374,
+    "edgeDensity": 0.2346
+   }
+  },
+  "error": null,
+  "name": "pip_C",
+  "problems": []
+ }
+]

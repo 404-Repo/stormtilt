@@ -13,7 +13,7 @@
   // add(node, geometry, material, position, rotation(euler XYZ), scale)
   const add = (node, geo, m, p = [0, 0, 0], r = [0, 0, 0], s = [1, 1, 1]) => {
     let g2 = geo.index ? geo.toNonIndexed() : geo.clone();
-    _e.set(r[0], r[1], r[2]); _q.setFromEuler(_e);
+    _e.set(r[0], r[1], r[2], r[3] || 'XYZ'); _q.setFromEuler(_e);
     const sc = typeof s === 'number' ? [s, s, s] : s;
     _m4.compose(new THREE.Vector3(p[0], p[1], p[2]), _q, new THREE.Vector3(sc[0], sc[1], sc[2]));
     g2.applyMatrix4(_m4);
@@ -56,7 +56,7 @@
     sh.absarc(x + W, y + H, r, 0, Math.PI / 2); sh.lineTo(x, y + H + r); sh.absarc(x, y + H, r, Math.PI / 2, Math.PI);
     sh.lineTo(x - r, y); sh.absarc(x, y, r, Math.PI, Math.PI * 1.5);
     const b = Math.min(rad, d / 2 - 0.001);
-    const ge = new THREE.ExtrudeGeometry(sh, { depth: Math.max(0.001, d - 2 * b), bevelEnabled: true, bevelSize: 0, bevelThickness: b, bevelSegments: 2, curveSegments: 3 });
+    const ge = new THREE.ExtrudeGeometry(sh, { depth: Math.max(0.001, d - 2 * b), bevelEnabled: true, bevelSize: 0, bevelThickness: b, bevelSegments: 1, curveSegments: 2 });
     ge.translate(0, 0, -(d - 2 * b) / 2); return ge;
   };
   // tube between two points

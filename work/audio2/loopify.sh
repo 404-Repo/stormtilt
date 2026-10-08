@@ -1,0 +1,3 @@
+#!/bin/bash
+# loopify <raw in> <out>: 8 s ambience -> 7 s seamless loop (last 1 s equal-power crossfaded into first 1 s)
+ffmpeg -nostdin -y -loglevel error -i "$1" -filter_complex "[0:a]aformat=channel_layouts=mono,asplit=3[a][b][c];[a]atrim=0:1,asetpts=PTS-STARTPTS,afade=t=in:d=1:curve=qsin[A];[b]atrim=1:7,asetpts=PTS-STARTPTS[B];[c]atrim=7:8,asetpts=PTS-STARTPTS,afade=t=out:d=1:curve=qsin[C];[C][A]amix=inputs=2:normalize=0[X];[B][X]concat=n=2:v=0:a=1,loudnorm=I=-18:TP=-2:LRA=11" -ar 44100 -ac 1 /tmp/loop_$$.wav && ffmpeg -nostdin -y -loglevel error -i /tmp/loop_$$.wav -b:a 96k "$2" && rm /tmp/loop_$$.wav

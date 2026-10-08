@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 25,
+  "tris": 7162,
+  "materials": 15,
+  "size": [
+   1.194,
+   1.85,
+   0.658
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.19,
+    "edgeDensity": 0.1364
+   },
+   "right": {
+    "coverage": 0.1334,
+    "edgeDensity": 0.1363
+   },
+   "back": {
+    "coverage": 0.1862,
+    "edgeDensity": 0.1088
+   },
+   "left": {
+    "coverage": 0.1332,
+    "edgeDensity": 0.1478
+   }
+  },
+  "error": null,
+  "name": "barnacle_A",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 25,
+  "tris": 7906,
+  "materials": 15,
+  "size": [
+   1.205,
+   1.85,
+   0.64
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.193,
+    "edgeDensity": 0.1054
+   },
+   "right": {
+    "coverage": 0.1368,
+    "edgeDensity": 0.0979
+   },
+   "back": {
+    "coverage": 0.1888,
+    "edgeDensity": 0.0763
+   },
+   "left": {
+    "coverage": 0.1368,
+    "edgeDensity": 0.1117
+   }
+  },
+  "error": null,
+  "name": "barnacle_B",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 25,
+  "tris": 8374,
+  "materials": 15,
+  "size": [
+   1.193,
+   1.85,
+   0.627
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1924,
+    "edgeDensity": 0.1293
+   },
+   "right": {
+    "coverage": 0.1368,
+    "edgeDensity": 0.1214
+   },
+   "back": {
+    "coverage": 0.1872,
+    "edgeDensity": 0.0949
+   },
+   "left": {
+    "coverage": 0.1367,
+    "edgeDensity": 0.1259
+   }
+  },
+  "error": null,
+  "name": "barnacle_C",
+  "problems": []
+ }
+]

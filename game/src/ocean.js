@@ -137,6 +137,7 @@ varying vec3 vWorld;
 varying vec3 vNormalW;
 varying float vH;
 varying float vCrest;
+varying float vJ;
 void main() {
   vec3 p = (modelMatrix * vec4(position, 1.0)).xyz;
   vec2 xz = p.xz;
@@ -151,6 +152,9 @@ void main() {
   vec3 PX = vec3(xz.x + e + dx1.x, dx1.y, xz.y + dx1.z);
   vec3 PZ = vec3(xz.x + dz1.x, dz1.y, xz.y + e + dz1.z);
   vNormalW = normalize(cross(PZ - P, PX - P));
+  // Jacobian of the horizontal displacement: < 1 where the surface bunches up into a crest
+  vec2 ax = (PX.xz - P.xz) / e, az = (PZ.xz - P.xz) / e;
+  vJ = ax.x * az.y - ax.y * az.x;
   vWorld = P;
   vH = d.y;
   vCrest = crestFoam(xz) * uDamp;
@@ -184,11 +188,22 @@ varying vec3 vWorld;
 varying vec3 vNormalW;
 varying float vH;
 varying float vCrest;
+varying float vJ;
 
 float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
 float noise(vec2 p) {
   vec2 i = floor(p), f = fract(p); vec2 u = f * f * (3.0 - 2.0 * f);
   return mix(mix(hash(i), hash(i + vec2(1, 0)), u.x), mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), u.x), u.y);
+}
+vec2 hash2(vec2 p) { p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3))); return fract(sin(p) * 43758.5453); }
+// distance to the nearest cell edge: foam lace
+float lace(vec2 p) {
+  vec2 i = floor(p), f = fract(p); float d1 = 8.0, d2 = 8.0;
+  for (int y = -1; y <= 1; y++) for (int x = -1; x <= 1; x++) {
+    vec2 g = vec2(float(x), float(y)); vec2 o = hash2(i + g); o = 0.5 + 0.45 * sin(uTime * 0.6 + 6.2831 * o);
+    float d = length(g + o - f); if (d < d1) { d2 = d1; d1 = d; } else if (d < d2) d2 = d;
+  }
+  return d2 - d1;
 }
 float fbm(vec2 p) { float a = 0.5, s = 0.0; for (int i = 0; i < 4; i++) { s += a * noise(p); p = p * 2.03 + 17.1; a *= 0.5; } return s; }
 
@@ -210,12 +225,12 @@ void main() {
   float dist = length(cameraPosition - vWorld);
   // detail normal: two scrolling noise layers, fading with distance
   vec2 uv = vWorld.xz;
-  float fade = 1.0 - smoothstep(30.0, 220.0, dist);
+  float fade = 1.0 - smoothstep(15.0, 130.0, dist);
   float n1 = fbm(uv * 0.35 + vec2(uTime * 0.25, uTime * 0.12));
   float n2 = fbm(uv * 0.9 - vec2(uTime * 0.4, -uTime * 0.3));
   float ex = (fbm(uv * 0.35 + vec2(0.37, 0.0) + vec2(uTime * 0.25, uTime * 0.12)) - n1);
   float ez = (fbm(uv * 0.35 + vec2(0.0, 0.37) + vec2(uTime * 0.25, uTime * 0.12)) - n1);
-  vec3 N = normalize(vNormalW + vec3(-ex, 0.0, -ez) * 1.6 * fade + vec3(n2 - 0.5, 0.0, n2 - 0.5) * 0.08 * fade);
+  vec3 N = normalize(vNormalW + vec3(-ex, 0.0, -ez) * 1.15 * fade + vec3(n2 - 0.5, 0.0, n2 - 0.5) * 0.08 * fade);
   if (dot(N, V) < 0.02) N = normalize(N + V * 0.1);
 
   float fres = 0.02 + 0.98 * pow(1.0 - max(dot(N, V), 0.0), 5.0);
@@ -256,11 +271,18 @@ void main() {
   vec2 wuv = vec2((vWorld.x - uWakeRect.x) * uWakeRect.z, (vWorld.z - uWakeRect.y) * uWakeRect.w);
   float wake = 0.0;
   if (wuv.x > 0.0 && wuv.x < 1.0 && wuv.y > 0.0 && wuv.y < 1.0) wake = texture2D(uWake, wuv).r;
-  float topFoam = smoothstep(0.78, 0.98, h) * 0.55;
+  float topFoam = smoothstep(0.8, 0.98, h) * 0.3 + smoothstep(0.62, 0.3, vJ) * 0.9;
   float fn = fbm(uv * 1.3 + vec2(uTime * 0.1, 0.0));
   float fh = noise(uv * 4.5 + vec2(uTime * 0.3, -uTime * 0.2)) * noise(uv * 2.1 - vec2(0.0, uTime * 0.15));
   float foam = clamp(vCrest * 1.25 + topFoam + wake * 1.25, 0.0, 1.6);
+  float lc = lace(uv * 0.55 + vec2(uTime * 0.05, 0.0));
+  float lc2 = lace(uv * 1.4 - vec2(0.0, uTime * 0.08));
+  float laceNet = 1.0 - smoothstep(0.05, 0.16, min(lc, lc2 * 1.3));     // thin bright threads
   float foamMask = smoothstep(0.42, 0.8, foam * (0.3 + 0.7 * fn + 0.9 * fh));
+  // lace threads trail across the faces behind every crest and around wakes
+  float patchy = smoothstep(0.42, 0.7, fbm(uv * 0.18 + vec2(uTime * 0.03, uTime * 0.02)));
+  float near = 1.0 - smoothstep(25.0, 110.0, dist);
+  foamMask = max(foamMask, laceNet * smoothstep(0.12, 0.7, foam) * patchy * 0.8 * near);
   vec3 foamCol = uFoam * (0.78 + 0.32 * diff) + uSunCol * 0.05;
   col = mix(col, foamCol, foamMask * 0.92);
 

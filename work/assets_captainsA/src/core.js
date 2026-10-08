@@ -62,6 +62,9 @@
   function putLeg(sd, mat, geo, p, r, s) { put(sd > 0 ? 'legL' : 'legR', mat, geo, mir(p, sd), mirR(r, sd), s); }
   function legs(mat, geo, p, r, s) { putLeg(1, mat, geo.clone(), p, r, s); putLeg(-1, mat, geo, p, r, s); }
 
+  // hat frame: tilted back by D.hatTilt about the top of the head (positive tips the front brim up)
+  function putHat(mat, geo, p, r, s) { add('hat', mat, geo, new THREE.Matrix4().makeRotationX(-(D.hatTilt || 0)).multiply(TRS(p, r, s))); }
+  function symHat(mat, geo, p, r, s) { for (const sd of [1, -1]) putHat(mat, geo.clone(), mir(p, sd), mirR(r, sd), s); }
   function mergeList(list) {
     let n = 0;
     for (const q of list) n += q.attributes.position.count;
@@ -110,4 +113,4 @@
     g.userData.joints = { torso: J.torso, head: J.head, hat: J.hat, armL: J.armL, armR: J.armR, legL: J.legL, legR: J.legR, handL: hands.handL, handR: hands.handR };
     return g;
   }
-  const K = { THREE, D, M, put, sym, putArm, arms, putLeg, legs, lathe, TRS, J };
+  const K = { THREE, D, M, put, sym, putArm, arms, putLeg, legs, putHat, symHat, lathe, TRS, J };
