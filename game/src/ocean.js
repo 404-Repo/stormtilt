@@ -226,11 +226,20 @@ void main() {
   // detail normal: two scrolling noise layers, fading with distance
   vec2 uv = vWorld.xz;
   float fade = 1.0 - smoothstep(15.0, 130.0, dist);
-  float n1 = fbm(uv * 0.35 + vec2(uTime * 0.25, uTime * 0.12));
-  float n2 = fbm(uv * 0.9 - vec2(uTime * 0.4, -uTime * 0.3));
-  float ex = (fbm(uv * 0.35 + vec2(0.37, 0.0) + vec2(uTime * 0.25, uTime * 0.12)) - n1);
-  float ez = (fbm(uv * 0.35 + vec2(0.0, 0.37) + vec2(uTime * 0.25, uTime * 0.12)) - n1);
-  vec3 N = normalize(vNormalW + vec3(-ex, 0.0, -ez) * 1.15 * fade + vec3(n2 - 0.5, 0.0, n2 - 0.5) * 0.08 * fade);
+  // detail ripples: a sum of small directional waves with analytic slopes (smooth, no noise terraces)
+  vec2 grad = vec2(0.0);
+  for (int i = 0; i < 9; i++) {
+    float fi = float(i);
+    float ang = fi * 2.399 + 0.7;
+    vec2 d = vec2(cos(ang), sin(ang));
+    float L = 1.3 + fi * 0.62;
+    float k = 6.2831 / L;
+    float w = sqrt(9.8 * k);
+    float a = 0.035 * L / 6.0;
+    grad += d * (a * k * cos(k * dot(d, uv) - w * uTime * 0.7 + fi * 1.7));
+  }
+  float n2 = noise(uv * 0.08 + uTime * 0.02);
+  vec3 N = normalize(vNormalW + vec3(-grad.x, 0.0, -grad.y) * fade * (0.6 + 0.8 * n2));
   if (dot(N, V) < 0.02) N = normalize(N + V * 0.1);
 
   float fres = 0.02 + 0.98 * pow(1.0 - max(dot(N, V), 0.0), 5.0);
@@ -282,7 +291,8 @@ void main() {
   // lace threads trail across the faces behind every crest and around wakes
   float patchy = smoothstep(0.42, 0.7, fbm(uv * 0.18 + vec2(uTime * 0.03, uTime * 0.02)));
   float near = 1.0 - smoothstep(25.0, 110.0, dist);
-  foamMask = max(foamMask, laceNet * smoothstep(0.12, 0.7, foam) * patchy * 0.8 * near);
+  float crestOnly = clamp(vCrest * 1.25 + topFoam, 0.0, 1.0);
+  foamMask = max(foamMask, laceNet * smoothstep(0.12, 0.7, crestOnly) * patchy * 0.8 * near);
   vec3 foamCol = uFoam * (0.78 + 0.32 * diff) + uSunCol * 0.05;
   col = mix(col, foamCol, foamMask * 0.92);
 

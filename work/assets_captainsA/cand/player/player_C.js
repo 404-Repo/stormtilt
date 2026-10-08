@@ -194,12 +194,12 @@ export default function (THREE) {
   K.cap = (r, len, seg) => sq(r, len / 2 + r, r, 1, 0.75, 1, seg || 10, 10);
   K.trousers = (mat, o) => {
     const h = o.y0 - o.y1;
-    legs(mat, sq(o.r, h / 2 + 0.02, o.r, 0.85, 0.45, 1 / (o.taper || 0.9), 14, 10), [0, (o.y0 + o.y1) / 2, 0]);
+    legs(mat, sq(o.r, h / 2 + 0.02, o.r, 0.85, 0.45, 1 / (o.taper || 0.9), 12, 8), [0, (o.y0 + o.y1) / 2, 0]);
   };
   K.boots = (mat, sole, o) => {
     const b = -D.legY, sh = o.soleH || 0.05;
     const shaftH = o.top - (b + 0.08);
-    legs(mat, sq(o.r * 1.02, shaftH / 2, o.r * 1.02, 0.8, 0.4, 0.96, 14, 10), [0, b + 0.08 + shaftH / 2, 0]);
+    legs(mat, sq(o.r * 1.02, shaftH / 2, o.r * 1.02, 0.8, 0.4, 0.96, 12, 8), [0, b + 0.08 + shaftH / 2, 0]);
     legs(mat, sq(o.w, 0.095, o.len / 2, 0.7, 0.75, 1, 14, 8), [0, b + sh + 0.045, o.toeZ]);
     legs(sole, sq(o.w * 1.06, sh / 2, o.len / 2 * 1.04, 0.6, 0.25, 1, 16, 6), [0, b + sh / 2, o.toeZ]);
     if (o.cuffMat) legs(o.cuffMat, sq(o.r * 1.16, 0.035, o.r * 1.16, 0.8, 0.4, 1, 14, 6), [0, o.top - 0.02, 0]);
@@ -210,12 +210,12 @@ export default function (THREE) {
     put('torso', mat, sq(o.hemR * bk, full / 2, o.rz * (o.hemR / o.rx) * bk * (o.belly ? 1.06 : 1), 0.62, 0.55, o.rx / o.hemR, 18, 13), [0, o.y0 + full / 2, 0]);
   };
   K.sleeves = (mat, o) => {
-    arms(mat, sq(o.r * 1.04, o.len / 2 + 0.02, o.r * 1.04, 0.85, 0.6, 1.0, 12, 10), [0, -o.len / 2 + 0.02, 0]);
+    arms(mat, sq(o.r * 1.04, o.len / 2 + 0.02, o.r * 1.04, 0.85, 0.6, 1.0, 10, 8), [0, -o.len / 2 + 0.02, 0]);
     if (o.cuffMat) arms(o.cuffMat, sq(o.r * 1.16, 0.03, o.r * 1.16, 0.85, 0.4, 1, 12, 6), [0, -o.len + 0.03, 0]);
   };
   K.hands = (mat, o) => {
     const y = -D.handY, s = o.s || 1;
-    arms(mat, sq(0.04 * s, 0.085 * s, 0.068 * s, 0.7, 0.8, 1, 12, 10), [0, y + 0.0, 0]);
+    arms(mat, sq(0.04 * s, 0.085 * s, 0.068 * s, 0.7, 0.8, 1, 10, 8), [0, y + 0.0, 0]);
     arms(mat, sq(0.022 * s, 0.045 * s, 0.022 * s, 1, 0.8, 1, 8, 8), [-0.022 * s, y + 0.01, 0.065 * s], [0.6, 0, -0.5]);
   };
   K.hairCap = (mat, hd, th, k, ph0, phL) => {

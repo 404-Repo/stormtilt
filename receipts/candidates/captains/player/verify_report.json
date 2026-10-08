@@ -3,7 +3,7 @@
   "ok": true,
   "mounts": null,
   "meshes": 22,
-  "tris": 6568,
+  "tris": 6436,
   "materials": 13,
   "size": [
    0.893,
@@ -18,7 +18,7 @@
   "sides": {
    "front": {
     "coverage": 0.1745,
-    "edgeDensity": 0.1445
+    "edgeDensity": 0.1451
    },
    "right": {
     "coverage": 0.1213,
@@ -41,7 +41,7 @@
   "ok": true,
   "mounts": null,
   "meshes": 22,
-  "tris": 7078,
+  "tris": 6742,
   "materials": 13,
   "size": [
    0.911,
@@ -60,15 +60,15 @@
    },
    "right": {
     "coverage": 0.1192,
-    "edgeDensity": 0.1241
+    "edgeDensity": 0.1239
    },
    "back": {
     "coverage": 0.1906,
-    "edgeDensity": 0.0942
+    "edgeDensity": 0.0941
    },
    "left": {
     "coverage": 0.1213,
-    "edgeDensity": 0.1404
+    "edgeDensity": 0.1399
    }
   },
   "error": null,
@@ -79,7 +79,7 @@
   "ok": true,
   "mounts": null,
   "meshes": 22,
-  "tris": 7926,
+  "tris": 6714,
   "materials": 13,
   "size": [
    0.903,
@@ -93,20 +93,20 @@
   ],
   "sides": {
    "front": {
-    "coverage": 0.1709,
-    "edgeDensity": 0.1537
+    "coverage": 0.1705,
+    "edgeDensity": 0.157
    },
    "right": {
-    "coverage": 0.1189,
-    "edgeDensity": 0.1573
+    "coverage": 0.119,
+    "edgeDensity": 0.1544
    },
    "back": {
-    "coverage": 0.1841,
-    "edgeDensity": 0.1179
+    "coverage": 0.1836,
+    "edgeDensity": 0.1207
    },
    "left": {
-    "coverage": 0.1199,
-    "edgeDensity": 0.1622
+    "coverage": 0.12,
+    "edgeDensity": 0.1655
    }
   },
   "error": null,

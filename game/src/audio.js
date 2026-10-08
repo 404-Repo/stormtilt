@@ -1,6 +1,6 @@
 const ALIAS = {
   crack: 'sfx_lance_crack', thud: 'sfx_body_thud', splash: 'sfx_splash', thunder: 'sfx_thunder', zap: 'sfx_charge', horn: 'sfx_horn',
-  whoosh: 'sfx_wind_gust', cheer: 'sfx_crowd_cheer', bonk: 'sfx_bonk', gull: 'sfx_gull', wave: 'sfx_wave_crash', flap: 'sfx_sail_flap',
+  whoosh: 'sfx_wind_gust', cheer: 'sfx_crowd_cheer', bonk: 'sfx_bonk', gull: 'sfx_gull', wave: 'sfx_wave_crash', flap: 'sfx_sail_flap', whoa: 'sfx_whoa', laugh: 'sfx_laugh', gasp: 'sfx_gasp', jump: 'sfx_jump', land: 'sfx_land', clank: 'sfx_clank', bell: 'sfx_bell', zap2: 'sfx_zap', rainloop: 'sfx_rain', windloop: 'sfx_wind',
   m_title: 'music_title', m_regatta: 'music_regatta', m_thunder: 'music_thunder', m_gale: 'music_gale', m_rogue: 'music_rogue', m_boss: 'music_boss',
   m_victory: 'sting_victory', m_defeat: 'sting_defeat', s_hit: 'sting_hit', s_start: 'sting_start', s_charge: 'sting_charge', s_comic: 'sting_comic',
 };

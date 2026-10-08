@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 26,
+  "tris": 7524,
+  "materials": 15,
+  "size": [
+   0.897,
+   1.85,
+   0.659
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1784,
+    "edgeDensity": 0.243
+   },
+   "right": {
+    "coverage": 0.1319,
+    "edgeDensity": 0.2714
+   },
+   "back": {
+    "coverage": 0.1621,
+    "edgeDensity": 0.2415
+   },
+   "left": {
+    "coverage": 0.1305,
+    "edgeDensity": 0.2796
+   }
+  },
+  "error": null,
+  "name": "volta_A",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 26,
+  "tris": 8444,
+  "materials": 15,
+  "size": [
+   0.91,
+   1.85,
+   0.66
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1773,
+    "edgeDensity": 0.2414
+   },
+   "right": {
+    "coverage": 0.1309,
+    "edgeDensity": 0.2792
+   },
+   "back": {
+    "coverage": 0.1625,
+    "edgeDensity": 0.2535
+   },
+   "left": {
+    "coverage": 0.1292,
+    "edgeDensity": 0.2856
+   }
+  },
+  "error": null,
+  "name": "volta_B",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 26,
+  "tris": 8112,
+  "materials": 15,
+  "size": [
+   0.897,
+   1.85,
+   0.661
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.174,
+    "edgeDensity": 0.2658
+   },
+   "right": {
+    "coverage": 0.1321,
+    "edgeDensity": 0.2798
+   },
+   "back": {
+    "coverage": 0.158,
+    "edgeDensity": 0.2607
+   },
+   "left": {
+    "coverage": 0.1305,
+    "edgeDensity": 0.2869
+   }
+  },
+  "error": null,
+  "name": "volta_C",
+  "problems": []
+ }
+]

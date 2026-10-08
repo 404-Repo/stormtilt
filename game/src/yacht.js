@@ -129,7 +129,7 @@ export class Yacht {
     // ---- wake and spray
     if (!this.overboard || true) {
       const sx = this.x - fx_ * this.dims.length * 0.5, sz = this.z - fz_ * this.dims.length * 0.5;
-      if (!this.air) wake.blob(sx, sz, B.beam * 0.32, 0.16);
+      if (!this.air) wake.blob(sx, sz, B.beam * 0.3, 0.11);
       const bx = this.x + fx_ * this.dims.length * 0.45, bz = this.z + fz_ * this.dims.length * 0.45;
       if (!this.air && fx) {
         const s = this.speed / 14;
@@ -182,33 +182,75 @@ export class Yacht {
       this.shield.position.y += ((1.15 + sh * 0.35) - this.shield.position.y) * Math.min(1, dt * 12);
       this.shield.position.z += ((0.25 + sh * 0.35) - this.shield.position.z) * Math.min(1, dt * 12);
     }
+    if (this.hatPop > 0 && j.hat) {
+      this.hatPop += dt; const k = this.hatPop / 0.7;
+      if (k >= 1) { this.hatPop = 0; j.hat.position.y = this.hatY0 ?? j.hat.position.y; j.hat.rotation.x = 0; }
+      else { this.hatY0 ??= j.hat.position.y; j.hat.position.y = this.hatY0 + Math.sin(k * Math.PI) * 0.6 * this.hatPopP; j.hat.rotation.x = Math.sin(k * Math.PI * 2) * 0.8; }
+    }
     if (this.overboard) this.animOverboard(dt);
   }
 
   breakLance() { this.broken = true; this.lanceModel.scale.z = 0.38; }
   knockOverboard(fromDir) {
-    // detach the captain into the world and fling them
-    const p = new THREE.Vector3(); this.capRoot.getWorldPosition(p);
-    const q = new THREE.Quaternion(); this.capRoot.getWorldQuaternion(q);
+    // detach the captain into the world and fling them, hat first
     this.game.scene.attach(this.capRoot);
-    this.overboard = { v: new THREE.Vector3(fromDir.x * 9, 9, fromDir.z * 9 + this.dir * this.speed * 0.3), w: new THREE.Vector3(4 + Math.random() * 3, Math.random() * 4, 3), wet: false, t: 0 };
+    const j = this.captain.userData.joints || {};
+    if (j.hat && j.hat.parent) {
+      this.hat = j.hat; this.hatHome = { parent: j.hat.parent, pos: j.hat.position.clone(), rot: j.hat.rotation.clone(), scale: j.hat.scale.clone() };
+      this.game.scene.attach(j.hat);
+      this.hatFly = { v: new THREE.Vector3(fromDir.x * 5 + (Math.random() - 0.5) * 3, 11, fromDir.z * 5 + this.dir * 3), w: new THREE.Vector3(6, 9, 4), wet: false };
+    }
+    this.overboard = { v: new THREE.Vector3(fromDir.x * 8, 10, fromDir.z * 8 + this.dir * this.speed * 0.25), w: new THREE.Vector3(5 + Math.random() * 3, Math.random() * 3, 4), wet: false, t: 0 };
+    this.game.audio.play('whoa', { vol: 1 });
+    // the lance goes its own way
+    this.game.scene.attach(this.lancePivot);
+    this.lanceFly = { v: new THREE.Vector3(fromDir.x * 3, 6, this.dir * 4), w: 3 + Math.random() * 3, wet: false };
   }
+  popHat(power = 1) { this.hatPop = 0.0001; this.hatPopP = power; }
   animOverboard(dt) {
     const o = this.overboard; o.t += dt;
-    const cr = this.capRoot;
+    const cr = this.capRoot, sea = this.game.sea;
+    const j = this.captain.userData.joints || {};
     if (!o.wet) {
       o.v.y -= 13 * dt; cr.position.addScaledVector(o.v, dt);
       cr.rotation.x += o.w.x * dt; cr.rotation.z += o.w.z * dt;
-      const h = this.game.sea.height(cr.position.x, cr.position.z);
-      if (cr.position.y < h - 0.6 && o.v.y < 0) { o.wet = true; this.game.onSplash?.(cr.position.clone()); }
+      const fl = Math.sin(o.t * 22);
+      if (j.armL) j.armL.rotation.z = 1.2 + fl * 0.6; if (j.armR) j.armR.rotation.z = -1.2 - fl * 0.6;
+      if (j.legL) j.legL.rotation.x = fl * 0.8; if (j.legR) j.legR.rotation.x = -fl * 0.8;
+      const h = sea.height(cr.position.x, cr.position.z);
+      if (cr.position.y < h - 0.6 && o.v.y < 0) { o.wet = true; this.game.onSplash?.(cr.position.clone()); this.game.audio.play('laugh', { delay: 0.5, vol: 0.8 }); }
     } else {
-      const h = this.game.sea.height(cr.position.x, cr.position.z);
-      cr.position.y += (h - 1.2 - cr.position.y) * Math.min(1, dt * 4);
-      cr.rotation.x += (-0.3 - cr.rotation.x) * Math.min(1, dt * 2); cr.rotation.z += (0 - cr.rotation.z) * Math.min(1, dt * 2);
+      const h = sea.height(cr.position.x, cr.position.z);
+      cr.position.y += (h - 0.95 - cr.position.y) * Math.min(1, dt * 4);
+      cr.rotation.x += (-0.15 - cr.rotation.x) * Math.min(1, dt * 2); cr.rotation.z += (Math.sin(o.t * 2) * 0.1 - cr.rotation.z) * Math.min(1, dt * 2);
+      const wv = Math.sin(o.t * 9);
+      if (j.armL) j.armL.rotation.z = 2.4 + wv * 0.4; if (j.armR) j.armR.rotation.z = -2.4 + wv * 0.4;
+    }
+    this.animHat(dt);
+    const lf = this.lanceFly;
+    if (lf) {
+      const lp = this.lancePivot.position;
+      if (!lf.wet) { lf.v.y -= 12 * dt; lp.addScaledVector(lf.v, dt); this.lancePivot.rotation.x += lf.w * dt; if (lp.y < sea.height(lp.x, lp.z) && lf.v.y < 0) lf.wet = true; }
+      else { lp.y += (sea.height(lp.x, lp.z) - 0.1 - lp.y) * Math.min(1, dt * 4); this.lancePivot.rotation.x += (0 - this.lancePivot.rotation.x) * Math.min(1, dt * 2); }
+    }
+  }
+  animHat(dt) {
+    const hf = this.hatFly; if (!hf || !this.hat) return;
+    const hp = this.hat.position, sea = this.game.sea;
+    if (!hf.wet) {
+      hf.v.y -= 11 * dt; hp.addScaledVector(hf.v, dt); this.hat.rotation.x += hf.w.x * dt; this.hat.rotation.y += hf.w.y * dt;
+      if (hp.y < sea.height(hp.x, hp.z) && hf.v.y < 0) { hf.wet = true; this.game.wake.ring(hp.x, hp.z, 1.2, 0.8, 2); }
+    } else {
+      hp.y += (sea.height(hp.x, hp.z) - 0.05 - hp.y) * Math.min(1, dt * 5);
+      this.hat.rotation.x *= 0.9; this.hat.rotation.z *= 0.9; this.hat.rotation.y += dt * 0.4;
     }
   }
   restoreCaptain() {
+    if (this.hat && this.hatHome) { this.hatHome.parent.add(this.hat); this.hat.position.copy(this.hatHome.pos); this.hat.rotation.copy(this.hatHome.rot); this.hat.scale.copy(this.hatHome.scale); this.hatFly = null; }
+    const j = this.captain.userData.joints || {};
+    for (const k of ['armL', 'armR', 'legL', 'legR']) if (j[k]) j[k].rotation.set(0, 0, 0);
     if (this.capRoot.parent !== this.body) { this.body.add(this.capRoot); }
+    if (this.lancePivot.parent !== this.capRoot) { this.capRoot.add(this.lancePivot); this.lancePivot.position.set(-0.32, 1.22 * (this.o.capScale || 1), 0.15); this.lancePivot.rotation.set(-1.35, 0, 0); this.lanceFly = null; }
     this.capRoot.rotation.set(0, 0, 0);
     this.capRoot.position.set(this.portX(), this.deckY(), this.dims.captainZ);
     this.overboard = null;

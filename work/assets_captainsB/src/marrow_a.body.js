@@ -8,7 +8,7 @@
   const brass = mat('brass', 0xc9a043, { roughness: 0.3, metalness: 0.7, name: 'metal' });
   const skin = mat('skin', 0xa6dcd2, { roughness: 0.4, emissive: 0x9fe8ff, emissiveIntensity: 0.14 });
   const hair = mat('hair', 0xcfe3dc, { roughness: 0.5, emissive: 0x9fe8ff, emissiveIntensity: 0.06 });
-  const hatM = mat('hat', 0x55525f, { roughness: 0.5, side: THREE.DoubleSide });
+  const hatM = mat('hat', 0x6a6674, { roughness: 0.5, side: THREE.DoubleSide });
   const plume = mat('plume', 0x7f8c90, { roughness: 0.6, side: THREE.DoubleSide });
   const glow = mat('glow', 0x5fd6ff, { emissive: 0x9fe8ff, emissiveIntensity: 1.2, roughness: 0.3 });
   const dark = mat('mouth', 0x2d3a44, { roughness: 0.5 });

@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 27,
+  "tris": 6340,
+  "materials": 14,
+  "size": [
+   0.912,
+   1.85,
+   0.833
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1596,
+    "edgeDensity": 0.1306
+   },
+   "right": {
+    "coverage": 0.1096,
+    "edgeDensity": 0.1301
+   },
+   "back": {
+    "coverage": 0.155,
+    "edgeDensity": 0.095
+   },
+   "left": {
+    "coverage": 0.1152,
+    "edgeDensity": 0.1335
+   }
+  },
+  "error": null,
+  "name": "marrow_a",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 27,
+  "tris": 3816,
+  "materials": 14,
+  "size": [
+   0.907,
+   1.85,
+   0.751
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1435,
+    "edgeDensity": 0.1276
+   },
+   "right": {
+    "coverage": 0.1033,
+    "edgeDensity": 0.1155
+   },
+   "back": {
+    "coverage": 0.1517,
+    "edgeDensity": 0.08
+   },
+   "left": {
+    "coverage": 0.112,
+    "edgeDensity": 0.1214
+   }
+  },
+  "error": null,
+  "name": "marrow_b",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 23,
+  "tris": 6790,
+  "materials": 13,
+  "size": [
+   0.865,
+   1.85,
+   0.602
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1565,
+    "edgeDensity": 0.1502
+   },
+   "right": {
+    "coverage": 0.109,
+    "edgeDensity": 0.1653
+   },
+   "back": {
+    "coverage": 0.167,
+    "edgeDensity": 0.1273
+   },
+   "left": {
+    "coverage": 0.1139,
+    "edgeDensity": 0.1539
+   }
+  },
+  "error": null,
+  "name": "marrow_c",
+  "problems": []
+ }
+]

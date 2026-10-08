@@ -43,13 +43,14 @@ export class Director {
       const close = foe ? THREE.MathUtils.clamp(1 - (ttp - 0.6) / 2.2, 0, 1) : 0;
       const e = close * close * (3 - 2 * close);
       // on the port quarter, outboard of the rail: the captain and lance ahead-right, the rival coming at us on the left
-      const back = 7.5 + 4 * e, height = 3.4 + 3.2 * e, side = 3.4 + 1.5 * e;
+      const back = 7.0 + 4 * e, height = 3.6 + 3.0 * e, side = 1.9 + 2.5 * e;
       this.wantPos.set(me.x, capY, me.z).addScaledVector(f, -back + me.dims.captainZ).addScaledVector(left, side);
       this.wantPos.y = Math.max(capY + height, ctx.seaH(this.wantPos.x, this.wantPos.z) + 2.2);
       const aim = new THREE.Vector3(me.x, capY + 2.2, me.z).addScaledVector(f, 18);
       if (foe) {
         const fp = new THREE.Vector3(foe.x, foe.y + foe.deckY() + 1.5, foe.z);
-        aim.lerp(fp, 0.25 + 0.45 * e);
+        aim.lerp(fp, 0.22 + 0.45 * e);
+        aim.x += (new THREE.Vector3(f.z, 0, -f.x)).x * -1.2 * (1 - e); aim.z += (new THREE.Vector3(f.z, 0, -f.x)).z * -1.2 * (1 - e);
         if (e > 0.05) {
           // two-shot: blend toward a framing that holds both captains and both bows
           const a = me.worldOfCaptain(new THREE.Vector3()), b = foe.worldOfCaptain(new THREE.Vector3());

@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 25,
+  "tris": 7512,
+  "materials": 11,
+  "size": [
+   0.713,
+   1.85,
+   0.482
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1456,
+    "edgeDensity": 0.1988
+   },
+   "right": {
+    "coverage": 0.0979,
+    "edgeDensity": 0.201
+   },
+   "back": {
+    "coverage": 0.151,
+    "edgeDensity": 0.1377
+   },
+   "left": {
+    "coverage": 0.0979,
+    "edgeDensity": 0.2039
+   }
+  },
+  "error": null,
+  "name": "brisa_A",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 25,
+  "tris": 9078,
+  "materials": 11,
+  "size": [
+   0.723,
+   1.85,
+   0.483
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1447,
+    "edgeDensity": 0.203
+   },
+   "right": {
+    "coverage": 0.0967,
+    "edgeDensity": 0.1931
+   },
+   "back": {
+    "coverage": 0.1517,
+    "edgeDensity": 0.1346
+   },
+   "left": {
+    "coverage": 0.0976,
+    "edgeDensity": 0.2031
+   }
+  },
+  "error": null,
+  "name": "brisa_B",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 25,
+  "tris": 8294,
+  "materials": 11,
+  "size": [
+   0.715,
+   1.85,
+   0.484
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1429,
+    "edgeDensity": 0.2215
+   },
+   "right": {
+    "coverage": 0.0988,
+    "edgeDensity": 0.2023
+   },
+   "back": {
+    "coverage": 0.149,
+    "edgeDensity": 0.1337
+   },
+   "left": {
+    "coverage": 0.0996,
+    "edgeDensity": 0.2068
+   }
+  },
+  "error": null,
+  "name": "brisa_C",
+  "problems": []
+ }
+]

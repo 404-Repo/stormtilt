@@ -46,7 +46,7 @@ button { font-family: var(--display); color: var(--ink); border: 0; cursor: poin
 #sub.show { opacity: 1; }
 #taunt { position: absolute; right: 14px; top: calc(env(safe-area-inset-top) + 66px); max-width: 64%; background: #fff; color: var(--ink); font-weight: 800; font-size: 14px; padding: 8px 12px; border-radius: 14px 4px 14px 14px; opacity: 0; transform: translateY(-6px); transition: opacity .2s, transform .2s; box-shadow: 0 4px 0 rgba(0,0,0,.25); margin-right: 44px; }
 #taunt.show { opacity: 1; transform: none; }
-#hint { position: absolute; left: 16px; right: 16px; bottom: calc(env(safe-area-inset-bottom) + 150px); text-align: center; font-size: 14px; font-weight: 700; background: rgba(20,26,51,.75); border-radius: 12px; padding: 8px 10px; opacity: 0; transition: opacity .3s; }
+#hint { position: absolute; left: 16px; right: 16px; top: calc(env(safe-area-inset-top) + 118px); text-align: center; font-size: 14px; font-weight: 700; background: rgba(20,26,51,.75); border-radius: 12px; padding: 8px 10px; opacity: 0; transition: opacity .3s; }
 #hint.show { opacity: 1; }
 
 /* pass gauge: where you will pass relative to the rival, ram / hit / miss */

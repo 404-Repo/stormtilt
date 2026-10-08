@@ -28,8 +28,8 @@ export default function (THREE) {
     // head (neck joint at 0)
     const hd = { cy: 0.225, rx: 0.19, ry: 0.215, rz: 0.19, chin: -0.04 };
     K.headBase(skin, hd);
-    sym('head', ink, K.blob(0.031, 0.044, 0.018, 10, 8), [0.07, 0.26, 0.163 + K.fz]);
-    sym('head', white, K.blob(0.009, 0.009, 0.006, 6, 4), [0.078, 0.277, 0.179 + K.fz]);
+    sym('head', ink, K.blob(0.031, 0.044, 0.018, 8, 6), [0.07, 0.26, 0.163 + K.fz]);
+    sym('head', white, K.blob(0.009, 0.009, 0.006, 5, 4), [0.078, 0.277, 0.179 + K.fz]);
     sym('head', hair, K.cap(0.014, 0.06, 6), [0.075, 0.325, 0.153 + K.fz], [0, 0, Math.PI / 2 + 0.18]);
     put('head', nose, K.blob(0.042, 0.048, 0.05, 12, 8), [0, 0.205, 0.193 + K.fz]);
     const teeth = new THREE.SphereGeometry(0.07, 14, 6, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2);
@@ -177,8 +177,8 @@ export default function (THREE) {
   K.style = 'B';
   K.fz = 0;
   const arc = (rx, ry, n, a0, a1, cy) => { const p = []; for (let i = 0; i <= n; i++) { const t = a0 + (a1 - a0) * i / n; p.push([rx * Math.sin(t), (cy || 0) - ry * Math.cos(t)]); } return p; };
-  K.blob = (rx, ry, rz, ws) => { const q = lathe(arc(1, 1, 8, 0, Math.PI), ws || 12); q.scale(rx, ry, rz); return q; };
-  K.tube = (rBot, rTop, h, seg) => lathe([[0, -h / 2], [rBot * 0.9, -h / 2], [rBot, -h / 2 + Math.min(0.015, h * 0.2)], [rTop, h / 2 - Math.min(0.015, h * 0.2)], [rTop * 0.9, h / 2], [0, h / 2]], seg || 14);
+  K.blob = (rx, ry, rz, ws) => { const q = lathe(arc(1, 1, 7, 0, Math.PI), ws || 11); q.scale(rx, ry, rz); return q; };
+  K.tube = (rBot, rTop, h, seg) => lathe([[0, -h / 2], [rBot * 0.9, -h / 2], [rBot, -h / 2 + Math.min(0.015, h * 0.2)], [rTop, h / 2 - Math.min(0.015, h * 0.2)], [rTop * 0.9, h / 2], [0, h / 2]], seg || 12);
   K.cap = (r, len, seg) => { const p = arc(r, r, 4, 0, Math.PI / 2, -len / 2).concat(arc(r, r, 4, Math.PI / 2, Math.PI, len / 2)); return lathe(p, seg || 8); };
   // a lathe swept about +z (for feet): profile [r, along], flattened in y by fy
   const latheZ = (pts, seg, fx, fy) => { const q = lathe(pts, seg || 14); q.rotateX(Math.PI / 2); q.scale(fx || 1, fy || 1, 1); return q; };
@@ -219,7 +219,7 @@ export default function (THREE) {
   K.hairCap = (mat, hd, th, k, ph0, phL) => put('head', mat, new THREE.SphereGeometry(1, 14, 8, ph0 === undefined ? Math.PI : ph0, phL || Math.PI, 0, Math.PI * th), [0, hd.cy, 0], null, [hd.rx * k, hd.ry * k, hd.rz * k]);
   K.headBase = (mat, o) => {
     const p = [];
-    for (let i = 0; i <= 14; i++) { const t = i / 14 * Math.PI; p.push([o.rx * Math.sin(t) * (1 + (o.chin || 0) * Math.cos(t)), o.cy - o.ry * Math.cos(t)]); }
+    for (let i = 0; i <= 12; i++) { const t = i / 12 * Math.PI; p.push([o.rx * Math.sin(t) * (1 + (o.chin || 0) * Math.cos(t)), o.cy - o.ry * Math.cos(t)]); }
     put('head', mat, lathe(p, 20), null, null, [1, 1, o.rz / o.rx]);
     put('head', mat, K.tube(0.06, 0.06, 0.1, 10), [0, 0.03, 0]);
     sym('head', mat, K.blob(0.03, 0.045, 0.025, 8), [o.rx * 0.98, o.cy - 0.01, -0.01]);

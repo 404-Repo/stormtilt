@@ -180,12 +180,12 @@ game.onStrike = (cell, boats) => {
     wake.ring(cell.x, cell.z, 4, 0.9, 3);
   }
 };
-game.onTakeoff = (y) => { LOG(`takeoff ${y === game.match?.A ? 'A' : 'B'} vy ${y.vy.toFixed(1)}`); if (y === game.match?.A) { audio.play('whoosh', { vol: 0.8 }); } };
+game.onTakeoff = (y) => { LOG(`takeoff ${y === game.match?.A ? 'A' : 'B'} vy ${y.vy.toFixed(1)}`); if (y === game.match?.A) { audio.play('jump', { vol: 0.9 }); if (y.vy > 5) ui.hint('AIRBORNE! strike from above', 1.0); } };
 game.onLand = (y, impact) => {
   const p = new THREE.Vector3(y.x, sea.height(y.x, y.z), y.z);
   for (let i = 0; i < 40; i++) { const a = Math.random() * 6.283; fx.spray.emit(p.x + Math.cos(a) * 3, p.y + 0.3, p.z + Math.sin(a) * 4, Math.cos(a) * 7, 4 + Math.random() * 6, Math.sin(a) * 7, { life: 1.3, size: 2.4, grow: 2.4, alpha: 0.8, drag: 1, grav: 9 }); }
   wake.ring(p.x, p.z, 5, 1, 4); wake.blob(p.x, p.z, 6, 0.8);
-  audio.play('splash', { vol: Math.min(1, impact / 10) });
+  audio.play('land', { vol: Math.min(1, impact / 8) });
   if (y === game.match?.A) dir.shake = 0.6;
 };
 game.onSplash = (p) => {
@@ -280,7 +280,7 @@ game.onMatchEnd = (m) => {
   setTimeout(() => { $('hud').classList.add('hidden'); ui.screen('result'); }, 600);
 };
 function nextCupRival() { return LADDER[Math.min(save.cup, LADDER.length - 1)]; }
-function cupMatch(capB) { const c = CAPTAINS[capB]; showVS(capB, () => startMatch({ mode: 'cup', capB, sea: c.sea })); }
+function cupMatch(capB) { const c = CAPTAINS[capB]; showVS(capB, () => startMatch({ mode: 'cup', capB, sea: c.sea, footB: Q.has('kb') ? 1 : undefined })); }
 function showVS(capB, then) {
   const c = CAPTAINS[capB];
   $('vs-img-a').src = './img/cap_player.png'; $('vs-img-b').src = `./img/cap_${capB}.png`;
@@ -303,7 +303,7 @@ function go(fn) { return (e) => { e.preventDefault?.(); audio.unlock(); preloadA
 let audioLoaded = false;
 function preloadAudio() {
   if (audioLoaded) return; audioLoaded = true;
-  for (const n of ['crack', 'thud', 'splash', 'thunder', 'zap', 'horn', 'whoosh', 'cheer', 'bonk', 'gull', 'wave', 's_hit', 's_charge', 's_comic', 'm_victory', 'm_defeat']) audio.load(n);
+  for (const n of ['crack', 'thud', 'splash', 'thunder', 'zap', 'zap2', 'horn', 'whoosh', 'cheer', 'bonk', 'gull', 'wave', 's_hit', 's_charge', 's_comic', 'm_victory', 'm_defeat', 'whoa', 'laugh', 'gasp', 'jump', 'land', 'clank', 'bell']) audio.load(n);
 }
 $('startb').addEventListener('click', go(() => cupMatch(nextCupRival())));
 $('b-quick').addEventListener('click', go(() => openLadder('quick')));
@@ -368,10 +368,21 @@ function ctxFor() {
   else if (m.phase === 'pass') c.mode = 'pass';
   else if (m.phase === 'after' || m.phase === 'done' || m.phase === 'wiping') {
     const r = m.result || {};
-    const subj = r.koA ? m.A.capRoot : r.koB ? m.B.capRoot : (r.dmgA > (r.dmgB || 0) ? m.A.capRoot : m.B.capRoot);
-    c.mode = 'follow'; c.subject = subj.getWorldPosition(new THREE.Vector3());
-    c.followDist = r.koA || r.koB ? 13 : 16;
-    c.followDir = new THREE.Vector3(-0.7, 0.42, -0.58).normalize();
+    const ko = r.koA || r.koB;
+    if (ko) {
+      // the knockout: low over the water, the swimmer in front and the winner's yacht behind
+      const loser = r.koA ? m.A : m.B, winner = r.koA ? m.B : m.A;
+      const swim = loser.capRoot.getWorldPosition(new THREE.Vector3());
+      const wp = new THREE.Vector3(winner.x, winner.y + 3, winner.z);
+      c.mode = 'follow'; c.subject = swim.clone().lerp(wp, 0.12).setY(Math.max(swim.y + 1.0, sea.height(swim.x, swim.z) + 0.8));
+      const away = swim.clone().sub(wp).setY(0).normalize();
+      c.followDir = away.multiplyScalar(0.8).setY(0.6).normalize(); c.followDist = 10;
+    } else {
+      const subj = (r.dmgA > (r.dmgB || 0) ? m.A.capRoot : m.B.capRoot);
+      c.mode = 'follow'; c.subject = subj.getWorldPosition(new THREE.Vector3());
+      c.followDist = 16;
+      c.followDir = new THREE.Vector3(-0.7, 0.42, -0.58).normalize();
+    }
   }
   return c;
 }
