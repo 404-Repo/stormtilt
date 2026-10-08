@@ -10,7 +10,7 @@
   const teeth = mat('teeth', 0xf3eee3, { roughness: 0.3 });
   const lip = mat('lip', 0x7a2e26, { roughness: 0.5 });
   const sole = mat('sole', 0x146f73, { roughness: 0.5 });
-  const R = rig({ hipY: 0.9, hipX: 0.1, torsoY: 0.95, shY: 1.34, shX: 0.27, neckY: 1.39, headTop: 1.77, splay: 0.22, palm: 0.52 });
+  const R = rig({ hipY: 0.9, hipX: 0.1, torsoY: 0.95, shY: 1.34, shX: 0.27, neckY: 1.39, headTop: 1.77, splay: 0.22, palm: 0.5 });
   const T = R.torso, H = R.head, HT = R.hat;
   const L = (pts, s, a0, al) => new THREE.LatheGeometry(pts.map((q) => new THREE.Vector2(q[0], q[1])), s, a0 || 0, al || Math.PI * 2);
   const dirE = (d) => { const e = new THREE.Euler().setFromQuaternion(new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), new THREE.Vector3(...d).normalize())); return [e.x, e.y, e.z]; };
@@ -31,8 +31,8 @@
     const ap = [[0, 0.07], [0.07, 0.05], [0.085, -0.02], [0.07, -0.18], [0.068, -0.25], [0.062, -0.38], [0.05, -0.41], [0, -0.42]];
     add(A, L(ap, 12), suit);
     add(A, L(ap.slice(1, 6).map((q) => [q[0] + 0.004, q[1]]), 3, sx > 0 ? Math.PI / 2 - 0.35 : Math.PI * 1.5 - 0.35, 0.7), teal);
-    add(A, L([[0, -0.4], [0.04, -0.41], [0.05, -0.47], [0.045, -0.56], [0, -0.58]], 10), skin, [0, 0, 0.005], [0, 0, 0], [0.95, 1, 1.5]);
-    add(A, cap(0.02, 0.05, 2, 6), skin, [-sx * 0.045, -0.46, 0.06], [0.5, 0, -sx * 0.3]);
+    add(A, L([[0, -0.4], [0.045, -0.41], [0.058, -0.48], [0.052, -0.58], [0, -0.61]], 10), skin, [0, 0, 0.005], [0, 0, 0], [1.05, 1, 1.6]);
+    add(A, cap(0.024, 0.06, 2, 6), skin, [-sx * 0.05, -0.47, 0.07], [0.5, 0, -sx * 0.3]);
   }
 
   // ---- legs ----
@@ -61,8 +61,8 @@
   }
   add(HG, box(0.04, 0.012, 0.012), lens, [0, 0.21, 0.15]);
   // hair: a lathe skirt from under the cap, its hem cut into spikes; open at the face
-  const hs = L([[0.17, 0.08], [0.165, 0.2], [0.15, 0.27]], 20, 0.75, Math.PI * 2 - 1.5), hp = hs.attributes.position;
-  for (let j = 0; j <= 20; j++) { const i = j * 3; hp.setY(i, hp.getY(i) - (j % 2) * 0.07); hp.setX(i, hp.getX(i) * (1.1 + (j % 2) * 0.12)); hp.setZ(i, hp.getZ(i) * (1.1 + (j % 2) * 0.12)); }
+  const hs = L([[0.17, 0.12], [0.165, 0.2], [0.15, 0.27]], 20, 0.75, Math.PI * 2 - 1.5), hp = hs.attributes.position;
+  for (let j = 0; j <= 20; j++) { const i = j * 3; hp.setY(i, hp.getY(i) - (j % 2) * 0.05); hp.setX(i, hp.getX(i) * (1.1 + (j % 2) * 0.12)); hp.setZ(i, hp.getZ(i) * (1.1 + (j % 2) * 0.12)); }
   hs.computeVertexNormals();
   add(HG, hs, hairM, [0, 0, -0.01]);
   for (const x of [-0.09, -0.04, 0.03, 0.09]) add(HG, new THREE.ConeGeometry(0.032, 0.09, 6), hairM, [x, 0.27, 0.11], dirE([x * 3, -0.4, 1]));

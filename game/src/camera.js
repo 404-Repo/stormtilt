@@ -89,12 +89,11 @@ export class Director {
       this.wantTgt.lerpVectors(tHi, tLo, s);
       this.k = 12;
     } else if (mode === 'broadcast' && me && foe) {
-      // 2P: high, looking across the lane so the lane runs up the screen in portrait
-      const c = new THREE.Vector3((me.x + foe.x) / 2, 0, (me.z + foe.z) / 2);
-      const span = Math.abs(me.z - foe.z);
-      const dist = 40 + span * 0.55;
-      this.wantTgt.copy(c);
-      this.wantPos.set(c.x + dist * 0.82, dist * 0.92, c.z);
+      // 2P: a high three-quarter view from the side, oriented so P1 charges up the screen and P2 down it
+      this.up.set(0, 0, 1);
+      const pts = [new THREE.Vector3(me.x, me.y + 3, me.z), new THREE.Vector3(foe.x, foe.y + 3, foe.z), new THREE.Vector3(me.x, me.y, me.z + 8), new THREE.Vector3(foe.x, foe.y, foe.z - 8)];
+      this.frame(pts, new THREE.Vector3(0.62, 0.78, 0).normalize(), 1.15, 30);
+      this.up.set(0, 1, 0);
       this.k = 3;
     } else if (mode === 'title') {
       const t = ctx.time;

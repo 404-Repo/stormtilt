@@ -1,0 +1,116 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 25,
+  "tris": 6516,
+  "materials": 10,
+  "size": [
+   0.833,
+   1.85,
+   0.487
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1596,
+    "edgeDensity": 0.1372
+   },
+   "right": {
+    "coverage": 0.0968,
+    "edgeDensity": 0.1473
+   },
+   "back": {
+    "coverage": 0.1498,
+    "edgeDensity": 0.108
+   },
+   "left": {
+    "coverage": 0.0971,
+    "edgeDensity": 0.1531
+   }
+  },
+  "error": null,
+  "name": "kite_a",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 25,
+  "tris": 3912,
+  "materials": 10,
+  "size": [
+   0.839,
+   1.85,
+   0.498
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1561,
+    "edgeDensity": 0.1224
+   },
+   "right": {
+    "coverage": 0.0958,
+    "edgeDensity": 0.1495
+   },
+   "back": {
+    "coverage": 0.1472,
+    "edgeDensity": 0.1
+   },
+   "left": {
+    "coverage": 0.0956,
+    "edgeDensity": 0.1372
+   }
+  },
+  "error": null,
+  "name": "kite_b",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 25,
+  "tris": 7988,
+  "materials": 10,
+  "size": [
+   0.87,
+   1.85,
+   0.528
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1624,
+    "edgeDensity": 0.134
+   },
+   "right": {
+    "coverage": 0.0993,
+    "edgeDensity": 0.196
+   },
+   "back": {
+    "coverage": 0.151,
+    "edgeDensity": 0.1135
+   },
+   "left": {
+    "coverage": 0.0993,
+    "edgeDensity": 0.1775
+   }
+  },
+  "error": null,
+  "name": "kite_c",
+  "problems": []
+ }
+]

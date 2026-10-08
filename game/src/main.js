@@ -308,7 +308,7 @@ function preloadAudio() {
 $('startb').addEventListener('click', go(() => cupMatch(nextCupRival())));
 $('b-quick').addEventListener('click', go(() => openLadder('quick')));
 $('b-endless').addEventListener('click', go(() => { game.streak = 0; endlessNext(); }));
-$('b-2p').addEventListener('click', go(() => startMatch({ mode: '2p', twoP: true, capA: 'player', capB: 'pip', sea: SEA_ORDER[Math.floor(Math.random() * 4)], tintB: 0x2a5bd7, boatB: 'sloop_red', lanceB: 'lance_classic', footB: 3 })));
+$('b-2p').addEventListener('click', go(() => startMatch({ mode: '2p', twoP: true, capA: 'player', capB: 'pip', sea: SEA_ORDER[Math.floor(Math.random() * 4)], tintB: 0x2a5bd7, boatB: 'sloop_red', lanceB: 'lance_classic', footB: 5 })));
 $('b-dock').addEventListener('click', go(openDock));
 $('b-ladder-back').addEventListener('click', go(toTitle));
 $('b-res-again').addEventListener('click', go(() => startMatch(current)));
@@ -398,7 +398,7 @@ function frame() {
   let ts = 1;
   if (m && m.phase === 'pass') ts = m.pt < 0.6 ? 0.22 : 0.6;
   // first match ever: time slows in the couch window until the player holds, and the button pulses
-  const teach = m && game.state === 'match' && current?.capB === 'pip' && !save.beaten.pip && m.phase === 'charge' && m.tilt <= 2;
+  const teach = m && game.state === 'match' && !current?.twoP && current?.capB === 'pip' && !save.beaten.pip && m.phase === 'charge' && m.tilt <= 2;
   const cb = $('couch');
   if (teach) {
     const startAt = 0.22 + m.A.lance.couch, tt = m.ttp();

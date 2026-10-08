@@ -1,0 +1,192 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 25,
+  "tris": 7906,
+  "materials": 15,
+  "size": [
+   1.205,
+   1.85,
+   0.64
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.193,
+    "edgeDensity": 0.1054
+   },
+   "right": {
+    "coverage": 0.1368,
+    "edgeDensity": 0.0979
+   },
+   "back": {
+    "coverage": 0.1888,
+    "edgeDensity": 0.0763
+   },
+   "left": {
+    "coverage": 0.1368,
+    "edgeDensity": 0.1117
+   }
+  },
+  "error": null,
+  "name": "cap_barnacle",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 25,
+  "tris": 7512,
+  "materials": 11,
+  "size": [
+   0.713,
+   1.85,
+   0.482
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1456,
+    "edgeDensity": 0.1988
+   },
+   "right": {
+    "coverage": 0.0979,
+    "edgeDensity": 0.201
+   },
+   "back": {
+    "coverage": 0.151,
+    "edgeDensity": 0.1377
+   },
+   "left": {
+    "coverage": 0.0979,
+    "edgeDensity": 0.2039
+   }
+  },
+  "error": null,
+  "name": "cap_brisa",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 27,
+  "tris": 7652,
+  "materials": 14,
+  "size": [
+   0.749,
+   1.55,
+   0.505
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1804,
+    "edgeDensity": 0.2469
+   },
+   "right": {
+    "coverage": 0.1352,
+    "edgeDensity": 0.2257
+   },
+   "back": {
+    "coverage": 0.1811,
+    "edgeDensity": 0.1935
+   },
+   "left": {
+    "coverage": 0.1352,
+    "edgeDensity": 0.2184
+   }
+  },
+  "error": null,
+  "name": "cap_pip",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 22,
+  "tris": 6742,
+  "materials": 13,
+  "size": [
+   0.911,
+   1.85,
+   0.702
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1717,
+    "edgeDensity": 0.1373
+   },
+   "right": {
+    "coverage": 0.1192,
+    "edgeDensity": 0.1239
+   },
+   "back": {
+    "coverage": 0.1906,
+    "edgeDensity": 0.0941
+   },
+   "left": {
+    "coverage": 0.1213,
+    "edgeDensity": 0.1399
+   }
+  },
+  "error": null,
+  "name": "cap_player",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 26,
+  "tris": 7524,
+  "materials": 15,
+  "size": [
+   0.897,
+   1.85,
+   0.659
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1784,
+    "edgeDensity": 0.243
+   },
+   "right": {
+    "coverage": 0.1319,
+    "edgeDensity": 0.2714
+   },
+   "back": {
+    "coverage": 0.1621,
+    "edgeDensity": 0.2415
+   },
+   "left": {
+    "coverage": 0.1305,
+    "edgeDensity": 0.2796
+   }
+  },
+  "error": null,
+  "name": "cap_volta",
+  "problems": []
+ }
+]
