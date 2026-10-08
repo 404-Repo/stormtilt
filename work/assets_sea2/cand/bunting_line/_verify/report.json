@@ -11,7 +11,7 @@
   "size": [
    24.66,
    2.726,
-   0.583
+   0.645
   ],
   "groundOffset": 0,
   "centreOffset": [
@@ -20,20 +20,20 @@
   ],
   "sides": {
    "front": {
-    "coverage": 0.0114,
-    "edgeDensity": 0.6033
+    "coverage": 0.011,
+    "edgeDensity": 0.5913
    },
    "right": {
     "coverage": 0.0054,
-    "edgeDensity": 0.8187
+    "edgeDensity": 0.7514
    },
    "back": {
-    "coverage": 0.0114,
-    "edgeDensity": 0.7089
+    "coverage": 0.0111,
+    "edgeDensity": 0.7016
    },
    "left": {
-    "coverage": 0.0054,
-    "edgeDensity": 0.7306
+    "coverage": 0.0053,
+    "edgeDensity": 0.6984
    }
   },
   "error": null,
@@ -52,7 +52,7 @@
   "size": [
    24.66,
    2.715,
-   0.612
+   0.648
   ],
   "groundOffset": 0,
   "centreOffset": [
@@ -61,20 +61,20 @@
   ],
   "sides": {
    "front": {
-    "coverage": 0.012,
-    "edgeDensity": 0.6327
+    "coverage": 0.0118,
+    "edgeDensity": 0.6595
    },
    "right": {
-    "coverage": 0.0042,
-    "edgeDensity": 0.7389
+    "coverage": 0.0048,
+    "edgeDensity": 0.7581
    },
    "back": {
-    "coverage": 0.0123,
-    "edgeDensity": 0.5493
+    "coverage": 0.012,
+    "edgeDensity": 0.5791
    },
    "left": {
-    "coverage": 0.0042,
-    "edgeDensity": 0.6932
+    "coverage": 0.0049,
+    "edgeDensity": 0.7773
    }
   },
   "error": null,
@@ -96,7 +96,7 @@
   "size": [
    24.66,
    2.732,
-   0.758
+   0.816
   ],
   "groundOffset": 0,
   "centreOffset": [
@@ -105,20 +105,20 @@
   ],
   "sides": {
    "front": {
-    "coverage": 0.0129,
-    "edgeDensity": 0.6003
+    "coverage": 0.0125,
+    "edgeDensity": 0.6066
    },
    "right": {
-    "coverage": 0.0033,
-    "edgeDensity": 0.7237
+    "coverage": 0.0043,
+    "edgeDensity": 0.773
    },
    "back": {
-    "coverage": 0.012,
-    "edgeDensity": 0.515
+    "coverage": 0.0118,
+    "edgeDensity": 0.5252
    },
    "left": {
-    "coverage": 0.0031,
-    "edgeDensity": 0.7247
+    "coverage": 0.0042,
+    "edgeDensity": 0.7728
    }
   },
   "error": null,

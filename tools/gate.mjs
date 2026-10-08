@@ -43,6 +43,9 @@ try {
       if (g.ph === 'charge' || g.ph === 'intro') {
         let target = g.bx - plan.want;          // where we want our x
         if (weather && skill > 0.55) { const cell = g.cells.find((c) => c.s > 0.3 && c.s < 3.5 && Math.abs(c.z - g.az) < 60); if (cell && g.ttp > 1.4) target = cell.x; }
+        // a player reading the gauge: if the hulls will meet, get out of the ram band
+        const predLat = (g.bx + g.bvx * Math.min(g.ttp, 1.5)) - g.ax;
+        if (skill > 0.45 && g.ttp < 2.6 && g.ttp > 0.2 && predLat < g.ram + 0.4) target = Math.min(target, g.bx + g.bvx * Math.min(g.ttp, 1.5) - (g.ram + 1.6));
         const err = target - g.ax;               // +err: we need to go +X = screen left = negative stick
         dx = Math.max(-1, Math.min(1, -err / 3.5)) * s.w * 0.32;
         want = g.ttp < plan.lead + g.cs && g.ttp > -0.4;

@@ -1,0 +1,312 @@
+[
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 122,
+  "tris": 6848,
+  "materials": 10,
+  "size": [
+   40.34,
+   9.919,
+   6.555
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1143,
+    "edgeDensity": 0.4578
+   },
+   "right": {
+    "coverage": 0.0687,
+    "edgeDensity": 0.3799
+   },
+   "back": {
+    "coverage": 0.1146,
+    "edgeDensity": 0.4803
+   },
+   "left": {
+    "coverage": 0.0722,
+    "edgeDensity": 0.4641
+   }
+  },
+  "error": null,
+  "name": "breakwater",
+  "problems": []
+ },
+ {
+  "ok": false,
+  "mounts": [
+   "left",
+   "right"
+  ],
+  "meshes": 27,
+  "tris": 1288,
+  "materials": 6,
+  "size": [
+   24.66,
+   2.715,
+   0.648
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0118,
+    "edgeDensity": 0.6595
+   },
+   "right": {
+    "coverage": 0.0048,
+    "edgeDensity": 0.7581
+   },
+   "back": {
+    "coverage": 0.012,
+    "edgeDensity": 0.5791
+   },
+   "left": {
+    "coverage": 0.0049,
+    "edgeDensity": 0.7773
+   }
+  },
+  "error": null,
+  "name": "bunting_line",
+  "problems": [
+   "right face is empty",
+   "left face is empty"
+  ]
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 45,
+  "tris": 4404,
+  "materials": 11,
+  "size": [
+   181.993,
+   51.621,
+   68.2
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1299,
+    "edgeDensity": 0.2616
+   },
+   "right": {
+    "coverage": 0.1094,
+    "edgeDensity": 0.2123
+   },
+   "back": {
+    "coverage": 0.1376,
+    "edgeDensity": 0.2567
+   },
+   "left": {
+    "coverage": 0.1087,
+    "edgeDensity": 0.2389
+   }
+  },
+  "error": null,
+  "name": "island_far",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 2,
+  "tris": 3840,
+  "materials": 2,
+  "size": [
+   48.969,
+   37.632,
+   23.382
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1933,
+    "edgeDensity": 0.1259
+   },
+   "right": {
+    "coverage": 0.142,
+    "edgeDensity": 0.1403
+   },
+   "back": {
+    "coverage": 0.1929,
+    "edgeDensity": 0.1195
+   },
+   "left": {
+    "coverage": 0.1401,
+    "edgeDensity": 0.1168
+   }
+  },
+  "error": null,
+  "name": "sea_arch",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 2,
+  "tris": 4080,
+  "materials": 2,
+  "size": [
+   22.367,
+   38.073,
+   18.896
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1678,
+    "edgeDensity": 0.1351
+   },
+   "right": {
+    "coverage": 0.1321,
+    "edgeDensity": 0.1391
+   },
+   "back": {
+    "coverage": 0.1678,
+    "edgeDensity": 0.1116
+   },
+   "left": {
+    "coverage": 0.1362,
+    "edgeDensity": 0.1575
+   }
+  },
+  "error": null,
+  "name": "sea_stack_a",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 2,
+  "tris": 5488,
+  "materials": 2,
+  "size": [
+   32.091,
+   54.307,
+   22.217
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1785,
+    "edgeDensity": 0.144
+   },
+   "right": {
+    "coverage": 0.1358,
+    "edgeDensity": 0.1806
+   },
+   "back": {
+    "coverage": 0.1795,
+    "edgeDensity": 0.1258
+   },
+   "left": {
+    "coverage": 0.1353,
+    "edgeDensity": 0.1338
+   }
+  },
+  "error": null,
+  "name": "sea_stack_b",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 179,
+  "tris": 4084,
+  "materials": 7,
+  "size": [
+   7.847,
+   9.067,
+   14.399
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.0718,
+    "edgeDensity": 0.2847
+   },
+   "right": {
+    "coverage": 0.1264,
+    "edgeDensity": 0.2972
+   },
+   "back": {
+    "coverage": 0.1428,
+    "edgeDensity": 0.2847
+   },
+   "left": {
+    "coverage": 0.1383,
+    "edgeDensity": 0.2404
+   }
+  },
+  "error": null,
+  "name": "shipwreck",
+  "problems": []
+ },
+ {
+  "ok": true,
+  "mounts": null,
+  "meshes": 6,
+  "tris": 1520,
+  "materials": 2,
+  "size": [
+   7.177,
+   5.147,
+   1.095
+  ],
+  "groundOffset": 0,
+  "centreOffset": [
+   0,
+   0
+  ],
+  "sides": {
+   "front": {
+    "coverage": 0.1286,
+    "edgeDensity": 0.1763
+   },
+   "right": {
+    "coverage": 0.0436,
+    "edgeDensity": 0.1744
+   },
+   "back": {
+    "coverage": 0.1281,
+    "edgeDensity": 0.0745
+   },
+   "left": {
+    "coverage": 0.044,
+    "edgeDensity": 0.1718
+   }
+  },
+  "error": null,
+  "name": "whale_tail",
+  "problems": []
+ }
+]

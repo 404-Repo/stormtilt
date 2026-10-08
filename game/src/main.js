@@ -78,11 +78,23 @@ function tintHull(obj, tint) {
   });
   return obj;
 }
-async function makeHull(boatId, tint) {
+async function makeHull(boatId, tint, own = false) {
   if (!has(boatId)) return placeholderHull(dimsFor(boatId), tint);
   const m = await ASSET(`./assets/${boatId}.js`);
   if (!m.children.length) return placeholderHull(dimsFor(boatId), tint);
-  return tintHull(m, tint);
+  tintHull(m, tint);
+  if (own) {
+    // the player's own sails fade when the chase camera sits inside them (cloned so the rival's stay solid)
+    const sails = [];
+    m.traverse((o) => {
+      if (!o.isMesh || !o.material || Array.isArray(o.material)) return;
+      const c = o.material.color; if (!c) return;
+      const hsl = {}; c.clone().convertLinearToSRGB().getHSL(hsl);
+      if (o.material.side === THREE.DoubleSide && hsl.l > 0.6) { o.material = o.material.clone(); o.material.transparent = true; o.material.depthWrite = true; sails.push(o.material); }
+    });
+    m.userData.sails = sails;
+  }
+  return m;
 }
 const LANCE_INFO = {};
 async function makeLance(id) {
@@ -142,7 +154,7 @@ function placeholderCaptain(id) {
 
 const yachtCache = {};
 async function buildYacht(capId, boatId, lanceId, tint, d) {
-  const [hull, captain, lanceModel, shield] = await Promise.all([makeHull(boatId, tint), makeCaptain(capId), makeLance(lanceId), makeShield()]);
+  const [hull, captain, lanceModel, shield] = await Promise.all([makeHull(boatId, tint, d > 0), makeCaptain(capId), makeLance(lanceId), makeShield()]);
   const li = LANCE_INFO[lanceId];
   const buddy = capId === 'gilly' ? await makeCaptain('gilly') : null;
   return new Yacht(game, { buddy, boat: boatId, lance: lanceId, dims: dimsFor(boatId), dir: d, hull, captain, lanceModel, shield, lanceLen: li.len, gripZ: li.grip, capScale: capId === 'nimbus' ? 1.4 : 1 });
@@ -461,6 +473,10 @@ function frame() {
   wake.step(dt);
   const ctx = ctxFor();
   dir.update(realDt * (ts === 0 ? 0 : 1), ctx);
+  if (m && m.A.hull.userData.sails) {
+    const want = ctx.mode === 'chase' && !current?.twoP ? 0.38 : 1;
+    for (const mt of m.A.hull.userData.sails) mt.opacity += (want - mt.opacity) * Math.min(1, realDt * 4);
+  }
   fx.rain.step(dt, world.camera);
   fx.spray.mat.uniforms.uScale.value = innerHeight * world.renderer.getPixelRatio() * 0.5 / Math.tan(THREE.MathUtils.degToRad(world.camera.fov / 2));
   fx.sparks.mat.uniforms.uScale.value = fx.spray.mat.uniforms.uScale.value; fx.wind.mat.uniforms.uScale.value = fx.spray.mat.uniforms.uScale.value;

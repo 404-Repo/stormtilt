@@ -40,6 +40,7 @@ button { font-family: var(--display); color: var(--ink); border: 0; cursor: poin
 #banner.bad { color: #ffd6d0; text-shadow: 0 4px 0 #6a1a2a, 0 8px 18px rgba(0,0,0,.5); }
 #banner.charge { color: #e8fbff; text-shadow: 0 0 18px var(--cyan), 0 4px 0 #1a5a7a; }
 #banner.ram { color: #fff; text-shadow: 0 4px 0 #2a5bd7, 0 8px 18px rgba(0,0,0,.45); }
+#banner.long { font-size: clamp(24px, 7.4vw, 46px); }
 #banner.meh { color: #e6e6f0; text-shadow: 0 4px 0 #444a66; font-size: clamp(26px, 8vw, 50px); }
 @keyframes pop { 0% { transform: scale(.4); } 100% { transform: scale(1); } }
 #sub { position: absolute; left: 0; right: 0; top: calc(30% + clamp(36px, 11vw, 70px)); text-align: center; font-weight: 700; font-size: 15px; opacity: 0; text-shadow: 0 2px 4px rgba(0,0,0,.7); padding: 0 24px; transition: opacity .2s; }

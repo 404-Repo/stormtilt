@@ -85,7 +85,7 @@ export const CAPTAINS = {
   },
   barnacle: {
     short: 'BARNACLE', name: 'Bosun Barnacle', title: 'the Battering Ram', sea: 'regatta', boat: 'tug_barnacle', lance: 'lance_heavy', footing: 5,
-    ai: { lead: 0.9, jitter: 0.25, line: 0.05, react: 0.55, bolt: 0, roller: 0.1, gust: 0, ram: 0.5, dodge: 0, feint: 0, steer: 0.85 },
+    ai: { lead: 1.15, jitter: 0.3, line: 0.05, react: 0.55, bolt: 0, roller: 0.1, gust: 0, ram: 0.5, dodge: 0, feint: 0, steer: 0.85 },
     spoil: { boat: 'tug_barnacle' },
     intro: 'Forty years at sea. Never once steered round anything.', win: 'Har! Mind the barnacles on yer way down.', lose: 'Me tug... take care of her.',
     taunts: ['RAMMING SPEED!', 'I eat hulls for breakfast!', 'Coming through!'],

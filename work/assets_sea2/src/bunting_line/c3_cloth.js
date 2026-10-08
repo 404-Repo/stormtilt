@@ -12,4 +12,4 @@
         pos.push(x, y, Math.sin(t * 2.6 + ph) * 0.09 * t + Math.cos(u * 3 + ph) * 0.05 + t * t * 0.12); } }
     let base = 0; for (let r = 0; r < R; r++) { const n = R - r + 1, nb = base + n; for (let k = 0; k < n - 1; k++) { idx.push(base + k, nb + k, base + k + 1); if (k < n - 2) idx.push(base + k + 1, nb + k, nb + k + 1); } base = nb; }
     const q = new THREE.BufferGeometry(); q.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); q.setIndex(idx); q.computeVertexNormals();
-    const m = add(q, f.mat, f.x, f.y, 0.25 * (1 - Math.pow(f.x / HALF, 2))); m.rotation.z = f.slope; m.rotation.x = f.tw * 0.6; }
+    const m = add(q, f.mat, f.x, f.y, 0.25 * (1 - Math.pow(f.x / HALF, 2))); m.rotation.z = f.slope; m.rotation.x = f.tw * 0.6; m.rotation.y = f.yaw; }

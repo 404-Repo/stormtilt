@@ -22,8 +22,9 @@ export class UI {
   }
   tiltNo(n) { this.el.tiltno.textContent = `TILT ${n}`; }
   banner(text, sub = '', dur = 1.4, kind = '') {
-    const b = this.el.banner; b.textContent = text; b.className = 'show ' + kind;
+    const b = this.el.banner; b.textContent = text; b.className = 'show ' + kind + (text.length > 13 ? ' long' : '');
     this.el.sub.textContent = sub; this.el.sub.className = sub ? 'show' : '';
+    this.el.sub.style.top = (b.offsetTop + b.offsetHeight + 4) + 'px';
     this.bannerT = dur;
     void b.offsetWidth; b.classList.add('pop');
   }

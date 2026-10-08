@@ -13,6 +13,6 @@
   const geo = merge(parts);
   warp(geo, 3.5, 0.04, 2); warp(geo, 1.5, 0.12, 2);
   const p = geo.attributes.position; for (let i = 0; i < p.count; i++) if (p.getY(i) < 0) p.setY(i, 0);
-  smooth(geo); strata(geo, { period: 4.5, top: 100, ledgeMin: 4, foamBelow: 2.6 });
+  smooth(geo); strata(geo, { period: 4.5, top: 1000, cap: 2000, foamBelow: 2.6 });   // all up-facing ground is grass, steep faces are banded cliff
   const land = add(geo, rockMat);
 //@include _village.js

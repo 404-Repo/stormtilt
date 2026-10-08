@@ -298,7 +298,7 @@ void main() {
   col = mix(col, col * 0.55 + uGlowCol * 0.55, uGlow * foamMask * 0.6) + uGlowCol * uGlow * smoothstep(0.88, 1.0, h) * 0.12 * (0.6 + 0.4 * sin(uTime * 2.0 + uv.x * 0.3));
 
   // lightning flash lifts the whole sea for a moment
-  col += vec3(0.55, 0.7, 0.95) * uFlash * (0.25 + fres2);
+  col += vec3(0.55, 0.7, 0.95) * uFlash * (0.1 + 0.4 * fres2);
 
   // aerial haze toward the horizon (sky coloured, not grey)
   float hz = smoothstep(uHazeDist * 0.25, uHazeDist, dist);
