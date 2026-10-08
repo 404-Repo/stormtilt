@@ -165,3 +165,10 @@ button { font-family: var(--display); color: var(--ink); border: 0; cursor: poin
 #gauge.danger { animation: dangerp .25s ease-in-out infinite alternate; }
 #gauge.danger::before { content: "RAM! STEER AWAY"; color: #ff8a80; font-size: 11px; }
 @keyframes dangerp { to { box-shadow: 0 0 0 3px rgba(255,90,80,.8); } }
+
+@media (orientation: landscape) {
+  #hint { top: calc(env(safe-area-inset-top) + 70px); left: 25%; right: 25%; }
+  #banner { top: 24%; }
+  #gauge { bottom: calc(env(safe-area-inset-bottom) + 24px); width: min(30vw, 260px); }
+  #stick { width: 34vw; }
+}

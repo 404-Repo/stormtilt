@@ -71,7 +71,7 @@ export class Director {
       const a = me.worldOfCaptain(new THREE.Vector3()), b = foe.worldOfCaptain(new THREE.Vector3());
       // from above and between the hulls, slightly ahead of the chaser: both captains, the lances crossing
       const dir = new THREE.Vector3().addScaledVector(f, 0.3).addScaledVector(left, 0.4).setY(0.95).normalize();
-      this.frame([a, b, a.clone().setY(a.y + 2.5), b.clone().setY(b.y + 2.5)], dir, 1.15, 12);
+      this.frame([a, b, a.clone().setY(a.y + 2.5), b.clone().setY(b.y + 2.5)], dir, 1.15, this.cam.aspect > 1 ? 17 : 12);
       this.k = 7;
     } else if (mode === 'follow' && ctx.subject) {
       const s = ctx.subject;

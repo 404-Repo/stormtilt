@@ -101,6 +101,7 @@ export class Match {
   // the clash
   resolvePass(t) {
     const g = this.game, A = this.A, B = this.B;
+    g.ui.hint('', 0);
     const ra = this.attack(A, B, t), rb = this.attack(B, A, t);
     const res = { a: ra, b: rb };
     const lateral = (B.x - A.x);
