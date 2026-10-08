@@ -49,12 +49,10 @@ export class Match {
     if (this.aiA) this.aiA.planTilt(t, tp);
     g.ui.tiltNo(this.tilt);
     g.ui.pips(this.footA, this.maxA, this.footB, this.maxB);
-    if (!first || this.tilt === 1) {
-      const tip = this.tiltTip();
-      g.ui.banner(`TILT ${this.tilt}`, tip, 1.5);
-    }
+    // the in-world tags explain the weather; the banner only names the tilt
+    g.ui.banner(`TILT ${this.tilt}`, this.tilt === 1 && !this.cfg.quiet ? this.tiltTip() : '', 1.2);
     if (this.bossLine) { g.ui.banner(this.bossLine[0], this.bossLine[1], 2.6, 'charge'); g.world.flash = 1; g.audio.play('thunder', { vol: 1.3 }); this.bossLine = null; }
-    if (Math.random() < 0.55 || this.tilt === 1) g.ui.taunt(this.capB.taunts[Math.floor(Math.random() * this.capB.taunts.length)]);
+    if (this.tilt > 1 && Math.random() < 0.4) g.ui.taunt(this.capB.taunts[Math.floor(Math.random() * this.capB.taunts.length)]);
     g.audio.play('horn', { delay: 1.2, vol: 0.8 });
   }
   tiltTip() {

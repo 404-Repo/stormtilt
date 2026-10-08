@@ -468,7 +468,7 @@ function rampMarker(m, ttp) {
   if (p.z > 1) { el.style.display = 'none'; return; }
   el.style.display = 'block'; el.style.transform = `translate(${(p.x * 0.5 + 0.5) * innerWidth}px, ${(-p.y * 0.5 + 0.5) * innerHeight}px)`;
   el.className = best.score === 2 ? '' : 'meh';
-  if (best.score === 2 && !game.rampTold && !save.toldRamp) { game.rampTold = true; save.toldRamp = 1; persist(); ui.hint('Steer onto the gold arrow: fly off the crest and strike from above', 3.5); }
+  if (best.score === 2 && !game.rampTold && !save.toldRamp && m.tilt > 1) { game.rampTold = true; save.toldRamp = 1; persist(); ui.hint('Steer onto the gold arrow: fly off the crest and strike from above', 3.5); }
   el.lastChild.textContent = best.score === 2 ? 'AIR AT THE PASS' : best.gap > 0 ? 'too early' : 'too late';
 }
 const clock = new THREE.Clock();
